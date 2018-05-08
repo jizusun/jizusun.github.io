@@ -85,7 +85,7 @@ With the naming out of the way, we can dive into the list. The order of anti-pat
 
 ### Software Testing Anti-Pattern List
 
-1.  [Having unit tests without integration tests](#anti-pattern-1---having-unit-tests-without-integration-tests)
+1.  [Having unit tests without integration tests 有单元测试但没有集成测试](#anti-pattern-1---having-unit-tests-without-integration-tests)
 2.  [Having integration tests without unit tests](#anti-pattern-2---having-integration-tests-without-unit-tests)
 3.  [Having the wrong kind of tests](#anti-pattern-3---having-the-wrong-kind-of-tests)
 4.  [Testing the wrong functionality](#anti-pattern-4---testing-the-wrong-functionality)
@@ -99,17 +99,24 @@ With the naming out of the way, we can dive into the list. The order of anti-pat
 12.  [Writing tests without reading documentation first](#anti-pattern-12---writing-tests-without-reading-documentation-first)
 13.  [Giving testing a bad reputation out of ignorance](#anti-pattern-13---giving-testing-a-bad-reputation-out-of-ignorance)
 
-### Anti-Pattern 1 - Having unit tests without integration tests
+### Anti-Pattern 1 - Having unit tests without integration tests 反模式1 - 有单元测试但没有集成测试
 
 This problem is a classic one with small to medium companies. The application that is being developed in the company has only unit tests (the base of the pyramid) and nothing else. Usually lack of integration tests is caused by any of the following issues:
 
-1.  The company has no senior developers. The team has only junior developers fresh out of college who have only seen unit tests
-2.  Integration tests existed at one point but were abandoned because they caused more trouble than their worth. Unit tests were much more easy to maintain and so they prevailed.
-3.  The running environment of the application is very “challenging” to setup. Features are “tested” in production.
+这个问题对于中小型企业而言比较典型。公司里正在开发的软件，除了单元测试（金字塔的底层）就没有别的了。通常缺少集成测试是如下原因导致的：
+
+1.  The company has no senior developers. The team has only junior developers fresh out of college who have only seen unit tests 公司里没有资深的开发人员。团队里只有刚毕业的初级程序员，只了解过单元测试。
+2.  Integration tests existed at one point but were abandoned because they caused more trouble than their worth. Unit tests were much more easy to maintain and so they prevailed. 集成测试曾经存在过，但被舍弃了，因为它们造成的麻烦比它们的价值更多。单元测试更容易维护 ，因此它们占了上风。
+3.  The running environment of the application is very “challenging” to setup. Features are “tested” in production. 应用程序运行环境的搭建非常困难。功能都是在生产环境中“测试”的。
 
 I cannot really say anything about the first issue. Every effective team should have at least some kind of mentor/champion that can show good practices to the other members. The second issue is covered in detail in anti-patterns [5](#anti-pattern-5---testing-internal-implementation), [7](#anti-pattern-7---having-flaky-or-slow-tests) and [8](#anti-pattern-8---running-tests-manually).
 
+
+对于第一个问题我没什么可说的。每个有效的团队都至少有某种意义上的“导师”，来向其他成员展示好的实践。第二个问题在反模式5, 7 和 8 里有详细的阐述。
+
 This brings us to the last issue - difficulty in setting up a test environment. Now don’t get me wrong, there are indeed some applications that are _really_ hard to test. Once I had to work with a set of REST applications that actually required special hardware on their host machine. This hardware existed only in production, making integration tests very challenging. But this is a corner case.
+
+我们再看最后一个问题 —— 很难搭建测试环境。这里不要误解我的意思，有些应用程序确实非常 _难以_ 测试。我曾经要处理一些 REST 应用程序，它们需要在主机上装一种特殊的硬件。这种硬件只存在于生产环境中，使得集成测试非常困难。但这是一个极端的情况。
 
 For the run-of-the-mill web or back-end application that the typical company creates, setting up a test environment should be a non-issue. With the appearance of Virtual Machines and lately Containers this is more true than ever. Basically if you are trying to test an application that is hard to setup, you need to fix the setup process first before dealing with the tests themselves.
 
