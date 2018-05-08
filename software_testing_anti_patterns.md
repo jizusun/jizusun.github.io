@@ -68,7 +68,9 @@ With the naming out of the way, we can dive into the list. The order of anti-pat
 12.  [Writing tests without reading documentation first](#anti-pattern-12---writing-tests-without-reading-documentation-first)
 13.  [Giving testing a bad reputation out of ignorance](#anti-pattern-13---giving-testing-a-bad-reputation-out-of-ignorance)
 
-### Anti-Pattern 1 - Having unit tests without integration tests 反模式1 - 有单元测试但没有集成测试
+### Anti-Pattern 1 - Having unit tests without integration tests
+
+反模式1 - 有单元测试但没有集成测试
 
 This problem is a classic one with small to medium companies. The application that is being developed in the company has only unit tests (the base of the pyramid) and nothing else. Usually lack of integration tests is caused by any of the following issues:
 
