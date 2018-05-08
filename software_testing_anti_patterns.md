@@ -1,4 +1,4 @@
-
+﻿
 Software Testing Anti-patterns
 ==============================
 
@@ -29,41 +29,10 @@ The testing pyramid deserves a whole discussion on its own, especially on the to
 
 Therefore the two major test categories mentioned as _unit_ and _integration_ tests from now on are:
 
-Tests
-
-Focus on
-
-Require
-
-Speed
-
-Complexity
-
-Setup needed
-
-Unit tests
-
-a class/method
-
-the source code
-
-very fast
-
-low
-
-No
-
-Integration tests
-
-a component/service
-
-part of the running system
-
-slow
-
-medium
-
-Yes
+| Tests             | Focus on            | Require                    | Speed     | Complexity | Setup needed |
+|-------------------|---------------------|----------------------------|-----------|------------|--------------|
+| Unit tests        | a class/method      | the source code            | very fast | low        | No           |
+| Integration tests | a component/service | part of the running system | slow      | medium     | Yes          |
 
 **Unit tests** are the category of tests that have wider acceptance regarding the naming and what they mean. They are the tests that accompany the source code and have direct access to it. Usually they are executed with an [xUnit framework](https://en.wikipedia.org/wiki/XUnit) or similar library. These tests work directly on the source code and have full view of everything. A single class/method/function is tested (or whatever is the smallest possible working unit for that particular business feature) and anything else is mocked/stubbed.
 
@@ -124,65 +93,17 @@ But why are integration tests essential in the first place?
 
 The truth here is that there are some types of issues that _only_ integration tests can detect. The canonical example is everything that has to do with database operations. Database transactions, database triggers and any stored procedures can only be examined with integration tests that touch them. Any connections to other modules either developed by you or external teams need integration tests (a.k.a. contract tests). Any tests that need to verify performance, are integration tests by definition. Here is a summary on why we need integration tests:
 
-Type of issue
-
-Detected by Unit tests
-
-Detected by Integration tests
-
-Basic business logic
-
-yes
-
-yes
-
-Component integration problems
-
-no
-
-yes
-
-Transactions
-
-no
-
-yes
-
-Database triggers/procedures
-
-no
-
-yes
-
-Wrong Contracts with other modules/APIs
-
-no
-
-yes
-
-Wrong Contracts with other systems
-
-no
-
-yes
-
-Performance/Timeouts
-
-no
-
-yes
-
-Deadlocks/Livelocks
-
-maybe
-
-yes
-
-Cross-cutting Security Concerns
-
-no
-
-yes
+| Type of issue                           | Detected by Unit tests | Detected by Integration tests |
+|-----------------------------------------|------------------------|-------------------------------|
+| Basic business logic                    | yes                    | yes                           |
+| Component integration problems          | no                     | yes                           |
+| Transactions                            | no                     | yes                           |
+| Database triggers/procedures            | no                     | yes                           |
+| Wrong Contracts with other modules/APIs | no                     | yes                           |
+| Wrong Contracts with other systems      | no                     | yes                           |
+| Performance/Timeouts                    | no                     | yes                           |
+| Deadlocks/Livelocks                     | maybe                  | yes                           |
+| Cross-cutting Security Concerns         | no                     | yes                           |
 
 Basically any cross-cutting concern of your application will require integration tests. With the recent microservice craze integration tests become even more important as you now have contracts between your own services. If those services are developed by other teams, you need an automatic way to verify that interface contracts are not broken. This can only be covered with integration tests.
 
@@ -198,7 +119,7 @@ It is true that in theory you _could_ have only integration tests in a software 
 
 Let’s look at an example. Assume that you have a service with the following 4 methods/classes/functions.
 
-![Cyclomatic complexity for 4 modules](../../assets/testing-anti-patterns/just-unit-tests.png)
+![Cyclomatic complexity for 4 modules](https://user-images.githubusercontent.com/4011348/39740330-bac15b38-52c7-11e8-831e-90c1e2b36456.png)
 
 The number on each module denotes its [cyclomatic complexity](https://en.wikipedia.org/wiki/Cyclomatic_complexity) or in other words the separate code paths this module can take.
 
@@ -208,7 +129,7 @@ It should be obvious that one can write 2 + 5 + 3 + 2 = 12 isolated unit tests t
 
 Joe “Grumpy” developer on the other hand does not believe in the value of unit tests. He thinks that unit tests are a waste of time and he decides to write only integration tests for this module. How many integration tests should he write? He starts looking at all the possible paths a request can take in that service.
 
-![Examining code paths in a service](../../assets/testing-anti-patterns/just-integration-tests.png)
+![Examining code paths in a service](https://user-images.githubusercontent.com/4011348/39740332-bd592f10-52c7-11e8-8d91-6dcca63b7c59.png)
 
 Again it should be obvious that all possible scenarios of codepaths are 2 * 5 * 3 * 2 = 60. Does that mean that Joe will actually write 60 integration tests? Of course not! He will try and cheat. He will try to select a subset of integration tests that feel “representative”. This “representative” subset of tests will give him enough coverage with the minimum amount of effort.
 
@@ -216,13 +137,13 @@ This sounds easy enough in theory, but can quickly become problematic. The reali
 
 Mary on the other hand, can just recreate the corner case with a simple unit test, with no added complexity at all.
 
-![Basic unit test](../../assets/testing-anti-patterns/unit-test-corner-case.png)
+![Basic unit test]((https://user-images.githubusercontent.com/4011348/39740336-c1b589d2-52c7-11e8-9186-276adf0c32f1.png)
 
 Does that mean that Mary will _only_ write unit tests for this service? After all that will lead her to [anti-pattern 1](#anti-pattern-1---having-unit-tests-without-integration-tests). To avoid this, she will write _both_ unit _and_ integration tests. She will keep all unit tests for the actual business logic and then she will write 1 or 2 integration tests that make sure that the rest of the system works as expected (i.e. the parts that help these modules do their job)
 
 The integration tests needed in this system should focus on the rest of the components. The business logic itself can be handled by the unit tests. Mary’s integration tests will focus on testing serialization/deserialization and with the communication to the queue and the database of the system.
 
-![correct Integration tests](../../assets/testing-anti-patterns/correct-integration-tests.png)
+![correct Integration tests](https://user-images.githubusercontent.com/4011348/39740343-c5134d30-52c7-11e8-8604-359d88898c66.png)
 
 In the end, the number of integration tests will be much smaller than the number of unit tests (matching the shape of the test pyramid described in the first section of this article).
 
@@ -240,29 +161,11 @@ Just to get an idea on the difference for the running time let’s assume the fo
 
 Now let’s do the calculations. Notice that I assume that Joe has found the perfect subset of integration tests that give him the same code coverage as Mary (which would not be true in a real application).
 
-Time to run
-
-Having only integration tests (Joe)
-
-Having both Unit and Integration tests (Mary)
-
-Just Unit tests
-
-N/A
-
-24 seconds
-
-Just Integration tests
-
-6.4 minutes
-
-64 seconds
-
-All tests
-
-6.4 minutes
-
-1.4 minutes
+| Time to run            | Having only integration tests (Joe) | Having both Unit and Integration tests (Mary) |
+|------------------------|-------------------------------------|-----------------------------------------------|
+| Just Unit tests        | N/A                                 | 24 seconds                                    |
+| Just Integration tests | 6.4 minutes                         | 64 seconds                                    |
+| All tests              | 6.4 minutes                         | 1.4 minutes                                   |
 
 The difference in total running time is enormous. Waiting for 1 minute after each code change is vastly different than waiting for 6 minutes. The 800ms I assumed for each integration test is vastly conservative. I have seen integration test suites where a single test can take several minutes on its own.
 
@@ -276,7 +179,7 @@ When an integration tests fails you need to be able to understand why it failed 
 
 A developer in your team (or even you) creates a new commit, which triggers the integration tests with the following result:
 
-![breakage of integration tests](../../assets/testing-anti-patterns/integration-tests-break.png)
+![breakage of integration tests](https://user-images.githubusercontent.com/4011348/39740398-011930ce-52c8-11e8-8e7f-cbfeb2d261d7.png)
 
 As a developer you look at the test result and see that the integration test named “Customer buys item” is broken. In the context of an e-shop application this is not very helpful. There are many reasons why this test might be broken.
 
@@ -284,7 +187,7 @@ There is no way to know why the test broke without diving into the logs and metr
 
 Now imagine that you work with Mary on this application so you have both integration and unit tests. Your team makes some commits, you run all the tests and get the following:
 
-![breakage of both kinds of tests](../../assets/testing-anti-patterns/both-tests-break.png)
+![breakage of both kinds of tests](https://user-images.githubusercontent.com/4011348/39740401-0594d824-52c8-11e8-81e1-6eba0883547d.png)
 
 Now two tests are broken:
 
