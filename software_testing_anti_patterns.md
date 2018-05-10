@@ -122,11 +122,11 @@ The truth here is that there are some types of issues that _only_ integration te
 | 与其他系统的错误契约                       | 不能                     | 能                           |
 | 性能/超时                                | 不能                     | 能                           |
 | 死锁/活锁                                | 有可能                   | 能                           |
-| 交叉安全问题                              | 不能                     | 能     
+| 交叉安全问题                              | 不能                     | 能                 
 
 Basically any cross-cutting concern of your application will require integration tests. With the recent microservice craze integration tests become even more important as you now have contracts between your own services. If those services are developed by other teams, you need an automatic way to verify that interface contracts are not broken. This can only be covered with integration tests.
 
-基本上，您的应用程序的任何交叉问题（cross-cutting）都需要集成测试。随着最近兴起的微服务热潮，集成测试变得更加重要，因为您现在已经在自己的服务之间建立了契约。如果这些服务是其他团队开发的，你需要一个自动化的方式来验证接口的契约没有坏掉。这只能通过集成测试来解决。
+基本上，您的应用程序的任何交叉问题（cross-cutting concern）都需要集成测试。随着最近兴起的微服务热潮，集成测试变得更加重要，因为您现在已经在自己的服务之间建立了契约。如果这些服务是其他团队开发的，你需要一个自动化的方式来验证接口的契约没有坏掉。这只能通过集成测试来解决。
 
 To sum up, unless you are creating something extremely isolated (e.g. a command line linux utility), you really **need** integration tests to catch issues not caught by unit tests.
 
