@@ -211,7 +211,7 @@ This is the longest section of this article, but I consider it very important. I
 
 If you only have integration tests, you waste developer time and company money. You need **both** unit and integration tests are the same time. They are not mutually exclusive. There are several articles on the internet that advocate using only one type of tests. All these articles are misinformed. Sad but true.
 
-### Anti-Pattern 3 - Having the wrong kind of tests
+### Anti-Pattern 3 - Having the wrong kind of tests 反模式 3 - 采用了错误的测试类型
 
 Now that we have seen why we need both kinds of tests (unit _and_ integration), we need to decide on _how many_ tests we need from each category.
 
