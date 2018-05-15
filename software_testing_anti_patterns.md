@@ -208,11 +208,8 @@ Now two tests are broken:
 
 现在有两个测试出错了：
 
-*   “Customer buys item” is broken as before (integration test) 
-*   “Special discount test” is also broken (unit test)
-
-* “客户购买物品”和之前一样出错了（集成测试）
-* “特价折扣测试”也出错了（单元测试）
+*   “Customer buys item” is broken as before (integration test) “客户购买物品”和之前一样出错了（集成测试）
+*   “Special discount test” is also broken (unit test) “特价折扣测试”也出错了（单元测试）
 
 
 It is now very easy to see the where to start looking for the problem. You can go directly to the source code of the _Discount_ functionality, locate the bug and fix it and in 99% of the cases the integration test will be fixed as well.
