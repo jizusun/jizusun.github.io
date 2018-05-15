@@ -173,11 +173,15 @@ The difference in total running time is enormous. Waiting for 1 minute after eac
 
 In summary, trying to use _only_ integration tests to cover business logic is a huge time sink. Even if you automate the tests with CI, your feedback loop (time from commit to getting back the test result) will be very long.
 
-#### Integration tests are harder to debug than unit tests
+#### Integration tests are harder to debug than unit tests 集成测试比单元测试更难调试
 
 The last reason why having only integration tests (without any unit tests) is an anti-pattern is the amount of time spent to debug a failed test. Since an integration test is testing multiple software components (by definition), when it breaks, the failure can come from _any_ of the tested components. Pinpointing the problem can be a hard task depending on the number of components involved.
 
+只有集成测试（而没有单元测试）是反模式的原因之一，是调试一个失败的集成测试要花费大量的时间。因为根据其定义，集成测试是测试多个软件组件，所以当测试不通过时，故障可能来自于 _任何_ 被测试到的组件。根据所涉及组件数量的多少，要想确定问题可能是很困难。
+
 When an integration tests fails you need to be able to understand why it failed and how to fix it. The complexity and breadth of integration tests make them extremely difficult to debug. Again, as an example let’s say that your application only has integration tests. The application you are developing is the typical e-shop.
+
+当集成测试失败时，您需要能够理解失败的原因以及如何修复它。
 
 A developer in your team (or even you) creates a new commit, which triggers the integration tests with the following result:
 
