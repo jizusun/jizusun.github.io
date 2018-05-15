@@ -1,10 +1,12 @@
 ﻿
 Software Testing Anti-patterns
+软件测试的反模式
 ==============================
 
 http://blog.codepipes.com/testing/software-testing-antipatterns.html
 
 21 Apr 2018
+2018年4月21日
 
 ### Introduction
 
