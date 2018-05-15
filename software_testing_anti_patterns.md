@@ -211,15 +211,25 @@ This is the longest section of this article, but I consider it very important. I
 
 If you only have integration tests, you waste developer time and company money. You need **both** unit and integration tests are the same time. They are not mutually exclusive. There are several articles on the internet that advocate using only one type of tests. All these articles are misinformed. Sad but true.
 
-### Anti-Pattern 3 - Having the wrong kind of tests 反模式 3 - 采用了错误的测试类型
+### Anti-Pattern 3 - Having the wrong kind of tests 
+
+反模式 3 - 采用了错误的测试类型
 
 Now that we have seen why we need both kinds of tests (unit _and_ integration), we need to decide on _how many_ tests we need from each category.
 
+现在我们已经看到了为什么我们需要这两种测试（单元_和_集成），我们需要从每个类别决定我们需要的_how_多个测试。
+
 There is no hard and fast rule here, it depends on your application. The important point is that you need to spend some time to understand what type of tests add the most value to _your_ application. The test pyramid is only a suggestion on the amount of tests that you should create. It assumes that you are writing a commercial web application, but that is not always the case. Let’s see some examples:
+
+这里没有硬性规定，这取决于你的应用。 重要的一点是，您需要花一些时间来了解什么类型的测试为_your_应用程序增加了最大的价值。 测试金字塔只是您应该创建的测试数量的建议。 它假定您正在编写商业Web应用程序，但情况并非总是如此。 我们来看一些例子：
 
 #### Example - Linux command line utility
 
+#### 例子 - Linux 命令行工具
+
 Your application is a command line utility. It reads one special format of a file (let’s say a CSV) and exports another format (let’s say JSON) after doing some transformations. The application is self-contained, does not communicate with any other system or use the network. The transformations are complex mathematical processes that are critical for the correct functionality of the application (it should always be correct even if it slow).
+
+你的应用程序是一个命令行工具。 它读取文件的一种特殊格式（比如CSV），并在做一些转换后导出另一种格式（比如JSON）。 该应用程序是独立的，不与任何其他系统通信或使用网络。 转换是复杂的数学过程，对于应用程序的正确功能至关重要（即使速度缓慢，它也应该始终正确）。
 
 In this contrived example you would need:
 
