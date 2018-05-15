@@ -82,18 +82,23 @@ This problem is a classic one with small to medium companies. The application th
 
 I cannot really say anything about the first issue. Every effective team should have at least some kind of mentor/champion that can show good practices to the other members. The second issue is covered in detail in anti-patterns [5](#anti-pattern-5---testing-internal-implementation), [7](#anti-pattern-7---having-flaky-or-slow-tests) and [8](#anti-pattern-8---running-tests-manually).
 
-
-对于第一个问题我没什么可说的。每个有效的团队都至少有某种意义上的“导师”，来向其他成员展示好的实践。第二个问题在反模式5, 7 和 8 里有详细的阐述。
+对于第一个问题我没什么可说的。每个有效的团队都至少有某种意义上的“导师”，来向其他成员展示好的实践。第二个问题在反模式 [5](#anti-pattern-5---testing-internal-implementation), [7](#anti-pattern-7---having-flaky-or-slow-tests) 和 [8](#anti-pattern-8---running-tests-manually) 里有详细的阐述。
 
 This brings us to the last issue - difficulty in setting up a test environment. Now don’t get me wrong, there are indeed some applications that are _really_ hard to test. Once I had to work with a set of REST applications that actually required special hardware on their host machine. This hardware existed only in production, making integration tests very challenging. But this is a corner case.
 
-我们再看最后一个问题 —— 很难搭建测试环境。这里不要误解我的意思，有些应用程序确实非常 _难以_ 测试。我曾经要处理一些 REST 应用程序，它们需要在主机上装一种特殊的硬件。这种硬件只存在于生产环境中，使得集成测试非常困难。但这是一个极端的情况。
+我们再看最后一个问题 —— 很难搭建测试环境。这里不要误解我的意思，有些应用程序确实 _非常_ 难以 测试。我曾经要处理一些 REST 应用程序，它们需要在主机上装一种特殊的硬件。这种硬件只存在于生产环境中，使得集成测试非常困难。但这是一个极端的情况。
 
 For the run-of-the-mill web or back-end application that the typical company creates, setting up a test environment should be a non-issue. With the appearance of Virtual Machines and lately Containers this is more true than ever. Basically if you are trying to test an application that is hard to setup, you need to fix the setup process first before dealing with the tests themselves.
 
+对于多数公司创建的一般的 Web 程序或后端应用程序，搭建测试环境应该不是什么问题。随着虚拟机（Virtual Machines）和最近的容器（Containers)的出现，这比以前容易得多。通常，如果你尝试测试一个很难搭建环境的应用程序，你应该在处理测试之前先解决搭建环境的流程问题。
+
 But why are integration tests essential in the first place?
 
+但是为什么集成测试在一开始就是必不可少的呢？
+
 The truth here is that there are some types of issues that _only_ integration tests can detect. The canonical example is everything that has to do with database operations. Database transactions, database triggers and any stored procedures can only be examined with integration tests that touch them. Any connections to other modules either developed by you or external teams need integration tests (a.k.a. contract tests). Any tests that need to verify performance, are integration tests by definition. Here is a summary on why we need integration tests:
+
+事实是，有些问题（issues）_只有_ 集成测试才能探测到。经典的例子是，所有与数据库操作相关的事情。数据库事务、数据库触发器、和任何存储过程都只能使用集成测试来验证。任何与您或外部团队开发的其他模块的连接都需要集成测试（又称契约测试，contract tests) 。根据定义，任何需要验证性能的测试都是集成测试。以下是我们为什么需要集成测试。
 
 | Type of issue                           | Detected by Unit tests | Detected by Integration tests |
 |-----------------------------------------|------------------------|-------------------------------|
@@ -107,11 +112,29 @@ The truth here is that there are some types of issues that _only_ integration te
 | Deadlocks/Livelocks                     | maybe                  | yes                           |
 | Cross-cutting Security Concerns         | no                     | yes                           |
 
+| 问题类型                                 | 能否被单元测试探测到       | 能否被集成测试检测到             |
+|-----------------------------------------|------------------------|-------------------------------|
+| 基本的业务逻辑                            | 能                       | 能                           |
+| 组件集成问题                              | 不能                     | 能                           |
+| 事务(Transactions)                      | 不能                     | 能                           |
+| 数据库触发器/过程                         | 不能                     | 能                           |
+| 跟其他模块的错误契约                       | 不能                     | 能                           |
+| 与其他系统的错误契约                       | 不能                     | 能                           |
+| 性能/超时                                | 不能                     | 能                           |
+| 死锁/活锁                                | 有可能                   | 能                           |
+| 交叉安全问题                              | 不能                     | 能                 
+
 Basically any cross-cutting concern of your application will require integration tests. With the recent microservice craze integration tests become even more important as you now have contracts between your own services. If those services are developed by other teams, you need an automatic way to verify that interface contracts are not broken. This can only be covered with integration tests.
+
+基本上，您的应用程序的任何交叉问题（cross-cutting concern）都需要集成测试。随着最近兴起的微服务热潮，集成测试变得更加重要，因为您现在已经在自己的服务之间建立了契约。如果这些服务是其他团队开发的，你需要一个自动化的方式来验证接口的契约没有坏掉。这只能通过集成测试来解决。
 
 To sum up, unless you are creating something extremely isolated (e.g. a command line linux utility), you really **need** integration tests to catch issues not caught by unit tests.
 
-### Anti-Pattern 2 - Having integration tests without unit tests 反模式 2 - 只有集成测试但没有单元测试
+总而言之，除非你要建立非常独立的东西（比如 Linux 命令行工具），否则你非常 **需要** 集成测试来捕捉单元测试发现不了的问题。
+
+### Anti-Pattern 2 - Having integration tests without unit tests 
+
+反模式 2 - 只有集成测试但没有单元测试
 
 This is the inverse of the previous anti-pattern. This anti-pattern is more common in large companies and large enterprise projects. Almost always the history behind this anti-pattern involves developers who believe that unit tests have no real value and only integration tests can catch regressions. There is a large majority of experienced developers who consider unit tests a waste of time. Usually if you probe them with questions, you will discover that at some point in the past, upper management had forced them to increase code coverage (See [anti-pattern 6](#anti-pattern-6---paying-excessive-attention-to-test-coverage)) forcing them to write trivial unit tests.
 
