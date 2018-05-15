@@ -111,7 +111,7 @@ Basically any cross-cutting concern of your application will require integration
 
 To sum up, unless you are creating something extremely isolated (e.g. a command line linux utility), you really **need** integration tests to catch issues not caught by unit tests.
 
-### Anti-Pattern 2 - Having integration tests without unit tests
+### Anti-Pattern 2 - Having integration tests without unit tests 反模式 2 - 只有集成测试但没有单元测试
 
 This is the inverse of the previous anti-pattern. This anti-pattern is more common in large companies and large enterprise projects. Almost always the history behind this anti-pattern involves developers who believe that unit tests have no real value and only integration tests can catch regressions. There is a large majority of experienced developers who consider unit tests a waste of time. Usually if you probe them with questions, you will discover that at some point in the past, upper management had forced them to increase code coverage (See [anti-pattern 6](#anti-pattern-6---paying-excessive-attention-to-test-coverage)) forcing them to write trivial unit tests.
 
