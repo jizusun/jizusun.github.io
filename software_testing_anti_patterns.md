@@ -1,4 +1,9 @@
-﻿
+﻿---
+title: Software Testing Anti-patterns
+layout: post
+---
+
+
 Software Testing Anti-patterns
 ==============================
 
