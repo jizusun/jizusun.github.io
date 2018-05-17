@@ -5,6 +5,12 @@ title:  "软件测试的反模式（译）"
 
 * 英文原文：[Software Testing Anti-patterns](http://blog.codepipes.com/testing/software-testing-antipatterns.html)
 * 译者： [孙继祖](https://www.linkedin.com/in/jizusun/)、 [Daisy Huang](https://github.com/smallsnack)
+* 延伸阅读
+    - [Discussion thread on Hacker News](https://news.ycombinator.com/item?id=16894927)
+    - Article: [Introducing the Software Testing Cupcake (Anti-Pattern)](https://www.thoughtworks.com/insights/blog/introducing-software-testing-cupcake-anti-pattern) 及 [中文翻译](https://insights.thoughtworks.cn/introducing-software-testing-cupcake-anti-pattern/)
+    - Book: [Common System and Software Testing Pitfalls: How to Prevent and Mitigate Them: Descriptions, Symptoms, Consequences, Causes, and Recommendations (SEI Series in Software Engineering)](https://www.amazon.com/dp/0133748553)
+    - Free book: [Perspectives On Agile Software Testing](https://info.thoughtworks.com/ebook-agile-software-testing) and [its book review] (https://www.infoq.com/articles/agile-software-testing) 及[书评中文翻译](http://www.infoq.com/cn/articles/agile-software-testing)
+    - 在线书籍: [第 1 章　自动化测试让你重获自由](http://www.ituring.com.cn/book/tupubarticle/20075)
 
 
 ### Introduction
