@@ -4,9 +4,7 @@ title:  "软件测试的反模式（译）"
 ---
 
 * 英文原文：[Software Testing Anti-patterns](http://blog.codepipes.com/testing/software-testing-antipatterns.html)
-* 译者：
-    * [孙继祖](https://www.linkedin.com/in/jizusun/)
-    * [Daisy Huang](https://github.com/smallsnack)
+* 译者： [孙继祖](https://www.linkedin.com/in/jizusun/)、 [Daisy Huang](https://github.com/smallsnack)
 
 
 ### Introduction
