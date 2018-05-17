@@ -1,4 +1,3 @@
-﻿
 Software Testing Anti-patterns
 ==============================
 
@@ -213,15 +212,15 @@ If you only have integration tests, you waste developer time and company money. 
 
 ### Anti-Pattern 3 - Having the wrong kind of tests 
 
-反模式 3 - 采用了错误的测试类型
+反模式 3 - 采用了错误类型的测试
 
 Now that we have seen why we need both kinds of tests (unit _and_ integration), we need to decide on _how many_ tests we need from each category.
 
-现在我们已经看到了为什么我们需要这两种测试（单元_和_集成），我们需要从每个类别决定我们需要的_how_多个测试。
+现在我们已经看到为什么我们需要这两种测试（ _单元_ 和 _集成_ ），我们需要决定，每一类我们分别需要的 _多少_ 测试。
 
 There is no hard and fast rule here, it depends on your application. The important point is that you need to spend some time to understand what type of tests add the most value to _your_ application. The test pyramid is only a suggestion on the amount of tests that you should create. It assumes that you are writing a commercial web application, but that is not always the case. Let’s see some examples:
 
-这里没有硬性规定，这取决于你的应用。 重要的一点是，您需要花一些时间来了解什么类型的测试为_your_应用程序增加了最大的价值。 测试金字塔只是您应该创建的测试数量的建议。 它假定您正在编写商业Web应用程序，但情况并非总是如此。 我们来看一些例子：
+这里没有硬性规定，这取决于你的应用。 重要的是，您需要花一些时间来了解什么类型的测试能为 _你的_ 应用程序带来最大的价值。 测试金字塔只是您应该创建的测试数量的一个建议。 它假定您正在编写一个商业 Web 应用程序，但情况并非总是如此。 我们来看一些例子：
 
 #### Example - Linux command line utility
 
