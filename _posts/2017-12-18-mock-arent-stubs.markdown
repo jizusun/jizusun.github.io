@@ -3,10 +3,8 @@ layout: post
 title:  "Mock不是Stub（译）"
 ---
 
-* 作者：Martin Fowler
-* 英文原文：[Mocks Aren't Stubs](https://martinfowler.com/articles/mocksArentStubs.html)
-* 中英文对照：https://github.com/smilingsun/blog/issues/9
-* 中文翻译：http://www.zcfy.cc/original/mocks-arent-stubs-4708.html
+* 英文原文：[Martin Fowler: Mocks Aren't Stubs](https://martinfowler.com/articles/mocksArentStubs.html)
+* 中文翻译：[众成翻译](http://www.zcfy.cc/original/mocks-arent-stubs-4708.html)
 * 译者：[孙继祖](https://www.linkedin.com/in/jizusun/)
 
 
