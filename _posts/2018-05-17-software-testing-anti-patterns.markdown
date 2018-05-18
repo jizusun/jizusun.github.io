@@ -7,9 +7,12 @@ title:  "软件测试的反模式（译）"
 * 译者： [孙继祖](https://www.linkedin.com/in/jizusun/)、 [Daisy Huang](https://github.com/smallsnack)
 
 
+
 ### Introduction
 
 There are several articles out there that talk about testing anti-patterns in the software development process. Most of them however deal with the low level details of the programming code, and almost always they focus on a specific technology or programming language.
+
+软件测试的反模式
 
 In this article I wanted to take a step back and catalog some high-level testing anti-patterns that are technology agnostic. Hopefully you will recognize some of these patterns regardless of your favorite programming language.
 
@@ -17,7 +20,7 @@ In this article I wanted to take a step back and catalog some high-level testing
 
 Unfortunately, testing terminology has not reached a common consensus yet. If you ask 100 developers what is the difference between an integration test, a component test and an end-to-end test you might get 100 different answers. For the purposes of this article I will focus on the definition of the test pyramid as presented below.
 
-![The Testing pyramid](../../assets/testing-anti-patterns/testing-pyramid.png)
+![The Testing pyramid](https://user-images.githubusercontent.com/20513905/39738946-cf275660-52c0-11e8-961d-556a743acf83.png)
 
 If you have never encountered the testing pyramid before, I would urge you to become familiar with it first before going on. Some good starting points are:
 
