@@ -32,9 +32,9 @@ If you have never encountered the testing pyramid before, I would urge you to be
 *   [Google Testing blog](https://testing.googleblog.com/2015/04/just-say-no-to-more-end-to-end-tests.html) (Google 2015)
 *   [The Practical Test Pyramid](https://martinfowler.com/articles/practical-test-pyramid.html) (Ham Vocke 2018)
 
-The testing pyramid deserves a whole discussion on its own, especially on the topic of the amount of tests needed for each category. For the current article I am just referencing the pyramid in order to define the two lowest test categories. Notice that in this article User Interface Tests (the top part of the pyramid) are _not_ mentioned (mainly for brevity reasons and because UI tests come with their own specific anti-patterns).
+The testing pyramid deserves a whole discussion on its own, especially on the topic of the amount of tests needed for each category. For the current article I am just referencing the pyramid in order to define the two lowest test categories. Notice that in this article User Interface Tests (the top part of the pyramid) are __not__ mentioned (mainly for brevity reasons and because UI tests come with their own specific anti-patterns).
 
-Therefore the two major test categories mentioned as _unit_ and _integration_ tests from now on are:
+Therefore the two major test categories mentioned as __unit__ and __integration__ tests from now on are:
 
 | Tests             | Focus on            | Require                    | Speed     | Complexity | Setup needed |
 |-------------------|---------------------|----------------------------|-----------|------------|--------------|
@@ -91,9 +91,9 @@ I cannot really say anything about the first issue. Every effective team should 
 
 对于第一个问题我没什么可说的。每个有效的团队都至少有某种意义上的“导师”，来向其他成员展示好的实践。第二个问题在反模式 [5](#anti-pattern-5---testing-internal-implementation), [7](#anti-pattern-7---having-flaky-or-slow-tests) 和 [8](#anti-pattern-8---running-tests-manually) 里有详细的阐述。
 
-This brings us to the last issue - difficulty in setting up a test environment. Now don’t get me wrong, there are indeed some applications that are _really_ hard to test. Once I had to work with a set of REST applications that actually required special hardware on their host machine. This hardware existed only in production, making integration tests very challenging. But this is a corner case.
+This brings us to the last issue - difficulty in setting up a test environment. Now don’t get me wrong, there are indeed some applications that are __really__ hard to test. Once I had to work with a set of REST applications that actually required special hardware on their host machine. This hardware existed only in production, making integration tests very challenging. But this is a corner case.
 
-我们再看最后一个问题 —— 很难搭建测试环境。这里不要误解我的意思，有些应用程序确实 _非常_ 难以 测试。我曾经要处理一些 REST 应用程序，它们需要在主机上装一种特殊的硬件。这种硬件只存在于生产环境中，使得集成测试非常困难。但这是一个极端的情况。
+我们再看最后一个问题 —— 很难搭建测试环境。这里不要误解我的意思，有些应用程序确实 __非常__ 难以 测试。我曾经要处理一些 REST 应用程序，它们需要在主机上装一种特殊的硬件。这种硬件只存在于生产环境中，使得集成测试非常困难。但这是一个极端的情况。
 
 For the run-of-the-mill web or back-end application that the typical company creates, setting up a test environment should be a non-issue. With the appearance of Virtual Machines and lately Containers this is more true than ever. Basically if you are trying to test an application that is hard to setup, you need to fix the setup process first before dealing with the tests themselves.
 
@@ -103,9 +103,9 @@ But why are integration tests essential in the first place?
 
 但是为什么集成测试在一开始就是必不可少的呢？
 
-The truth here is that there are some types of issues that _only_ integration tests can detect. The canonical example is everything that has to do with database operations. Database transactions, database triggers and any stored procedures can only be examined with integration tests that touch them. Any connections to other modules either developed by you or external teams need integration tests (a.k.a. contract tests). Any tests that need to verify performance, are integration tests by definition. Here is a summary on why we need integration tests:
+The truth here is that there are some types of issues that __only__ integration tests can detect. The canonical example is everything that has to do with database operations. Database transactions, database triggers and any stored procedures can only be examined with integration tests that touch them. Any connections to other modules either developed by you or external teams need integration tests (a.k.a. contract tests). Any tests that need to verify performance, are integration tests by definition. Here is a summary on why we need integration tests:
 
-事实是，有些问题（issues）_只有_ 集成测试才能探测到。经典的例子是，所有与数据库操作相关的事情。数据库事务、数据库触发器、和任何存储过程都只能使用集成测试来验证。任何与您或外部团队开发的其他模块的连接都需要集成测试（又称契约测试，contract tests) 。根据定义，任何需要验证性能的测试都是集成测试。以下是我们为什么需要集成测试。
+事实是，有些问题（issues）_只有__ 集成测试才能探测到。经典的例子是，所有与数据库操作相关的事情。数据库事务、数据库触发器、和任何存储过程都只能使用集成测试来验证。任何与您或外部团队开发的其他模块的连接都需要集成测试（又称契约测试，contract tests) 。根据定义，任何需要验证性能的测试都是集成测试。以下是我们为什么需要集成测试。
 
 | Type of issue                           | Detected by Unit tests | Detected by Integration tests |
 |-----------------------------------------|------------------------|-------------------------------|
@@ -143,7 +143,7 @@ To sum up, unless you are creating something extremely isolated (e.g. a command 
 
 This is the inverse of the previous anti-pattern. This anti-pattern is more common in large companies and large enterprise projects. Almost always the history behind this anti-pattern involves developers who believe that unit tests have no real value and only integration tests can catch regressions. There is a large majority of experienced developers who consider unit tests a waste of time. Usually if you probe them with questions, you will discover that at some point in the past, upper management had forced them to increase code coverage (See [anti-pattern 6](#anti-pattern-6---paying-excessive-attention-to-test-coverage)) forcing them to write trivial unit tests.
 
-It is true that in theory you _could_ have only integration tests in a software project. But in practice this would become very expensive to test (both in developer time and in build time). We saw in the table of the previous section that integration tests can also find business logic errors after each run, and so they could “replace” unit tests in that manner. But is this strategy viable in the long run?
+It is true that in theory you __could__ have only integration tests in a software project. But in practice this would become very expensive to test (both in developer time and in build time). We saw in the table of the previous section that integration tests can also find business logic errors after each run, and so they could “replace” unit tests in that manner. But is this strategy viable in the long run?
 
 #### Integration tests are complex
 
@@ -153,7 +153,7 @@ Let’s look at an example. Assume that you have a service with the following 4 
 
 The number on each module denotes its [cyclomatic complexity](https://en.wikipedia.org/wiki/Cyclomatic_complexity) or in other words the separate code paths this module can take.
 
-Mary “by the book” Developer wants to write unit tests for this service (because she understands that unit tests _do_ have value). How many tests does she need to write in order to get full coverage of all possible scenarios?
+Mary “by the book” Developer wants to write unit tests for this service (because she understands that unit tests __do__ have value). How many tests does she need to write in order to get full coverage of all possible scenarios?
 
 It should be obvious that one can write 2 + 5 + 3 + 2 = 12 isolated unit tests that cover fully the **business logic** of these modules. Remember that this number is just for a single service, and the application Mary is working on, has multiple services.
 
@@ -169,7 +169,7 @@ Mary on the other hand, can just recreate the corner case with a simple unit tes
 
 ![Basic unit test]((https://user-images.githubusercontent.com/4011348/39740336-c1b589d2-52c7-11e8-9186-276adf0c32f1.png)
 
-Does that mean that Mary will _only_ write unit tests for this service? After all that will lead her to [anti-pattern 1](#anti-pattern-1---having-unit-tests-without-integration-tests). To avoid this, she will write _both_ unit _and_ integration tests. She will keep all unit tests for the actual business logic and then she will write 1 or 2 integration tests that make sure that the rest of the system works as expected (i.e. the parts that help these modules do their job)
+Does that mean that Mary will __only__ write unit tests for this service? After all that will lead her to [anti-pattern 1](#anti-pattern-1---having-unit-tests-without-integration-tests). To avoid this, she will write __both__ unit __and__ integration tests. She will keep all unit tests for the actual business logic and then she will write 1 or 2 integration tests that make sure that the rest of the system works as expected (i.e. the parts that help these modules do their job)
 
 The integration tests needed in this system should focus on the rest of the components. The business logic itself can be handled by the unit tests. Mary’s integration tests will focus on testing serialization/deserialization and with the communication to the queue and the database of the system.
 
@@ -199,11 +199,11 @@ Now let’s do the calculations. Notice that I assume that Joe has found the per
 
 The difference in total running time is enormous. Waiting for 1 minute after each code change is vastly different than waiting for 6 minutes. The 800ms I assumed for each integration test is vastly conservative. I have seen integration test suites where a single test can take several minutes on its own.
 
-In summary, trying to use _only_ integration tests to cover business logic is a huge time sink. Even if you automate the tests with CI, your feedback loop (time from commit to getting back the test result) will be very long.
+In summary, trying to use __only__ integration tests to cover business logic is a huge time sink. Even if you automate the tests with CI, your feedback loop (time from commit to getting back the test result) will be very long.
 
 #### Integration tests are harder to debug than unit tests
 
-The last reason why having only integration tests (without any unit tests) is an anti-pattern is the amount of time spent to debug a failed test. Since an integration test is testing multiple software components (by definition), when it breaks, the failure can come from _any_ of the tested components. Pinpointing the problem can be a hard task depending on the number of components involved.
+The last reason why having only integration tests (without any unit tests) is an anti-pattern is the amount of time spent to debug a failed test. Since an integration test is testing multiple software components (by definition), when it breaks, the failure can come from __any__ of the tested components. Pinpointing the problem can be a hard task depending on the number of components involved.
 
 When an integration tests fails you need to be able to understand why it failed and how to fix it. The complexity and breadth of integration tests make them extremely difficult to debug. Again, as an example let’s say that your application only has integration tests. The application you are developing is the typical e-shop.
 
@@ -224,13 +224,13 @@ Now two tests are broken:
 *   “Customer buys item” is broken as before (integration test)
 *   “Special discount test” is also broken (unit test)
 
-It is now very easy to see the where to start looking for the problem. You can go directly to the source code of the _Discount_ functionality, locate the bug and fix it and in 99% of the cases the integration test will be fixed as well.
+It is now very easy to see the where to start looking for the problem. You can go directly to the source code of the __Discount__ functionality, locate the bug and fix it and in 99% of the cases the integration test will be fixed as well.
 
-Having unit tests break _before_ or _with_ integration tests is a much more painless process when you need to locate a bug.
+Having unit tests break __before__ or __with__ integration tests is a much more painless process when you need to locate a bug.
 
 ##### Quick summary of why you need unit tests
 
-This is the longest section of this article, but I consider it very important. In summary while _in theory_ you could only have integration tests, _in practice_
+This is the longest section of this article, but I consider it very important. In summary while __in theory__ you could only have integration tests, __in practice_
 
 1.  Unit tests are easier to maintain
 2.  Unit tests can easily replicate corner cases and not-so-frequent scenario
@@ -241,9 +241,9 @@ If you only have integration tests, you waste developer time and company money. 
 
 ### Anti-Pattern 3 - Having the wrong kind of tests
 
-Now that we have seen why we need both kinds of tests (unit _and_ integration), we need to decide on _how many_ tests we need from each category.
+Now that we have seen why we need both kinds of tests (unit __and__ integration), we need to decide on __how many__ tests we need from each category.
 
-There is no hard and fast rule here, it depends on your application. The important point is that you need to spend some time to understand what type of tests add the most value to _your_ application. The test pyramid is only a suggestion on the amount of tests that you should create. It assumes that you are writing a commercial web application, but that is not always the case. Let’s see some examples:
+There is no hard and fast rule here, it depends on your application. The important point is that you need to spend some time to understand what type of tests add the most value to __your__ application. The test pyramid is only a suggestion on the amount of tests that you should create. It assumes that you are writing a commercial web application, but that is not always the case. Let’s see some examples:
 
 #### Example - Linux command line utility
 
@@ -297,7 +297,7 @@ UI tests dominate here and the shape is **not** a pyramid.
 
 I used some extreme examples to illustrate the point that you need to understand what your application needs and focus only on the tests that give you value. I have personally seen “payment management” applications with no integration tests and “website creator” applications with no UI tests.
 
-There are several articles on the web (I am not going to link them) that talk about a specific amount on integration/unit/UI tests that you need or don’t need. All these articles are based on assumptions that may _not_ be true in your case.
+There are several articles on the web (I am not going to link them) that talk about a specific amount on integration/unit/UI tests that you need or don’t need. All these articles are based on assumptions that may __not__ be true in your case.
 
 ### Anti-Pattern 4 - Testing the wrong functionality
 
@@ -305,7 +305,7 @@ In the previous sections we have outlined the types and amount of tests you need
 
 In theory, getting 100% code coverage in an application is the ultimate goal. In practice this goal is not only difficult to achieve but also it doesn’t guarantee a bug free application.
 
-There are some cases where indeed it is possible to test _all_ functionality of your application. If you start on a green-field project, if you work in a small team that is well behaved and takes into account the effort required for tests, it is perfectly fine to write new tests for all new functionality you add (because the existing code already has tests).
+There are some cases where indeed it is possible to test __all__ functionality of your application. If you start on a green-field project, if you work in a small team that is well behaved and takes into account the effort required for tests, it is perfectly fine to write new tests for all new functionality you add (because the existing code already has tests).
 
 But not all developers are lucky like this. In most cases you inherit an existing application that has a minimal amount of tests (or even none!). If you are part of a big and established company, working with legacy code is mostly the rule rather than the exception.
 
@@ -338,11 +338,11 @@ I am showing here 3 layers of code, but depending on the size of your applicatio
 2.  Core code - This is the code that breaks sometimes, gets few new features and has medium impact on the application users
 3.  Other code - This is code that rarely changes, rarely gets new features and has minimal impact on application users.
 
-This mental mode should be your guiding principle whenever you write a new software test. Ask yourself if the functionality you are writing tests for now belongs to the _critical_ or _core_ categories. If yes, then write a software test. If no, then maybe your development time should better be spent elsewhere (e.g. in another bug).
+This mental mode should be your guiding principle whenever you write a new software test. Ask yourself if the functionality you are writing tests for now belongs to the __critical__ or __core__ categories. If yes, then write a software test. If no, then maybe your development time should better be spent elsewhere (e.g. in another bug).
 
 The concept of having code with different severity categories is also great when you need to answer the age old question of how much code coverage is enough for an application. To answer this question you need to either know the severity layers of the application or ask somebody that does. Once you have this information at hand the answer is obvious:
 
-Try to write tests that work towards 100% coverage **of critical code**. If you have already done this, then try to write tests that work towards 100% **of core code**. Trying however to get 100% coverage on _total_ code [is not recommended](#anti-pattern-6---paying-excessive-attention-to-test-coverage).
+Try to write tests that work towards 100% coverage **of critical code**. If you have already done this, then try to write tests that work towards 100% **of core code**. Trying however to get 100% coverage on __total__ code [is not recommended](#anti-pattern-6---paying-excessive-attention-to-test-coverage).
 
 The important thing to notice here is that the critical code in an application is always a small subset of the overall code. So if in an application critical code is let’s say 20% of the overall code, then getting just 20% overall code coverage is a good first step for reducing bugs in production.
 
@@ -355,29 +355,42 @@ In summary, write unit and integration tests for code that
 If you have the time luxury to further expand the test suite, make sure that you understand the diminishing returns before wasting time on tests with little or no value.
 
 ### Anti-Pattern 5 - Testing internal implementation
+### 反模式5 - 测试内部实现
 
 More tests are always a good thing. Right?
 
+测试越多越好，不是吗？
+
 Wrong! You also need to make sure that the tests are actually structured in a correct way. Having tests that are written in the wrong manner is bad in two ways.
 
-*   They waste precious development time the first time they are written
-*   They waste even more time when they need to be refactored (when a new feature is added)
+错！你需要确保测试的结构是正确的。用错误的方式写测试会有两个坏处。
 
-Strictly speaking, [test code is like any other type of code](#anti-pattern-9---treating-test-code-as-a-second-class-citizen). You will need to refactor it at some point in order to improve it in a gradual way. But if you find yourself routinely changing existing tests just to make them pass when a new feature is added then _your tests are not testing what they should be testing_.
+*   They waste precious development time the first time they are written 第一次写测试的时候就浪费了宝贵的开发时间。
+*   They waste even more time when they need to be refactored (when a new feature is added) 当测试需要被重构（当新功能被加进来）的时候，会浪费更多的时间。
 
-I have seen several companies that started new projects and thinking that they will get it right this time, they started writing a _big_ number of tests to cover the functionality of the application. After a while, a new feature got added and several existing tests needed to change in order to make them pass again. Then another new feature was added and _more_ tests needed to be updated. Soon the amount of effort spent refactoring/fixing the existing tests was actually larger than the time needed to implement the feature itself.
+Strictly speaking, [test code is like any other type of code](#anti-pattern-9---treating-test-code-as-a-second-class-citizen). You will need to refactor it at some point in order to improve it in a gradual way. But if you find yourself routinely changing existing tests just to make them pass when a new feature is added then __your tests are not testing what they should be testing__.
+
+严格地来说，[测试代码和其他类型的代码一样](#anti-pattern-9---treating-test-code-as-a-second-class-citizen)。你需要在某个时候重构它，以便逐步改进它。但是，如果你发现，当新功能加入时，自己经常更改现有的测试来保证原有的测试可以通过，那么 __你的测试并不是在测试那些应该被测试的部分__。
+
+I have seen several companies that started new projects and thinking that they will get it right this time, they started writing a __big__ number of tests to cover the functionality of the application. After a while, a new feature got added and several existing tests needed to change in order to make them pass again. Then another new feature was added and __more__ tests needed to be updated. Soon the amount of effort spent refactoring/fixing the existing tests was actually larger than the time needed to implement the feature itself.
+
+我曾经看到几家公司开始了新的项目，他们觉得这次终于要做正确的事情了，他们开始写 __一大堆__ 测试来覆盖应用程序的功能。过了一段时间，一个新功能被加进来了，部分现有的测试需要被调整，以保证它们依旧通过。然后，又有一个新功能被加进来了，__更多__ 的测试需要被调整。不久，用来重构或修复现有测试的工作量实际上已经大于实现该功能本身所需的时间。
 
 In such situations, several developers just accept defeat. They declare software tests a waste of time and abandon completely the existing test suite in order to focus fully on new features. In some extreme scenarios some changes might even be held back because of the amount of tests that break.
 
+在这种情况下，一些开发人员只能接受失败。他们宣布软件测试浪费时间，并彻底地放弃现有的测试集，从而完全专注于开发新功能。在极端情况下，一些变动甚至可能被延期，因为他们导致大量的测试出错。
+
 The problem here is of course the bad quality of tests. Tests that need to be refactored all the time suffer from tight coupling with the main code. Unfortunately, you need some basic testing experience to understand which tests are written in this “wrong” way.
 
-Having to change a big number of existing tests when a new feature is introduced shows the _symptom_. The actual problem is that tests were instructed to verify internal implementation which is always a recipe for disaster. There are several software testing resources online that attempt to explain this concept, but very few of them show some solid examples.
+这里的问题当然是测试的质量差。需要重构的测试总是受制于跟主要代码强耦合。不幸的是，你需要一些基本的测试竟然
+
+Having to change a big number of existing tests when a new feature is introduced shows the __symptom__. The actual problem is that tests were instructed to verify internal implementation which is always a recipe for disaster. There are several software testing resources online that attempt to explain this concept, but very few of them show some solid examples.
 
 I promised in the beginning of this article that I will not speak about a particular programming language and I intend to keep that promise. In this section the illustrations show the data structure of your favorite programming language. Think of them as structs/objects/classes that contain fields/values.
 
 Let’s say that the customer object in an e-shop application is the following:
 
-![Tight coupling of tests](../../assets/testing-anti-patterns/coupled-testing.png)
+![Tight coupling of tests](https://user-images.githubusercontent.com/4011348/40220485-dc005e0c-5aab-11e8-9f08-c5020aef4fc5.png)
 
 The customer type has only two values where `0` means “guest user” and `1` means “registered user”. Developers look at the object and write 10 unit tests that verify various cases of guests users and 10 cases of registered user. And when I say “verify” I mean that tests **are looking at this particular field in this particular object**.
 
@@ -385,7 +398,7 @@ Time passes by and business decides that a new customer type with value `2` is n
 
 At this point, we have 40 tests in 4 categories that all look at this particular field. (These numbers are imaginary. This contrived example exists only for demonstration purposes. In a real project you might have 10 interconnected fields within 6 nested objects and 200 tests).
 
-![Tight coupling of tests example](../../assets/testing-anti-patterns/coupled-testing-example.png)
+![Tight coupling of tests example](https://user-images.githubusercontent.com/4011348/40220488-df4618e0-5aab-11e8-900f-df054dbe28ee.png)
 
 If you are a seasoned developer you can always imagine what happens next. New requirements come that say:
 
@@ -395,23 +408,23 @@ If you are a seasoned developer you can always imagine what happens next. New re
 
 The customer object now changes as below:
 
-![Tight coupling of tests broken](../../assets/testing-anti-patterns/coupled-testing-broken.png)
+![Tight coupling of tests broken](https://user-images.githubusercontent.com/4011348/40220493-e587f1f6-5aab-11e8-9fa4-06d6232e18c6.png)
 
 You now have 4 objects connected with foreign keys and all 40 tests are instantly broken because the field they were checking no longer exists.
 
-_Of course in this trivial example one could simply keep the existing field to not break backwards compatibility with tests_. In a real application this is not always possible. Sometimes backwards compatibility might essentially mean that you need to keep both old and new code (before/after the new feature) resulting in a huge bloat. Also notice that having to keep old code around just to make unit tests pass is a huge anti-pattern on its own.
+_Of course in this trivial example one could simply keep the existing field to not break backwards compatibility with tests__. In a real application this is not always possible. Sometimes backwards compatibility might essentially mean that you need to keep both old and new code (before/after the new feature) resulting in a huge bloat. Also notice that having to keep old code around just to make unit tests pass is a huge anti-pattern on its own.
 
 In a real application when this happens, developers ask from management some extra time to fix the tests. Project managers then declare that unit testing is a waste of time because they seem to hinder new features. The whole team then abandons the test suite by quickly disabling the failing tests.
 
 The big problem here is not testing, but instead the way the tests were constructed. Instead of testing internal implementation they should instead expected behavior. In our simple example instead of testing directly the internal structure of the customer they should instead check the exact business requirement of each case. Here is how these same tests should be handled instead.
 
-![Tests that test behavior](../../assets/testing-anti-patterns/coupled-testing-fixed.png)
+![Tests that test behavior](https://user-images.githubusercontent.com/4011348/40220498-ee7d35f0-5aab-11e8-924a-54378cb5c0a4.png)
 
 The tests do not really care about the internal structure of the customer object. They only care about its interactions with other objects/methods/functions. The other objects/method/functions should be mocked when needed on a case to case basis. Notice that each type of tests directly maps to a business need rather than a technical implementation (which is always a good practice.)
 
-If the internal implementation of the _Customer_ object changes, the verification code of the tests remains the same. The only thing that might change is the setup code for each test, which should be centralized in a single helper function called `createSampleCustomer()` or something similar (more on this in [AntiPattern 9](#anti-pattern-9---treating-test-code-as-a-second-class-citizen))
+If the internal implementation of the __Customer__ object changes, the verification code of the tests remains the same. The only thing that might change is the setup code for each test, which should be centralized in a single helper function called `createSampleCustomer()` or something similar (more on this in [AntiPattern 9](#anti-pattern-9---treating-test-code-as-a-second-class-citizen))
 
-Of course in theory it is possible for the verified objects themselves to change. In practice it is not realistic for changes to happen at `loginAsGuest()` _and_ `register()` _and_ `showAffiliateSales()` _and_ `getPremiumDiscount()` **at the same time**. In a realistic scenario you would have to refactor 10 tests instead of 40.
+Of course in theory it is possible for the verified objects themselves to change. In practice it is not realistic for changes to happen at `loginAsGuest()` __and__ `register()` __and__ `showAffiliateSales()` __and__ `getPremiumDiscount()` **at the same time**. In a realistic scenario you would have to refactor 10 tests instead of 40.
 
 In summary, if you find yourself continuously fixing existing tests as you add new features, it means that your tests are tightly coupled to internal implementation.
 
@@ -421,7 +434,7 @@ Code coverage is a favorite metric among software stakeholders. [Endless discuss
 
 The reason why everybody likes to talk about code coverage is because it is a metric that is easy to understand and quantify. There are several easily accessible tools that output this metric for most programming languages and test frameworks.
 
-_Let me tell you a little secret:_ Code coverage is completely useless as a metric. There is no “correct” code coverage number. This is a trap question. You can have a project with 100% code coverage that still has bugs and problems. The real metrics that you should monitor are the well-known CTM.
+_Let me tell you a little secret:__ Code coverage is completely useless as a metric. There is no “correct” code coverage number. This is a trap question. You can have a project with 100% code coverage that still has bugs and problems. The real metrics that you should monitor are the well-known CTM.
 
 ##### The Codepipes Testing Metrics (CTM)
 
@@ -477,7 +490,7 @@ PTD
 
 Anything less than 100%
 
-**PDWT** (Percent of Developers who Write Tests) is probably the most important metric of all. There is no point in talking about software testing anti-patterns if you have zero tests in the first place. All developers in the team should write tests. A new feature should be declared _done_ only when it is accompanied by one or more tests.
+**PDWT** (Percent of Developers who Write Tests) is probably the most important metric of all. There is no point in talking about software testing anti-patterns if you have zero tests in the first place. All developers in the team should write tests. A new feature should be declared __done__ only when it is accompanied by one or more tests.
 
 **PBCNT** (Percent of Bugs that Create New tests). Every bug that slips into production is a great excuse for writing a new software test that verifies the respective fix. A bug that appears in production should only appear once. If your project suffers from bugs that appear multiple times in production even after their original “fix”, then your team will really benefit from this metric. More details on this topic in [Antipattern 10](#anti-pattern-10---not-converting-production-bugs-to-tests).
 
@@ -487,7 +500,7 @@ Anything less than 100%
 
 If after reading about these metrics, you still insist on setting a hard number as a goal for code coverage, I will give you the number **20%**. This number should be used as a rule of thumb and it is based on the [Pareto principle](https://en.wikipedia.org/wiki/Pareto_principle). 20% of your code is causing 80% of your bugs, so if you really want to start writing tests you could do well by starting with that code first. This advice also ties well with [Anti-pattern 4](#anti-pattern-4---testing-the-wrong-functionality) where I suggest that you should write tests for your critical code first.
 
-Do _not_ try to achieve 100% total code coverage. Achieving 100% code coverage sounds good in theory but almost always is a waste of time:
+Do __not__ try to achieve 100% total code coverage. Achieving 100% code coverage sounds good in theory but almost always is a waste of time:
 
 *   you have wasted a lost of effort as getting from 80% to 100% is much more difficult than getting from 0% to 20%
 *   Increasing code coverage has diminishing returns
@@ -533,7 +546,7 @@ In summary, you should have a reliable test suite (even if it is a subset of the
 
 ### Anti-Pattern 8 - Running tests manually
 
-Depending on your organization you might actually have several types of tests in place. Unit tests, Load tests, User acceptance tests are common categories of test suites that _might_ be executed before the code goes into production.
+Depending on your organization you might actually have several types of tests in place. Unit tests, Load tests, User acceptance tests are common categories of test suites that __might__ be executed before the code goes into production.
 
 Ideally all your tests should run automatically without any human intervention. If that is not possible at the very least all tests that deal with correctness of code (i.e. unit and integration tests) **must** run in an automatic manner. This way developers get feedback on the code in the most timely manner. It is very easy to fix a feature when the code is fresh in your mind and you haven’t switched context yet to an unrelated feature.
 
@@ -543,7 +556,7 @@ In the past the most lengthy step of the software lifecycle was the deployment o
 
 Deploying as fast as possible implies that you trust each deployment. Trusting an automatic deployment requires a high degree of confidence in the code that gets deployed. While there are several ways of getting this confidence, the first line of defense should be your software tests. However, having a test suite that can catch regressions quickly is only half part of the equation. The other half is running the tests automatically (possibly after every commit).
 
-A lot of companies _think_ that they practice continuous delivery and/or deployment. In reality they don’t. Practicing true CI/CD means that _at any given point in time_ there is a version of the code that is ready to be deployed. This means that the candidate release for deployment the candidate release is _already_ tested. Therefore having a package version of an application “ready” which has not really “passed QA” is not true CI/CD.
+A lot of companies __think__ that they practice continuous delivery and/or deployment. In reality they don’t. Practicing true CI/CD means that __at any given point in time__ there is a version of the code that is ready to be deployed. This means that the candidate release for deployment the candidate release is __already__ tested. Therefore having a package version of an application “ready” which has not really “passed QA” is not true CI/CD.
 
 Unfortunately, while most companies have correctly realized that deployments should be automated, because using humans for them is error prone and slow, I still see companies where launching the tests is a semi-manual process. And when I say semi-manual I mean that even though the test suite itself might be automated, there are human tasks for house-keeping such as preparing the test environment or cleaning up the test data after the tests have finished. That is an anti-pattern because it is not true automation. **All** aspects of testing should be automated.
 
@@ -589,7 +602,7 @@ Bugs that slip into production are perfect candidates for writing software tests
 *   they show a lack of testing in that area as the bug has already passed into production
 *   if you write a test for these bugs the test will be very valuable as it guards future releases of the software
 
-I am always amazed when I see teams (that otherwise have a sound testing strategy) that don’t write a test for a bug that was found _in production_. They correct the code and fix the bug straight away. For some strange reason a lot of developers assume that writing tests is only valuable when you are adding a new feature only.
+I am always amazed when I see teams (that otherwise have a sound testing strategy) that don’t write a test for a bug that was found __in production__. They correct the code and fix the bug straight away. For some strange reason a lot of developers assume that writing tests is only valuable when you are adding a new feature only.
 
 This could not be further from the truth. I would even argue that software tests that stem from actual bugs are more valuable than tests which are added as part of new development. After all you never know how often a new feature will break in production (maybe it belongs to non-critical code that will never break). The respective software test is good to have but its value is questionable.
 
@@ -607,16 +620,16 @@ TDD stands for [Test Driven Development](https://en.wikipedia.org/wiki/Test-driv
 
 Broadly speaking when it comes to software tests:
 
-1.  you can write tests _before_ the respective implementation code
-2.  you can write tests _at the same time_ as the implementation code
-3.  you can write tests _after_ the implementation code
+1.  you can write tests __before__ the respective implementation code
+2.  you can write tests __at the same time__ as the implementation code
+3.  you can write tests __after__ the implementation code
 4.  you can write 0 tests (i.e. never) for the implementation code
 
-One of the core tenets of TDD is always following option 1 (writing tests before the implementation code). Writing tests before the code is a good general practice but is certainly not always the _best_ practice.
+One of the core tenets of TDD is always following option 1 (writing tests before the implementation code). Writing tests before the code is a good general practice but is certainly not always the __best__ practice.
 
 Writing tests before the implementation code implies that you are certain about your final API, which may or may not be the case. Maybe you have a clear specification document in front of you and thus know the exact signatures of the code methods that need to be implemented. But in other cases you might want to just experiment on something, do a quick spike and work **towards** a solution instead of a solution itself.
 
-For a more practical example, it would be immature for a startup to follow blindly TDD. If you work in a startup company you might write code that will change so fast that TDD will not be a big help. You might even throw away code until you get it “right”. Writing tests _after_ the implementation code, is a perfectly valid strategy in that case.
+For a more practical example, it would be immature for a startup to follow blindly TDD. If you work in a startup company you might write code that will change so fast that TDD will not be a big help. You might even throw away code until you get it “right”. Writing tests __after__ the implementation code, is a perfectly valid strategy in that case.
 
 Writing no tests at all (option 4) is also a valid strategy. As we have seen in [anti-pattern 4](#anti-pattern-4---testing-the-wrong-functionality) there is code that never needs testing. Writing software tests for trivial code because this is the correct way to “do TDD” will get you nowhere.
 
@@ -633,7 +646,7 @@ At this point I would like to admit that several times I have personally impleme
 7.  Running the test to see it succeed again
 8.  Commiting the code
 
-In summary, TDD is a good idea but you don’t have to follow it all the time. If you work in a fortune 500 company, surrounded by business analysts and getting clear specs on what you need to implement, then TDD _might_ be helpful.
+In summary, TDD is a good idea but you don’t have to follow it all the time. If you work in a fortune 500 company, surrounded by business analysts and getting clear specs on what you need to implement, then TDD __might__ be helpful.
 
 On the other hand if you are just playing with a new framework at your house during the weekend and want to understand how it works, then feel free to **not** follow TDD.
 
@@ -668,7 +681,7 @@ There is no need to re-invent the wheel. The sentence applies to testing code as
 
 ### Anti-Pattern 13 - Giving testing a bad reputation out of ignorance
 
-Even though I mention this as the last anti-pattern, this is the one that forced me to write this article. I am always disappointed when I find people at conferences and meetups who “proudly” proclaim that _all tests are a waste of time_ and that their application works just fine without any testing at all. A more common occurrence is meeting people who are against a specific type of testing (usually either unit or integration) like we have seen in anti-patterns [1](#anti-pattern-1---having-unit-tests-without-integration-tests) or [2](#anti-pattern-2---having-integration-tests-without-unit-tests)
+Even though I mention this as the last anti-pattern, this is the one that forced me to write this article. I am always disappointed when I find people at conferences and meetups who “proudly” proclaim that __all tests are a waste of time__ and that their application works just fine without any testing at all. A more common occurrence is meeting people who are against a specific type of testing (usually either unit or integration) like we have seen in anti-patterns [1](#anti-pattern-1---having-unit-tests-without-integration-tests) or [2](#anti-pattern-2---having-integration-tests-without-unit-tests)
 
 When I find people like this, it is my hobby to probe them with questions and understand their reasons behind hating tests. And always, it boils down to anti-patterns. They previously worked in companies where tests were slow ([Anti pattern 7](#anti-pattern-7---having-flaky-or-slow-tests)), or needed constant refactoring ([Antipattern 5](#anti-pattern-5---testing-internal-implementation)). They have been “burned” by unreasonable requests for 100% code coverage ([Anti-pattern 6](#anti-pattern-6---paying-excessive-attention-to-test-coverage)) or TDD zealots ([Antipattern 11](#anti-pattern-11---treating-tdd-as-a-religion)) that tried to impose to the whole team their own twisted image of what TDD means.
 
