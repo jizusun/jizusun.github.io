@@ -13,17 +13,17 @@ title:  "软件测试的反模式（译）"
 
 There are several articles out there that talk about testing anti-patterns in the software development process. Most of them however deal with the low level details of the programming code, and almost always they focus on a specific technology or programming language.
 
-有很多其他的文章也在讨论软件开发过程中的测试反模式.但大多数是在谈底层的代码实现,而且几乎往往是专注于某种特定的技术或者编程语言.
+有很多其他的文章也在讨论软件开发过程中的测试反模式。但大多数是在谈底层的代码实现，而且几乎都是专注于某种特定的技术或者编程语言。
 
 In this article I wanted to take a step back and catalog some high-level testing anti-patterns that are technology agnostic. Hopefully you will recognize some of these patterns regardless of your favorite programming language.
 
-在这篇文章中,我想退后一步编录一下高层的测试反模式,跟所使用的技术没有关系的.希望你能认识到一些模式不管你喜欢的编程语言是什么.
+在这篇文章中，我想退后一步，编录一下高层、与技术无关的测试反模式。希望你能认识到这模式，不管你喜欢的是何种编程语言。
 
 ### Terminology
 ### 术语
 
 Unfortunately, testing terminology has not reached a common consensus yet. If you ask 100 developers what is the difference between an integration test, a component test and an end-to-end test you might get 100 different answers. For the purposes of this article I will focus on the definition of the test pyramid as presented below.
-不幸的是,测试术语还未达成共识.如果你问100个程序员,集成测试,组件测试跟端到端测试的区别,你也许会得到100种不同的答案.为了本文的目的,我将集中讨论下面这幅测试金字塔中的定义.
+不幸的是，测试术语还未达成共识，如果你问 100 个程序员，集成测试、组件测试、端到端测试的区别，你也许会得到 100 种不同的答案。基于本文的目的，我将集中讨论下面这幅测试金字塔中的定义。
 
 ![The Testing pyramid](https://user-images.githubusercontent.com/20513905/39738946-cf275660-52c0-11e8-961d-556a743acf83.png)
 
