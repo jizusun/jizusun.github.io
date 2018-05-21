@@ -4,7 +4,7 @@ title:  "软件测试的反模式（译）"
 ---
 
 * 英文原文：[Software Testing Anti-patterns](http://blog.codepipes.com/testing/software-testing-antipatterns.html)
-* 译者： [孙继祖](https://www.linkedin.com/in/jizusun/)、 [Daisy Huang](https://github.com/smallsnack)
+* 译者： [孙继祖](https://www.linkedin.com/in/jizusun/)、 [黄秋荣](https://github.com/smallsnack)
 
 
 
@@ -17,7 +17,7 @@ There are several articles out there that talk about testing anti-patterns in th
 
 In this article I wanted to take a step back and catalog some high-level testing anti-patterns that are technology agnostic. Hopefully you will recognize some of these patterns regardless of your favorite programming language.
 
-在这篇文章中，我想退后一步，编录一下高层的、与技术无关的测试反模式。希望你能认识到这模式，不管你喜欢的是何种编程语言。
+在这篇文章中，我想退后一步，编录一下高层的、与技术无关的测试反模式。希望你能认识到这些模式，不管你喜欢的是何种编程语言。
 
 ### Terminology
 ### 术语
