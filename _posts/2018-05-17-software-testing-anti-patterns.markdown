@@ -428,21 +428,38 @@ The customer object now changes as below:
 
 You now have 4 objects connected with foreign keys and all 40 tests are instantly broken because the field they were checking no longer exists.
 
+您现在有4个对象与外键连接，并且所有40个测试会立即中断，因为它们检查的字段不再存在。
+
 _Of course in this trivial example one could simply keep the existing field to not break backwards compatibility with tests__. In a real application this is not always possible. Sometimes backwards compatibility might essentially mean that you need to keep both old and new code (before/after the new feature) resulting in a huge bloat. Also notice that having to keep old code around just to make unit tests pass is a huge anti-pattern on its own.
+
+_当然，在这个简单的例子中，可以简单地保持现有字段不会与测试_兼容。在实际应用中，这并非总是可行的。有时向后兼容可能意味着您需要保留新旧代码（在新功能之前/之后），导致巨大的膨胀。还要注意，为了使单元测试通过而必须保留旧代码是一个巨大的反模式。
 
 In a real application when this happens, developers ask from management some extra time to fix the tests. Project managers then declare that unit testing is a waste of time because they seem to hinder new features. The whole team then abandons the test suite by quickly disabling the failing tests.
 
+在这种情况发生的实际应用中，开发人员要求管理人员有一些额外的时间来修复测试。然后项目经理宣称单元测试是浪费时间，因为它们似乎妨碍了新功能。然后整个团队通过快速禁用失败的测试来放弃测试套件。
+
 The big problem here is not testing, but instead the way the tests were constructed. Instead of testing internal implementation they should instead expected behavior. In our simple example instead of testing directly the internal structure of the customer they should instead check the exact business requirement of each case. Here is how these same tests should be handled instead.
+
+这里的大问题不是测试，而是测试的构建方式。而不是测试内部实现，而是应该预期行为。在我们的简单示例中，不是直接测试客户的内部结构，而是检查每个案例的确切业务需求。下面是应该如何处理这些相同的测试。
 
 ![Tests that test behavior](https://user-images.githubusercontent.com/4011348/40220498-ee7d35f0-5aab-11e8-924a-54378cb5c0a4.png)
 
 The tests do not really care about the internal structure of the customer object. They only care about its interactions with other objects/methods/functions. The other objects/method/functions should be mocked when needed on a case to case basis. Notice that each type of tests directly maps to a business need rather than a technical implementation (which is always a good practice.)
 
+测试并不关心客户对象的内部结构。他们只关心它与其他对象/方法/函数的交互。其他的对象/方法/功能应该在需要时根据具体情况进行模拟。请注意，每种类型的测试都直接映射到业务需求，而不是技术实现（这总是一种很好的做法）。
+
 If the internal implementation of the __Customer__ object changes, the verification code of the tests remains the same. The only thing that might change is the setup code for each test, which should be centralized in a single helper function called `createSampleCustomer()` or something similar (more on this in [AntiPattern 9](#anti-pattern-9---treating-test-code-as-a-second-class-citizen))
+
+如果__Customer__对象的内部实现发生更改，则测试的验证代码保持不变。唯一可能改变的是每个测试的设置代码，它应该集中在一个名为`createSampleCustomer（）`的辅助函数或类似的东西（更多关于[AntiPattern 9]（＃anti-pattern-9-- -treating-测试 - 编码 - 作为一种二等公民））
 
 Of course in theory it is possible for the verified objects themselves to change. In practice it is not realistic for changes to happen at `loginAsGuest()` __and__ `register()` __and__ `showAffiliateSales()` __and__ `getPremiumDiscount()` **at the same time**. In a realistic scenario you would have to refactor 10 tests instead of 40.
 
+当然，从理论上讲，验证对象本身可能会发生变化。在实践中，在同时发生`loginAsGuest（）`__and__ register（）`__and__`showAffiliateSales（）`__和_` getPremiumDiscount（）**的变化是不现实的。在一个现实的场景中，你将不得不重构10次而不是40次。
+
+
 In summary, if you find yourself continuously fixing existing tests as you add new features, it means that your tests are tightly coupled to internal implementation.
+
+总而言之，如果您发现自己在添加新功能时不断修复现有测试，则意味着您的测试与内部实施密切相关。
 
 ### Anti-Pattern 6 - Paying excessive attention to test coverage
 
