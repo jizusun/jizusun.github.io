@@ -4,7 +4,7 @@ title:  "软件测试的反模式（译）"
 ---
 
 * 英文原文：[Software Testing Anti-patterns](http://blog.codepipes.com/testing/software-testing-antipatterns.html)
-* 译者： [孙继祖](https://www.linkedin.com/in/jizusun/)、 [Daisy Huang](https://github.com/smallsnack)
+* 译者： [孙继祖](https://www.linkedin.com/in/jizusun/)、 [黄秋荣](https://github.com/smallsnack)
 * 延伸阅读
     - [Discussion thread on Hacker News](https://news.ycombinator.com/item?id=16894927)
     - [Introducing the Software Testing Cupcake (Anti-Pattern)](https://www.thoughtworks.com/insights/blog/introducing-software-testing-cupcake-anti-pattern) 及 [中文翻译](https://insights.thoughtworks.cn/introducing-software-testing-cupcake-anti-pattern/)
@@ -14,18 +14,28 @@ title:  "软件测试的反模式（译）"
 
 
 ### Introduction
+### 介绍
 
 There are several articles out there that talk about testing anti-patterns in the software development process. Most of them however deal with the low level details of the programming code, and almost always they focus on a specific technology or programming language.
 
+有很多其他的文章也在讨论软件开发过程中的测试反模式。但大多数是在谈底层的代码实现，而且几乎都是专注于某种特定的技术或者编程语言。
+
 In this article I wanted to take a step back and catalog some high-level testing anti-patterns that are technology agnostic. Hopefully you will recognize some of these patterns regardless of your favorite programming language.
 
+在这篇文章中，我想退后一步，编录一下高层的、与技术无关的测试反模式。希望你能认识到这些模式，不管你喜欢的是何种编程语言。
+
 ### Terminology
+### 术语
 
 Unfortunately, testing terminology has not reached a common consensus yet. If you ask 100 developers what is the difference between an integration test, a component test and an end-to-end test you might get 100 different answers. For the purposes of this article I will focus on the definition of the test pyramid as presented below.
 
-![The Testing pyramid](../../assets/testing-anti-patterns/testing-pyramid.png)
+不幸的是，测试术语还未达成共识，如果你问 100 个程序员，集成测试、组件测试、端到端测试的区别，你也许会得到 100 种不同的答案。基于本文的目的，我将集中讨论下面这幅测试金字塔中的定义。
+
+![The Testing pyramid](https://user-images.githubusercontent.com/20513905/39738946-cf275660-52c0-11e8-961d-556a743acf83.png)
 
 If you have never encountered the testing pyramid before, I would urge you to become familiar with it first before going on. Some good starting points are:
+
+如果你以前从未遇到过测试金字塔，我强烈建议你在读下去之前先去熟悉它。下面一些文章可以作为切入点：
 
 *   [The forgotten layer of the test automation pyramid](https://www.mountaingoatsoftware.com/blog/the-forgotten-layer-of-the-test-automation-pyramid) (Mike Cohn 2009)
 *   [The Test Pyramid](https://martinfowler.com/bliki/TestPyramid.html) (Martin Fowler 2012)
@@ -34,12 +44,21 @@ If you have never encountered the testing pyramid before, I would urge you to be
 
 The testing pyramid deserves a whole discussion on its own, especially on the topic of the amount of tests needed for each category. For the current article I am just referencing the pyramid in order to define the two lowest test categories. Notice that in this article User Interface Tests (the top part of the pyramid) are _not_ mentioned (mainly for brevity reasons and because UI tests come with their own specific anti-patterns).
 
+测试金字塔本身就值得去深入讨论，尤其是在每个类别需要多少测试量这个主题上。在本文中，我只是引用测试金字塔，以定义最底层两个测试类别。请注意，在本文中，用户界面测试（测试金字塔的最上层）没有被提及（主要是出于简洁的目的，也是因为界面测试有自己特定的反模式）。
+
 Therefore the two major test categories mentioned as _unit_ and _integration_ tests from now on are:
+
+因此从现在起，被提到的两个主要的测试类别是单元测试和集成测试。
 
 | Tests             | Focus on            | Require                    | Speed     | Complexity | Setup needed |
 |-------------------|---------------------|----------------------------|-----------|------------|--------------|
 | Unit tests        | a class/method      | the source code            | very fast | low        | No           |
 | Integration tests | a component/service | part of the running system | slow      | medium     | Yes          |
+
+| 测试               | 关注点              | 要求                        | 速度       | 复杂度     | 是否需要设置  |
+|--------------------|--------------------|-----------------------------|-----------|------------|--------------|
+| 单元测试            | 一个类、方法        | 源代码                       | 非常快    | 低         | 不需要        |
+| 集成测试            | 一个组件、服务      | 系统的一部分                  | 慢        | 中等        | 需要         |
 
 **Unit tests** are the category of tests that have wider acceptance regarding the naming and what they mean. They are the tests that accompany the source code and have direct access to it. Usually they are executed with an [xUnit framework](https://en.wikipedia.org/wiki/XUnit) or similar library. These tests work directly on the source code and have full view of everything. A single class/method/function is tested (or whatever is the smallest possible working unit for that particular business feature) and anything else is mocked/stubbed.
 
