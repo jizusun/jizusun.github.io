@@ -420,22 +420,29 @@ Let’s say that the customer object in an e-shop application is the following:
 
 The customer type has only two values where `0` means “guest user” and `1` means “registered user”. Developers look at the object and write 10 unit tests that verify various cases of guests users and 10 cases of registered user. And when I say “verify” I mean that tests **are looking at this particular field in this particular object**.
 
-客户的 type（种类）只有两个值，`0` 代表“guest user（访客用户）”，`1`代表“register user（注册用户）”。开发人员看到这个对象，就写了 10 个单元测试来验证访客用户的各种情况。这里，我说的“verify（验证）”指的是 **查看某个对象的某个特定字段**。
+客户的 type（种类）只有两个值，`0` 代表“guest user（访客用户）”，`1`代表“registered user（注册用户）”。开发人员看到这个对象，就写了 10 个单元测试来验证访客用户的各种情况。这里，我说的“verify（验证）”指的是 **查看某个对象的某个特定字段**。
 
 Time passes by and business decides that a new customer type with value `2` is needed for affiliates. Developers add 10 more tests that deal with affiliates. Finally another type of user called “premium customer” is added and developers add 10 more tests.
 
+时光飞逝，业务方决定需要为附属用户（affiliates）设定一个值为`2`的新的客户类型。开发人员针对性地又添加了另外10个测试。最后，另外一种叫“高级客户”的用户类型被添加，开发人员又针对性地添加了10个测试。
 
 At this point, we have 40 tests in 4 categories that all look at this particular field. (These numbers are imaginary. This contrived example exists only for demonstration purposes. In a real project you might have 10 interconnected fields within 6 nested objects and 200 tests).
+
+截至目前，我们为 4 个类别写了 40 个测试，都检查的是同一个字段。（这些数字是虚构的，这种编造的例子只是为了演示目的。在真正的项目中，你可能有 10 个相互关联的字段，分别在 6 个嵌套对象中，有 200 个测试）。
 
 ![Tight coupling of tests example](https://user-images.githubusercontent.com/4011348/40220488-df4618e0-5aab-11e8-900f-df054dbe28ee.png)
 
 If you are a seasoned developer you can always imagine what happens next. New requirements come that say:
 
-1.  For registered users, their email should also be stored
-2.  For affiliate users, their company should also be stored
-3.  Premium users can now gather reward points.
+如果你是一名经验丰富的开发人员，你总能想想接下来会发生什么。有新的需求如下：
+
+1.  For registered users, their email should also be stored 对于一个注册用户而言，他们的 email 也应该被存储。
+2.  For affiliate users, their company should also be stored 对于附属用户，他们的公司也应该被存储下来。
+3.  Premium users can now gather reward points. 高级用户现在可以积攒奖励积分。
 
 The customer object now changes as below:
+
+客户对象现在变成了这样:
 
 ![Tight coupling of tests broken](https://user-images.githubusercontent.com/4011348/40220493-e587f1f6-5aab-11e8-9fa4-06d6232e18c6.png)
 
