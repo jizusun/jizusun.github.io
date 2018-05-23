@@ -382,19 +382,28 @@ In such situations, several developers just accept defeat. They declare software
 
 The problem here is of course the bad quality of tests. Tests that need to be refactored all the time suffer from tight coupling with the main code. Unfortunately, you need some basic testing experience to understand which tests are written in this “wrong” way.
 
-这里的问题当然是测试的质量差。需要重构的测试总是受制于跟主要代码强耦合。不幸的是，你需要一些基本的测试竟然
+这里的问题当然是测试的质量差。需要重构的测试总是受制于跟主要代码强耦合。不过，你需要一些基本的测试经验，来理解哪些测试才是用这种“错误”方式编写的。
 
 Having to change a big number of existing tests when a new feature is introduced shows the __symptom__. The actual problem is that tests were instructed to verify internal implementation which is always a recipe for disaster. There are several software testing resources online that attempt to explain this concept, but very few of them show some solid examples.
 
+在引入新功能时不得不修改大量的已有测试，暴露出了 __病症__。实际的问题是，测试被用来验证内部实现，就一定会引发一场灾难。网上有很多软件测试资源试图解释这个概念，但很少能给出可靠的例子。
+
 I promised in the beginning of this article that I will not speak about a particular programming language and I intend to keep that promise. In this section the illustrations show the data structure of your favorite programming language. Think of them as structs/objects/classes that contain fields/values.
 
+我在文章开头就承诺过，我不会谈论某种特定的编程语言，我打算遵守承诺。在这一部分里，插图展示了你最喜爱的编程语言的数据结构。把他们想象成包含字段/值的结构体/对象/类。 
+
 Let’s say that the customer object in an e-shop application is the following:
+
+让我们来假设，一个网上商城的应用程序的`customer` （客户）对象是这样的。
 
 ![Tight coupling of tests](https://user-images.githubusercontent.com/4011348/40220485-dc005e0c-5aab-11e8-9f08-c5020aef4fc5.png)
 
 The customer type has only two values where `0` means “guest user” and `1` means “registered user”. Developers look at the object and write 10 unit tests that verify various cases of guests users and 10 cases of registered user. And when I say “verify” I mean that tests **are looking at this particular field in this particular object**.
 
+客户的 type（种类）只有两个值，`0` 代表“guest user（访客用户）”，`1`代表“register user（注册用户）”。开发人员看到这个对象，就写了 10 个单元测试来验证访客用户的各种情况。这里，我说的“verify（验证）”指的是 **查看某个对象的某个特定字段**。
+
 Time passes by and business decides that a new customer type with value `2` is needed for affiliates. Developers add 10 more tests that deal with affiliates. Finally another type of user called “premium customer” is added and developers add 10 more tests.
+
 
 At this point, we have 40 tests in 4 categories that all look at this particular field. (These numbers are imaginary. This contrived example exists only for demonstration purposes. In a real project you might have 10 interconnected fields within 6 nested objects and 200 tests).
 
