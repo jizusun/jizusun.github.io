@@ -447,11 +447,14 @@ The customer object now changes as below:
 
 You now have 4 objects connected with foreign keys and all 40 tests are instantly broken because the field they were checking no longer exists.
 
-您现在有4个对象与外键连接，并且所有40个测试会立即中断，因为它们检查的字段不再存在。
+您现在有4个对象与外键连接，并且所有40个测试会立即出错，因为它们检查的字段不再存在。
 
-_Of course in this trivial example one could simply keep the existing field to not break backwards compatibility with tests__. In a real application this is not always possible. Sometimes backwards compatibility might essentially mean that you need to keep both old and new code (before/after the new feature) resulting in a huge bloat. Also notice that having to keep old code around just to make unit tests pass is a huge anti-pattern on its own.
+__Of course in this trivial example one could simply keep the existing field to not break backwards compatibility with tests__. In a real application this is not always possible. Sometimes backwards compatibility might essentially mean that you need to keep both old and new code (before/after the new feature) resulting in a huge bloat. Also notice that having to keep old code around just to make unit tests pass is a huge anti-pattern on its own.
 
-_当然，在这个简单的例子中，可以简单地保持现有字段不会与测试_兼容。在实际应用中，这并非总是可行的。有时向后兼容可能意味着您需要保留新旧代码（在新功能之前/之后），导致巨大的膨胀。还要注意，为了使单元测试通过而必须保留旧代码是一个巨大的反模式。
+__当然，在这个简单的例子中，可以简单地保持现有字段不破坏与测试的向后兼容__。在实际应用中，这并非总是可行的。有时向后兼容可能意味着您需要保留新代码和旧代码（在新功能开发之前/之后），从而导致代码急剧膨胀。还要注意的是，为了使单元测试通过而保留旧代码，是一个巨大的反模式。
+
+
+// 20180509
 
 In a real application when this happens, developers ask from management some extra time to fix the tests. Project managers then declare that unit testing is a waste of time because they seem to hinder new features. The whole team then abandons the test suite by quickly disabling the failing tests.
 
