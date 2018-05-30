@@ -81,18 +81,18 @@ With the naming out of the way, we can dive into the list. The order of anti-pat
 ### Software Testing Anti-Pattern List
 
 1.  [Having unit tests without integration tests 有单元测试但没有集成测试](#anti-pattern-1---having-unit-tests-without-integration-tests)
-2.  [Having integration tests without unit tests](#anti-pattern-2---having-integration-tests-without-unit-tests)
-3.  [Having the wrong kind of tests](#anti-pattern-3---having-the-wrong-kind-of-tests)
-4.  [Testing the wrong functionality](#anti-pattern-4---testing-the-wrong-functionality)
-5.  [Testing internal implementation](#anti-pattern-5---testing-internal-implementation)
-6.  [Paying excessive attention to test coverage](#anti-pattern-6---paying-excessive-attention-to-test-coverage)
-7.  [Having flaky or slow tests](#anti-pattern-7---having-flaky-or-slow-tests)
-8.  [Running tests manually](#anti-pattern-8---running-tests-manually)
-9.  [Treating test code as a second class citizen](#anti-pattern-9---treating-test-code-as-a-second-class-citizen)
-10.  [Not converting production bugs to tests](#anti-pattern-10---not-converting-production-bugs-to-tests)
-11.  [Treating TDD as a religion](#anti-pattern-11---treating-tdd-as-a-religion)
-12.  [Writing tests without reading documentation first](#anti-pattern-12---writing-tests-without-reading-documentation-first)
-13.  [Giving testing a bad reputation out of ignorance](#anti-pattern-13---giving-testing-a-bad-reputation-out-of-ignorance)
+2.  [Having integration tests without unit tests 有集成测试但没有单元测试](#anti-pattern-2---having-integration-tests-without-unit-tests)
+3.  [Having the wrong kind of tests 使用了错误种类的测试](#anti-pattern-3---having-the-wrong-kind-of-tests)
+4.  [Testing the wrong functionality 测试了错误的功能](#anti-pattern-4---testing-the-wrong-functionality)
+5.  [Testing internal implementation 测试了内部实现](#anti-pattern-5---testing-internal-implementation)
+6.  [Paying excessive attention to test coverage 过度关注测试覆盖](#anti-pattern-6---paying-excessive-attention-to-test-coverage)
+7.  [Having flaky or slow tests 使用了有问题的或者慢的测试 ](#anti-pattern-7---having-flaky-or-slow-tests)
+8.  [Running tests manually 手工运行测试](#anti-pattern-8---running-tests-manually)
+9.  [Treating test code as a second class citizen 把测试当作二等公民](#anti-pattern-9---treating-test-code-as-a-second-class-citizen)
+10.  [Not converting production bugs to tests 没有把生产环境的 bug 转化为测试](#anti-pattern-10---not-converting-production-bugs-to-tests)
+11.  [Treating TDD as a religion 将 TDD 看作教派](#anti-pattern-11---treating-tdd-as-a-religion)
+12.  [Writing tests without reading documentation first 写测试之前不先读文档](#anti-pattern-12---writing-tests-without-reading-documentation-first)
+13.  [Giving testing a bad reputation out of ignorance 由于无知而诋毁测试](#anti-pattern-13---giving-testing-a-bad-reputation-out-of-ignorance)
 
 ### Anti-Pattern 1 - Having unit tests without integration tests
 
