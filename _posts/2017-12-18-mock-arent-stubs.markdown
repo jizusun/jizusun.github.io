@@ -1,13 +1,15 @@
-# Mocks Aren't Stubs （Mock不是Stub）
+---
+layout: post
+title:  "Mock不是Stub（译）"
+---
 
+* 英文原文：[Martin Fowler: Mocks Aren't Stubs](https://martinfowler.com/articles/mocksArentStubs.html)
+* 中文翻译：[众成翻译](http://www.zcfy.cc/original/mocks-arent-stubs-4708.html)
+* 译者：[孙继祖](https://www.linkedin.com/in/jizusun/)
+* 延伸阅读
+  - [如何理解软件测试中的stub和mock? - 知乎](https://www.zhihu.com/question/28225706)
+  - [ 测试中 Fakes、Mocks 以及 Stubs 概念明晰 - 王下邀月熊](https://zhuanlan.zhihu.com/p/26942686)
 
-英文原文：[Mocks Aren't Stubs](https://martinfowler.com/articles/mocksArentStubs.html)
-中英文对照：https://github.com/smilingsun/blog/issues/9
-中文翻译：http://www.zcfy.cc/original/mocks-arent-stubs-4708.html
-译者：[孙继祖](https://www.linkedin.com/in/jizusun/)
-
-
-作者：Martin Fowler
 
 _The term 'Mock Objects' has become a popular one to describe special case objects that mimic real objects for testing. Most language environments now have frameworks that make it easy to create mock objects. What's often not realized, however, is that mock objects are but one form of special case test object, one that enables a different style of testing. In this article I'll explain how mock objects work, how they encourage testing based on behavior verification, and how the community around them uses them to develop a different style of testing._
 
@@ -623,9 +625,6 @@ _08 July 2004:_ First published
 * http://www.cnblogs.com/anf/archive/2006/03/27/360248.html
 * http://tracylihui.github.io/2015/07/12/Mocks%20Aren%E2%80%99t%20Stubs/
 
-### 相关中文阅读
-* [如何理解软件测试中的stub和mock? - 知乎](https://www.zhihu.com/question/28225706)
-* [ 测试中 Fakes、Mocks 以及 Stubs 概念明晰 - 王下邀月熊](https://zhuanlan.zhihu.com/p/26942686)
 
 ### 其他
 

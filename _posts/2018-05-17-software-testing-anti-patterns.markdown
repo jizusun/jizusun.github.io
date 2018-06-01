@@ -1,23 +1,41 @@
-Software Testing Anti-patterns
-==============================
+﻿---
+layout: post
+title:  "软件测试的反模式（译）"
+---
 
-http://blog.codepipes.com/testing/software-testing-antipatterns.html
+* 英文原文：[Software Testing Anti-patterns](http://blog.codepipes.com/testing/software-testing-antipatterns.html)
+* 译者： [孙继祖](https://www.linkedin.com/in/jizusun/)、 [黄秋荣](https://github.com/smallsnack)
+* 延伸阅读
+    - [Discussion thread on Hacker News](https://news.ycombinator.com/item?id=16894927)
+    - [Introducing the Software Testing Cupcake (Anti-Pattern)](https://www.thoughtworks.com/insights/blog/introducing-software-testing-cupcake-anti-pattern) 及 [中文翻译](https://insights.thoughtworks.cn/introducing-software-testing-cupcake-anti-pattern/)
+    - [Common System and Software Testing Pitfalls: How to Prevent and Mitigate Them: Descriptions, Symptoms, Consequences, Causes, and Recommendations (SEI Series in Software Engineering)](https://www.amazon.com/dp/0133748553)
+    - [Perspectives On Agile Software Testing](https://info.thoughtworks.com/ebook-agile-software-testing) and [its book review](https://www.infoq.com/articles/agile-software-testing) 及 [书评中文翻译](http://www.infoq.com/cn/articles/agile-software-testing)
+    - [JavaScript测试驱动开发 - 第 1 章　自动化测试让你重获自由](http://www.ituring.com.cn/book/tupubarticle/20075)
 
-21 Apr 2018
 
 ### Introduction
+### 介绍
 
 There are several articles out there that talk about testing anti-patterns in the software development process. Most of them however deal with the low level details of the programming code, and almost always they focus on a specific technology or programming language.
 
+有很多其他的文章也在讨论软件开发过程中的测试反模式。但大多数是在谈底层的代码实现，而且几乎都是专注于某种特定的技术或者编程语言。
+
 In this article I wanted to take a step back and catalog some high-level testing anti-patterns that are technology agnostic. Hopefully you will recognize some of these patterns regardless of your favorite programming language.
 
+在这篇文章中，我想退后一步，编录一下高层的、与技术无关的测试反模式。希望你能认识到这些模式，不管你喜欢的是何种编程语言。
+
 ### Terminology
+### 术语
 
 Unfortunately, testing terminology has not reached a common consensus yet. If you ask 100 developers what is the difference between an integration test, a component test and an end-to-end test you might get 100 different answers. For the purposes of this article I will focus on the definition of the test pyramid as presented below.
 
-![The Testing pyramid](../../assets/testing-anti-patterns/testing-pyramid.png)
+不幸的是，测试术语还未达成共识，如果你问 100 个程序员，集成测试、组件测试、端到端测试的区别，你也许会得到 100 种不同的答案。基于本文的目的，我将集中讨论下面这幅测试金字塔中的定义。
+
+![The Testing pyramid](https://user-images.githubusercontent.com/20513905/39738946-cf275660-52c0-11e8-961d-556a743acf83.png)
 
 If you have never encountered the testing pyramid before, I would urge you to become familiar with it first before going on. Some good starting points are:
+
+如果你以前从未遇到过测试金字塔，我强烈建议你在读下去之前先去熟悉它。下面一些文章可以作为切入点：
 
 *   [The forgotten layer of the test automation pyramid](https://www.mountaingoatsoftware.com/blog/the-forgotten-layer-of-the-test-automation-pyramid) (Mike Cohn 2009)
 *   [The Test Pyramid](https://martinfowler.com/bliki/TestPyramid.html) (Martin Fowler 2012)
@@ -26,12 +44,21 @@ If you have never encountered the testing pyramid before, I would urge you to be
 
 The testing pyramid deserves a whole discussion on its own, especially on the topic of the amount of tests needed for each category. For the current article I am just referencing the pyramid in order to define the two lowest test categories. Notice that in this article User Interface Tests (the top part of the pyramid) are _not_ mentioned (mainly for brevity reasons and because UI tests come with their own specific anti-patterns).
 
+测试金字塔本身就值得去深入讨论，尤其是在每个类别需要多少测试量这个主题上。在本文中，我只是引用测试金字塔，以定义最底层两个测试类别。请注意，在本文中，用户界面测试（测试金字塔的最上层）没有被提及（主要是出于简洁的目的，也是因为界面测试有自己特定的反模式）。
+
 Therefore the two major test categories mentioned as _unit_ and _integration_ tests from now on are:
+
+因此从现在起，被提到的两个主要的测试类别是单元测试和集成测试。
 
 | Tests             | Focus on            | Require                    | Speed     | Complexity | Setup needed |
 |-------------------|---------------------|----------------------------|-----------|------------|--------------|
 | Unit tests        | a class/method      | the source code            | very fast | low        | No           |
 | Integration tests | a component/service | part of the running system | slow      | medium     | Yes          |
+
+| 测试               | 关注点              | 要求                        | 速度       | 复杂度     | 是否需要设置  |
+|--------------------|--------------------|-----------------------------|-----------|------------|--------------|
+| 单元测试            | 一个类、方法        | 源代码                       | 非常快    | 低         | 不需要        |
+| 集成测试            | 一个组件、服务      | 系统的一部分                  | 慢        | 中等        | 需要         |
 
 **Unit tests** are the category of tests that have wider acceptance regarding the naming and what they mean. They are the tests that accompany the source code and have direct access to it. Usually they are executed with an [xUnit framework](https://en.wikipedia.org/wiki/XUnit) or similar library. These tests work directly on the source code and have full view of everything. A single class/method/function is tested (or whatever is the smallest possible working unit for that particular business feature) and anything else is mocked/stubbed.
 
@@ -81,18 +108,23 @@ This problem is a classic one with small to medium companies. The application th
 
 I cannot really say anything about the first issue. Every effective team should have at least some kind of mentor/champion that can show good practices to the other members. The second issue is covered in detail in anti-patterns [5](#anti-pattern-5---testing-internal-implementation), [7](#anti-pattern-7---having-flaky-or-slow-tests) and [8](#anti-pattern-8---running-tests-manually).
 
-
-对于第一个问题我没什么可说的。每个有效的团队都至少有某种意义上的“导师”，来向其他成员展示好的实践。第二个问题在反模式5, 7 和 8 里有详细的阐述。
+对于第一个问题我没什么可说的。每个有效的团队都至少有某种意义上的“导师”，来向其他成员展示好的实践。第二个问题在反模式 [5](#anti-pattern-5---testing-internal-implementation), [7](#anti-pattern-7---having-flaky-or-slow-tests) 和 [8](#anti-pattern-8---running-tests-manually) 里有详细的阐述。
 
 This brings us to the last issue - difficulty in setting up a test environment. Now don’t get me wrong, there are indeed some applications that are _really_ hard to test. Once I had to work with a set of REST applications that actually required special hardware on their host machine. This hardware existed only in production, making integration tests very challenging. But this is a corner case.
 
-我们再看最后一个问题 —— 很难搭建测试环境。这里不要误解我的意思，有些应用程序确实非常 _难以_ 测试。我曾经要处理一些 REST 应用程序，它们需要在主机上装一种特殊的硬件。这种硬件只存在于生产环境中，使得集成测试非常困难。但这是一个极端的情况。
+我们再看最后一个问题 —— 很难搭建测试环境。这里不要误解我的意思，有些应用程序确实 _非常_ 难以 测试。我曾经要处理一些 REST 应用程序，它们需要在主机上装一种特殊的硬件。这种硬件只存在于生产环境中，使得集成测试非常困难。但这是一个极端的情况。
 
 For the run-of-the-mill web or back-end application that the typical company creates, setting up a test environment should be a non-issue. With the appearance of Virtual Machines and lately Containers this is more true than ever. Basically if you are trying to test an application that is hard to setup, you need to fix the setup process first before dealing with the tests themselves.
 
+对于多数公司创建的一般的 Web 程序或后端应用程序，搭建测试环境应该不是什么问题。随着虚拟机（Virtual Machines）和最近的容器（Containers)的出现，这比以前容易得多。通常，如果你尝试测试一个很难搭建环境的应用程序，你应该在处理测试之前先解决搭建环境的流程问题。
+
 But why are integration tests essential in the first place?
 
+但是为什么集成测试在一开始就是必不可少的呢？
+
 The truth here is that there are some types of issues that _only_ integration tests can detect. The canonical example is everything that has to do with database operations. Database transactions, database triggers and any stored procedures can only be examined with integration tests that touch them. Any connections to other modules either developed by you or external teams need integration tests (a.k.a. contract tests). Any tests that need to verify performance, are integration tests by definition. Here is a summary on why we need integration tests:
+
+事实是，有些问题（issues）_只有_ 集成测试才能探测到。经典的例子是，所有与数据库操作相关的事情。数据库事务、数据库触发器、和任何存储过程都只能使用集成测试来验证。任何与您或外部团队开发的其他模块的连接都需要集成测试（又称契约测试，contract tests) 。根据定义，任何需要验证性能的测试都是集成测试。以下是我们为什么需要集成测试。
 
 | Type of issue                           | Detected by Unit tests | Detected by Integration tests |
 |-----------------------------------------|------------------------|-------------------------------|
@@ -106,9 +138,25 @@ The truth here is that there are some types of issues that _only_ integration te
 | Deadlocks/Livelocks                     | maybe                  | yes                           |
 | Cross-cutting Security Concerns         | no                     | yes                           |
 
+| 问题类型                                 | 能否被单元测试探测到       | 能否被集成测试检测到             |
+|-----------------------------------------|------------------------|-------------------------------|
+| 基本的业务逻辑                            | 能                       | 能                           |
+| 组件集成问题                              | 不能                     | 能                           |
+| 事务(Transactions)                      | 不能                     | 能                           |
+| 数据库触发器/过程                         | 不能                     | 能                           |
+| 跟其他模块的错误契约                       | 不能                     | 能                           |
+| 与其他系统的错误契约                       | 不能                     | 能                           |
+| 性能/超时                                | 不能                     | 能                           |
+| 死锁/活锁                                | 有可能                   | 能                           |
+| 交叉安全问题                              | 不能                     | 能                 
+
 Basically any cross-cutting concern of your application will require integration tests. With the recent microservice craze integration tests become even more important as you now have contracts between your own services. If those services are developed by other teams, you need an automatic way to verify that interface contracts are not broken. This can only be covered with integration tests.
 
+基本上，您的应用程序的任何交叉问题（cross-cutting concern）都需要集成测试。随着最近兴起的微服务热潮，集成测试变得更加重要，因为您现在已经在自己的服务之间建立了契约。如果这些服务是其他团队开发的，你需要一个自动化的方式来验证接口的契约没有坏掉。这只能通过集成测试来解决。
+
 To sum up, unless you are creating something extremely isolated (e.g. a command line linux utility), you really **need** integration tests to catch issues not caught by unit tests.
+
+总而言之，除非你要建立非常独立的东西（比如 Linux 命令行工具），否则你非常 **需要** 集成测试来捕捉单元测试发现不了的问题。
 
 ### Anti-Pattern 2 - Having integration tests without unit tests
 
