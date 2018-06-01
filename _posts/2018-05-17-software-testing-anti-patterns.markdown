@@ -32,7 +32,8 @@ Unfortunately, testing terminology has not reached a common consensus yet. If yo
 不幸的是，测试术语还未达成共识，如果你问 100 个程序员，集成测试、组件测试、端到端测试的区别，你也许会得到 100 种不同的答案。基于本文的目的，我将集中讨论下面这幅测试金字塔中的定义。
 
 ![The Testing pyramid](https://user-images.githubusercontent.com/20513905/39738946-cf275660-52c0-11e8-961d-556a743acf83.png)
-![测试金字塔]（../image/testingPyramid.png）
+
+![测试金字塔](../image/testingPyramid.png)
 
 If you have never encountered the testing pyramid before, I would urge you to become familiar with it first before going on. Some good starting points are:
 
