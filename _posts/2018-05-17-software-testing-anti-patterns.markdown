@@ -260,11 +260,11 @@ If you only have integration tests, you waste developer time and company money. 
 
 ### Anti-Pattern 3 - Having the wrong kind of tests 
 
-反模式 3 - 采用了错误类型的测试
+### 反模式 3 - 采用了错误类型的测试
 
 Now that we have seen why we need both kinds of tests (unit _and_ integration), we need to decide on _how many_ tests we need from each category.
 
-现在我们已经看到为什么我们需要这两种测试（ _单元_ 和 _集成_ ），我们需要决定，每一类我们分别需要的 _多少_ 测试。
+现在我们已经看到为什么我们需要这两种测试（ 单元测试 _和_ 集成测试），我们需要决定，每一类我们分别需要的 _多少_ 测试。
 
 There is no hard and fast rule here, it depends on your application. The important point is that you need to spend some time to understand what type of tests add the most value to _your_ application. The test pyramid is only a suggestion on the amount of tests that you should create. It assumes that you are writing a commercial web application, but that is not always the case. Let’s see some examples:
 
@@ -276,7 +276,7 @@ There is no hard and fast rule here, it depends on your application. The importa
 
 Your application is a command line utility. It reads one special format of a file (let’s say a CSV) and exports another format (let’s say JSON) after doing some transformations. The application is self-contained, does not communicate with any other system or use the network. The transformations are complex mathematical processes that are critical for the correct functionality of the application (it should always be correct even if it slow).
 
-你的应用程序是一个命令行工具。 它读取文件的一种特殊格式（比如CSV），并在做一些转换后导出另一种格式（比如JSON）。 该应用程序是独立的，不与任何其他系统通信或使用网络。 转换是复杂的数学过程，对于应用程序的正确功能至关重要（即使速度缓慢，它也应该始终正确）。
+你的应用程序是一个命令行工具。 它读取文件的一种特殊格式（比如 CSV ），并在做一些转换后导出另一种格式（比如 JSON ）。 该应用程序是独立的，不与任何其他系统通信或使用网络。 转换是复杂的数学过程，对于应用程序的正确功能至关重要（即使速度缓慢，它也应该始终正确）。
 
 In this contrived example you would need:
 
@@ -286,7 +286,7 @@ In this contrived example you would need:
 
 Here is the breakdown of tests for this project:
 
-![Test pyramid example](../../assets/testing-anti-patterns/pyramid1.png)
+![Test pyramid example](https://user-images.githubusercontent.com/4011348/40817728-84bd14f6-6586-11e8-9fd4-5207632d5936.png)
 
 Unit tests dominate in this example and the shape is **not** a pyramid.
 
@@ -302,7 +302,7 @@ In this contrived example you would need
 
 Here is the breakdown of tests for this project:
 
-![Test pyramid example](../../assets/testing-anti-patterns/pyramid2.png)
+![Test pyramid example](https://user-images.githubusercontent.com/4011348/40817730-8a73e438-6586-11e8-911e-adb6cb0a9487.png)
 
 Integrations tests dominate in this example and the shape is **not** a pyramid.
 
@@ -320,7 +320,7 @@ In this contrived example you would need
 
 Here is the breakdown of tests for this project:
 
-![Test pyramid example](../../assets/testing-anti-patterns/pyramid3.png)
+![Test pyramid example](https://user-images.githubusercontent.com/4011348/40817738-9104f44a-6586-11e8-9740-028bf40c6d1c.png)
 
 UI tests dominate here and the shape is **not** a pyramid.
 
