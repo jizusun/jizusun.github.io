@@ -280,55 +280,87 @@ Your application is a command line utility. It reads one special format of a fil
 
 In this contrived example you would need:
 
-在这个编造的例子中，你需要：
+在这个人为的例子中，你需要：
 
 *   Lots and lots of unit tests for the mathematical equations. 针对数学方程式的大量单元测试
 *   Some integration tests for the CSV reading and JSON writing 针对 CSV 读取和写入的一些集成测试
-*   No GUI tests because there is no GUI. 没有 GUI（图形界面）测试，因为没有 GUI。
+*   No GUI tests because there is no GUI. 没有 GUI（图形用户界面）测试，因为没有 GUI。
 
 Here is the breakdown of tests for this project:
 
-![Test pyramid example](https://user-images.githubusercontent.com/4011348/40817728-84bd14f6-6586-11e8-9fd4-5207632d5936.png)
+以下是本项目的测试细目：
+
+![Test pyramid example](
+https://user-images.githubusercontent.com/4011348/40963485-4cea4c12-68db-11e8-8964-11074f922edf.png)
 
 Unit tests dominate in this example and the shape is **not** a pyramid.
 
+单元测试在这个例子里占主导，形状并**不是**一个金字塔。
+
 #### Example - Payment Management
+
+#### 例子 - 支付管理
 
 You are adding a new application that will be inserted into an existing big collection of enterprise systems. The application is a payment gateway that processes payment information for an external system. This new application should keep a log of all transactions to an external DB, it should communicate with external payment providers (e.g. Paypal, Stripe, WorldPay) and it should also send payment details to another system that prepares invoices.
 
+你现在要新写一个程序，它被集成到一个已有的大规模的企业系统中。这个程序是一个支付网关，用来为一个外部系统处理支付信息。这个新程序需要保留全量的事务日志到外部的数据库，它应该和外部支付提供商（例如 Paypal、Stripe 或 WorldPay）通信，并应该发送交易详情到准备发票的另一个系统。
+
 In this contrived example you would need
 
-*   Almost no unit tests because there is no business logic
-*   Lots and lots of integration tests for the external communications, the db storage, the invoice system
-*   No UI Tests because there is a no UI
+在这个人为的例子中，你需要：
+
+*   Almost no unit tests because there is no business logic  几乎不需要单元测试，因为没有业务逻辑
+*   Lots and lots of integration tests for the external communications, the db storage, the invoice system 需要为外部通信、数据库存储和发票系统写大量的集成测试
+*   No UI Tests because there is a no UI 没有 UI 测试，因为没有用户界面
 
 Here is the breakdown of tests for this project:
 
-![Test pyramid example](https://user-images.githubusercontent.com/4011348/40817730-8a73e438-6586-11e8-911e-adb6cb0a9487.png)
+以下是本项目的测试细目：
+
+![Test pyramid example](
+https://user-images.githubusercontent.com/4011348/40817728-84bd14f6-6586-11e8-9fd4-5207632d5936.png)
 
 Integrations tests dominate in this example and the shape is **not** a pyramid.
 
+集成测试在这个例子中占主导地位，形状**并不是**一个金字塔。
+
 #### Example - Website creator
+
+#### 例子 - 网站创建器
 
 You are working on this brand new startup that will revolutionize the way people create websites, by offering a one-of-a-kind way to create web applications from within the browser.
 
+你现在正在为一家全新的创业公司工作，该公司通过提供一个独一无二的方式从浏览器里创建 Web 应用程序，将颠覆人们创建网站的方式，
+
 The application is a graphical designer with a toolbox of all the possible HTML elements that can be added on a web page along with library of premade templates. There is also the ability to get new templates from a marketplace. The website creator works in a very friendly way by allowing you to drag and drop components on the page, resize them, edit their properties and change their colors and appearance.
+
+该应用程序是一个图形设计器，包含几乎所有可以加入到网页中的 HTML 元素的工具箱，以及预制的模板库，还有从市场获得新模板的能力。这个网站创建器以非常友好的方式工作，并允许你在页面上拖放组件、调整尺寸、编辑属性并更改他们的颜色和外观。
 
 In this contrived example you would need
 
-*   Almost no unit tests because there is no business logic
-*   Some integration tests for the marketplace
-*   Lots and lots of UI tests that make sure the user experience is as advertised
+在这个人为的例子中，你需要
+
+*   Almost no unit tests because there is no business logic 几乎没有单元测试，因为没有业务逻辑
+*   Some integration tests for the marketplace 针对市场的一些集成测试
+*   Lots and lots of UI tests that make sure the user experience is as advertised 大量的 UI 测试，确保用户体验和广告一致
 
 Here is the breakdown of tests for this project:
 
-![Test pyramid example](https://user-images.githubusercontent.com/4011348/40817738-9104f44a-6586-11e8-9740-028bf40c6d1c.png)
+以下是本项目的测试细目：
+
+![Test pyramid example](https://user-images.githubusercontent.com/4011348/40817730-8a73e438-6586-11e8-911e-adb6cb0a9487.png)
 
 UI tests dominate here and the shape is **not** a pyramid.
 
+UI 测试在这里占主导地位，形状**不是**金字塔。
+
 I used some extreme examples to illustrate the point that you need to understand what your application needs and focus only on the tests that give you value. I have personally seen “payment management” applications with no integration tests and “website creator” applications with no UI tests.
 
+我使用了一些极端的例子来说明，你要明白你的应用程序需要什么，并专注于能带给你价值的测试。我亲眼看到过没有集成测试的“支付管理”应用程序和没有 UI 测试的 “网站创造器”。
+
 There are several articles on the web (I am not going to link them) that talk about a specific amount on integration/unit/UI tests that you need or don’t need. All these articles are based on assumptions that may _not_ be true in your case.
+
+网上有一些文章（我不会贴出来这些链接），这些文章谈论了集成测试/单元测试/UI测试的具体数量。这些文章都是基于假设得出的，并**不**一定适用于你的具体情况。
 
 ### Anti-Pattern 4 - Testing the wrong functionality
 
