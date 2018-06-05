@@ -3,7 +3,9 @@ layout: post
 title:  "软件测试的反模式（译）"
 ---
 
-* 英文原文：[Software Testing Anti-patterns](http://blog.codepipes.com/testing/software-testing-antipatterns.html)
+* 英文原文：
+    * [Software Testing Anti-patterns](http://blog.codepipes.com/testing/software-testing-antipatterns.html)
+    * [Markdown](https://github.com/kkapelon/kkapelon.github.io/blob/master/_posts/2018-04-21-software-testing-antipatterns.md)
 * 译者： [孙继祖](https://www.linkedin.com/in/jizusun/)、 [黄秋荣](https://github.com/smallsnack)
 * 延伸阅读
     - [Discussion thread on Hacker News](https://news.ycombinator.com/item?id=16894927)
@@ -461,53 +463,12 @@ _Let me tell you a little secret:_ Code coverage is completely useless as a metr
 
 Here is their definition if you have never seen them before:
 
-Metric Name
-
-Description
-
-Ideal value
-
-Usual value
-
-Problematic value
-
-PDWT
-
-% of Developers writing tests
-
-100%
-
-20%-70%
-
-Anything less than 100%
-
-PBCNT
-
-% of bugs that create new tests
-
-100%
-
-0%-5%
-
-Anything less than 100%
-
-PTVB
-
-% of tests that verify behavior
-
-100%
-
-10%
-
-Anything less than 100%
-
-PTD
-
-% of tests that are deterministic
-
-100%
-
-50%-80%
+|  Metric Name  | Description | Ideal value | Usual value | Problematic value |
+| -------------      |-------------| -----   |       -----|    -----|
+| PDWT | % of Developers writing tests        |   100%      |  20%-70%    |   Anything less than 100% |
+| PBCNT | % of bugs that create new tests          |   100%       |  0%-5%    |   Anything less than 100% |
+| PTVB | % of tests that verify behavior       |   100%       |  10%   |   Anything less than 100% |
+| PTD | % of tests that are deterministic       |   100%       |  50%-80%    |   Anything less than 100% |
 
 Anything less than 100%
 
