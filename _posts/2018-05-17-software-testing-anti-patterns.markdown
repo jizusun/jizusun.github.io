@@ -280,9 +280,11 @@ Your application is a command line utility. It reads one special format of a fil
 
 In this contrived example you would need:
 
-*   Lots and lots of unit tests for the mathematical equations.
-*   Some integration tests for the CSV reading and JSON writing
-*   No GUI tests because there is no GUI.
+在这个编造的例子中，你需要：
+
+*   Lots and lots of unit tests for the mathematical equations. 针对数学方程式的大量单元测试
+*   Some integration tests for the CSV reading and JSON writing 针对 CSV 读取和写入的一些集成测试
+*   No GUI tests because there is no GUI. 没有 GUI（图形界面）测试，因为没有 GUI。
 
 Here is the breakdown of tests for this project:
 
