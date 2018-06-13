@@ -1,4 +1,4 @@
-﻿---
+---
 layout: post
 title:  "软件测试的反模式（译）"
 ---
@@ -31,16 +31,16 @@ Unfortunately, testing terminology has not reached a common consensus yet. If yo
 
 不幸的是，测试术语还未达成共识，如果你问 100 个程序员，集成测试、组件测试、端到端测试的区别，你也许会得到 100 种不同的答案。基于本文的目的，我将集中讨论下面这幅测试金字塔中的定义。
 
-![The Testing pyramid](https://user-images.githubusercontent.com/20513905/39738946-cf275660-52c0-11e8-961d-556a743acf83.png)
+![测试金字塔](https://user-images.githubusercontent.com/20513905/41332131-29fece64-6f0f-11e8-926e-1edbd9526424.png)
 
 If you have never encountered the testing pyramid before, I would urge you to become familiar with it first before going on. Some good starting points are:
 
 如果你以前从未遇到过测试金字塔，我强烈建议你在读下去之前先去熟悉它。下面一些文章可以作为切入点：
 
-*   [The forgotten layer of the test automation pyramid](https://www.mountaingoatsoftware.com/blog/the-forgotten-layer-of-the-test-automation-pyramid) (Mike Cohn 2009)
-*   [The Test Pyramid](https://martinfowler.com/bliki/TestPyramid.html) (Martin Fowler 2012)
-*   [Google Testing blog](https://testing.googleblog.com/2015/04/just-say-no-to-more-end-to-end-tests.html) (Google 2015)
-*   [The Practical Test Pyramid](https://martinfowler.com/articles/practical-test-pyramid.html) (Ham Vocke 2018)
+*   [The forgotten layer of the test automation pyramid 测试自动化金字塔中的遗忘层](https://www.mountaingoatsoftware.com/blog/the-forgotten-layer-of-the-test-automation-pyramid) (Mike Cohn 2009)
+*   [The Test Pyramid 测试金字塔](https://martinfowler.com/bliki/TestPyramid.html) (Martin Fowler 2012)
+*   [Google Testing blog 谷歌测试博客](https://testing.googleblog.com/2015/04/just-say-no-to-more-end-to-end-tests.html) (Google 2015)
+*   [The Practical Test Pyramid 实用测试金字塔](https://martinfowler.com/articles/practical-test-pyramid.html) (Ham Vocke 2018)
 
 The testing pyramid deserves a whole discussion on its own, especially on the topic of the amount of tests needed for each category. For the current article I am just referencing the pyramid in order to define the two lowest test categories. Notice that in this article User Interface Tests (the top part of the pyramid) are _not_ mentioned (mainly for brevity reasons and because UI tests come with their own specific anti-patterns).
 
@@ -62,21 +62,30 @@ Therefore the two major test categories mentioned as _unit_ and _integration_ te
 
 **Unit tests** are the category of tests that have wider acceptance regarding the naming and what they mean. They are the tests that accompany the source code and have direct access to it. Usually they are executed with an [xUnit framework](https://en.wikipedia.org/wiki/XUnit) or similar library. These tests work directly on the source code and have full view of everything. A single class/method/function is tested (or whatever is the smallest possible working unit for that particular business feature) and anything else is mocked/stubbed.
 
+**单元测试**是对其命名和含义有更广泛接受的测试类别。它们是伴随着源代码并且直接访问它的测试。通常它们使用[xUnit框架]　(https://en.wikipedia.org/wiki/XUnit) 或者类似的库执行。这些测试直接运行在源代码上，并且对所有的东西都有一个全面的了解。被测对象是一个类、方法、函数（或者为某特殊业务功能而设计的最小工作单元），而其他任何东西都是被模拟的或者被替代的。
+
 **Integration tests** (also called service tests, or even component tests) focus on a whole component. A component can be a set of classes/methods/functions, a module, a subsystem or even the application itself. They examine the component by passing input data and examinining the output data it produces. Usually some kind of deployment/bootstrap/setup is required first. External systems can be mocked completely, replaced (e.g. using an in-memory database instead of a real one), or the real external dependency might be used depending on the business case. Compared to unit tests they may require more specialized tools either for preparing the test environment, or for interacting/verifying it.
 
+**集成测试**（也被称作服务测试，甚至是组件测试）专注于整个组件。一个组件可以是一组类、方法、函数，一个模块，一个子系统甚至是应用本身。它们通过传递输入数据并检查其生成的输出数据来检查组件。通常需要先进行某种部署、引导、安装。外部系统可以完全被模拟，替代（例如使用内存数据库而不是真实数据库），或者实际的外部依赖可能会根据业务情况而使用。
+
 The second category suffers from a blurry definition and most naming controversies regarding testing start here. The “scope” for integration tests is also highly controversial and especially the nature of access to the application ([black](https://en.wikipedia.org/wiki/Black-box_testing) or [white](https://en.wikipedia.org/wiki/White-box_testing) box testing and whether [mocking](https://en.wikipedia.org/wiki/Mock_object) is allowed or not).
+第二类受模糊定义的影响, 关于测试的命名争议从这里开始。集成测试的“范围”也是备受争议的。尤其是访问程序的性质（[黑](https://en.wikipedia.org/wiki/Black-box_testing)　或是[白](https://en.wikipedia.org/wiki/White-box_testing)　盒测试，并且是否允许[模拟](https://en.wikipedia.org/wiki/Mock_object)）
 
 As a basic rule of thumb if
+作为一个基本的测试法则，如果
 
-*   a test uses a database
-*   a test uses the network to call another component/application
-*   a test uses an external system (e.g. a queue or a mail server)
-*   a test reads/writes files or performs other I/O
-*   a test does not rely on the source code but instead it uses the deployed binary of the app
+*   a test uses a database  测试中使用了数据库
+*   a test uses the network to call another component/application 测试中使用了网络调用另外一个组件或者应用
+*   a test uses an external system (e.g. a queue or a mail server) 测试中使用了一个外部系统（例如，一个队列或者邮件服务器）
+*   a test reads/writes files or performs other I/O 测试中读写文件或者执行了其他 I/O 操作
+*   a test does not rely on the source code but instead it uses the deployed binary of the app 测试不依赖于源代码，而是使用应用程序的部署二进制文件
 
 …then it is an integration test and not a unit test.
 
+那它就是一个集成测试而不是单元测试。
+
 With the naming out of the way, we can dive into the list. The order of anti-patterns roughly follows their appearance in the wild. Frequent problems are gathered in the top positions.
+
 
 ### Software Testing Anti-Pattern List
 
