@@ -7,8 +7,8 @@
 
 Run 
 ```
-bundle exec jekyll serve
-# => Now browse to http://localhost:4000 
+bundle exec jekyll serve -l --incremental
+# => Now browse to http://localhost:4000, with live-reload
 ```
 
 See more at: https://jekyllrb.com/
