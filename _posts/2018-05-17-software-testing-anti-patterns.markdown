@@ -451,17 +451,25 @@ Of course in theory it is possible for the verified objects themselves to change
 
 In summary, if you find yourself continuously fixing existing tests as you add new features, it means that your tests are tightly coupled to internal implementation.
 
-### Anti-Pattern 6 - Paying excessive attention to test coverage
+### Anti-Pattern 6 - Paying excessive attention to test coverage 反模式6 - 过度关注测试覆盖率
 
 Code coverage is a favorite metric among software stakeholders. [Endless discussions](https://softwareengineering.stackexchange.com/questions/1380/how-much-code-coverage-is-enough) [have](https://martinfowler.com/bliki/TestCoverage.html) [happened](https://testing.googleblog.com/2010/07/code-coverage-goal-80-and-no-less.html) (and will continue to happen) among developers and project managers on the amount of code coverage a project needs.
 
+代码覆盖率是软件利益相关者们（stakeholders）最喜欢的指标。关于一个项目到底需要怎样的代码覆盖量，开发者和项目经理之间  [曾经](https://martinfowler.com/bliki/TestCoverage.html)  [发生过](https://testing.googleblog.com/2010/07/code-coverage-goal-80-and-no-less.html)  [无休止的争论](https://softwareengineering.stackexchange.com/questions/1380/how-much-code-coverage-is-enough)，而且仍将继续下去。
+
 The reason why everybody likes to talk about code coverage is because it is a metric that is easy to understand and quantify. There are several easily accessible tools that output this metric for most programming languages and test frameworks.
+
+每个人都喜欢谈论代码覆盖的原因是，它是一个易于理解和量化的指标。对于大多数编程语言和测试框架，有几种容易得到的工具可以输出该指标。
 
 _Let me tell you a little secret:_ Code coverage is completely useless as a metric. There is no “correct” code coverage number. This is a trap question. You can have a project with 100% code coverage that still has bugs and problems. The real metrics that you should monitor are the well-known CTM.
 
-##### The Codepipes Testing Metrics (CTM)
+_让我告诉你一个小秘密：_ 代码覆盖率是一个毫无用处的指标。没有一个所谓“正确”的代码覆盖数量。这是一个陷阱问题。你可以让一个项目达到 100% 的代码覆盖率，但仍然有 bug 。你应该监控的真正指标是众所周知的 CTM。
+
+#### The Codepipes Testing Metrics (CTM) Codepipes 测试指标（CTM）
 
 Here is their definition if you have never seen them before:
+
+如果你从没见过它们，这是它们的定义。
 
 |  Metric Name  | Description | Ideal value | Usual value | Problematic value |
 | -------------      |-------------| -----   |       -----|    -----|
@@ -470,9 +478,19 @@ Here is their definition if you have never seen them before:
 | PTVB | % of tests that verify behavior       |   100%       |  10%   |   Anything less than 100% |
 | PTD | % of tests that are deterministic       |   100%       |  50%-80%    |   Anything less than 100% |
 
-Anything less than 100%
+
+
+| 度量名称  | 描述 | 理想值 | 寻常值 | 问题值 |
+| -------------      |-------------| -----   |       -----|    -----|
+| PDWT | 开发者写测试的百分比   |   100%      |  20%-70%    |   任何低于100% |
+| PBCNT | bug 能带来新测试的百分比    |   100%   |  0%-5%    |   任何低于100% |
+| PTVB | 测试用来验证行为的百分比   |   100%       |  10%   |   任何低于100%  |
+| PTD | 测试是确定性的百分比|   100%       |  50%-80%    |  任何低于100% |
+
 
 **PDWT** (Percent of Developers who Write Tests) is probably the most important metric of all. There is no point in talking about software testing anti-patterns if you have zero tests in the first place. All developers in the team should write tests. A new feature should be declared _done_ only when it is accompanied by one or more tests.
+
+**PDWT** (开发者写测试的百分比)可能是最重要的指标。如果没有写测试，那么谈论软件测试反模式就毫无意义。团队中的所有开发人员都应该写测试。只有伴随一个或更多的测试，一个新功能才能算作 _完成_。
 
 **PBCNT** (Percent of Bugs that Create New tests). Every bug that slips into production is a great excuse for writing a new software test that verifies the respective fix. A bug that appears in production should only appear once. If your project suffers from bugs that appear multiple times in production even after their original “fix”, then your team will really benefit from this metric. More details on this topic in [Antipattern 10](#anti-pattern-10---not-converting-production-bugs-to-tests).
 
@@ -491,11 +509,11 @@ In any non trivial application there are certain scenarios that needs complex un
 
 If you have worked with any big application you should know by now that after reaching 70% or 80% code coverage, it is getting very hard to write useful tests for the code that is still untested.
 
-![Code Coverage Effort](../../assets/testing-anti-patterns/code-coverage-effort.png)
+![Code Coverage Effort](https://user-images.githubusercontent.com/4011348/41632934-dae114f8-746e-11e8-96a5-3e0bc4d4f8f3.png)
 
 On a similar note, as we already saw in the section for [Antipattern 4](#anti-pattern-4---testing-the-wrong-functionality), there are some code paths that never actually fail in production, and therefore writing tests for them is not recommended. The time spent on getting them covered should be better spent on actual features.
 
-![Code Coverage Value](../../assets/testing-anti-patterns/code-coverage-value.jpg)
+![Code Coverage Value](https://user-images.githubusercontent.com/4011348/41632942-e49eb694-746e-11e8-83f0-21f22e87b07d.png)
 
 Projects that need a specific code coverage percentage as a delivery requirement usually force developers to test trivial code in order or write tests that just verify the underlying programming language. This is a huge waste of time and as a developer you have the duty to complain to management who has such unreasonable demands.
 
