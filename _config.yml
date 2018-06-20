@@ -26,8 +26,6 @@ show_excerpts: true
 
 header_pages:
 - categories.html
-# - translation.md
-# - note.md
 - about.md
 
 # Build settings
@@ -36,8 +34,11 @@ theme: minima
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-sitemap
+
 
 kramdown:
+  # Generate TOC
   parse_block_html: true
 
 # Exclude from processing.

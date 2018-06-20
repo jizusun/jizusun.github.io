@@ -1,6 +1,6 @@
-# My Translations
+# My Writings
 
-* Blog powered by Jekyll: https://jizusun.github.io/my-translations/
+* Blog powered by Jekyll: https://jizusun.github.io/
 * Upcoming plans for translation: https://github.com/jizusun/my-translations/issues
 
 ### Local Development 
