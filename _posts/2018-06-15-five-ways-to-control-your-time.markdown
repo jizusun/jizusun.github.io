@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Lynda.com: 5 Ways to Control Your Time"
-categories: note
+categories: readings
 ---
 
 * Author: [Chris Croft](https://www.lynda.com/Chris-Croft/3308631-1.html)
