@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "软件测试的反模式（译）"
+categories: translation
 ---
 
 * 英文原文：[Software Testing Anti-patterns](http://blog.codepipes.com/testing/software-testing-antipatterns.html)
