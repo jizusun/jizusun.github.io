@@ -1,0 +1,29 @@
+---
+layout: page
+title: Archives
+permalink: /archives/
+---
+
+
+{% for tag in site.categories %}
+  <h3 id="{{ tag[0] }}">{{ tag[0] | capitalize }}</h3>
+  <ul>
+    {% assign pages_list = tag[1] %}
+    {% for post in pages_list %}
+      {% if post.title != null %}
+      {% if group == null or group == post.group %}
+        <li>
+          {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+          <span class="post-meta">{{ post.date | date: date_format }}</span>
+            <a href="{{ post.url | relative_url }}">
+              {{ post.title | escape }}
+            </a>
+        </li>
+      {% endif %}
+      {% endif %}
+    {% endfor %}
+    {% assign pages_list = nil %}
+    {% assign group = nil %}
+  </ul>
+{% endfor %}
+

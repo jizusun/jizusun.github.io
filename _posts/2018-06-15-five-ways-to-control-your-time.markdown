@@ -1,9 +1,7 @@
 ---
 layout: post
 title:  "Lynda.com: 5 Ways to Control Your Time"
-categories: note
-tags: [jwt, authorization]
-author: 孙继祖（译）
+categories: readings
 ---
 
 * Author: [Chris Croft](https://www.lynda.com/Chris-Croft/3308631-1.html)
@@ -17,6 +15,12 @@ author: 孙继祖（译）
 > The first—saying no—is simple in theory, but hard in practice. Chris explains how to reclaim the power of "no" to make room for true priority items. The second step, negotiation, allows you to spend less time on unimportant tasks. The third way is to delegate sometimes, and the fourth is improving systems and processes so that repetitive tasks are quickly and easily managed. Last but not least, Chris explains how to overcome perfectionism and nitpicking. He explains how to apply the five methods to all time-stealers, including meetings, interruptions, and more.
 
 > In the initial chapters, he'll help you clarify your life and work goals, prioritize to-dos using Eisenhower's matrix of tasks, and answers questions like "Does working longer hours actually get more done?" The worksheets included with the exercise files will help you apply the lessons to your own work and life, and hone your time management skills—one step at a time. 
+
+## Table of Content
+{:.no_toc}
+
+* A markdown unordered list which will be replaced with the ToC, excluding the "Contents header" from above
+{:toc}
 
 ## Introduction
 ### Welcome
@@ -98,6 +102,9 @@ author: 孙继祖（译）
 ### Option 1: Say no at work
 
 ### Option 2: Use negotiation tactics
+- Negotiation Tips
+    + Can you get something in return?  If you do it for free, they'll probably ask for more and more in the future.
+    + 
 
 ### Option 3: Delegate to save time
 

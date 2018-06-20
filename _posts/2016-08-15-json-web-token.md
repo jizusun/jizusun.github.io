@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "适用于前后端分离的下一代认证机制 —— JSON Web Token（译）"
-categories: translation
+categories: translations
 tags: [jwt, authorization]
 author: 孙继祖（译）
 ---

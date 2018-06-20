@@ -13,20 +13,22 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Jizu's Blog
+title: Jizu's Writings
 author: Jizu Sun (孙继祖)
 description: >- # this means to ignore newlines until "baseurl:"
-  Continuous reflections on work and life 
-baseurl: "/my-translations" # the subpath of your site, e.g. /blog
+  Continous integration, continous development, and continuous reflections on my work and life
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  jizusun
 disqus:
   shortname: jizusun
 
-hidden_category: 
-  - note
-
 show_excerpts: true
+
+header_pages:
+- categories.html
+# - translation.md
+# - note.md
+- about.md
 
 # Build settings
 markdown: kramdown
@@ -49,3 +51,9 @@ kramdown:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+
+# Custom Variables
+home_visible_categories:
+- translations
+- blogs
