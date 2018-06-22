@@ -62,7 +62,13 @@ Topics include:
     + Play live against a person
     + Show users a leaderboard
     + Use a real machine learning API
-- 
-
-
+-  Generating a starer project
+    +  Using `create-react-app`
+- Creating a Git repository
+    + Author's GitHub profile: <https://github.com/carlpeaslee>
+- Preparing for Relay
+    + <https://www.graph.cool>
+    + `yarn run eject`
+    + `yarn add -D babel-plugin-react-relay`
+>>>>>>> 1. Planning
 
