@@ -104,7 +104,7 @@ This problem is a classic one with small to medium companies. The application th
 
 1.  The company has no senior developers. The team has only junior developers fresh out of college who have only seen unit tests 公司里没有资深的开发人员。团队里只有刚毕业的初级程序员，只了解过单元测试。
 2.  Integration tests existed at one point but were abandoned because they caused more trouble than their worth. Unit tests were much more easy to maintain and so they prevailed. 集成测试曾经存在过，但被舍弃了，因为它们造成的麻烦比它们的价值更多。单元测试更容易维护 ，因此它们占了上风。
-3.  The running environment of the application is very “challenging” to setup. Features are “tested” in production. 应用程序运行环境的搭建非常困难。功能都是在生产环境中“测试”的。
+3.  The running environment of the application is very “challenging” to setup. Features are “tested” in production. 应用运行环境的搭建非常困难。功能都是在生产环境中“测试”的。
 
 I cannot really say anything about the first issue. Every effective team should have at least some kind of mentor/champion that can show good practices to the other members. The second issue is covered in detail in anti-patterns [5](#anti-pattern-5---testing-internal-implementation), [7](#anti-pattern-7---having-flaky-or-slow-tests) and [8](#anti-pattern-8---running-tests-manually).
 
@@ -112,11 +112,11 @@ I cannot really say anything about the first issue. Every effective team should 
 
 This brings us to the last issue - difficulty in setting up a test environment. Now don’t get me wrong, there are indeed some applications that are _really_ hard to test. Once I had to work with a set of REST applications that actually required special hardware on their host machine. This hardware existed only in production, making integration tests very challenging. But this is a corner case.
 
-我们再看最后一个问题 —— 很难搭建测试环境。这里不要误解我的意思，有些应用程序确实 _非常_ 难以 测试。我曾经要处理一些 REST 应用程序，它们需要在主机上装一种特殊的硬件。这种硬件只存在于生产环境中，使得集成测试非常困难。但这是一个极端的情况。
+我们再看最后一个问题 —— 很难搭建测试环境。这里不要误解我的意思，有些应用确实 _非常_ 难以 测试。我曾经要处理一些 REST 应用，它们需要在主机上装一种特殊的硬件。这种硬件只存在于生产环境中，使得集成测试非常困难。但这是一个极端的情况。
 
 For the run-of-the-mill web or back-end application that the typical company creates, setting up a test environment should be a non-issue. With the appearance of Virtual Machines and lately Containers this is more true than ever. Basically if you are trying to test an application that is hard to setup, you need to fix the setup process first before dealing with the tests themselves.
 
-对于多数公司创建的一般的 Web 程序或后端应用程序，搭建测试环境应该不是什么问题。随着虚拟机（Virtual Machines）和最近的容器（Containers)的出现，这比以前容易得多。通常，如果你尝试测试一个很难搭建环境的应用程序，你应该在处理测试之前先解决搭建环境的流程问题。
+对于多数公司创建的一般的 Web 程序或后端应用，搭建测试环境应该不是什么问题。随着虚拟机（Virtual Machines）和最近的容器（Containers)的出现，这比以前容易得多。通常，如果你尝试测试一个很难搭建环境的应用，你应该在处理测试之前先解决搭建环境的流程问题。
 
 But why are integration tests essential in the first place?
 
@@ -124,7 +124,7 @@ But why are integration tests essential in the first place?
 
 The truth here is that there are some types of issues that _only_ integration tests can detect. The canonical example is everything that has to do with database operations. Database transactions, database triggers and any stored procedures can only be examined with integration tests that touch them. Any connections to other modules either developed by you or external teams need integration tests (a.k.a. contract tests). Any tests that need to verify performance, are integration tests by definition. Here is a summary on why we need integration tests:
 
-事实是，有些问题（issues）_只有_ 集成测试才能探测到。经典的例子是，所有与数据库操作相关的事情。数据库事务、数据库触发器、和任何存储过程都只能使用集成测试来验证。任何与您或外部团队开发的其他模块的连接都需要集成测试（又称契约测试，contract tests) 。根据定义，任何需要验证性能的测试都是集成测试。以下是我们为什么需要集成测试。
+事实是，有些问题（issues）_只有_ 集成测试才能探测到。经典的例子是，所有与数据库操作相关的事情。数据库事务、数据库触发器、和任何存储过程都只能使用集成测试来验证。任何与你或外部团队开发的其他模块的连接都需要集成测试（又称契约测试，contract tests) 。根据定义，任何需要验证性能的测试都是集成测试。以下是我们为什么需要集成测试。
 
 | Type of issue                           | Detected by Unit tests | Detected by Integration tests |
 |-----------------------------------------|------------------------|-------------------------------|
@@ -152,7 +152,7 @@ The truth here is that there are some types of issues that _only_ integration te
 
 Basically any cross-cutting concern of your application will require integration tests. With the recent microservice craze integration tests become even more important as you now have contracts between your own services. If those services are developed by other teams, you need an automatic way to verify that interface contracts are not broken. This can only be covered with integration tests.
 
-基本上，您的应用程序的任何交叉问题（cross-cutting concern）都需要集成测试。随着最近兴起的微服务热潮，集成测试变得更加重要，因为您现在已经在自己的服务之间建立了契约。如果这些服务是其他团队开发的，你需要一个自动化的方式来验证接口的契约没有坏掉。这只能通过集成测试来解决。
+基本上，你的应用的任何交叉问题（cross-cutting concern）都需要集成测试。随着最近兴起的微服务热潮，集成测试变得更加重要，因为你现在已经在自己的服务之间建立了契约。如果这些服务是其他团队开发的，你需要一个自动化的方式来验证接口的契约没有坏掉。这只能通过集成测试来解决。
 
 To sum up, unless you are creating something extremely isolated (e.g. a command line linux utility), you really **need** integration tests to catch issues not caught by unit tests.
 
@@ -268,7 +268,7 @@ Now that we have seen why we need both kinds of tests (unit _and_ integration), 
 
 There is no hard and fast rule here, it depends on your application. The important point is that you need to spend some time to understand what type of tests add the most value to _your_ application. The test pyramid is only a suggestion on the amount of tests that you should create. It assumes that you are writing a commercial web application, but that is not always the case. Let’s see some examples:
 
-这里没有硬性规定，这取决于你的应用。 重要的是，您需要花一些时间来了解什么类型的测试能为 _你的_ 应用程序带来最大的价值。 测试金字塔只是您应该创建的测试数量的一个建议。 它假定您正在编写一个商业 Web 应用程序，但情况并非总是如此。 我们来看一些例子：
+这里没有硬性规定，这取决于你的应用。 重要的是，你需要花一些时间来了解什么类型的测试能为 _你的_ 应用带来最大的价值。 测试金字塔只是你应该创建的测试数量的一个建议。 它假定你正在编写一个商业 Web 应用，但情况并非总是如此。 我们来看一些例子：
 
 #### Example - Linux command line utility
 
@@ -276,11 +276,11 @@ There is no hard and fast rule here, it depends on your application. The importa
 
 Your application is a command line utility. It reads one special format of a file (let’s say a CSV) and exports another format (let’s say JSON) after doing some transformations. The application is self-contained, does not communicate with any other system or use the network. The transformations are complex mathematical processes that are critical for the correct functionality of the application (it should always be correct even if it slow).
 
-你的应用程序是一个命令行工具。 它读取文件的一种特殊格式（比如 CSV ），并在做一些转换后导出另一种格式（比如 JSON ）。 该应用程序是独立的，不与任何其他系统通信或使用网络。 转换是复杂的数学过程，对于应用程序的正确功能至关重要（即使速度缓慢，它也应该始终正确）。
+你的应用是一个命令行工具。 它读取一种特殊的文件格式（比如 CSV ），并在做一些转换后导出另一种格式（比如 JSON ）。 该应用是独立的，不与任何其他系统通信或使用网络。 转换是复杂的数学过程，对于应用的正确功能至关重要（即使速度缓慢，它也应该始终正确）。
 
 In this contrived example you would need:
 
-在这个人为的例子中，你需要：
+在这个编造的例子中，你需要：
 
 *   Lots and lots of unit tests for the mathematical equations. 针对数学方程式的大量单元测试
 *   Some integration tests for the CSV reading and JSON writing 针对 CSV 读取和写入的一些集成测试
@@ -303,11 +303,11 @@ Unit tests dominate in this example and the shape is **not** a pyramid.
 
 You are adding a new application that will be inserted into an existing big collection of enterprise systems. The application is a payment gateway that processes payment information for an external system. This new application should keep a log of all transactions to an external DB, it should communicate with external payment providers (e.g. Paypal, Stripe, WorldPay) and it should also send payment details to another system that prepares invoices.
 
-你现在要新写一个程序，它被集成到一个已有的大规模的企业系统中。这个程序是一个支付网关，用来为一个外部系统处理支付信息。这个新程序需要保留全量的事务日志到外部的数据库，它应该和外部支付提供商（例如 Paypal、Stripe 或 WorldPay）通信，并应该发送交易详情到准备发票的另一个系统。
+你现在要新写一个应用，它被集成到一个已有的大规模的企业系统中。这个应用是一个支付网关，用来为一个外部系统处理支付信息。这个新应用需要保留全量的事务日志到外部的数据库，它应该和外部支付提供商（例如 Paypal、Stripe 或 WorldPay）通信，并应该发送交易详情到准备发票的另一个系统。
 
 In this contrived example you would need
 
-在这个人为的例子中，你需要：
+在这个编造的例子中，你需要：
 
 *   Almost no unit tests because there is no business logic  几乎不需要单元测试，因为没有业务逻辑
 *   Lots and lots of integration tests for the external communications, the db storage, the invoice system 需要为外部通信、数据库存储和发票系统写大量的集成测试
@@ -330,15 +330,15 @@ Integrations tests dominate in this example and the shape is **not** a pyramid.
 
 You are working on this brand new startup that will revolutionize the way people create websites, by offering a one-of-a-kind way to create web applications from within the browser.
 
-你现在正在为一家全新的创业公司工作，该公司通过提供一个独一无二的方式从浏览器里创建 Web 应用程序，将颠覆人们创建网站的方式，
+你现在正在为一家全新的创业公司工作，该公司通过提供一个独一无二的方式从浏览器里创建 Web 应用，将颠覆人们创建网站的方式，
 
 The application is a graphical designer with a toolbox of all the possible HTML elements that can be added on a web page along with library of premade templates. There is also the ability to get new templates from a marketplace. The website creator works in a very friendly way by allowing you to drag and drop components on the page, resize them, edit their properties and change their colors and appearance.
 
-该应用程序是一个图形设计器，包含几乎所有可以加入到网页中的 HTML 元素的工具箱，以及预制的模板库，还有从市场获得新模板的能力。这个网站创建器以非常友好的方式工作，并允许你在页面上拖放组件、调整尺寸、编辑属性并更改他们的颜色和外观。
+该应用是一个图形设计器，包含几乎所有可以加入到网页中的 HTML 元素的工具箱，以及预制的模板库，还有从市场获得新模板的能力。这个网站创建器以非常友好的方式工作，并允许你在页面上拖放组件、调整尺寸、编辑属性并更改他们的颜色和外观。
 
 In this contrived example you would need
 
-在这个人为的例子中，你需要
+在这个编造的例子中，你需要
 
 *   Almost no unit tests because there is no business logic 几乎没有单元测试，因为没有业务逻辑
 *   Some integration tests for the marketplace 针对市场的一些集成测试
@@ -356,7 +356,7 @@ UI 测试在这里占主导地位，形状**不是**金字塔。
 
 I used some extreme examples to illustrate the point that you need to understand what your application needs and focus only on the tests that give you value. I have personally seen “payment management” applications with no integration tests and “website creator” applications with no UI tests.
 
-我使用了一些极端的例子来说明，你要明白你的应用程序需要什么，并专注于能带给你价值的测试。我亲眼看到过没有集成测试的“支付管理”应用程序和没有 UI 测试的 “网站创造器”。
+我使用了一些极端的例子来说明，你要明白你的应用需要什么，并专注于能带给你价值的测试。我亲眼看到过没有集成测试的“支付管理”应用和没有 UI 测试的 “网站创造器”应用。
 
 There are several articles on the web (I am not going to link them) that talk about a specific amount on integration/unit/UI tests that you need or don’t need. All these articles are based on assumptions that may _not_ be true in your case.
 
