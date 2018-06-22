@@ -1,17 +1,17 @@
 ---
 layout: post
-title:  "
-适用于前后端分离的下一代认证机制 —— JSON Web Token（译）"
+title:  "适用于前后端分离的下一代认证机制 —— JSON Web Token（译）"
+categories: translation
+tags: [jwt, authorization]
+author: 孙继祖（译）
 ---
 
 * 英文原文：[JSON Web Token 官网](https://jwt.io/introduction/)
-* 译者：[孙继祖](https://www.linkedin.com/in/jizusun/)
 * 延伸阅读
   - [JSON Web Token - 在Web应用间安全地传递信息
 ](http://blog.leapoahead.com/2015/09/06/understanding-jwt/)
   - [Auth0 - Vue.js JWT Authentication](https://github.com/auth0-blog/vue-jwt-authentication)
   - [Auth0 - NodeJS JWT Authentication sample](https://github.com/auth0-blog/nodejs-jwt-authentication-sample)
-
 
 译者注：最近在研究，前后端分离情况下，如何更安全地实现用户登录。偶然间发现了JWT这个标准，感觉官网讲的很详细，因此翻译了官网的介绍文章[https://jwt.io/introduction/](https://jwt.io/introduction/)
 
@@ -122,9 +122,11 @@ Authorization: Bearer <token>
 JSON解析器在大多数编程语言中都很常见，因为它们直接与对象映射。相反，XML并没有自然的"文档-对象"的映射。这使得JWT比SAML更容易操作。
 
 在使用广泛性方面，JWT可以用于因特网级别，特别是减轻了多平台客户端，特别是移动端，方面对JSON Web Token的处理难度。
+
 # Auth0给出的例子：
 - 客户端 Vue.js: https://github.com/auth0-blog/vue-jwt-authentication
 - 服务器端 Node.js: https://github.com/auth0-blog/nodejs-jwt-authentication-sample
+
 # 中文其他文章：
 - http://blog.leapoahead.com/2015/09/06/understanding-jwt/
 - http://www.haomou.net/2014/08/13/2014_web_token/

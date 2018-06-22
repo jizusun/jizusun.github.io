@@ -13,18 +13,18 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Jizu's Translations
-author: Jizu Sun
-email: sunjizu@gmail.com
+title: Jizu's Blog
+author: Jizu Sun (孙继祖)
 description: >- # this means to ignore newlines until "baseurl:"
-  https://github.com/jizusun/my-translations
+  Continuous reflections on work and life 
 baseurl: "/my-translations" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  jizusun
-linkedin_username: jizusun
 disqus:
   shortname: jizusun
 
+hidden_category: 
+  - note
 
 show_excerpts: true
 
@@ -35,6 +35,8 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
 
+kramdown:
+  parse_block_html: true
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list

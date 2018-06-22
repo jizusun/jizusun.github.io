@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Mock不是Stub（译）"
+categories: translation
 ---
 
 * 英文原文：[Martin Fowler: Mocks Aren't Stubs](https://martinfowler.com/articles/mocksArentStubs.html)
