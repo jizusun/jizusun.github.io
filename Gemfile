@@ -21,6 +21,7 @@ gem "github-pages", group: :jekyll_plugins
 # If you have any plugins, put them here!
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.6"
+  gem "jekyll-pwa-plugin", "~> 1.0"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
@@ -31,4 +32,5 @@ gem "wdm", "~> 0.1.0" if Gem.win_platform?
 
 # https://github.com/guard/guard-livereload/issues/176
 gem 'eventmachine', '1.0.9.1'
+
 
