@@ -621,10 +621,10 @@ _08 July 2004:_ First published
 
 ### 其他中文翻译版本
 
-* http://www.predatorray.me/Mock并非Stub-翻译/
-* http://rhetty.github.io/2016/10/27/【翻译】Mock不是Stub
-* http://www.cnblogs.com/anf/archive/2006/03/27/360248.html
-* http://tracylihui.github.io/2015/07/12/Mocks%20Aren%E2%80%99t%20Stubs/
+* <http://www.predatorray.me/Mock并非Stub-翻译/>
+* <http://rhetty.github.io/2016/10/27/【翻译】Mock不是Stub>
+* <http://www.cnblogs.com/anf/archive/2006/03/27/360248.html>
+* <http://tracylihui.github.io/2015/07/12/Mocks%20Aren%E2%80%99t%20Stubs/>
 
 
 ### 其他

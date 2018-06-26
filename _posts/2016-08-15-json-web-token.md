@@ -124,11 +124,11 @@ JSON解析器在大多数编程语言中都很常见，因为它们直接与对�
 在使用广泛性方面，JWT可以用于因特网级别，特别是减轻了多平台客户端，特别是移动端，方面对JSON Web Token的处理难度。
 
 # Auth0给出的例子：
-- 客户端 Vue.js: https://github.com/auth0-blog/vue-jwt-authentication
-- 服务器端 Node.js: https://github.com/auth0-blog/nodejs-jwt-authentication-sample
+- 客户端 Vue.js: <https://github.com/auth0-blog/vue-jwt-authentication>
+- 服务器端 Node.js: <https://github.com/auth0-blog/nodejs-jwt-authentication-sample>
 
 # 中文其他文章：
-- http://blog.leapoahead.com/2015/09/06/understanding-jwt/
-- http://www.haomou.net/2014/08/13/2014_web_token/
+- <http://blog.leapoahead.com/2015/09/06/understanding-jwt/>
+- <http://www.haomou.net/2014/08/13/2014_web_token/>
 
 
