@@ -1,4 +1,4 @@
-﻿
+---
 layout: post
 title:  "软件测试的反模式（译）"
 categories: translations
