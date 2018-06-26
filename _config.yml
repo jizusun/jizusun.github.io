@@ -28,7 +28,6 @@ google_analytics: UA-38782026-6
 
 
 header_pages:
-- categories.html
 - about.md
 
 # Build settings
