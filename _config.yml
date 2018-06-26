@@ -29,8 +29,6 @@ google_analytics: UA-38782026-6
 
 header_pages:
 - categories.html
-# - translation.md
-# - note.md
 - about.md
 
 # Build settings
@@ -42,6 +40,7 @@ plugins:
   - jekyll-sitemap
 
 kramdown:
+  # Generate TOC
   parse_block_html: true
 
 # Exclude from processing.
