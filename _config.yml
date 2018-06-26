@@ -39,7 +39,6 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
 
-
 kramdown:
   # Generate TOC
   parse_block_html: true
