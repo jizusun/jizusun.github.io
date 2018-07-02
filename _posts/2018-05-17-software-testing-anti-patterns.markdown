@@ -5,8 +5,7 @@ categories: translations
 ---
 
 * 英文原文：
-    * [Software Testing Anti-patterns](http://blog.codepipes.com/testing/software-testing-antipatterns.html)
-    * [Markdown](https://github.com/kkapelon/kkapelon.github.io/blob/master/_posts/2018-04-21-software-testing-antipatterns.md)
+    * [Software Testing Anti-patterns](http://blog.codepipes.com/testing/software-testing-antipatterns.html) ([Markdown version](https://github.com/kkapelon/kkapelon.github.io/blob/master/_posts/2018-04-21-software-testing-antipatterns.md))
 * 译者： [孙继祖](https://www.linkedin.com/in/jizusun/)、 [黄秋荣](https://github.com/smallsnack)
 * 延伸阅读
     - [Discussion thread on Hacker News](https://news.ycombinator.com/item?id=16894927)
@@ -276,9 +275,7 @@ This is the longest section of this article, but I consider it very important. I
 
 If you only have integration tests, you waste developer time and company money. You need **both** unit and integration tests are the same time. They are not mutually exclusive. There are several articles on the internet that advocate using only one type of tests. All these articles are misinformed. Sad but true.
 
-### Anti-Pattern 3 - Having the wrong kind of tests 
-
-### 反模式 3 - 采用了错误类型的测试
+### Anti-Pattern 3 - Having the wrong kind of tests 反模式 3 - 采用了错误类型的测试
 
 Now that we have seen why we need both kinds of tests (unit __and__ integration), we need to decide on __how many__ tests we need from each category.
 
@@ -288,9 +285,7 @@ There is no hard and fast rule here, it depends on your application. The importa
 
 这里没有硬性规定，这取决于你的应用。 重要的是，你需要花一些时间来了解什么类型的测试能为 _你的_ 应用带来最大的价值。 测试金字塔只是你应该创建的测试数量的一个建议。 它假定你正在编写一个商业 Web 应用，但情况并非总是如此。 我们来看一些例子：
 
-#### Example - Linux command line utility
-
-#### 例子 - Linux 命令行工具
+#### Example - Linux command line utility 例子 - Linux 命令行工具
 
 Your application is a command line utility. It reads one special format of a file (let’s say a CSV) and exports another format (let’s say JSON) after doing some transformations. The application is self-contained, does not communicate with any other system or use the network. The transformations are complex mathematical processes that are critical for the correct functionality of the application (it should always be correct even if it slow).
 
@@ -315,9 +310,7 @@ Unit tests dominate in this example and the shape is **not** a pyramid.
 
 单元测试在这个例子里占主导，形状并**不是**一个金字塔。
 
-#### Example - Payment Management
-
-#### 例子 - 支付管理
+#### Example - Payment Management  例子 - 支付管理
 
 You are adding a new application that will be inserted into an existing big collection of enterprise systems. The application is a payment gateway that processes payment information for an external system. This new application should keep a log of all transactions to an external DB, it should communicate with external payment providers (e.g. Paypal, Stripe, WorldPay) and it should also send payment details to another system that prepares invoices.
 
@@ -342,9 +335,7 @@ Integrations tests dominate in this example and the shape is **not** a pyramid.
 
 集成测试在这个例子中占主导地位，形状**并不是**一个金字塔。
 
-#### Example - Website creator
-
-#### 例子 - 网站创建器
+#### Example - Website creator 例子 - 网站创建器
 
 You are working on this brand new startup that will revolutionize the way people create websites, by offering a one-of-a-kind way to create web applications from within the browser.
 
@@ -435,8 +426,7 @@ In summary, write unit and integration tests for code that
 
 If you have the time luxury to further expand the test suite, make sure that you understand the diminishing returns before wasting time on tests with little or no value.
 
-### Anti-Pattern 5 - Testing internal implementation
-### 反模式5 - 测试内部实现
+### Anti-Pattern 5 - Testing internal implementation 反模式 5 - 测试内部实现
 
 More tests are always a good thing. Right?
 
@@ -546,32 +536,6 @@ In summary, if you find yourself continuously fixing existing tests as you add n
 Code coverage is a favorite metric among software stakeholders. [Endless discussions](https://softwareengineering.stackexchange.com/questions/1380/how-much-code-coverage-is-enough) [have](https://martinfowler.com/bliki/TestCoverage.html) [happened](https://testing.googleblog.com/2010/07/code-coverage-goal-80-and-no-less.html) (and will continue to happen) among developers and project managers on the amount of code coverage a project needs.
 
 代码覆盖率是软件利益相关者们（stakeholders）最喜欢的指标。关于一个项目到底需要怎样的代码覆盖量，开发者和项目经理之间  [曾经](https://martinfowler.com/bliki/TestCoverage.html)  [发生过](https://testing.googleblog.com/2010/07/code-coverage-goal-80-and-no-less.html)  [无休止的争论](https://softwareengineering.stackexchange.com/questions/1380/how-much-code-coverage-is-enough)，而且仍将继续下去。
-
-总而言之，如果您发现自己在添加新功能时不断修复现有的测试，则意味着您的测试与内部实现密切相关。
-
-### Anti-Pattern 6 - Paying excessive attention to test coverage
-
-Code coverage is a favorite metric among software stakeholders. [Endless discussions](https://softwareengineering.stackexchange.com/questions/1380/how-much-code-coverage-is-enough) [have](https://martinfowler.com/bliki/TestCoverage.html) [happened](https://testing.googleblog.com/2010/07/code-coverage-goal-80-and-no-less.html) (and will continue to happen) among developers and project managers on the amount of code coverage a project needs.
-
-The reason why everybody likes to talk about code coverage is because it is a metric that is easy to understand and quantify. There are several easily accessible tools that output this metric for most programming languages and test frameworks.
-
-_Let me tell you a little secret:__ Code coverage is completely useless as a metric. There is no “correct” code coverage number. This is a trap question. You can have a project with 100% code coverage that still has bugs and problems. The real metrics that you should monitor are the well-known CTM.
-
-##### The Codepipes Testing Metrics (CTM)
-
-Here is their definition if you have never seen them before:
-
-Metric Name
-
-Description
-
-Ideal value
-
-Usual value
-
-Problematic value
-
-PDWT
 
 The reason why everybody likes to talk about code coverage is because it is a metric that is easy to understand and quantify. There are several easily accessible tools that output this metric for most programming languages and test frameworks.
 
