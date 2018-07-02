@@ -266,8 +266,7 @@ Having unit tests break __before__ or __with__ integration tests is a much more 
 
 ##### Quick summary of why you need unit tests
 
-This is the longest section of this article, but I consider it very important. In summary while __in theory__ you could only have integration tests, __in practice_
-
+This is the longest section of this article, but I consider it very important. In summary while __in theory__ you could only have integration tests, __in practice__
 1.  Unit tests are easier to maintain
 2.  Unit tests can easily replicate corner cases and not-so-frequent scenario
 3.  Unit tests run much faster than integration tests
@@ -559,26 +558,33 @@ Here is their definition if you have never seen them before:
 | PTD | % of tests that are deterministic       |   100%       |  50%-80%    |   Anything less than 100% |
 
 
-
 | 度量名称  | 描述 | 理想值 | 寻常值 | 问题值 |
 | -------------      |-------------| -----   |       -----|    -----|
-| PDWT | 开发者写测试的百分比   |   100%      |  20%-70%    |   任何低于100% |
+| PDWT | 写测试的开发者的百分比   |   100%      |  20%-70%    |   任何低于100% |
 | PBCNT | bug 能带来新测试的百分比    |   100%   |  0%-5%    |   任何低于100% |
 | PTVB | 测试用来验证行为的百分比   |   100%       |  10%   |   任何低于100%  |
-| PTD | 测试是确定性的百分比|   100%       |  50%-80%    |  任何低于100% |
+| PTD | 测试具有确定性的百分比|   100%       |  50%-80%    |  任何低于100% |
 
 
 **PDWT** (Percent of Developers who Write Tests) is probably the most important metric of all. There is no point in talking about software testing anti-patterns if you have zero tests in the first place. All developers in the team should write tests. A new feature should be declared __done__ only when it is accompanied by one or more tests.
 
-**PDWT** (开发者写测试的百分比)可能是最重要的指标。如果没有写测试，那么谈论软件测试反模式就毫无意义。团队中的所有开发人员都应该写测试。只有伴随一个或更多的测试，一个新功能才能算作 _完成_。
+**PDWT** (写测试的开发者的百分比)可能是最重要的指标。如果没有写过测试，那么谈论软件测试反模式就毫无意义。团队中的所有开发人员都应该写测试。只有伴随一个或更多的测试，一个新功能才能算作 _完成_。
 
 **PBCNT** (Percent of Bugs that Create New tests). Every bug that slips into production is a great excuse for writing a new software test that verifies the respective fix. A bug that appears in production should only appear once. If your project suffers from bugs that appear multiple times in production even after their original “fix”, then your team will really benefit from this metric. More details on this topic in [Antipattern 10](#anti-pattern-10---not-converting-production-bugs-to-tests).
 
+**PBCNT** (bug 能带来新测试的百分比)。每个溜进生产系统的 bug 都是写新测试来验证相应修复的好理由。出现在生产系统的 bug 只应该出现一次。如果你的项目遭受这样的情形，bug 在被修复之后依然在生产系统中反复出现，那么你的团队将真正从这个指标当中受益。关于此主题更多的细节请参考[反模式 10](#anti-pattern-10---not-converting-production-bugs-to-tests)。
+
 **PTVB** (Percent of Tests that Verify Behavior and not implementation). Tightly coupled tests are a huge time sink when the main code is refactored. This topic was already discussed in [Antipattern 5](#anti-pattern-5---testing-internal-implementation).
+
+**PTVB** (测试用来验证行为而非实现的百分比)。当主代码被重构时，紧密耦合的测试会耗费大量的时间。本主题已经在[反模式 5](#anti-pattern-5---testing-internal-implementation)讨论过了。
 
 **PTD** (Percent of Tests that are Deterministic to total tests). Tests should only fail when something is wrong with the business code. Having tests that fail intermittently for no apparent reason is a huge problem that is discussed in [Antipattern 7](#anti-pattern-7---having-flaky-or-slow-tests).
 
+**PTD** （测试具有确定性的百分比）。当业务代码出现问题的时候，测试应该报错。在没有明显原因的情况下，测试间歇性地报错是一个巨大的问题，这在[反模式 7](#anti-pattern-7---having-flaky-or-slow-tests)讨论过。
+
 If after reading about these metrics, you still insist on setting a hard number as a goal for code coverage, I will give you the number **20%**. This number should be used as a rule of thumb and it is based on the [Pareto principle](https://en.wikipedia.org/wiki/Pareto_principle). 20% of your code is causing 80% of your bugs, so if you really want to start writing tests you could do well by starting with that code first. This advice also ties well with [Anti-pattern 4](#anti-pattern-4---testing-the-wrong-functionality) where I suggest that you should write tests for your critical code first.
+
+如果在阅读完这些指标之后，你仍然坚持将代码覆盖率定为硬性指标，我会告诉你这个数字是 **20%**。这个数字应该作为经验法则，它基于[帕累托原则](https://en.wikipedia.org/wiki/Pareto_principle)。20%的代码会导致80%的bug，所以如果你真的想开始写测试，你可以先从这些代码开始开始。这个建议也和[反模式 4](#anti-pattern-4---testing-the-wrong-functionality)紧密相联，我建议你先为你的关键的代码编写测试。
 
 Do __not__ try to achieve 100% total code coverage. Achieving 100% code coverage sounds good in theory but almost always is a waste of time:
 
