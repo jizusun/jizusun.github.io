@@ -37,7 +37,7 @@ categories: readings
 
 ## JavaScript Reference
 
-### Standard Objects
+### Standard build-in objects
 
 #### [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
 
@@ -108,6 +108,9 @@ categories: readings
 * [Introducing JavaScript objects](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects)
 
 * [Object initializer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer)
+
+### Array
+
 
 ### Expression and operators
 ### Statements and declarations
