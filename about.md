@@ -8,5 +8,11 @@ Jizu is a geek who cares about code elegance, adopts the paradigm of functional 
 
 You can know more about me at [LinkedIn][linkedin]
 
+See the source code and jekyll configurations for this blog at [GitHub][repo]
+
 
 [linkedin]:https://www.linkedin.com/in/jizusun/
+[repo]:https://github.com/jizusun/my-translations
+
+
+

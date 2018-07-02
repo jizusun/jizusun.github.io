@@ -13,20 +13,40 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Jizu's Translations
-author: Jizu Sun
-email: sunjizu@gmail.com
+title: Jizu's Writings
+author: Jizu Sun (孙继祖)
 description: >- # this means to ignore newlines until "baseurl:"
-  https://github.com/jizusun/my-translations
-baseurl: "/my-translations" # the subpath of your site, e.g. /blog
+  Continous integration, continous development, and continuous reflections on my work and life
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  jizusun
-linkedin_username: jizusun
+baseurl: ""
 disqus:
   shortname: jizusun
 
-
 show_excerpts: true
+
+google_analytics: UA-38782026-6
+
+pwa:
+  sw_filename: service-worker.js # Required
+  dest_js_directory: assets/js # Required
+  cache_name: my-cache # Optional
+  precache_recent_posts_num: 5 # Optional
+  precache_glob_directory: / # Optional
+  precache_glob_patterns: # Optional
+    - "{js,css,fonts}/**/*.{js,css,eot,svg,ttf,woff}"
+    - index.html
+  precache_glob_ignores: # Optional
+    - sw-register.js
+    - "fonts/**/*"
+  runtime_cache: # Optional
+    - route: /^api\/getdata/
+      strategy: networkFirst
+    - route: "'/api/pic'"
+      strategy: cacheFirst
+
+header_pages:
+- about.md
 
 # Build settings
 markdown: kramdown
@@ -34,8 +54,11 @@ theme: minima
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-pwa-plugin
 
 kramdown:
+  # Generate TOC
   parse_block_html: true
 
 # Exclude from processing.
@@ -49,3 +72,9 @@ kramdown:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+
+# Custom Variables
+home_visible_categories:
+- translations
+- blogs
