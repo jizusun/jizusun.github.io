@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Lynda.com: Mastering Web Developer Interview Code"
-categories: readings
+categories: drafts
 ---
 
 * Author: Ray Villalobos
@@ -29,6 +29,7 @@ categories: readings
 Performance improvement: 
 - <https://stackoverflow.com/questions/24878392/why-is-appending-to-an-element-not-yet-in-the-dom-faster-than-using-a-javascript>
 - <https://jsperf.com/javascript-fragments-tests>
+- <https://stackoverflow.com/questions/16126960/what-is-the-difference-between-appendchild-insertadjacenthtml-and-innerhtml>
 
 ```javascript
 

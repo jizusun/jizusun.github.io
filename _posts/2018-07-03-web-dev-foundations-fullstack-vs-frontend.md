@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Lynda.com: Web Development Foundations: Full-Stack vs Front-End"
-categories: readings
+categories: drafts
 ---
 
 * Author: Ray Villalobos
