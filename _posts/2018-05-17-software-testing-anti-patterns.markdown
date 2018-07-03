@@ -129,9 +129,6 @@ I cannot really say anything about the first issue. Every effective team should 
 This brings us to the last issue - difficulty in setting up a test environment. Now don’t get me wrong, there are indeed some applications that are __really__ hard to test. Once I had to work with a set of REST applications that actually required special hardware on their host machine. This hardware existed only in production, making integration tests very challenging. But this is a corner case.
 
 我们再看最后一个问题 —— 很难搭建测试环境。这里不要误解我的意思，有些应用确实 _非常_ 难以 测试。我曾经要处理一些 REST 应用，它们需要在主机上装一种特殊的硬件。这种硬件只存在于生产环境中，使得集成测试非常困难。但这是一个极端的情况。
-=======
-我们再看最后一个问题 —— 很难搭建测试环境。这里不要误解我的意思，有些应用程序确实 __非常__ 难以 测试。我曾经要处理一些 REST 应用程序，它们需要在主机上装一种特殊的硬件。这种硬件只存在于生产环境中，使得集成测试非常困难。但这是一个极端的情况。
->>>>>>> master
 
 For the run-of-the-mill web or back-end application that the typical company creates, setting up a test environment should be a non-issue. With the appearance of Virtual Machines and lately Containers this is more true than ever. Basically if you are trying to test an application that is hard to setup, you need to fix the setup process first before dealing with the tests themselves.
 
@@ -177,9 +174,7 @@ To sum up, unless you are creating something extremely isolated (e.g. a command 
 
 总而言之，除非你要建立非常独立的东西（比如 Linux 命令行工具），否则你非常 **需要** 集成测试来捕捉单元测试发现不了的问题。
 
-### Anti-Pattern 2 - Having integration tests without unit tests 
-
-反模式 2 - 只有集成测试但没有单元测试
+### Anti-Pattern 2 - Having integration tests without unit tests 反模式 2 - 只有集成测试但没有单元测试
 
 This is the inverse of the previous anti-pattern. This anti-pattern is more common in large companies and large enterprise projects. Almost always the history behind this anti-pattern involves developers who believe that unit tests have no real value and only integration tests can catch regressions. There is a large majority of experienced developers who consider unit tests a waste of time. Usually if you probe them with questions, you will discover that at some point in the past, upper management had forced them to increase code coverage (See [anti-pattern 6](#anti-pattern-6---paying-excessive-attention-to-test-coverage)) forcing them to write trivial unit tests.
 
@@ -207,7 +202,7 @@ This sounds easy enough in theory, but can quickly become problematic. The reali
 
 Mary on the other hand, can just recreate the corner case with a simple unit test, with no added complexity at all.
 
-![Basic unit test]((https://user-images.githubusercontent.com/4011348/39740336-c1b589d2-52c7-11e8-9186-276adf0c32f1.png)
+![Basic unit test](https://user-images.githubusercontent.com/4011348/39740336-c1b589d2-52c7-11e8-9186-276adf0c32f1.png)
 
 Does that mean that Mary will __only__ write unit tests for this service? After all that will lead her to [anti-pattern 1](#anti-pattern-1---having-unit-tests-without-integration-tests). To avoid this, she will write __both__ unit __and__ integration tests. She will keep all unit tests for the actual business logic and then she will write 1 or 2 integration tests that make sure that the rest of the system works as expected (i.e. the parts that help these modules do their job)
 
