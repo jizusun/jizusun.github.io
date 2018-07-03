@@ -584,26 +584,38 @@ Here is their definition if you have never seen them before:
 
 If after reading about these metrics, you still insist on setting a hard number as a goal for code coverage, I will give you the number **20%**. This number should be used as a rule of thumb and it is based on the [Pareto principle](https://en.wikipedia.org/wiki/Pareto_principle). 20% of your code is causing 80% of your bugs, so if you really want to start writing tests you could do well by starting with that code first. This advice also ties well with [Anti-pattern 4](#anti-pattern-4---testing-the-wrong-functionality) where I suggest that you should write tests for your critical code first.
 
-如果在阅读完这些指标之后，你仍然坚持将代码覆盖率定为硬性指标，我会告诉你这个数字是 **20%**。这个数字应该作为经验法则，它基于[帕累托原则](https://en.wikipedia.org/wiki/Pareto_principle)。20%的代码会导致80%的bug，所以如果你真的想开始写测试，你可以先从这些代码开始开始。这个建议也和[反模式 4](#anti-pattern-4---testing-the-wrong-functionality)紧密相联，我建议你先为你的关键的代码编写测试。
+如果在阅读完这些指标之后，你仍然坚持将代码覆盖率定为硬性指标，我会告诉你这个数字是 **20%**。这个数字应该作为经验法则，它基于[帕累托原则](https://en.wikipedia.org/wiki/Pareto_principle)。20%的代码会导致80%的bug，所以如果你真的想开始写测试，你可以先从这些代码开始开始。这个建议也和[反模式 4](#anti-pattern-4---testing-the-wrong-functionality)紧密相联，我建议你先为你的关键代码编写测试。
 
 Do __not__ try to achieve 100% total code coverage. Achieving 100% code coverage sounds good in theory but almost always is a waste of time:
 
-*   you have wasted a lost of effort as getting from 80% to 100% is much more difficult than getting from 0% to 20%
-*   Increasing code coverage has diminishing returns
+__不要__ 试图达到 100% 的代码全覆盖。达到 100% 的代码覆盖在理论上听上去不错，但几乎是浪费时间。
+
+*   you have wasted a lost of effort as getting from 80% to 100% is much more difficult than getting from 0% to 20% 你浪费了大量的时间，因为从 80% 提高到 100% 比从 0% 提高到 20% 要困难得多
+*   Increasing code coverage has diminishing returns 收益会随代码覆盖率的提高而递减
 
 In any non trivial application there are certain scenarios that needs complex unit tests in order to trigger. The effort required to write these tests will usually be more than the risk involved if these particular scenarios ever fail in production (if ever).
 
+在任何有一定规模的程序中，只有通过复杂的单元测试才能触发某些场景。**编写这些测试所需的努力，通常比这些特殊场景在生产环境上出错所涉及的风险还要多（说的什么鬼!!??**）。
+
 If you have worked with any big application you should know by now that after reaching 70% or 80% code coverage, it is getting very hard to write useful tests for the code that is still untested.
+
+如果你参与过任何大型应用，你就应该明白，当达到 70% 或 80% 的代码覆盖率时，你就很难为那些尚未被测试的代码编写有用的测试。
 
 ![Code Coverage Effort](https://user-images.githubusercontent.com/4011348/41632934-dae114f8-746e-11e8-96a5-3e0bc4d4f8f3.png)
 
 On a similar note, as we already saw in the section for [Antipattern 4](#anti-pattern-4---testing-the-wrong-functionality), there are some code paths that never actually fail in production, and therefore writing tests for them is not recommended. The time spent on getting them covered should be better spent on actual features.
 
+类似的，正如我们在[反模式 4](#anti-pattern-4---testing-the-wrong-functionality)章节所看到的，有些代码路径从未在生产系统上出错，因此并不推荐为它们编写测试。花费在这上面的时间应该更好地用于开发实际的功能。
+
 ![Code Coverage Value](https://user-images.githubusercontent.com/4011348/41632942-e49eb694-746e-11e8-83f0-21f22e87b07d.png)
 
 Projects that need a specific code coverage percentage as a delivery requirement usually force developers to test trivial code in order or write tests that just verify the underlying programming language. This is a huge waste of time and as a developer you have the duty to complain to management who has such unreasonable demands.
 
+将特定的代码覆盖率作为交付要求的项目通常会迫使开发者去依次测试那些无关紧要的代码，或编写测试来验证编程语言本身。这是对时间的巨大浪费，作为一名开发者，你有责任对这种提出无理要求的管理层抗议。
+
 In summary, code coverage is a metric that should **not** be used as a representation for quality of a software project.
+
+总而言之，代码覆盖率这一指标**不应该**用来代表软件项目的质量。
 
 ### Anti-Pattern 7 - Having flaky or slow tests
 
