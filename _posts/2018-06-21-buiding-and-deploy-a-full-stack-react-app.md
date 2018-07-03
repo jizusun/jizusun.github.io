@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Lynda.com: Building and Deploying a Full-Stack React Application"
-categories: readings
+categories: drafts
 ---
 
 * Author: Carl Peaslee
