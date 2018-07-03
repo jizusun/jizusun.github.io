@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Web Development: Fundamentals"
-categories: readings
+categories: drafts
 ---
 
 # Contents header
