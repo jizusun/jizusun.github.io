@@ -46,6 +46,7 @@ pwa:
       strategy: cacheFirst
 
 header_pages:
+- categories.html
 - about.md
 
 # Build settings
