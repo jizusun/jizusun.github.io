@@ -1,13 +1,16 @@
-# Mocks Aren't Stubs （Mock不是Stub）
+---
+layout: post
+title:  "Mock不是Stub（译）"
+categories: translations
+---
 
+* 英文原文：[Martin Fowler: Mocks Aren't Stubs](https://martinfowler.com/articles/mocksArentStubs.html)
+* 中文翻译：[众成翻译](http://www.zcfy.cc/original/mocks-arent-stubs-4708.html)
+* 译者：[孙继祖](https://www.linkedin.com/in/jizusun/)
+* 延伸阅读
+  - [如何理解软件测试中的stub和mock? - 知乎](https://www.zhihu.com/question/28225706)
+  - [ 测试中 Fakes、Mocks 以及 Stubs 概念明晰 - 王下邀月熊](https://zhuanlan.zhihu.com/p/26942686)
 
-英文原文：[Mocks Aren't Stubs](https://martinfowler.com/articles/mocksArentStubs.html)
-中英文对照：https://github.com/smilingsun/blog/issues/9
-中文翻译：http://www.zcfy.cc/original/mocks-arent-stubs-4708.html
-译者：[孙继祖](https://www.linkedin.com/in/jizusun/)
-
-
-作者：Martin Fowler
 
 _The term 'Mock Objects' has become a popular one to describe special case objects that mimic real objects for testing. Most language environments now have frameworks that make it easy to create mock objects. What's often not realized, however, is that mock objects are but one form of special case test object, one that enables a different style of testing. In this article I'll explain how mock objects work, how they encourage testing based on behavior verification, and how the community around them uses them to develop a different style of testing._
 
@@ -594,7 +597,7 @@ To find out more about TDD, the first place to look is [Kent's book](https://www
 
 要了解 TDD 的更多内容，首先建议看 [Kent的书](https://www.amazon.com/gp/product/0321146530%20?ie=UTF8&tag=martinfowlerc-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0321146530)
 
-To find out more about the mockist style of testing, the best overall resource is [Freeman & Pryce](https://www.amazon.com/gp/product/0321503627?ie=UTF8&tag=martinfowlerc-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0321503627). The authors look after [mockobjects.com](http://www.mockobjects.com/). In particular read the [excellent OOPSLA paper](http://www.mockobjects.com/files/mockrolesnotobjects.pdf). For more on Behavior Driven Development, a different offshoot of TDD that is very mockist in style, start with Dan North's [introduction](http://dannorth.net/introducing-bdd/).
+To find out more about the mockist style of testing, the best overall resource is [Freeman & Pryce](https://www.amazon.com/gp/product/0321503627?ie=UTF8&tag=martinfowlerc-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0321503627). The authors look after [mockobjects.com](http://www.mockobjects.com/). In particular read the [excellent OOPSLA paper](http://jmock.org/oopsla2004.pdf). For more on Behavior Driven Development, a different offshoot of TDD that is very mockist in style, start with Dan North's [introduction](http://dannorth.net/introducing-bdd/).
 
 要了解更多关于 mock 主义的测试，最好的资源是[Freeman & Pryce](https://www.amazon.com/gp/product/0321503627?ie=UTF8&tag=martinfowlerc-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0321503627)。作者也维护了[mockobjects.com](http://www.mockobjects.com/)。特别要读一下[优秀的 OOPSLA paper](http://www.mockobjects.com/files/mockrolesnotobjects.pdf)。关于行为驱动的开发，一个特别具有 mock 主义风格的、TDD的一个不同分支，你可以从Dan North的 [介绍](http://dannorth.net/introducing-bdd/)开始。
 
@@ -618,14 +621,11 @@ _08 July 2004:_ First published
 
 ### 其他中文翻译版本
 
-* http://www.predatorray.me/Mock并非Stub-翻译/
-* http://rhetty.github.io/2016/10/27/【翻译】Mock不是Stub
-* http://www.cnblogs.com/anf/archive/2006/03/27/360248.html
-* http://tracylihui.github.io/2015/07/12/Mocks%20Aren%E2%80%99t%20Stubs/
+* <http://www.predatorray.me/Mock并非Stub-翻译/>
+* <http://rhetty.github.io/2016/10/27/【翻译】Mock不是Stub>
+* <http://www.cnblogs.com/anf/archive/2006/03/27/360248.html>
+* <http://tracylihui.github.io/2015/07/12/Mocks%20Aren%E2%80%99t%20Stubs/>
 
-### 相关中文阅读
-* [如何理解软件测试中的stub和mock? - 知乎](https://www.zhihu.com/question/28225706)
-* [ 测试中 Fakes、Mocks 以及 Stubs 概念明晰 - 王下邀月熊](https://zhuanlan.zhihu.com/p/26942686)
 
 ### 其他
 
