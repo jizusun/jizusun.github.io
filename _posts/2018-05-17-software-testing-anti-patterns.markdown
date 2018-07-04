@@ -4,7 +4,8 @@ title:  "软件测试的反模式（译）"
 categories: translations
 ---
 
-* 英文原文：[Software Testing Anti-patterns](http://blog.codepipes.com/testing/software-testing-antipatterns.html)
+* 英文原文：
+    * [Software Testing Anti-patterns](http://blog.codepipes.com/testing/software-testing-antipatterns.html) ([Markdown version](https://github.com/kkapelon/kkapelon.github.io/blob/master/_posts/2018-04-21-software-testing-antipatterns.md))
 * 译者： [孙继祖](https://www.linkedin.com/in/jizusun/)、 [黄秋荣](https://github.com/smallsnack)
 * 延伸阅读
     - [Discussion thread on Hacker News](https://news.ycombinator.com/item?id=16894927)
@@ -128,10 +129,7 @@ I cannot really say anything about the first issue. Every effective team should 
 
 This brings us to the last issue - difficulty in setting up a test environment. Now don’t get me wrong, there are indeed some applications that are __really__ hard to test. Once I had to work with a set of REST applications that actually required special hardware on their host machine. This hardware existed only in production, making integration tests very challenging. But this is a corner case.
 
-我们再看最后一个问题 —— 很难搭建测试环境。这里不要误解我的意思，有些应用确实 _非常_ 难以 测试。我曾经要处理一些 REST 应用，它们需要在主机上装一种特殊的硬件。这种硬件只存在于生产环境中，使得集成测试非常困难。但这是一个极端的情况。
-=======
 我们再看最后一个问题 —— 很难搭建测试环境。这里不要误解我的意思，有些应用程序确实 __非常__ 难以 测试。我曾经要处理一些 REST 应用程序，它们需要在主机上装一种特殊的硬件。这种硬件只存在于生产环境中，使得集成测试非常困难。但这是一个极端的情况。
->>>>>>> master
 
 For the run-of-the-mill web or back-end application that the typical company creates, setting up a test environment should be a non-issue. With the appearance of Virtual Machines and lately Containers this is more true than ever. Basically if you are trying to test an application that is hard to setup, you need to fix the setup process first before dealing with the tests themselves.
 
@@ -268,8 +266,7 @@ Having unit tests break __before__ or __with__ integration tests is a much more 
 
 ##### Quick summary of why you need unit tests
 
-This is the longest section of this article, but I consider it very important. In summary while __in theory__ you could only have integration tests, __in practice_
-
+This is the longest section of this article, but I consider it very important. In summary while __in theory__ you could only have integration tests, __in practice__
 1.  Unit tests are easier to maintain
 2.  Unit tests can easily replicate corner cases and not-so-frequent scenario
 3.  Unit tests run much faster than integration tests
@@ -277,9 +274,7 @@ This is the longest section of this article, but I consider it very important. I
 
 If you only have integration tests, you waste developer time and company money. You need **both** unit and integration tests are the same time. They are not mutually exclusive. There are several articles on the internet that advocate using only one type of tests. All these articles are misinformed. Sad but true.
 
-### Anti-Pattern 3 - Having the wrong kind of tests 
-
-### 反模式 3 - 采用了错误类型的测试
+### Anti-Pattern 3 - Having the wrong kind of tests 反模式 3 - 采用了错误类型的测试
 
 Now that we have seen why we need both kinds of tests (unit __and__ integration), we need to decide on __how many__ tests we need from each category.
 
@@ -289,9 +284,7 @@ There is no hard and fast rule here, it depends on your application. The importa
 
 这里没有硬性规定，这取决于你的应用。 重要的是，你需要花一些时间来了解什么类型的测试能为 _你的_ 应用带来最大的价值。 测试金字塔只是你应该创建的测试数量的一个建议。 它假定你正在编写一个商业 Web 应用，但情况并非总是如此。 我们来看一些例子：
 
-#### Example - Linux command line utility
-
-#### 例子 - Linux 命令行工具
+#### Example - Linux command line utility 例子 - Linux 命令行工具
 
 Your application is a command line utility. It reads one special format of a file (let’s say a CSV) and exports another format (let’s say JSON) after doing some transformations. The application is self-contained, does not communicate with any other system or use the network. The transformations are complex mathematical processes that are critical for the correct functionality of the application (it should always be correct even if it slow).
 
@@ -316,9 +309,7 @@ Unit tests dominate in this example and the shape is **not** a pyramid.
 
 单元测试在这个例子里占主导，形状并**不是**一个金字塔。
 
-#### Example - Payment Management
-
-#### 例子 - 支付管理
+#### Example - Payment Management  例子 - 支付管理
 
 You are adding a new application that will be inserted into an existing big collection of enterprise systems. The application is a payment gateway that processes payment information for an external system. This new application should keep a log of all transactions to an external DB, it should communicate with external payment providers (e.g. Paypal, Stripe, WorldPay) and it should also send payment details to another system that prepares invoices.
 
@@ -343,9 +334,7 @@ Integrations tests dominate in this example and the shape is **not** a pyramid.
 
 集成测试在这个例子中占主导地位，形状**并不是**一个金字塔。
 
-#### Example - Website creator
-
-#### 例子 - 网站创建器
+#### Example - Website creator 例子 - 网站创建器
 
 You are working on this brand new startup that will revolutionize the way people create websites, by offering a one-of-a-kind way to create web applications from within the browser.
 
@@ -375,13 +364,9 @@ UI 测试在这里占主导地位，形状**不是**金字塔。
 
 I used some extreme examples to illustrate the point that you need to understand what your application needs and focus only on the tests that give you value. I have personally seen “payment management” applications with no integration tests and “website creator” applications with no UI tests.
 
-<<<<<<< HEAD
 我使用了一些极端的例子来说明，你要明白你的应用需要什么，并专注于能带给你价值的测试。我亲眼看到过没有集成测试的“支付管理”应用和没有 UI 测试的 “网站创造器”应用。
 
-There are several articles on the web (I am not going to link them) that talk about a specific amount on integration/unit/UI tests that you need or don’t need. All these articles are based on assumptions that may _not_ be true in your case.
-=======
 There are several articles on the web (I am not going to link them) that talk about a specific amount on integration/unit/UI tests that you need or don’t need. All these articles are based on assumptions that may __not__ be true in your case.
->>>>>>> master
 
 网上有一些文章（我不会贴出来这些链接），这些文章谈论了集成测试/单元测试/UI测试的具体数量。这些文章都是基于假设得出的，并**不**一定适用于你的具体情况。
 
@@ -440,8 +425,7 @@ In summary, write unit and integration tests for code that
 
 If you have the time luxury to further expand the test suite, make sure that you understand the diminishing returns before wasting time on tests with little or no value.
 
-### Anti-Pattern 5 - Testing internal implementation
-### 反模式5 - 测试内部实现
+### Anti-Pattern 5 - Testing internal implementation 反模式 5 - 测试内部实现
 
 More tests are always a good thing. Right?
 
@@ -546,98 +530,92 @@ Of course in theory it is possible for the verified objects themselves to change
 
 In summary, if you find yourself continuously fixing existing tests as you add new features, it means that your tests are tightly coupled to internal implementation.
 
-总而言之，如果您发现自己在添加新功能时不断修复现有的测试，则意味着您的测试与内部实现密切相关。
-
-### Anti-Pattern 6 - Paying excessive attention to test coverage
+### Anti-Pattern 6 - Paying excessive attention to test coverage 反模式6 - 过度关注测试覆盖率
 
 Code coverage is a favorite metric among software stakeholders. [Endless discussions](https://softwareengineering.stackexchange.com/questions/1380/how-much-code-coverage-is-enough) [have](https://martinfowler.com/bliki/TestCoverage.html) [happened](https://testing.googleblog.com/2010/07/code-coverage-goal-80-and-no-less.html) (and will continue to happen) among developers and project managers on the amount of code coverage a project needs.
 
+代码覆盖率是软件利益相关者们（stakeholders）最喜欢的指标。关于一个项目到底需要怎样的代码覆盖量，开发者和项目经理之间  [曾经](https://martinfowler.com/bliki/TestCoverage.html)  [发生过](https://testing.googleblog.com/2010/07/code-coverage-goal-80-and-no-less.html)  [无休止的争论](https://softwareengineering.stackexchange.com/questions/1380/how-much-code-coverage-is-enough)，而且仍将继续下去。
+
 The reason why everybody likes to talk about code coverage is because it is a metric that is easy to understand and quantify. There are several easily accessible tools that output this metric for most programming languages and test frameworks.
 
-_Let me tell you a little secret:__ Code coverage is completely useless as a metric. There is no “correct” code coverage number. This is a trap question. You can have a project with 100% code coverage that still has bugs and problems. The real metrics that you should monitor are the well-known CTM.
+每个人都喜欢谈论代码覆盖的原因是，它是一个易于理解和量化的指标。对于大多数编程语言和测试框架，有几种容易得到的工具可以输出该指标。
 
-##### The Codepipes Testing Metrics (CTM)
+_Let me tell you a little secret:_ Code coverage is completely useless as a metric. There is no “correct” code coverage number. This is a trap question. You can have a project with 100% code coverage that still has bugs and problems. The real metrics that you should monitor are the well-known CTM.
+
+_让我告诉你一个小秘密：_ 代码覆盖率是一个毫无用处的指标。没有一个所谓“正确”的代码覆盖数量。这是一个陷阱问题。你可以让一个项目达到 100% 的代码覆盖率，但仍然有 bug 。你应该监控的真正指标是众所周知的 CTM。
+
+#### The Codepipes Testing Metrics (CTM) Codepipes 测试指标（CTM）
 
 Here is their definition if you have never seen them before:
 
-Metric Name
+如果你从没见过它们，这是它们的定义。
 
-Description
+|  Metric Name  | Description | Ideal value | Usual value | Problematic value |
+| -------------      |-------------| -----   |       -----|    -----|
+| PDWT | % of Developers writing tests        |   100%      |  20%-70%    |   Anything less than 100% |
+| PBCNT | % of bugs that create new tests          |   100%       |  0%-5%    |   Anything less than 100% |
+| PTVB | % of tests that verify behavior       |   100%       |  10%   |   Anything less than 100% |
+| PTD | % of tests that are deterministic       |   100%       |  50%-80%    |   Anything less than 100% |
 
-Ideal value
 
-Usual value
+| 度量名称  | 描述 | 理想值 | 寻常值 | 问题值 |
+| -------------      |-------------| -----   |       -----|    -----|
+| PDWT | 写测试的开发者的百分比   |   100%      |  20%-70%    |   任何低于100% |
+| PBCNT | bug 能带来新测试的百分比    |   100%   |  0%-5%    |   任何低于100% |
+| PTVB | 测试用来验证行为的百分比   |   100%       |  10%   |   任何低于100%  |
+| PTD | 测试具有确定性的百分比|   100%       |  50%-80%    |  任何低于100% |
 
-Problematic value
-
-PDWT
-
-% of Developers writing tests
-
-100%
-
-20%-70%
-
-Anything less than 100%
-
-PBCNT
-
-% of bugs that create new tests
-
-100%
-
-0%-5%
-
-Anything less than 100%
-
-PTVB
-
-% of tests that verify behavior
-
-100%
-
-10%
-
-Anything less than 100%
-
-PTD
-
-% of tests that are deterministic
-
-100%
-
-50%-80%
-
-Anything less than 100%
 
 **PDWT** (Percent of Developers who Write Tests) is probably the most important metric of all. There is no point in talking about software testing anti-patterns if you have zero tests in the first place. All developers in the team should write tests. A new feature should be declared __done__ only when it is accompanied by one or more tests.
 
+**PDWT** (写测试的开发者的百分比)可能是最重要的指标。如果没有写过测试，那么谈论软件测试反模式就毫无意义。团队中的所有开发人员都应该写测试。只有伴随一个或更多的测试，一个新功能才能算作 _完成_。
+
 **PBCNT** (Percent of Bugs that Create New tests). Every bug that slips into production is a great excuse for writing a new software test that verifies the respective fix. A bug that appears in production should only appear once. If your project suffers from bugs that appear multiple times in production even after their original “fix”, then your team will really benefit from this metric. More details on this topic in [Antipattern 10](#anti-pattern-10---not-converting-production-bugs-to-tests).
+
+**PBCNT** (bug 能带来新测试的百分比)。每个溜进生产系统的 bug 都是写新测试来验证相应修复的好理由。出现在生产系统的 bug 只应该出现一次。如果你的项目遭受这样的情形，bug 在被修复之后依然在生产系统中反复出现，那么你的团队将真正从这个指标当中受益。关于此主题更多的细节请参考[反模式 10](#anti-pattern-10---not-converting-production-bugs-to-tests)。
 
 **PTVB** (Percent of Tests that Verify Behavior and not implementation). Tightly coupled tests are a huge time sink when the main code is refactored. This topic was already discussed in [Antipattern 5](#anti-pattern-5---testing-internal-implementation).
 
+**PTVB** (测试用来验证行为而非实现的百分比)。当主代码被重构时，紧密耦合的测试会耗费大量的时间。本主题已经在[反模式 5](#anti-pattern-5---testing-internal-implementation)讨论过了。
+
 **PTD** (Percent of Tests that are Deterministic to total tests). Tests should only fail when something is wrong with the business code. Having tests that fail intermittently for no apparent reason is a huge problem that is discussed in [Antipattern 7](#anti-pattern-7---having-flaky-or-slow-tests).
+
+**PTD** （测试具有确定性的百分比）。当业务代码出现问题的时候，测试应该报错。在没有明显原因的情况下，测试间歇性地报错是一个巨大的问题，这在[反模式 7](#anti-pattern-7---having-flaky-or-slow-tests)讨论过。
 
 If after reading about these metrics, you still insist on setting a hard number as a goal for code coverage, I will give you the number **20%**. This number should be used as a rule of thumb and it is based on the [Pareto principle](https://en.wikipedia.org/wiki/Pareto_principle). 20% of your code is causing 80% of your bugs, so if you really want to start writing tests you could do well by starting with that code first. This advice also ties well with [Anti-pattern 4](#anti-pattern-4---testing-the-wrong-functionality) where I suggest that you should write tests for your critical code first.
 
+如果在阅读完这些指标之后，你仍然坚持将代码覆盖率定为硬性指标，我会告诉你这个数字是 **20%**。这个数字应该作为经验法则，它基于[帕累托原则](https://en.wikipedia.org/wiki/Pareto_principle)。20%的代码会导致80%的bug，所以如果你真的想开始写测试，你可以先从这些代码开始开始。这个建议也和[反模式 4](#anti-pattern-4---testing-the-wrong-functionality)紧密相联，我建议你先为你的关键代码编写测试。
+
 Do __not__ try to achieve 100% total code coverage. Achieving 100% code coverage sounds good in theory but almost always is a waste of time:
 
-*   you have wasted a lost of effort as getting from 80% to 100% is much more difficult than getting from 0% to 20%
-*   Increasing code coverage has diminishing returns
+__不要__ 试图达到 100% 的代码全覆盖。达到 100% 的代码覆盖在理论上听上去不错，但几乎是浪费时间。
+
+*   you have wasted a lost of effort as getting from 80% to 100% is much more difficult than getting from 0% to 20% 你浪费了大量的时间，因为从 80% 提高到 100% 比从 0% 提高到 20% 要困难得多
+*   Increasing code coverage has diminishing returns 收益会随代码覆盖率的提高而递减
 
 In any non trivial application there are certain scenarios that needs complex unit tests in order to trigger. The effort required to write these tests will usually be more than the risk involved if these particular scenarios ever fail in production (if ever).
 
+在任何有一定规模的程序中，只有通过复杂的单元测试才能触发某些场景。**编写这些测试所需的努力，通常比这些特殊场景在生产环境上出错所涉及的风险还要多（说的什么鬼!!??**）。
+
 If you have worked with any big application you should know by now that after reaching 70% or 80% code coverage, it is getting very hard to write useful tests for the code that is still untested.
 
-![Code Coverage Effort](../../assets/testing-anti-patterns/code-coverage-effort.png)
+如果你参与过任何大型应用，你就应该明白，当达到 70% 或 80% 的代码覆盖率时，你就很难为那些尚未被测试的代码编写有用的测试。
+
+![Code Coverage Effort](https://user-images.githubusercontent.com/4011348/41632934-dae114f8-746e-11e8-96a5-3e0bc4d4f8f3.png)
 
 On a similar note, as we already saw in the section for [Antipattern 4](#anti-pattern-4---testing-the-wrong-functionality), there are some code paths that never actually fail in production, and therefore writing tests for them is not recommended. The time spent on getting them covered should be better spent on actual features.
 
-![Code Coverage Value](../../assets/testing-anti-patterns/code-coverage-value.jpg)
+类似的，正如我们在[反模式 4](#anti-pattern-4---testing-the-wrong-functionality)章节所看到的，有些代码路径从未在生产系统上出错，因此并不推荐为它们编写测试。花费在这上面的时间应该更好地用于开发实际的功能。
+
+![Code Coverage Value](https://user-images.githubusercontent.com/4011348/41632942-e49eb694-746e-11e8-83f0-21f22e87b07d.png)
 
 Projects that need a specific code coverage percentage as a delivery requirement usually force developers to test trivial code in order or write tests that just verify the underlying programming language. This is a huge waste of time and as a developer you have the duty to complain to management who has such unreasonable demands.
 
+将特定的代码覆盖率作为交付要求的项目通常会迫使开发者去依次测试那些无关紧要的代码，或编写测试来验证编程语言本身。这是对时间的巨大浪费，作为一名开发者，你有责任对这种提出无理要求的管理层抗议。
+
 In summary, code coverage is a metric that should **not** be used as a representation for quality of a software project.
+
+总而言之，代码覆盖率这一指标**不应该**用来代表软件项目的质量。
 
 ### Anti-Pattern 7 - Having flaky or slow tests
 
