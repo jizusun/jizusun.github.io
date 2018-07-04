@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "JavaScript/Python Learning Materials for APCS Students #5 "
+title:  "JavaScript/Python Learning Materials for APCS Students"
 categories: drafts
 ---
 
