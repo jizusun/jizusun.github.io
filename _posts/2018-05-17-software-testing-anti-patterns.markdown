@@ -21,8 +21,7 @@ categories: translations
 {:toc}
 
 
-### Introduction
-### 介绍
+### Introduction 介绍
 
 There are several articles out there that talk about testing anti-patterns in the software development process. Most of them however deal with the low level details of the programming code, and almost always they focus on a specific technology or programming language.
 
@@ -32,8 +31,7 @@ In this article I wanted to take a step back and catalog some high-level testing
 
 在这篇文章中，我想退后一步，编录一下高层的、与技术无关的测试反模式。希望你能认识到这些模式，不管你喜欢的是何种编程语言。
 
-### Terminology
-### 术语
+### Terminology 术语
 
 Unfortunately, testing terminology has not reached a common consensus yet. If you ask 100 developers what is the difference between an integration test, a component test and an end-to-end test you might get 100 different answers. For the purposes of this article I will focus on the definition of the test pyramid as presented below.
 
@@ -95,7 +93,7 @@ As a basic rule of thumb if
 With the naming out of the way, we can dive into the list. The order of anti-patterns roughly follows their appearance in the wild. Frequent problems are gathered in the top positions.
 
 
-### Software Testing Anti-Pattern List
+### Software Testing Anti-Pattern List 软件测试反模式的清单
 
 1.  [Having unit tests without integration tests 有单元测试但没有集成测试](#anti-pattern-1---having-unit-tests-without-integration-tests)
 2.  [Having integration tests without unit tests 有集成测试但没有单元测试](#anti-pattern-2---having-integration-tests-without-unit-tests)
@@ -111,9 +109,7 @@ With the naming out of the way, we can dive into the list. The order of anti-pat
 12.  [Writing tests without reading documentation first 写测试之前不先读文档](#anti-pattern-12---writing-tests-without-reading-documentation-first)
 13.  [Giving testing a bad reputation out of ignorance 由于无知而诋毁测试](#anti-pattern-13---giving-testing-a-bad-reputation-out-of-ignorance)
 
-### Anti-Pattern 1 - Having unit tests without integration tests
-
-反模式1 - 有单元测试但没有集成测试
+### Anti-Pattern 1 - Having unit tests without integration tests 反模式1 - 有单元测试但没有集成测试
 
 This problem is a classic one with small to medium companies. The application that is being developed in the company has only unit tests (the base of the pyramid) and nothing else. Usually lack of integration tests is caused by any of the following issues:
 
@@ -175,13 +171,13 @@ To sum up, unless you are creating something extremely isolated (e.g. a command 
 
 总而言之，除非你要建立非常独立的东西（比如 Linux 命令行工具），否则你非常 **需要** 集成测试来捕捉单元测试发现不了的问题。
 
-### Anti-Pattern 2 - Having integration tests without unit tests
+### Anti-Pattern 2 - Having integration tests without unit tests 反模式2 - 有集成测试但没有单元测试
 
 This is the inverse of the previous anti-pattern. This anti-pattern is more common in large companies and large enterprise projects. Almost always the history behind this anti-pattern involves developers who believe that unit tests have no real value and only integration tests can catch regressions. There is a large majority of experienced developers who consider unit tests a waste of time. Usually if you probe them with questions, you will discover that at some point in the past, upper management had forced them to increase code coverage (See [anti-pattern 6](#anti-pattern-6---paying-excessive-attention-to-test-coverage)) forcing them to write trivial unit tests.
 
 It is true that in theory you __could__ have only integration tests in a software project. But in practice this would become very expensive to test (both in developer time and in build time). We saw in the table of the previous section that integration tests can also find business logic errors after each run, and so they could “replace” unit tests in that manner. But is this strategy viable in the long run?
 
-#### Integration tests are complex
+#### Integration tests are complex 集成测试很复杂
 
 Let’s look at an example. Assume that you have a service with the following 4 methods/classes/functions.
 
@@ -203,7 +199,7 @@ This sounds easy enough in theory, but can quickly become problematic. The reali
 
 Mary on the other hand, can just recreate the corner case with a simple unit test, with no added complexity at all.
 
-![Basic unit test]((https://user-images.githubusercontent.com/4011348/39740336-c1b589d2-52c7-11e8-9186-276adf0c32f1.png)
+![Basic unit test](https://user-images.githubusercontent.com/4011348/39740336-c1b589d2-52c7-11e8-9186-276adf0c32f1.png)
 
 Does that mean that Mary will __only__ write unit tests for this service? After all that will lead her to [anti-pattern 1](#anti-pattern-1---having-unit-tests-without-integration-tests). To avoid this, she will write __both__ unit __and__ integration tests. She will keep all unit tests for the actual business logic and then she will write 1 or 2 integration tests that make sure that the rest of the system works as expected (i.e. the parts that help these modules do their job)
 
@@ -213,8 +209,8 @@ The integration tests needed in this system should focus on the rest of the comp
 
 In the end, the number of integration tests will be much smaller than the number of unit tests (matching the shape of the test pyramid described in the first section of this article).
 
-#### Integration tests are slow
-
+#### Integration tests are slow 集成测试很慢
+ 
 The second big issue with integration tests apart from their complexity is their speed. Usually an integration test is one order of magnitute slower than a unit test. Unit tests need just the source code of the application and nothing else. They are almost always CPU bound. Integration tests on the other hand can perform I/O with external systems making them much more difficult to run in an effective manner.
 
 Just to get an idea on the difference for the running time let’s assume the following numbers.
@@ -237,36 +233,56 @@ The difference in total running time is enormous. Waiting for 1 minute after eac
 
 In summary, trying to use __only__ integration tests to cover business logic is a huge time sink. Even if you automate the tests with CI, your feedback loop (time from commit to getting back the test result) will be very long.
 
-#### Integration tests are harder to debug than unit tests
+#### Integration tests are harder to debug than unit tests 集成测试比单元测试更难调试
 
 The last reason why having only integration tests (without any unit tests) is an anti-pattern is the amount of time spent to debug a failed test. Since an integration test is testing multiple software components (by definition), when it breaks, the failure can come from __any__ of the tested components. Pinpointing the problem can be a hard task depending on the number of components involved.
 
+只有集成测试（而没有单元测试）是反模式的原因之一，是调试一个失败的集成测试要花费大量的时间。因为根据其定义，集成测试是测试多个软件组件，所以当测试出错时，故障可能来自于 _任何_ 被测试到的组件。根据所涉及组件数量的多少，要想确定问题可能是很困难。
+
 When an integration tests fails you need to be able to understand why it failed and how to fix it. The complexity and breadth of integration tests make them extremely difficult to debug. Again, as an example let’s say that your application only has integration tests. The application you are developing is the typical e-shop.
 
+当集成测试失败时，您需要能够理解失败的原因以及如何修复它。集成测试的复杂性和广度使得调试极其困难。现在，再举一个例子，假设你正在开发的应用程序只有集成测试，并且它是一个典型的网上商城。
+
 A developer in your team (or even you) creates a new commit, which triggers the integration tests with the following result:
+
+团队中的开发人员（甚至是您）创建一个新的提交（commit），这会触发集成测试，并产生如下结果：
 
 ![breakage of integration tests](https://user-images.githubusercontent.com/4011348/39740398-011930ce-52c8-11e8-8e7f-cbfeb2d261d7.png)
 
 As a developer you look at the test result and see that the integration test named “Customer buys item” is broken. In the context of an e-shop application this is not very helpful. There are many reasons why this test might be broken.
 
+作为一个开发人员，您可以查看测试结果，并看到一个名为“客户购买物品”的集成测试出错了。在网上商城这样一个情景下，这不是很有帮助。这个测试出错，原因可能很多。
+
+
 There is no way to know why the test broke without diving into the logs and metrics of the test environment (assuming that they can pinpoint the problem). In several cases (and more complex applications) the only way to truly debug an integration test is to checkout the code, recreate the test environment locally, then run the integration tests and see it fail in the local development environment.
 
+除了深入了解测试环境的日志和指标（假设它们可以查明问题），没有其他办法来弄明白测试出错的原因。在很多情况下（以及更复杂的程序中），唯一真正调试集成测试的办法是，检出（checkout）代码，在本地重新模拟测试环境，然后运行集成测试，并检查它在本地开发环境下有没有出错。
+
 Now imagine that you work with Mary on this application so you have both integration and unit tests. Your team makes some commits, you run all the tests and get the following:
+
+现在想象一下，你和 Mary 一起开发这个应用程序，所以你既有集成测试，也有单元测试。你的团队进行了一些代码提交，你运行了所有的测试，并得到如下结果：
 
 ![breakage of both kinds of tests](https://user-images.githubusercontent.com/4011348/39740401-0594d824-52c8-11e8-81e1-6eba0883547d.png)
 
 Now two tests are broken:
 
-*   “Customer buys item” is broken as before (integration test)
-*   “Special discount test” is also broken (unit test)
+现在有两个测试出错了：
+
+*   “Customer buys item” is broken as before (integration test) “客户购买物品”和之前一样出错了（集成测试）
+*   “Special discount test” is also broken (unit test) “特价折扣测试”也出错了（单元测试）
 
 It is now very easy to see the where to start looking for the problem. You can go directly to the source code of the __Discount__ functionality, locate the bug and fix it and in 99% of the cases the integration test will be fixed as well.
 
-Having unit tests break __before__ or __with__ integration tests is a much more painless process when you need to locate a bug.
+现在就很容易知道应该从哪里开始寻找问题。你应该直接进到 _折扣_ 功能的源代码，找到 bug 并修复它，有 99% 的可能集成测试也顺带被修复了。
 
-##### Quick summary of why you need unit tests
+Having unit tests break _before_ or _with_ integration tests is a much more painless process when you need to locate a bug.
+
+当你需要定位 bug 的时候，在集成测试 _之前_ 或者 _之后_ 让单元测试出错，是一个更加无痛的过程。 
+
+#### Quick summary of why you need unit tests 小结：你为什么需要单元测试
 
 This is the longest section of this article, but I consider it very important. In summary while __in theory__ you could only have integration tests, __in practice__
+
 1.  Unit tests are easier to maintain
 2.  Unit tests can easily replicate corner cases and not-so-frequent scenario
 3.  Unit tests run much faster than integration tests
@@ -274,7 +290,7 @@ This is the longest section of this article, but I consider it very important. I
 
 If you only have integration tests, you waste developer time and company money. You need **both** unit and integration tests are the same time. They are not mutually exclusive. There are several articles on the internet that advocate using only one type of tests. All these articles are misinformed. Sad but true.
 
-### Anti-Pattern 3 - Having the wrong kind of tests 反模式 3 - 采用了错误类型的测试
+### Anti-Pattern 3 - Having the wrong kind of tests 反模式3 - 采用了错误类型的测试
 
 Now that we have seen why we need both kinds of tests (unit __and__ integration), we need to decide on __how many__ tests we need from each category.
 
@@ -309,7 +325,7 @@ Unit tests dominate in this example and the shape is **not** a pyramid.
 
 单元测试在这个例子里占主导，形状并**不是**一个金字塔。
 
-#### Example - Payment Management  例子 - 支付管理
+#### Example - Payment Management 例子 - 支付管理
 
 You are adding a new application that will be inserted into an existing big collection of enterprise systems. The application is a payment gateway that processes payment information for an external system. This new application should keep a log of all transactions to an external DB, it should communicate with external payment providers (e.g. Paypal, Stripe, WorldPay) and it should also send payment details to another system that prepares invoices.
 
@@ -366,11 +382,11 @@ I used some extreme examples to illustrate the point that you need to understand
 
 我使用了一些极端的例子来说明，你要明白你的应用需要什么，并专注于能带给你价值的测试。我亲眼看到过没有集成测试的“支付管理”应用和没有 UI 测试的 “网站创造器”应用。
 
-There are several articles on the web (I am not going to link them) that talk about a specific amount on integration/unit/UI tests that you need or don’t need. All these articles are based on assumptions that may __not__ be true in your case.
+There are several articles on the web (I am not going to link them) that talk about a specific amount on integration/unit/UI tests that you need or don’t need. All these articles are based on assumptions that may _not_ be true in your case.
 
 网上有一些文章（我不会贴出来这些链接），这些文章谈论了集成测试/单元测试/UI测试的具体数量。这些文章都是基于假设得出的，并**不**一定适用于你的具体情况。
 
-### Anti-Pattern 4 - Testing the wrong functionality
+### Anti-Pattern 4 - Testing the wrong functionality 反模式4 - 测试了错误的功能
 
 In the previous sections we have outlined the types and amount of tests you need to have for your application. The next logical step is to explain what functionality you actually need to test.
 
@@ -425,7 +441,7 @@ In summary, write unit and integration tests for code that
 
 If you have the time luxury to further expand the test suite, make sure that you understand the diminishing returns before wasting time on tests with little or no value.
 
-### Anti-Pattern 5 - Testing internal implementation 反模式 5 - 测试内部实现
+### Anti-Pattern 5 - Testing internal implementation 反模式5 - 测试了内部实现
 
 More tests are always a good thing. Right?
 
@@ -530,6 +546,8 @@ Of course in theory it is possible for the verified objects themselves to change
 
 In summary, if you find yourself continuously fixing existing tests as you add new features, it means that your tests are tightly coupled to internal implementation.
 
+总而言之，如果您发现自己在添加新功能时不断修复现有的测试，则意味着您的测试与内部实现密切相关。
+
 ### Anti-Pattern 6 - Paying excessive attention to test coverage 反模式6 - 过度关注测试覆盖率
 
 Code coverage is a favorite metric among software stakeholders. [Endless discussions](https://softwareengineering.stackexchange.com/questions/1380/how-much-code-coverage-is-enough) [have](https://martinfowler.com/bliki/TestCoverage.html) [happened](https://testing.googleblog.com/2010/07/code-coverage-goal-80-and-no-less.html) (and will continue to happen) among developers and project managers on the amount of code coverage a project needs.
@@ -617,7 +635,7 @@ In summary, code coverage is a metric that should **not** be used as a represent
 
 总而言之，代码覆盖率这一指标**不应该**用来代表软件项目的质量。
 
-### Anti-Pattern 7 - Having flaky or slow tests
+### Anti-Pattern 7 - Having flaky or slow tests 反模式7 - 使用了有问题的或者慢的测试
 
 This particular anti-pattern has [already](https://martinfowler.com/articles/nonDeterminism.html) [been](https://testing.googleblog.com/2016/05/flaky-tests-at-google-and-how-we.html) [documented](https://testing.googleblog.com/2017/04/where-do-our-flaky-tests-come-from.html) [heavily](https://semaphoreci.com/community/tutorials/how-to-deal-with-and-eliminate-flaky-tests) so I am just including it here for completeness.
 
@@ -642,7 +660,7 @@ The primary defense against flaky and slow tests is to isolate them in their own
 
 In summary, you should have a reliable test suite (even if it is a subset of the whole test suite) that is rock solid. A test that fails in this suite means that something is really really wrong with the code and any failure means that the code must not be promoted to production.
 
-### Anti-Pattern 8 - Running tests manually
+### Anti-Pattern 8 - Running tests manually 反模式8 - 手工运行测试
 
 Depending on your organization you might actually have several types of tests in place. Unit tests, Load tests, User acceptance tests are common categories of test suites that __might__ be executed before the code goes into production.
 
@@ -666,7 +684,7 @@ An easy way to understand the level of test automation within a company is to wa
 
 In summary, testing should be something that happens all the time behind the scenes by the build server. Developers should learn the result of the test for their individual feature after 5-15 minutes of committing code. Testers should create new tests and refactor existing ones, instead of actually running tests.
 
-### Anti-Pattern 9 - Treating test code as a second class citizen
+### Anti-Pattern 9 - Treating test code as a second class citizen 反模式9 - 把测试当作二等公民
 
 If you are a seasoned developer, you will spend always some time to structure new code in your mind before implementing it. There are several philosophies regarding code design and some of them are so significant that have their own Wikipedia entry. Some examples are:
 
@@ -691,7 +709,7 @@ If you employ tools for static analysis, source formatting or code quality then 
 
 In summary, design your tests with the same detail that you design the main feature code.
 
-### Anti-Pattern 10 - Not converting production bugs to tests
+### Anti-Pattern 10 - Not converting production bugs to tests 反模式10 - 没有把生产环境的 bug 转化为测试
 
 One of the goals of testing is to catch regressions. As we have seen in [antipattern 4](#anti-pattern-4---testing-the-wrong-functionality), most applications have a “critical” code part where the majority of bugs appear. When you fix a bug you need to make sure that it doesn’t happen again. One of the best ways to enforce this is to write a test for the fix (either unit or integration or both).
 
@@ -712,7 +730,7 @@ The only case where it is acceptable to **not** write tests is when bugs that yo
 
 In summary, if you are unsure on what code you need to test next, look at the bugs that slip into production.
 
-### Anti-Pattern 11 - Treating TDD as a religion
+### Anti-Pattern 11 - Treating TDD as a religion 反模式11 - 将 TDD 看作教派
 
 TDD stands for [Test Driven Development](https://en.wikipedia.org/wiki/Test-driven_development) and like all methodologies before it, it is a good idea on paper until consultants try to convince a company that following TDD blindly is the only way forward. At the time or writing this trend is slowly dying but I decided to mention it here for completeness (as the enterprise world is especially suffering from this anti-pattern).
 
@@ -748,7 +766,7 @@ In summary, TDD is a good idea but you don’t have to follow it all the time. I
 
 On the other hand if you are just playing with a new framework at your house during the weekend and want to understand how it works, then feel free to **not** follow TDD.
 
-### Anti-Pattern 12 - Writing tests without reading documentation first
+### Anti-Pattern 12 - Writing tests without reading documentation first 反模式12 - 写测试之前不先读文档
 
 A professional developer is one who knows the tools of the trade. You might need to spend extra time at the beginning of a project to learn about the technologies you are going to use. Web frameworks are coming out all the time and it always pays off to know all the capabilities that can be employed in order to write effective and concise code.
 
@@ -777,7 +795,7 @@ If you are also working on the stereotypical web application you should do some 
 
 There is no need to re-invent the wheel. The sentence applies to testing code as well. Maybe there are some corner cases where your main application is indeed a snowflake and needs some in-house utility for the core code. But I can bet that your unit and integration tests are not special themselves and thus writing custom testing utilities is a questionable practice.
 
-### Anti-Pattern 13 - Giving testing a bad reputation out of ignorance
+### Anti-Pattern 13 - Giving testing a bad reputation out of ignorance 反模式13 - 由于无知而诋毁测试
 
 Even though I mention this as the last anti-pattern, this is the one that forced me to write this article. I am always disappointed when I find people at conferences and meetups who “proudly” proclaim that __all tests are a waste of time__ and that their application works just fine without any testing at all. A more common occurrence is meeting people who are against a specific type of testing (usually either unit or integration) like we have seen in anti-patterns [1](#anti-pattern-1---having-unit-tests-without-integration-tests) or [2](#anti-pattern-2---having-integration-tests-without-unit-tests)
 
