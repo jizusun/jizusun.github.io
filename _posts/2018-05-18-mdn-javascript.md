@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "MDN Web Docs: JavaScript"
-categories: readings
+categories: drafts
 ---
 
 <https://developer.mozilla.org/en-US/docs/Web/JavaScript>
