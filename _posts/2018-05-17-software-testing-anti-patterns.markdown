@@ -635,7 +635,7 @@ In summary, code coverage is a metric that should **not** be used as a represent
 
 总而言之，代码覆盖率这一指标**不应该**用来代表软件项目的质量。
 
-### Anti-Pattern 7 - Having flaky or slow tests
+### Anti-Pattern 7 - Having flaky or slow tests 反模式7 - 使用了有问题的或者慢的测试
 
 This particular anti-pattern has [already](https://martinfowler.com/articles/nonDeterminism.html) [been](https://testing.googleblog.com/2016/05/flaky-tests-at-google-and-how-we.html) [documented](https://testing.googleblog.com/2017/04/where-do-our-flaky-tests-come-from.html) [heavily](https://semaphoreci.com/community/tutorials/how-to-deal-with-and-eliminate-flaky-tests) so I am just including it here for completeness.
 
@@ -660,7 +660,7 @@ The primary defense against flaky and slow tests is to isolate them in their own
 
 In summary, you should have a reliable test suite (even if it is a subset of the whole test suite) that is rock solid. A test that fails in this suite means that something is really really wrong with the code and any failure means that the code must not be promoted to production.
 
-### Anti-Pattern 8 - Running tests manually
+### Anti-Pattern 8 - Running tests manually 反模式8 - 手工运行测试
 
 Depending on your organization you might actually have several types of tests in place. Unit tests, Load tests, User acceptance tests are common categories of test suites that __might__ be executed before the code goes into production.
 
@@ -684,7 +684,7 @@ An easy way to understand the level of test automation within a company is to wa
 
 In summary, testing should be something that happens all the time behind the scenes by the build server. Developers should learn the result of the test for their individual feature after 5-15 minutes of committing code. Testers should create new tests and refactor existing ones, instead of actually running tests.
 
-### Anti-Pattern 9 - Treating test code as a second class citizen
+### Anti-Pattern 9 - Treating test code as a second class citizen 反模式9 - 把测试当作二等公民
 
 If you are a seasoned developer, you will spend always some time to structure new code in your mind before implementing it. There are several philosophies regarding code design and some of them are so significant that have their own Wikipedia entry. Some examples are:
 
@@ -709,7 +709,7 @@ If you employ tools for static analysis, source formatting or code quality then 
 
 In summary, design your tests with the same detail that you design the main feature code.
 
-### Anti-Pattern 10 - Not converting production bugs to tests
+### Anti-Pattern 10 - Not converting production bugs to tests 反模式10 - 没有把生产环境的 bug 转化为测试
 
 One of the goals of testing is to catch regressions. As we have seen in [antipattern 4](#anti-pattern-4---testing-the-wrong-functionality), most applications have a “critical” code part where the majority of bugs appear. When you fix a bug you need to make sure that it doesn’t happen again. One of the best ways to enforce this is to write a test for the fix (either unit or integration or both).
 
@@ -730,7 +730,7 @@ The only case where it is acceptable to **not** write tests is when bugs that yo
 
 In summary, if you are unsure on what code you need to test next, look at the bugs that slip into production.
 
-### Anti-Pattern 11 - Treating TDD as a religion
+### Anti-Pattern 11 - Treating TDD as a religion 反模式11 - 将 TDD 看作教派
 
 TDD stands for [Test Driven Development](https://en.wikipedia.org/wiki/Test-driven_development) and like all methodologies before it, it is a good idea on paper until consultants try to convince a company that following TDD blindly is the only way forward. At the time or writing this trend is slowly dying but I decided to mention it here for completeness (as the enterprise world is especially suffering from this anti-pattern).
 
@@ -766,7 +766,7 @@ In summary, TDD is a good idea but you don’t have to follow it all the time. I
 
 On the other hand if you are just playing with a new framework at your house during the weekend and want to understand how it works, then feel free to **not** follow TDD.
 
-### Anti-Pattern 12 - Writing tests without reading documentation first
+### Anti-Pattern 12 - Writing tests without reading documentation first 反模式12 - 写测试之前不先读文档
 
 A professional developer is one who knows the tools of the trade. You might need to spend extra time at the beginning of a project to learn about the technologies you are going to use. Web frameworks are coming out all the time and it always pays off to know all the capabilities that can be employed in order to write effective and concise code.
 
@@ -795,7 +795,7 @@ If you are also working on the stereotypical web application you should do some 
 
 There is no need to re-invent the wheel. The sentence applies to testing code as well. Maybe there are some corner cases where your main application is indeed a snowflake and needs some in-house utility for the core code. But I can bet that your unit and integration tests are not special themselves and thus writing custom testing utilities is a questionable practice.
 
-### Anti-Pattern 13 - Giving testing a bad reputation out of ignorance
+### Anti-Pattern 13 - Giving testing a bad reputation out of ignorance 反模式13 - 由于无知而诋毁测试
 
 Even though I mention this as the last anti-pattern, this is the one that forced me to write this article. I am always disappointed when I find people at conferences and meetups who “proudly” proclaim that __all tests are a waste of time__ and that their application works just fine without any testing at all. A more common occurrence is meeting people who are against a specific type of testing (usually either unit or integration) like we have seen in anti-patterns [1](#anti-pattern-1---having-unit-tests-without-integration-tests) or [2](#anti-pattern-2---having-integration-tests-without-unit-tests)
 
