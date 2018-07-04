@@ -90,6 +90,14 @@ Topics include:
 
 ### Planning our development process
 
+- Component as 3 categories
+
+| Containers  | Components | Presentational |
+| ------------- | ------------- | ------------ |
+| Connected to the store  | Manage their own state | Don't manage state (stateless) |
+| Pass data to children | Pass props to presentational components  | Change styling based on props |
+
+
 ### Building a nav drawer
 
 ### Nav drawer functionality
