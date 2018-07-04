@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Lynda.com: Building and Deploying a Full-Stack React Application"
-categories: readings
+categories: drafts
 ---
 
 * Author: Carl Peaslee
@@ -90,15 +90,33 @@ Topics include:
 
 ### Planning our development process
 
-- Component as 3 categories
-
+- 3 kinds of components
+ 
 | Containers  | Components | Presentational |
 | ------------- | ------------- | ------------ |
 | Connected to the store  | Manage their own state | Don't manage state (stateless) |
 | Pass data to children | Pass props to presentational components  | Change styling based on props |
 
 
+![image](https://user-images.githubusercontent.com/4011348/42251293-1dd8f50a-7f69-11e8-93ec-1401860c8f76.png)
+
+- Template Container
+    + Drawer
+        + LoggingStuff
+        + DrawerList
+            + DrawerItem
+    + Drawer Toggler
+    + Header
+    + View (of the game)
+        + TicTacTocGame
+            + Board
+                + Square
+
+
 ### Building a nav drawer
+
+- Create `src\components\NavDrawer.js`
+
 
 ### Nav drawer functionality
 
