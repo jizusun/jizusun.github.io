@@ -5,40 +5,21 @@ categories: drafts
 ---
 
 * Author: [Lynn Langit](https://www.lynda.com/Lynn-Langit/3308983-1.html)
-* Released: 3/20/2017 
-* Duration: 3h 56m
-* Skill Level: Intermediate
-* Course URL: <https://www.lynda.com/Google-Cloud-Platform-tutorials/Google-Cloud-Platform-Essential-Training/540539-2.html>
+* Released: 4/4/2017 
+* Duration: 1h 9m
+* Skill Level: Appropriate for all
+* Course URL: <https://www.lynda.com/IT-Infrastructure-tutorials/Cloud-Computing-Career-Paths-Certifications-First-Steps/550716-2.html>
 
-> Which of the cloud computing, storage, database, and networking services of the Google Cloud Platform fits your business requirements? IT professionals—including architects, network admins, and technology stakeholders—can discover the offerings of this leading cloud platform and learn how to use Google Cloud Console and other tools in this course. Lynn Langit shows how to work with virtual machines, Docker containers, relational data stores, NoSQL data, BigQuery, and more. Lynn shares practical tips for saving money, planning deployments, and exploring compatible integration options. She also explains how services work together in common implementation scenarios and architectural patterns.
+> Do you want to start a career in cloud computing, but don't know where to begin? If so, this course can help by providing an ideal foundational mapping of the career paths and certifications that IT professionals should consider if they're interested in transitioning to cloud computing. Instructor and Cloud Architect Lynn Langit covers a variety of career paths, including IT pro, developer, analyst, and architect roles. Throughout the course, she focuses on the major cloud platforms—AWS, Microsoft Azure, Google, and the IBM Bluemix cloud with IBM Watson—discusses certifications available for each, and explores the future of cloud computing careers.
 
 > Topics include:
-> - Google Cloud Platform benefits
-> - Compute services
-> - Database and storage services
-> - Data pipeline services
-> - Machine learning and visualization
-> - Networking and developer tools
-> - Implementation solutions
-> - Architecture optio
+> - Reviewing IT pro, developer, analyst, and architect roles
+> - Reviewing IT pro skills, including virtualization, networking, and scripting
+> - Working with programming languages
+> - Reviewing AWS, Azure, GCP, and IBM certifications
+> - Reviewing cloud career paths
+> - Understanding emerging technologies and careers
 
-```javascript
-
-toc = [];
-
-level_1 = $$("ul.course-toc > li[role='presentation']").map(item => {
-    let h2 = "## " + item.querySelector('h4.ga').innerHTML;
-    toc = toc.concat([h2])
-    let h3 = [...item.querySelectorAll('a.ga.item-name.video-name')]
-                   .map(item => '### ' + item.innerHTML.trim());
-    toc = toc.concat(h3);
-});
-
-text = toc.join("\n\n")
-console.log(text)
-copy(text)
-
-```
 
 
 ## Table of Content
