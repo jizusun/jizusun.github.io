@@ -62,34 +62,97 @@ Topics include:
     + Play live against a person
     + Show users a leaderboard
     + Use a real machine learning API
-<<<<<<< HEAD
--  Generating a starer project
-    +  Using `create-react-app`
-- Creating a Git repository
-    + Author's GitHub profile: <https://github.com/carlpeaslee>
-- Preparing for Relay
-    + <https://www.graph.cool>
-    + `yarn run eject`
-    + `yarn add -D babel-plugin-react-relay`
->>>>>>> 1. Planning
-=======
 
 ### Generating a starer project
-+  Using `create-react-app`
+-  Using `create-react-app`
 
 ### Creating a Git repository
-+ Author's GitHub profile: <https://github.com/carlpeaslee>
+- Author's GitHub profile: <https://github.com/carlpeaslee>
 
 ### Preparing for Relay
-+ <https://www.graph.cool>: **API Endpoints - Relay**
-+ Eject webpack config: `yarn run eject`
-+ Add as a dev dependency: `yarn add -D babel-plugin-react-relay`
-+ `webpack.config.dev.js`: `cacheDirectory: false`
-+ `start.js`: comment all `clearConsole()`
-+ `package.json`: add `react-relay` as babel plugin
-+ More at <https://github.com/prismagraphql/babel-plugin-react-relay>, but it's DEPRECATED now
+- <https://www.graph.cool>: **API Endpoints - Relay**
+- Eject webpack config: `yarn run eject`
+- Add as a dev dependency: `yarn add -D babel-plugin-react-relay`
+- `webpack.config.dev.js`: `cacheDirectory: false`
+- `start.js`: comment all `clearConsole()`
+- `package.json`: add `react-relay` as babel plugin
+- More at <https://github.com/prismagraphql/babel-plugin-react-relay>, but it's DEPRECATED now
 
 ### Setting up React Router
-+ 
->>>>>>> add same-origin policy
+
+### Creating children routes
+
+### Implementing Material-UI
+
+### Deploying to Heroku
+
+## 2. Deployment Environments
+
+### Planning our development process
+
+### Building a nav drawer
+
+### Nav drawer functionality
+
+### Nav drawer links
+
+### Presentational components
+
+### Using styled-components
+
+### Styling for mobile
+
+## 3. App Functionality
+
+### Canvas setup
+
+### Building boards
+
+### Creating squares
+
+### Square functionality
+
+### Building AI
+
+### Finishing the game
+
+### Profile page styles
+
+### Profile page records
+
+## 4. Implementing Libraries
+
+### Authentication setup
+
+### Authentication class
+
+### Relay authorization headers
+
+### Injecting the Relay network layer
+
+### Setting up models on Graphcool
+
+### Viewer queries and Relay containers
+
+### Creating user mutation
+
+### Signin mutations
+
+### Adding Relay to our authentication flow
+
+## 5. Creating Components
+
+### Creating an authentication button
+
+### Creating a Turing test
+
+### Recording the game
+
+### Connecting a profile to Relay
+
+### Protecting routes with authentication
+
+## Conclusion
+
+### Next steps
 
