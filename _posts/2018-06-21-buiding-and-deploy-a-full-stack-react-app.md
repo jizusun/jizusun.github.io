@@ -80,6 +80,10 @@ Topics include:
 
 ### Setting up React Router
 
+```
+yarn add react-router@3.0.2
+```
+
 ### Creating children routes
 
 ### Implementing Material-UI

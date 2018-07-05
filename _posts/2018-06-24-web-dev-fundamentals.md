@@ -53,6 +53,12 @@ categories: drafts
 [w3c same origin policy]: https://www.w3.org/Security/wiki/Same_Origin_Policy
 [whatwg fetch spec]: https://fetch.spec.whatwg.org/#http-cors-protocol
 
+
+## The difference between `browserHistory` and `hashHistory`
+
+- hashHistory: <https://github.com/ReactTraining/react-router/blob/v3/docs/Introduction.md>
+- browserHistory: `Window.history` <https://developer.mozilla.org/en-US/docs/Web/API/History_API>
+
 ## 什么时候会遇到跨域问题（除了域名不一样的情况下？）
 
 ## 模块（Require.js ， ES6 Module, Common.js Module）
