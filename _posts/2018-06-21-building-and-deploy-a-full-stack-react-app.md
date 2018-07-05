@@ -84,9 +84,14 @@ Topics include:
 yarn add react-router@3.0.2
 ```
 
+
 ### Creating children routes
 
 ### Implementing Material-UI
+
+```
+yarn add material-ui
+```
 
 ### Deploying to Heroku
 
