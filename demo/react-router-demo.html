@@ -68,11 +68,11 @@
 
 
       const About = () => (
-        <h3> About </h3>
+        <h2> About </h2>
       )
 
       const Message = (props) => (
-        <h3> {props.params.id}</h3>
+        <h3> {`Message ID: ${props.params.id}`}</h3>
       )
 
 
@@ -88,6 +88,9 @@
             <Route path="about" component={About} />
             <Route path="inbox" component={Inbox} >
               <IndexRoute component={InboxStats}/>
+              <Redirect from="messages/:id" to="/messages/:id" />
+            </Route>
+            <Route component={Inbox}>
               <Route path="messages/:id" component={Message} />
             </Route>
           </Route>
