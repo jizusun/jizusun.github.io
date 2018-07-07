@@ -95,6 +95,23 @@ yarn add material-ui
 
 ### Deploying to Heroku
 
+- Buildpack for Heroku: <https://github.com/mars/create-react-app-buildpack>
+
+```
+heroku login
+heroku create $APP_NAME --buildpack https://github.com/mars/create-react-app-buildpack.git
+heroku config:set GRAPHQL_ENDPOINT=https://api.graph.cool/relay/v1/xxxxxxx
+
+git push heroku master
+heroku open
+```
+static.json
+```
+{
+    
+}
+```
+
 ## 2. Deployment Environments
 
 ### Planning our development process
@@ -126,22 +143,114 @@ yarn add material-ui
 
 - Create `src\components\NavDrawer.js`
 
-
 ### Nav drawer functionality
+
+- add a placeholder for Login Container
+- create a new state `open` for  the `open` prop of the drawer
+- create a `onTouchTap` event handler to toggle the `open` state
 
 ### Nav drawer links
 
+```
+import <Link> from 'react-router'
+```
+
 ### Presentational components
+
+```
+yarn add styled-components
+```
 
 ### Using styled-components
 
+```javascript
+import React from 'react'
+import styled from 'styled-components'
+import FloatingActionButton from 'material-ui/FloatingActionButton'
+import Menu from 'material-ui/svg-icons/navigation/menu'
+
+const StayVisible = styled.div`
+    position: absolute;
+    margin-left: ${(props) => (props.open) ? `${props.width}px` : 'none'};
+    transition: margin .2s
+`
+
+export const NavToggleButton = (props) => {
+    return (
+        <StayVisible
+            {...props}
+        >
+            <FloatingActionButton >
+                <Menu/>
+            </FloatingActionButton>
+            
+        </StayVisible>
+    )
+}
+```
+
 ### Styling for mobile
+
+`media.js`
+```javascript
+import {css} from 'styled-components'
+
+export const media = {
+    handheld: (...args) => css`
+        @media (max-width: 800px) {
+            ${ css(...args) }
+        }
+    `
+}
+```
+
+`styled\Template.js`
+```javascript
+import React from 'react'
+import styled from 'styled-components'
+import {media} from '../utils/media'
+
+
+export const Header = styled.header`
+    text-align: center;
+    font-size: 2em;
+    font-family: 'Roboto', sans-serif;
+`
+
+export const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+    width: 80%;
+    min-height: 80vh;
+    ${media.handheld`
+        min-height: 100%;
+    `}  
+`
+
+export const Main = (props) => {
+    return (
+        <Container>
+            {props.children}
+        </Container>
+    )
+}
+```
 
 ## 3. App Functionality
 
 ### Canvas setup
 
+```
+yarn add react-konva konva
+```
+
 ### Building boards
+
+- `styled\TicTacToe.js`: export `Board` component
+- `import {Layer, Line} from 'react-konva'`
+
 
 ### Creating squares
 
