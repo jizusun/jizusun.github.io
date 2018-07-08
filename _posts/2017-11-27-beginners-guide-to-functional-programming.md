@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  " Beginner's Guide to Functional Programming #8 "
+title:  "Beginner's Guide to Functional Programming"
 categories: drafts
 ---
 
