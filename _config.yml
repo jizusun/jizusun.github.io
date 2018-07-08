@@ -56,7 +56,7 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
-  - jekyll-pwa-plugin
+  # - jekyll-pwa-plugin
 
 kramdown:
   # Generate TOC

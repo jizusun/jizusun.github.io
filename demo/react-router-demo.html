@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>React Router v3 - Docs - Introduction</title>
+    
+    <script src="https://unpkg.com/react/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom/umd/react-dom.development.js"></script>
+    <!-- Don't use this in production: -->
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <script src="https://unpkg.com/react-router@3/umd/ReactRouter.js"></script>
+    
+  </head>
+  <body>
+    
+
+    <div>
+    Tutorial: 
+      <a href="https://github.com/ReactTraining/react-router/blob/v3/docs/Introduction.md">
+        https://github.com/ReactTraining/react-router/blob/v3/docs/Introduction.md
+      </a>
+    </div>
+
+    <div id="root"></div>
+
+
+    <script type="text/babel">
+
+      const {
+        Router,
+        Route,
+        IndexRoute,
+        Redirect,
+        Link,
+        IndexLink,
+        hashHistory
+      } = ReactRouter
+
+
+      const {
+        render
+      } = ReactDOM
+
+      const rootEl = document.getElementById('root')
+
+      const App = (props) => (
+         <div>
+            <h1>App</h1>
+            <ul>
+              <li><Link to="/about">About</Link></li>
+              <li><Link to="/inbox">Inbox</Link></li>
+              <li><Link to="/inbox/messages/10086">Message (ID: 10086)</Link></li>
+            </ul>
+            {props.children}
+        </div>
+      )
+
+      const Inbox = (props) => (
+          <div>
+            <h2>Inbox</h2>
+            {props.children}
+          </div>
+      )
+
+      const Home = () => (
+        <h3> Home </h3>
+      )
+
+
+      const About = () => (
+        <h2> About </h2>
+      )
+
+      const Message = (props) => (
+        <h3> {`Message ID: ${props.params.id}`}</h3>
+      )
+
+
+      const InboxStats = () => (
+        <h3> Inbox Stats </h3>
+      )
+
+
+      render((
+        <Router history={hashHistory}>
+          <Route path="/" component={App}>
+            <IndexRoute component={Home} />
+            <Route path="about" component={About} />
+            <Route path="inbox" component={Inbox} >
+              <IndexRoute component={InboxStats}/>
+              <Redirect from="messages/:id" to="/messages/:id" />
+            </Route>
+            <Route component={Inbox}>
+              <Route path="messages/:id" component={Message} />
+            </Route>
+          </Route>
+        </Router>
+      ), rootEl)
+
+
+    </script>
+    
+  </body>
+</html>
