@@ -39,6 +39,8 @@ Topics include:
 - with graphQL 
 - authentication with Auth0
 - tic-tac-toe 
+- <https://github.com/tictacturing/tictacturing>
+
 
 ### What you should know
 - React
@@ -248,11 +250,20 @@ yarn add react-konva konva
 
 ### Building boards
 
-- `styled\TicTacToe.js`: export `Board` component
-- `import {Layer, Line} from 'react-konva'`
+- <https://github.com/tictacturing/tictacturing/tree/02_05_end>
+- the state of `component/TicTacToe.js`
+    - `size`: the .8 of `window.innerHeight` or `window.innerWeight`
+    - `rows`: the rows of the board
+    - `unit`: `size /rows`g
+- Use `react-konva` to draw the board, which is a styled compoment
+    - `styled\TicTacToe.js`: export `Board` component
+    - `import {Layer, Line} from 'react-konva'`
+
 
 
 ### Creating squares
+
+- <https://github.com/tictacturing/tictacturing/tree/02_06_end>
 
 ### Square functionality
 
