@@ -43,6 +43,7 @@ Topics include:
 
 ![final](https://user-images.githubusercontent.com/4011348/42628897-1634d520-8604-11e8-8f36-34c7f52dabdc.png)
 
+
 ### What you should know
 - React
 - Relay, Styled components, Material-UI, React Router, Git, npm, and the command line
@@ -261,6 +262,7 @@ yarn add react-konva konva
     - `import {Layer, Line} from 'react-konva'`
 
 
+
 ### Creating squares
 
 - <https://github.com/tictacturing/tictacturing/tree/02_06_end>
@@ -277,6 +279,7 @@ Create all squares, and every time we clicked on them we could see the index of 
     + `random`: to generate a random integer
     + `makeAiMove`: take an open square and move there at random
 - <https://github.com/tictacturing/tictacturing/tree/02_07_end>
+
 
 ### Finishing the game
 
@@ -301,6 +304,8 @@ Create all squares, and every time we clicked on them we could see the index of 
 ### Creating user mutation
 
 ### Sign-in mutations
+
+
 
 ### Adding Relay to our authentication flow
 
