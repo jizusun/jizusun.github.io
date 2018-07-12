@@ -39,6 +39,10 @@ Topics include:
 - with graphQL 
 - authentication with Auth0
 - tic-tac-toe 
+- <https://github.com/tictacturing/tictacturing>
+
+![final](https://user-images.githubusercontent.com/4011348/42628897-1634d520-8604-11e8-8f36-34c7f52dabdc.png)
+
 
 ### What you should know
 - React
@@ -225,7 +229,7 @@ export const Container = styled.div`
     width: 80%;
     min-height: 80vh;
     ${media.handheld`
-        min-height: 100%;
+        width: 100%;
     `}  
 `
 
@@ -248,15 +252,34 @@ yarn add react-konva konva
 
 ### Building boards
 
-- `styled\TicTacToe.js`: export `Board` component
-- `import {Layer, Line} from 'react-konva'`
+- <https://github.com/tictacturing/tictacturing/tree/02_05_end>
+- the state of `component/TicTacToe.js`
+    - `size`: the .8 of `window.innerHeight` or `window.innerWeight`
+    - `rows`: the rows of the board
+    - `unit`: `size /rows`
+- Use `react-konva` to draw the board, which is a styled component
+    - `styled\TicTacToe.js`: export `Board` component
+    - `import {Layer, Line} from 'react-konva'`
+
 
 
 ### Creating squares
 
+- <https://github.com/tictacturing/tictacturing/tree/02_06_end>
+
 ### Square functionality
 
+Create all squares, and every time we clicked on them we could see the index of the square that we clicked on.
+
 ### Building AI
+
+- Helper functions:
+    + `combos`: the 2-d array of all the possible winning combination
+    + `winChecker`: use `Array.prototype.find` to check if the `gameState` matches any of the `combos`
+    + `random`: to generate a random integer
+    + `makeAiMove`: take an open square and move there at random
+- <https://github.com/tictacturing/tictacturing/tree/02_07_end>
+
 
 ### Finishing the game
 
@@ -280,7 +303,9 @@ yarn add react-konva konva
 
 ### Creating user mutation
 
-### Signin mutations
+### Sign-in mutations
+
+
 
 ### Adding Relay to our authentication flow
 
