@@ -282,8 +282,30 @@ Create all squares, and every time we clicked on them we could see the index of 
 
 
 ### Finishing the game
+- `move`: 
+    + `this.setState`: `(prevState, props) => stateChange`: <https://reactjs.org/docs/react-component.html#setstate>
+    + turn over the `yourTurn`
+    + use `splice` to mark the move in `gameState`: <https://stackoverflow.com/questions/32543455/javascript-replace-directly-with-index-vs-array-splice>
+    + use `this.winChecker` to get the wining solution array, and then get the winner from `gameState`
+    + if `foundWin !! !gameState.includes(false)`, then `gameOver`
+    + if `!yourTurn && !gameOver`, then make AI move
+- `makeAiMove`: wait 1 seconds (`setTimeout`)before the actual move
 
 ### Profile page styles
+- Exercise file provided: `src/styled/Profile.js`
+    - `Container, Name, Game, ListHeader, GameList, GameRecord, Column, ColumnLabels`
+- `src/containers/Profile.js`
+    - `defaultProps`
+    - layout:
+```html
+Container
+    Name
+    GameList
+        GameListHeader
+        ColumnLabels
+            Column(Outcome, Guest, Guessed Correctly, Date )
+```
+
 
 ### Profile page records
 
