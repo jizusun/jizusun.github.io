@@ -101,7 +101,7 @@ yarn add material-ui
 
 - Buildpack for Heroku: <https://github.com/mars/create-react-app-buildpack>
 
-```
+```bash
 heroku login
 heroku create $APP_NAME --buildpack https://github.com/mars/create-react-app-buildpack.git
 heroku config:set GRAPHQL_ENDPOINT=https://api.graph.cool/relay/v1/xxxxxxx
@@ -304,20 +304,94 @@ Container
         GameListHeader
         ColumnLabels
             Column(Outcome, Guest, Guessed Correctly, Date )
+        {this.records}
+```
+
+### Profile page records
+- Connect all this dummy data into our list
+    - get records() : `this.props.user.games.map`
+- layout:
+```html
+GameRecord
+    Column(Outcome, Guest, Guessed Correctly, Date )
+```
+## 4. Implementing Libraries
+
+### 04_01. Authentication setup
+- <https://github.com/tictacturing/tictacturing/tree/03_00_end>
+- `Passport`( <https://github.com/jaredhanson/passport>) 
+    + > Passport is Express-compatible authentication middleware for Node.js.
+- Auth0
+    + `yarn add auth0-lock`
+    + `src/utils/auth.js`: authDomain, clientId
+
+### 04_02. Authentication class
+- <https://github.com/tictacturing/tictacturing/tree/03_01_end>
+- `src/utils/auth.js`
+- `import Auth0Lock from 'auth0-lock'`
+- class: `AuthService`
+    + `constructor`: `new Auth0Lock`
+    + `authProcess`
+    + `showLock`
+    + `setToken`: set `idToken` and `exp` into localStorage
+    + `isCurrent`: check if the `exp` is valid by comparing with current timestamp
+    + `getToken`: return it before checking with `isCurrent`
+    + `logout`: remove `idToken` and `exp` from localStorage, and reload the page
+
+
+### 04_03. Relay authorization headers
+- `yarn add react-relay react-relay-network-layer react-router-relay`
+- import modules
+
+```diff
++ import Relay from 'react-relay'
++ import useRelay from 'react-router-relay'
+- import {Router, browserHistory} from 'react-router'
++ import {Router, browserHistory, applyRouterMiddleware} from 'react-router'
++ import {RelayNetworkLayer, urlMiddleware} from 'react-relay-network-layer'
++ import {relayApi} from './config/endpoints'
++ import auth from './utils/auth'
+
++ const createHeaders = () => {
++    let idToken = auth.getToken()
++    return idToken 
++       ? {Authorization: `Bearer ${idToken}` } 
++       : {}
++}
 ```
 
 
-### Profile page records
+### 04_04. Injecting the Relay network layer
+- <https://github.com/relay-tools/react-router-relay>
+    + > This library does not support React Router v4, because React Router v4 does not provide the necessary integration points for efficient data fetching with Relay. Additionally, rendering performance will be better with React Router v2 than with React Router v3, as the link subscription logic in React Router v3 triggers unnecessary rerenders with Relay.
+- <https://github.com/relay-tools/react-relay-network-layer>
+- some code
+    ```javascript
+    Relay.injectNetworkLayer(
+        new RelayNetworkLayer([
+            urlMiddleware({
+                url: (req) => relayApi,
+            }),
+            next => req => {
+                req.headers = {
+                    ...req.header,
+                    ...createHeaders()
+                }
+                return next(req)
+            },
+        ],{disableBatchQuery: true})
+    )
 
-## 4. Implementing Libraries
-
-### Authentication setup
-
-### Authentication class
-
-### Relay authorization headers
-
-### Injecting the Relay network layer
+    ReactDOM.render(
+        <Router
+            environment={Relay.Store}
+            render={applyRouterMiddleware(useRelay)}
+            history={browerHistory}
+            routes={Routes}
+        />,
+        document.getElementById('root')
+    )
+    ```
 
 ### Setting up models on Graphcool
 
