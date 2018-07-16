@@ -315,6 +315,7 @@ Container
 GameRecord
     Column(Outcome, Guest, Guessed Correctly, Date )
 ```
+
 ## 4. Implementing Libraries
 
 ### 04_01. Authentication setup
@@ -386,24 +387,93 @@ GameRecord
         <Router
             environment={Relay.Store}
             render={applyRouterMiddleware(useRelay)}
-            history={browerHistory}
+            history={browserHistory}
             routes={Routes}
         />,
         document.getElementById('root')
     )
     ```
 
-### Setting up models on Graphcool
+### 04_05. Setting up models on Graphcool
+- <https://console.graph.cool/>
+- new Model `Game`
+    - `id`
+    - `createdAt`
+    - `updatedAt`
+    - `p1Guess`, Emum(ROBOT, HUMAN), required
+    - `p1GuessCorrect`: Boolean, required
+- new relationship
+    + 1 `User` (related field: `p1games`) to many `Game` (related field: `p1players`)
+    + name: `Player1Games`
+    + Short description: 
+- new relationship
+    + 1 `user` (field: `winner`) to many `game` (field: `winner`)
+    + name: `UserWins`
 
-### Viewer queries and Relay containers
+### 04_06. Viewer queries and Relay containers
+- References:
+    +  <https://graphql.org/>
+    + <http://facebook.github.io/relay/docs/en/introduction-to-relay.html>
+    + <https://www.howtographql.com/>
+- `src/routes/index.js`: <https://github.com/relay-tools/react-router-relay#usage>
 
-### Creating user mutation
+    ```js
+    const viewerQueries = {
+        viewer: () => Relay.QL`query { viewer }`
+    }
+    ```
 
-### Sign-in mutations
+- `src/containers/Template.js`: <https://facebook.github.io/relay/docs/en/classic/classic-api-reference-relay-container.html>
 
+    ```js
+    import Relay from 'react-relay'
 
+    // code here
 
-### Adding Relay to our authentication flow
+    export default Relay.createContainer(
+        Template, {
+            fragment: {
+                viewer: () => Relay.QL`
+                    fragment on Viewer {
+                        user {
+                            id
+                        }
+                    }
+                `,
+            }
+        }
+    )
+    ```
+
+### 04_07. Creating user mutation
+
+- `src/mutations/CreateUser.js`: <https://facebook.github.io/relay/docs/en/classic/classic-guides-mutations.html>
+    + extends from `Relay.Mutation`
+    + `getVariables`:
+    + `getMutation`: 
+    + `getFatQuery`: 
+    + `getConfigs`: 
+
+### 04_08. Sign-in mutations
+
+- `src/mutations/SigninUser.js`: 
+    + `getVariables`:
+    + `getMutation`: `signinUser` 
+    + `getFatQuery`: 
+    + `getConfigs`: 
+
+### 04_09. Adding Relay to our authentication flow
+- `src/utils/auth.js`
+
+```js
+import CreateUser from '../mutations/CreateUser'
+import SigninUser from '../mutations/SigninUser'
+```
+
+- Promise: 
+    + `createUser`: `Relay.Store.commitUpdate`
+    + `signinUser`: 
+- `AuthService.authProcess`
 
 ## 5. Creating Components
 
