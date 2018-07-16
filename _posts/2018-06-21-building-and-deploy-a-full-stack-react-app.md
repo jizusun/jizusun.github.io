@@ -34,7 +34,7 @@ Topics include:
 
 ## Introduction
 
-### Welcome
+### 00_01. Welcome
 - a scalable React and Relay application, complete with a database and authentication
 - with graphQL 
 - authentication with Auth0
@@ -44,13 +44,30 @@ Topics include:
 ![final](https://user-images.githubusercontent.com/4011348/42628897-1634d520-8604-11e8-8f36-34c7f52dabdc.png)
 
 
-### What you should know
+### 00_02. What you should know
 - React
 - Relay, Styled components, Material-UI, React Router, Git, npm, and the command line
 - GitHub, Heroku, AuthO, Graphcool
 - Atom, Yarn, Chrome
 
-### Installing local dependencies
+### 00_03. Installing local dependencies
+
+```
+"dependencies": {
+    "auth0-lock": "^10.11.0",
+    "konva": "^1.3.0",
+    "material-ui": "^0.16.7",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-konva": "^1.1.1",
+    "react-relay": "^0.10.0",
+    "react-relay-network-layer": "^1.3.9",
+    "react-router": "^3.0.2",
+    "react-router-relay": "^0.13.5",
+    "react-tap-event-plugin": "^2.0.1",
+    "styled-components": "^1.4.2"
+  }
+```
 - create-react-app
 
 ## 1. Planning
@@ -323,15 +340,17 @@ GameRecord
 - `Passport`( <https://github.com/jaredhanson/passport>) 
     + > Passport is Express-compatible authentication middleware for Node.js.
 - Auth0
-    + `yarn add auth0-lock`
+    + `yarn add auth0-lock@10 -T`
     + `src/utils/auth.js`: authDomain, clientId
 
 ### 04_02. Authentication class
 - <https://github.com/tictacturing/tictacturing/tree/03_01_end>
+- `import Auth0Lock from 'auth0-lock'` ( "auth0-lock": "^10.11.0")
+    - <https://auth0.com/docs/libraries/lock/v10/api>
+    - <https://auth0.com/docs/libraries/lock/v10>
 - `src/utils/auth.js`
-- `import Auth0Lock from 'auth0-lock'`
 - class: `AuthService`
-    + `constructor`: `new Auth0Lock`
+    + `constructor`: `new Auth0Lock()` 
     + `authProcess`
     + `showLock`
     + `setToken`: set `idToken` and `exp` into localStorage
@@ -473,7 +492,7 @@ import SigninUser from '../mutations/SigninUser'
 - Promise: 
     + `createUser`: `Relay.Store.commitUpdate`
     + `signinUser`: 
-- `AuthService.authProcess`
+- `AuthService.authProcess`: first try `signinUser`, and if failed ,then `createUser`
 
 ## 5. Creating Components
 
