@@ -17,7 +17,7 @@ title: Jizu's Writings
 author: Jizu Sun (孙继祖)
 description: >- # this means to ignore newlines until "baseurl:"
   Continous integration, continous development, and continuous reflections on my work and life
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://jizusun.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  jizusun
 baseurl: ""
 disqus:
