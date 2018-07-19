@@ -94,10 +94,10 @@ Topics include:
 - <https://www.graph.cool>: **API Endpoints - Relay**
 - Eject webpack config: `yarn run eject`
 - Add as a dev dependency: `yarn add -D babel-plugin-react-relay`
+( <https://github.com/prismagraphql/babel-plugin-react-relay>, but it's **DEPRECATED** now)
 - `webpack.config.dev.js`: `cacheDirectory: false`
 - `start.js`: comment all `clearConsole()`
 - `package.json`: add `react-relay` as babel plugin
-- More at <https://github.com/prismagraphql/babel-plugin-react-relay>, but it's DEPRECATED now
 
 ### Setting up React Router
 
@@ -342,6 +342,7 @@ GameRecord
 - Auth0
     + `yarn add auth0-lock@10 -T`
     + `src/utils/auth.js`: authDomain, clientId
+- Create Client (New Application): <https://manage.auth0.com/#/> 
 
 ### 04_02. Authentication class
 - <https://github.com/tictacturing/tictacturing/tree/03_01_end>
@@ -361,7 +362,7 @@ GameRecord
 
 ### 04_03. Relay authorization headers
 - `yarn add react-relay react-relay-network-layer react-router-relay`
-- import modules
+- `src/index.js`
 
 ```diff
 + import Relay from 'react-relay'
@@ -394,7 +395,7 @@ GameRecord
             }),
             next => req => {
                 req.headers = {
-                    ...req.header,
+                    ...req.headers,
                     ...createHeaders()
                 }
                 return next(req)
@@ -428,6 +429,12 @@ GameRecord
 - new relationship
     + 1 `user` (field: `winner`) to many `game` (field: `winner`)
     + name: `UserWins`
+- new field for `User` model
+    - `email`: string, required
+- configure everyone's permission for CRUD
+- configure Auth0 as the auth provider 
+    + Integrations -> Auth0
+    + <https://manage.auth0.com/#/applications>
 
 ### 04_06. Viewer queries and Relay containers
 - References:
@@ -496,8 +503,35 @@ import SigninUser from '../mutations/SigninUser'
 
 ## 5. Creating Components
 
-### Creating an authentication button
+### 05_01. Creating an authentication button
 
+- `src/components/AuthButton.js`
+
+```js
+import RaisedButton from 'material-ui/RaisedButton'
+
+if (this.props.authenticated) {
+  return ()
+} else {
+  return ()
+}
+
+```
+
+- pass props from `routes` -> `template` -> `navDrawer` -> `NavButton`
+
+```html
+<!-- Template.js -->
+<NavDrawer
+  auth={this.props.route.auth}
+  authenticated={this.props.viewer.user}
+/>
+<!-- NavDrawer.js -->
+<AuthButton
+  auth={this.props.auth}
+  authenticated={this.props.authenticated}
+/>
+```
 ### Creating a Turing test
 
 ### Recording the game

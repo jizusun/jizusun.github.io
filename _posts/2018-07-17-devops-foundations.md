@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "DevOps Foundations"
+title:  "Lynda.com: DevOps Foundations"
 categories: drafts
 ---
 

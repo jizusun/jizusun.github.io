@@ -397,21 +397,37 @@ There are several articles on the web (I am not going to link them) that talk ab
 
 In the previous sections we have outlined the types and amount of tests you need to have for your application. The next logical step is to explain what functionality you actually need to test.
 
+在上一节中，我们概述了你的应用程序所需要的测试类型和数量。下一个合乎逻辑的步骤是，解释哪些功能才是需要测试的。
+
 In theory, getting 100% code coverage in an application is the ultimate goal. In practice this goal is not only difficult to achieve but also it doesn’t guarantee a bug free application.
+
+理论上，达到 100% 的测试覆盖率是最终的目标。但实际上，这个目标不仅很难实现，还不能保证你的应用程序完全没有 bug。
 
 There are some cases where indeed it is possible to test __all__ functionality of your application. If you start on a green-field project, if you work in a small team that is well behaved and takes into account the effort required for tests, it is perfectly fine to write new tests for all new functionality you add (because the existing code already has tests).
 
+在某些情况下，确实有可能测试到应用程序的 __全部__ 功能。如果你开始于一个绿色的项目（译者注：这里应该指测试全部能跑通过），如果你在一个表现良好的小团队工作，并将测试所需的工作量考虑其中，那么为你所新加的功能写新测试是完全正常的（因为现有的代码已经有测试）。
+
 But not all developers are lucky like this. In most cases you inherit an existing application that has a minimal amount of tests (or even none!). If you are part of a big and established company, working with legacy code is mostly the rule rather than the exception.
+
+但不是所有的开发者都这么幸运。在大多数情况下，你接手的是一个有很少测试（甚至一点测试都没有！）的已有项目。如果你是一个大公司的一员，那么接触遗留旧代码是再正常不过的了。
 
 Ideally you would have enough development time to write tests for both new and existing code for a legacy application. This is a romantic idea that will probably be rejected by the average project manager who is mostly interested on adding new features rather then testing/refactoring. You have to pick your battles and find a fine balance between adding new functionality (as requested by the business) and expanding the existing test suite.
 
+理想情况下，你会有充足的开发时间来为一个旧项目的新代码和现有代码编写测试。这实在是一个浪漫的想法！大多数项目经理都会拒绝这样做，因为他们感兴趣的是添加新功能，而不是测试或重构。你必须选择选择你的战斗，并在添加新功能（根据业务方的要求）和扩展现有测试集直接找到一个好的平衡点。
+
 So what do you test? Where do you focus your efforts? Several times I have seen developers wasting valuable testing time by writing “unit tests” that add little or no value to the overall stability of the application. The canonical example of useless testing is trivial tests that verify the application data model.
+
+所以你要测试什么呢？你应该将精力集中到哪里？有几次，我见到开发者浪费宝贵的时间来写所谓的“单元测试”，但这些测试对应用程序的整体稳定性没有任何价值。无用测试的典型示例是写琐碎的测试来验证应用程序数据模型。
 
 Code coverage is analyzed in detail in its own [anti-pattern](#anti-pattern-6---paying-excessive-attention-to-test-coverage) section. In the present section however we will talk about code “severity” and how it relates to your tests.
 
+代码覆盖率在其自己的 [反模式6](#anti-pattern-6--paying-excessive-attention-to-test-coverage) 一节中被详细地分析过。在本节中，我们将讨论代码“严重性”已经它与测试直接的关系。
+
 If you ask any developer to show you the source code of any application, he/she will probably open an IDE or code repository browser and show you the individual folders.
 
-![Source code physical model](../../assets/testing-anti-patterns/source-code-physical.png)
+如果你让任何一个开发人员展示给你任何一个应用程序的源代码，他/她应该会打开 IDE 或代码仓库浏览器，展示给你每个文件夹。
+
+![Source code physical model](https://user-images.githubusercontent.com/4011348/42945375-d5687082-8b9a-11e8-9a47-550c7bda04c5.png)
 
 This representation is the physical model of the code. It defines the folders in the filesystem that contain the source code. While this hierarchy of folders is great for working with the code itself, unfortunately it doesn’t define the importance of each code folder. A flat list of code folders implies that all code components contained in them are of equal importance.
 
@@ -424,7 +440,7 @@ Even though both bugs should be fixed, it is obvious that the first one has high
 
 To generalize this example, if you work for some time in any medium/large application you will soon need to think about code using a different representation - the mental model.
 
-![Source code mental model](../../assets/testing-anti-patterns/code-mental-model.png)
+![Source code mental model](https://user-images.githubusercontent.com/4011348/42945417-ee804d60-8b9a-11e8-8e10-666fb5a18e82.png)
 
 I am showing here 3 layers of code, but depending on the size of your application it might have more. These are:
 
