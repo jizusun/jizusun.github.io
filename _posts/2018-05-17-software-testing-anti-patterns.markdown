@@ -431,22 +431,30 @@ If you ask any developer to show you the source code of any application, he/she 
 
 This representation is the physical model of the code. It defines the folders in the filesystem that contain the source code. While this hierarchy of folders is great for working with the code itself, unfortunately it doesn’t define the importance of each code folder. A flat list of code folders implies that all code components contained in them are of equal importance.
 
-这种展示的是代码的物理模型，它定义了文件系统中包含源代码的文件夹。尽管这种文件夹层次结构非常适合处理代码本身，但遗憾的是，它没有定义每个代码文件夹的重要性。代码文件夹的平面列表，
+这种方式所展示的是代码的物理模型，它定义了文件系统中包含源代码的文件夹。尽管这种文件夹层次结构非常适合处理代码本身，但遗憾的是，它没有定义每个代码文件夹的重要性。代码文件夹的平面列表，意味着包含在其中的所有代码组件具有同等的重要性。
 
 This is not true as different code components have a different impact in the overall functionality of the application. As a quick example let’s say that you are writing an eshop application and two bugs appear in production:
 
-1.  Customers cannot check-out their cart halting all sales
-2.  Customers get wrong recommendations when they browse products.
+然而，不同的代码组件对于应用程序的整体功能却有不同的影响。举个简单的例子，你在编写一个电子商城的应用程序，并在生产系统中发现 两个 bug：
+
+1.  Customers cannot check-out their cart halting all sales 顾客无法结帐，因此所有销售被中断
+2.  Customers get wrong recommendations when they browse products. 顾客在浏览商品时得到了错误的推荐
 
 Even though both bugs should be fixed, it is obvious that the first one has higher priority. Therefore if you inherit an eshop application with zero tests, you should write new tests the directly validate the check-out functionality rather than the recommendation engine. Despite the fact that the recommendation engine and the check-out process might exist on sibling folders in the filesystem, their importance is different when it comes to testing.
 
+尽管两个 bug 都得修复，但很明显第一个 bug 具有更高的优先级。因此，如果你接手了一个没有任何测试的电子商城应用程序，你应该写一些新测试来直接验证结帐功能，而非推荐系统。尽管推荐系统和结帐过程可能存在于文件系统的同级目录，但在测试时，它们的重要性是不同的。
+
 To generalize this example, if you work for some time in any medium/large application you will soon need to think about code using a different representation - the mental model.
 
-![Source code mental model](https://user-images.githubusercontent.com/4011348/42945417-ee804d60-8b9a-11e8-8e10-666fb5a18e82.png)
+概括一下这个例子，如果你编写过任何中型或大型应用程序，你很快就需要使用不同的表征，即心智模型，来思考代码。
+
+![Source code mental model 代码心智模型](https://user-images.githubusercontent.com/4011348/42945417-ee804d60-8b9a-11e8-8e10-666fb5a18e82.png)
 
 I am showing here 3 layers of code, but depending on the size of your application it might have more. These are:
 
-1.  Critical code - This is the code that breaks often, gets most of new features and has a big impact on application users
+我在这里展示了代码的三个层面，但根据应用程序的大小，它可能包含更多层。这些是：
+
+1.  Critical code - This is the code that breaks often, gets most of new features and has a big impact on application users 关键代码
 2.  Core code - This is the code that breaks sometimes, gets few new features and has medium impact on the application users
 3.  Other code - This is code that rarely changes, rarely gets new features and has minimal impact on application users.
 
