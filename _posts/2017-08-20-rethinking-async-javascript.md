@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Lynda.com(Frontend Masters) - Rethinking Async Javascript"
+title:  "Lynda.com: Rethinking Async Javascript"
 categories: drafts
 ---
 

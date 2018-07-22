@@ -431,6 +431,8 @@ If you ask any developer to show you the source code of any application, he/she 
 
 This representation is the physical model of the code. It defines the folders in the filesystem that contain the source code. While this hierarchy of folders is great for working with the code itself, unfortunately it doesn’t define the importance of each code folder. A flat list of code folders implies that all code components contained in them are of equal importance.
 
+这种展示的是代码的物理模型，它定义了文件系统中包含源代码的文件夹。尽管这种文件夹层次结构非常适合处理代码本身，但遗憾的是，它没有定义每个代码文件夹的重要性。代码文件夹的平面列表，
+
 This is not true as different code components have a different impact in the overall functionality of the application. As a quick example let’s say that you are writing an eshop application and two bugs appear in production:
 
 1.  Customers cannot check-out their cart halting all sales
@@ -674,7 +676,7 @@ This approach can only work with tests that fail in a deterministic manner. A te
 
 A failing test should be easily recognizable by everybody in your team as it changes the status of the whole build. On the other hand if you have flaky tests it is hard to understand if new failures are truly new or they stem from the existing flaky tests.
 
-![Flaky tests](../../assets/testing-anti-patterns/flaky-tests.png)
+![Flaky tests](https://user-images.githubusercontent.com/4011348/43044734-c70457d6-8dde-11e8-8ee3-44ebf5f6fe14.png
 
 Even a small number of flaky tests in enough to destroy the credibility of the rest of test suite. If you have 5 flaky tests for example, run the build and get 3 failures it is not immediately evident if everything is fine (because the failures were coming from the flaky tests) or if you just introduced 3 regressions.
 
@@ -693,7 +695,7 @@ Depending on your organization you might actually have several types of tests in
 
 Ideally all your tests should run automatically without any human intervention. If that is not possible at the very least all tests that deal with correctness of code (i.e. unit and integration tests) **must** run in an automatic manner. This way developers get feedback on the code in the most timely manner. It is very easy to fix a feature when the code is fresh in your mind and you haven’t switched context yet to an unrelated feature.
 
-![Test feedback loop tests](../../assets/testing-anti-patterns/test-feedback.png)
+![Test feedback loop tests]((https://user-images.githubusercontent.com/4011348/43044744-fb83ff2a-8dde-11e8-8ad9-508a6c9afb60.png)
 
 In the past the most lengthy step of the software lifecycle was the deployment of the application. With the move into cloud infrastructure where machines can be created on demand (either in the form of VMs or containers) the time to provision a new machine has been reduced to minutes or seconds. This paradigm shift has caught a lot of companies by surprise as they were not ready to handle daily or even hourly deployments. Most of the existing practices were centered around lengthy release cycles. Waiting for a specific time in the release to “pass QA” with manual approval is one of those obsolete practices that is no longer applicable if a company wants to deploy as fast as possible.
 
@@ -703,7 +705,7 @@ A lot of companies __think__ that they practice continuous delivery and/or deplo
 
 Unfortunately, while most companies have correctly realized that deployments should be automated, because using humans for them is error prone and slow, I still see companies where launching the tests is a semi-manual process. And when I say semi-manual I mean that even though the test suite itself might be automated, there are human tasks for house-keeping such as preparing the test environment or cleaning up the test data after the tests have finished. That is an anti-pattern because it is not true automation. **All** aspects of testing should be automated.
 
-![Automated tests](../../assets/testing-anti-patterns/automated-tests.png)
+![Automated tests]((https://user-images.githubusercontent.com/4011348/43044756-2400979c-8ddf-11e8-99b4-69f2ce06de8b.png)
 
 Having access to VMs or containers means that it is very easy to create various test environments on demand. Creating a test environment on the fly for an individual pull request should be a standard practice within your organization. This means that each new feature is tested individually on its own. A problematic feature (i.e. that causes tests to fail) should not block the release of the rest of the features that need to be deployed at the same time.
 
