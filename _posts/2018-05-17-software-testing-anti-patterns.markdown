@@ -454,25 +454,35 @@ I am showing here 3 layers of code, but depending on the size of your applicatio
 
 我在这里展示了代码的三个层面，但根据应用程序的大小，它可能包含更多层。这些是：
 
-1.  Critical code - This is the code that breaks often, gets most of new features and has a big impact on application users 关键代码
-2.  Core code - This is the code that breaks sometimes, gets few new features and has medium impact on the application users
-3.  Other code - This is code that rarely changes, rarely gets new features and has minimal impact on application users.
+1.  Critical code - This is the code that breaks often, gets most of new features and has a big impact on application users 关键代码 —— 这些代码容易出问题，提供大多数新功能，并对用户有重大影响。
+2.  Core code - This is the code that breaks sometimes, gets few new features and has medium impact on the application users 核心代码 —— 这些代码有时会出问题，提供较少的新功能，并对用户有中等影响。
+3.  Other code - This is code that rarely changes, rarely gets new features and has minimal impact on application users. 其他代码 —— 这些代码很少被更改，很少获得新功能，对用户的影响最小。
 
 This mental mode should be your guiding principle whenever you write a new software test. Ask yourself if the functionality you are writing tests for now belongs to the __critical__ or __core__ categories. If yes, then write a software test. If no, then maybe your development time should better be spent elsewhere (e.g. in another bug).
 
+每当你编写新的软件测试时，这个心智模型应该是你的指导原则。问问自己，你正在写测试的功能是否属于 __关键__ 或 __核心__ 类别。如果是，就编写软件测试。如果不是，也许你的开发时间应该更好地花在别处（例如另一个 bug）。
+
 The concept of having code with different severity categories is also great when you need to answer the age old question of how much code coverage is enough for an application. To answer this question you need to either know the severity layers of the application or ask somebody that does. Once you have this information at hand the answer is obvious:
+
+当你要回答这一古老的问题 —— 多少代码覆盖率是足够的，你心里对于代码的重要程度能做到区别对待也是很有用的。要回答这个问题，你要么自己了解应用程序的重要度分层，或者问别人。一旦掌握了这些信息，答案是显而易见的：
 
 Try to write tests that work towards 100% coverage **of critical code**. If you have already done this, then try to write tests that work towards 100% **of core code**. Trying however to get 100% coverage on __total__ code [is not recommended](#anti-pattern-6---paying-excessive-attention-to-test-coverage).
 
+尝试编写测试，达到 100% 的 **关键代码** 覆盖率。如果您已经做到了这一点，那么尝试编写测试以达到 100% 的 **核心代码** 覆盖率。然而，尝试达到 100% 的 __所有代码__ 的覆盖率是 [不推荐的](#anti-pattern-6---paying-excessive-attention-to-test-coverage)。
+
 The important thing to notice here is that the critical code in an application is always a small subset of the overall code. So if in an application critical code is let’s say 20% of the overall code, then getting just 20% overall code coverage is a good first step for reducing bugs in production.
 
-In summary, write unit and integration tests for code that
+这里需要注意的重要一点是，应用程序中的关键代码始终是总体代码的一小部分。假设一个应用程序的关键代码占总体代码的 20%，那么做到这 20% 的代码被覆盖是减少生产系统中 bug 的至关重要的第一步。
 
-*   breaks often
-*   changes often
-*   is critical to the business
+In summary, write unit and integration tests for code that 总之，为以下代码编写单元和集成测试
+
+*   breaks often 经常出问题的
+*   changes often 经常改动的
+*   is critical to the business 对于业务至关重要的
 
 If you have the time luxury to further expand the test suite, make sure that you understand the diminishing returns before wasting time on tests with little or no value.
+
+如果你有大把大把的时间来扩充测试集，请在浪费时间写那些几乎没有价值的测试之前，确保你明白测试的收益递减性。
 
 ### Anti-Pattern 5 - Testing internal implementation 反模式5 - 测试了内部实现
 {: #anti-pattern-5---testing-internal-implementation}
