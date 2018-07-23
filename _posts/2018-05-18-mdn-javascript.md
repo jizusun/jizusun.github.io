@@ -37,7 +37,11 @@ categories: drafts
 
 ## JavaScript Reference
 
+<<<<<<< HEAD
+### Standard build-in objects
+=======
 ### Standard Objects
+>>>>>>> master
 
 #### [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
 
@@ -109,6 +113,12 @@ categories: drafts
 
 * [Object initializer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer)
 
+<<<<<<< HEAD
+### Array
+
+
+=======
+>>>>>>> master
 ### Expression and operators
 ### Statements and declarations
 ### Functions
