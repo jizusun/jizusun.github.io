@@ -180,9 +180,11 @@ To sum up, unless you are creating something extremely isolated (e.g. a command 
 
 This is the inverse of the previous anti-pattern. This anti-pattern is more common in large companies and large enterprise projects. Almost always the history behind this anti-pattern involves developers who believe that unit tests have no real value and only integration tests can catch regressions. There is a large majority of experienced developers who consider unit tests a waste of time. Usually if you probe them with questions, you will discover that at some point in the past, upper management had forced them to increase code coverage (See [anti-pattern 6](#anti-pattern-6---paying-excessive-attention-to-test-coverage)) forcing them to write trivial unit tests.
 
-这是上一个反模式的对立面。
+这是上一个反模式的对立面。这种反模式在大型公司和大型企业项目中更为常见。这种反模式背后的历史几乎总是涉及开发人员，他们认为单元测试没有实际价值，只有集成测试才能获得回归。很多经验丰富的开发人员认为单元测试浪费时间。通常，如果你用一些问题进行试探，你会发现过去的某个时刻，高层管理人员强迫他们增加代码覆盖率（参见[反模式 6](#anti-pattern-6---paying-excessive-attention-to-test-coverage)），并迫使他们写一些琐碎的单元测试。
 
 It is true that in theory you __could__ have only integration tests in a software project. But in practice this would become very expensive to test (both in developer time and in build time). We saw in the table of the previous section that integration tests can also find business logic errors after each run, and so they could “replace” unit tests in that manner. But is this strategy viable in the long run?
+
+确实，理论上你 __可以__ 对一个软件项目只写集成测试。但实际上，这使得测试更加昂贵（无论是开发时间还是构建时间）。我们在上一节的表格里看到，
 
 #### Integration tests are complex 集成测试很复杂
 
