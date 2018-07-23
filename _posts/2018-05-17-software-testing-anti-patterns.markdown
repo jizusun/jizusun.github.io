@@ -431,38 +431,58 @@ If you ask any developer to show you the source code of any application, he/she 
 
 This representation is the physical model of the code. It defines the folders in the filesystem that contain the source code. While this hierarchy of folders is great for working with the code itself, unfortunately it doesn’t define the importance of each code folder. A flat list of code folders implies that all code components contained in them are of equal importance.
 
+这种方式所展示的是代码的物理模型，它定义了文件系统中包含源代码的文件夹。尽管这种文件夹层次结构非常适合处理代码本身，但遗憾的是，它没有定义每个代码文件夹的重要性。代码文件夹的平面列表，意味着包含在其中的所有代码组件具有同等的重要性。
+
 This is not true as different code components have a different impact in the overall functionality of the application. As a quick example let’s say that you are writing an eshop application and two bugs appear in production:
 
-1.  Customers cannot check-out their cart halting all sales
-2.  Customers get wrong recommendations when they browse products.
+然而，不同的代码组件对于应用程序的整体功能却有不同的影响。举个简单的例子，你在编写一个电子商城的应用程序，并在生产系统中发现 两个 bug：
+
+1.  Customers cannot check-out their cart halting all sales 顾客无法结帐，因此所有销售被中断
+2.  Customers get wrong recommendations when they browse products. 顾客在浏览商品时得到了错误的推荐
 
 Even though both bugs should be fixed, it is obvious that the first one has higher priority. Therefore if you inherit an eshop application with zero tests, you should write new tests the directly validate the check-out functionality rather than the recommendation engine. Despite the fact that the recommendation engine and the check-out process might exist on sibling folders in the filesystem, their importance is different when it comes to testing.
 
+尽管两个 bug 都得修复，但很明显第一个 bug 具有更高的优先级。因此，如果你接手了一个没有任何测试的电子商城应用程序，你应该写一些新测试来直接验证结帐功能，而非推荐系统。尽管推荐系统和结帐过程可能存在于文件系统的同级目录，但在测试时，它们的重要性是不同的。
+
 To generalize this example, if you work for some time in any medium/large application you will soon need to think about code using a different representation - the mental model.
 
-![Source code mental model](https://user-images.githubusercontent.com/4011348/42945417-ee804d60-8b9a-11e8-8e10-666fb5a18e82.png)
+概括一下这个例子，如果你编写过任何中型或大型应用程序，你很快就需要使用不同的表征，即心智模型，来思考代码。
+
+![Source code mental model 代码心智模型](https://user-images.githubusercontent.com/4011348/42945417-ee804d60-8b9a-11e8-8e10-666fb5a18e82.png)
 
 I am showing here 3 layers of code, but depending on the size of your application it might have more. These are:
 
-1.  Critical code - This is the code that breaks often, gets most of new features and has a big impact on application users
-2.  Core code - This is the code that breaks sometimes, gets few new features and has medium impact on the application users
-3.  Other code - This is code that rarely changes, rarely gets new features and has minimal impact on application users.
+我在这里展示了代码的三个层面，但根据应用程序的大小，它可能包含更多层。这些是：
+
+1.  Critical code - This is the code that breaks often, gets most of new features and has a big impact on application users 关键代码 —— 这些代码容易出问题，提供大多数新功能，并对用户有重大影响。
+2.  Core code - This is the code that breaks sometimes, gets few new features and has medium impact on the application users 核心代码 —— 这些代码有时会出问题，提供较少的新功能，并对用户有中等影响。
+3.  Other code - This is code that rarely changes, rarely gets new features and has minimal impact on application users. 其他代码 —— 这些代码很少被更改，很少获得新功能，对用户的影响最小。
 
 This mental mode should be your guiding principle whenever you write a new software test. Ask yourself if the functionality you are writing tests for now belongs to the __critical__ or __core__ categories. If yes, then write a software test. If no, then maybe your development time should better be spent elsewhere (e.g. in another bug).
 
+每当你编写新的软件测试时，这个心智模型应该是你的指导原则。问问自己，你正在写测试的功能是否属于 __关键__ 或 __核心__ 类别。如果是，就编写软件测试。如果不是，也许你的开发时间应该更好地花在别处（例如另一个 bug）。
+
 The concept of having code with different severity categories is also great when you need to answer the age old question of how much code coverage is enough for an application. To answer this question you need to either know the severity layers of the application or ask somebody that does. Once you have this information at hand the answer is obvious:
+
+当你要回答这一古老的问题 —— 多少代码覆盖率是足够的，你心里对于代码的重要程度能做到区别对待也是很有用的。要回答这个问题，你要么自己了解应用程序的重要度分层，或者问别人。一旦掌握了这些信息，答案是显而易见的：
 
 Try to write tests that work towards 100% coverage **of critical code**. If you have already done this, then try to write tests that work towards 100% **of core code**. Trying however to get 100% coverage on __total__ code [is not recommended](#anti-pattern-6---paying-excessive-attention-to-test-coverage).
 
+尝试编写测试，达到 100% 的 **关键代码** 覆盖率。如果您已经做到了这一点，那么尝试编写测试以达到 100% 的 **核心代码** 覆盖率。然而，尝试达到 100% 的 __所有代码__ 的覆盖率是 [不推荐的](#anti-pattern-6---paying-excessive-attention-to-test-coverage)。
+
 The important thing to notice here is that the critical code in an application is always a small subset of the overall code. So if in an application critical code is let’s say 20% of the overall code, then getting just 20% overall code coverage is a good first step for reducing bugs in production.
 
-In summary, write unit and integration tests for code that
+这里需要注意的重要一点是，应用程序中的关键代码始终是总体代码的一小部分。假设一个应用程序的关键代码占总体代码的 20%，那么做到这 20% 的代码被覆盖是减少生产系统中 bug 的至关重要的第一步。
 
-*   breaks often
-*   changes often
-*   is critical to the business
+In summary, write unit and integration tests for code that 总之，为以下代码编写单元和集成测试
+
+*   breaks often 经常出问题的
+*   changes often 经常改动的
+*   is critical to the business 对于业务至关重要的
 
 If you have the time luxury to further expand the test suite, make sure that you understand the diminishing returns before wasting time on tests with little or no value.
+
+如果你有大把大把的时间来扩充测试集，请在浪费时间写那些几乎没有价值的测试之前，确保你明白测试的收益递减性。
 
 ### Anti-Pattern 5 - Testing internal implementation 反模式5 - 测试了内部实现
 {: #anti-pattern-5---testing-internal-implementation}
@@ -674,7 +694,7 @@ This approach can only work with tests that fail in a deterministic manner. A te
 
 A failing test should be easily recognizable by everybody in your team as it changes the status of the whole build. On the other hand if you have flaky tests it is hard to understand if new failures are truly new or they stem from the existing flaky tests.
 
-![Flaky tests](../../assets/testing-anti-patterns/flaky-tests.png)
+![Flaky tests](https://user-images.githubusercontent.com/4011348/43044734-c70457d6-8dde-11e8-8ee3-44ebf5f6fe14.png
 
 Even a small number of flaky tests in enough to destroy the credibility of the rest of test suite. If you have 5 flaky tests for example, run the build and get 3 failures it is not immediately evident if everything is fine (because the failures were coming from the flaky tests) or if you just introduced 3 regressions.
 
@@ -693,7 +713,7 @@ Depending on your organization you might actually have several types of tests in
 
 Ideally all your tests should run automatically without any human intervention. If that is not possible at the very least all tests that deal with correctness of code (i.e. unit and integration tests) **must** run in an automatic manner. This way developers get feedback on the code in the most timely manner. It is very easy to fix a feature when the code is fresh in your mind and you haven’t switched context yet to an unrelated feature.
 
-![Test feedback loop tests](../../assets/testing-anti-patterns/test-feedback.png)
+![Test feedback loop tests]((https://user-images.githubusercontent.com/4011348/43044744-fb83ff2a-8dde-11e8-8ad9-508a6c9afb60.png)
 
 In the past the most lengthy step of the software lifecycle was the deployment of the application. With the move into cloud infrastructure where machines can be created on demand (either in the form of VMs or containers) the time to provision a new machine has been reduced to minutes or seconds. This paradigm shift has caught a lot of companies by surprise as they were not ready to handle daily or even hourly deployments. Most of the existing practices were centered around lengthy release cycles. Waiting for a specific time in the release to “pass QA” with manual approval is one of those obsolete practices that is no longer applicable if a company wants to deploy as fast as possible.
 
@@ -703,7 +723,7 @@ A lot of companies __think__ that they practice continuous delivery and/or deplo
 
 Unfortunately, while most companies have correctly realized that deployments should be automated, because using humans for them is error prone and slow, I still see companies where launching the tests is a semi-manual process. And when I say semi-manual I mean that even though the test suite itself might be automated, there are human tasks for house-keeping such as preparing the test environment or cleaning up the test data after the tests have finished. That is an anti-pattern because it is not true automation. **All** aspects of testing should be automated.
 
-![Automated tests](../../assets/testing-anti-patterns/automated-tests.png)
+![Automated tests]((https://user-images.githubusercontent.com/4011348/43044756-2400979c-8ddf-11e8-99b4-69f2ce06de8b.png)
 
 Having access to VMs or containers means that it is very easy to create various test environments on demand. Creating a test environment on the fly for an individual pull request should be a standard practice within your organization. This means that each new feature is tested individually on its own. A problematic feature (i.e. that causes tests to fail) should not block the release of the rest of the features that need to be deployed at the same time.
 
