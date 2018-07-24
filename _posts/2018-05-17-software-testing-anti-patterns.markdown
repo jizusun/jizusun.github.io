@@ -184,39 +184,61 @@ This is the inverse of the previous anti-pattern. This anti-pattern is more comm
 
 It is true that in theory you __could__ have only integration tests in a software project. But in practice this would become very expensive to test (both in developer time and in build time). We saw in the table of the previous section that integration tests can also find business logic errors after each run, and so they could “replace” unit tests in that manner. But is this strategy viable in the long run?
 
-确实，理论上你 __可以__ 对一个软件项目只写集成测试。但实际上，这使得测试更加昂贵（无论是开发时间还是构建时间）。我们在上一节的表格里看到，
+确实，理论上你 __可以__ 对一个软件项目只写集成测试。但实际上，这使得测试更加昂贵（无论是开发时间还是构建时间）。我们在上一节的表格里看到，集成测试也可以在每次运行之后发现业务逻辑错误，并且他们可以用这样的方式“替换”单元测试。但是这种策略在长远来看是否可行？
 
 #### Integration tests are complex 集成测试很复杂
 
 Let’s look at an example. Assume that you have a service with the following 4 methods/classes/functions.
 
+让我们看一个例子。假设你有一个服务，包含4个方法（或称为类、函数）。
+
 ![Cyclomatic complexity for 4 modules](https://user-images.githubusercontent.com/4011348/39740330-bac15b38-52c7-11e8-831e-90c1e2b36456.png)
 
 The number on each module denotes its [cyclomatic complexity](https://en.wikipedia.org/wiki/Cyclomatic_complexity) or in other words the separate code paths this module can take.
 
+每个模块上的数字表示其圈复杂度（[cyclomatic complexity](https://en.wikipedia.org/wiki/Cyclomatic_complexity)），换句话说，就是这个模块所包含的独立代码路径。
+
 Mary “by the book” Developer wants to write unit tests for this service (because she understands that unit tests __do__ have value). How many tests does she need to write in order to get full coverage of all possible scenarios?
+
+Mary 是一个“听从书”的程序员，她想为这个服务编写单元测试（因为她知道单元测试 __确实__ 很有价值）。她需要写多少测试，才能覆盖所有可能的场景？
 
 It should be obvious that one can write 2 + 5 + 3 + 2 = 12 isolated unit tests that cover fully the **business logic** of these modules. Remember that this number is just for a single service, and the application Mary is working on, has multiple services.
 
+很显然，可以编写 2 + 5 + 3 + 2 = 12 个独立的单元测试，来完全覆盖这些模块的 **业务逻辑**。注意，这个数量仅仅是为了写一个服务的测试。并且 Mary 所开发的应用程序有多个服务。
+
 Joe “Grumpy” developer on the other hand does not believe in the value of unit tests. He thinks that unit tests are a waste of time and he decides to write only integration tests for this module. How many integration tests should he write? He starts looking at all the possible paths a request can take in that service.
+
+另一方面，Joe 是个 “脾气暴躁” 的程序员，他不相信单元测试的价值。他认为单元测试是浪费时间，并决定为这个模块只编写集成测试。他应该写多少集成测试呢？他开始查看一个请求能在这个服务中走出的所有可能路径。
 
 ![Examining code paths in a service](https://user-images.githubusercontent.com/4011348/39740332-bd592f10-52c7-11e8-8d91-6dcca63b7c59.png)
 
 Again it should be obvious that all possible scenarios of codepaths are 2 * 5 * 3 * 2 = 60. Does that mean that Joe will actually write 60 integration tests? Of course not! He will try and cheat. He will try to select a subset of integration tests that feel “representative”. This “representative” subset of tests will give him enough coverage with the minimum amount of effort.
 
+同样显而易见的是，代码路径的所有可能场景都是 2 * 5 * 3  2 = 60。这是否意味着 Joe 需要写 60 个集成测试？当然不！他会试着偷懒。他会尝试选择集成测试的一个看似“有代表性的”子集。这个“有代表性的”测试子集将以最小的努力获得足够的覆盖率。
+
 This sounds easy enough in theory, but can quickly become problematic. The reality is that these 60 code paths are not created equally. Some of them are corner cases. For example if we look at module C we see that is has 3 different code paths. One of them is a very special case, that can only be recreated if C gets a special input from component B, which is itself a corner case and can only be obtained by a special input from component A. This means that this particular scenario might require a very complex setup in order to select the inputs that will trigger the special condition on the component C.
 
+这在理论上听起来很容易，但很快就会引发问题。实际情况是，这60个代码路径不是一样重要的。有些是边界情况。比如，如果我们看模块 C，能发现它有 3 个不同的代码路径。其中一个是很特殊的情况，只有在 C 从 B 得到特殊的输入值时才能重现，而这个特殊值也是一个很特殊的情况，只有在 B 从 A 得到特殊输入值时才能获得。
+
 Mary on the other hand, can just recreate the corner case with a simple unit test, with no added complexity at all.
+
+另一方面，Mary 可以通过一个简单的单元测试就能重现边界情况，完全不会增加任何复杂度。
 
 ![Basic unit test](https://user-images.githubusercontent.com/4011348/39740336-c1b589d2-52c7-11e8-9186-276adf0c32f1.png)
 
 Does that mean that Mary will __only__ write unit tests for this service? After all that will lead her to [anti-pattern 1](#anti-pattern-1---having-unit-tests-without-integration-tests). To avoid this, she will write __both__ unit __and__ integration tests. She will keep all unit tests for the actual business logic and then she will write 1 or 2 integration tests that make sure that the rest of the system works as expected (i.e. the parts that help these modules do their job)
 
+这是否以为着 Mary 将 __只__ 为这个服务写单元测试呢？这将导致她达成[反模式 1](#anti-pattern-1---having-unit-tests-without-integration-tests)。为了避免这种情况，她将保留针对实际业务逻辑所写的所有单元测试，再写 1 到 2 个集成测试，确保系统的其他部分也如期工作（例如，帮助这些模块完成工作的部分）。
+
 The integration tests needed in this system should focus on the rest of the components. The business logic itself can be handled by the unit tests. Mary’s integration tests will focus on testing serialization/deserialization and with the communication to the queue and the database of the system.
+
+这个系统里需要的集成测试应该侧重于其他组件。业务逻辑本身可以被单元测试所涵盖。Mary 的集成测试会侧重于测试序列化/反序列化，以及与队列和数据库的通信。
 
 ![correct Integration tests](https://user-images.githubusercontent.com/4011348/39740343-c5134d30-52c7-11e8-8604-359d88898c66.png)
 
 In the end, the number of integration tests will be much smaller than the number of unit tests (matching the shape of the test pyramid described in the first section of this article).
+
+最后，集成测试的数量应该远小于单元测试的数量（与本文第一部分中描述的测试金字塔的形状相匹配）。
 
 #### Integration tests are slow 集成测试很慢
  
