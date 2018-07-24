@@ -244,15 +244,21 @@ In the end, the number of integration tests will be much smaller than the number
  
 The second big issue with integration tests apart from their complexity is their speed. Usually an integration test is one order of magnitute slower than a unit test. Unit tests need just the source code of the application and nothing else. They are almost always CPU bound. Integration tests on the other hand can perform I/O with external systems making them much more difficult to run in an effective manner.
 
+除了复杂度之外，集成测试的第二大问题是它们的速度。通常，集成测试比单元测试满一个数量级。单元测试只依赖应用程序的源代码而不需要其他内容。他们几乎只受到 CPU 的限制。另一方面，集成测试需要与外部系统进行 I/O 操作，使得它们难以更高效地运行。
+
 Just to get an idea on the difference for the running time let’s assume the following numbers.
 
-*   Each unit test takes 60ms (on average)
-*   Each integration test takes 800ms (on average)
-*   The application has 40 services like the one shown in the previous section
-*   Mary is writing 10 unit tests and 2 integration tests for each service
-*   Joe is writing 12 integration tests for each service
+为了对运行时间的差异有一个直观感受，我们假设以下数字：
+
+*   Each unit test takes 60ms (on average) 每个单元测试需要花 60ms （平均）
+*   Each integration test takes 800ms (on average) 每个集成测试需要花 800ms （平均）
+*   The application has 40 services like the one shown in the previous section 应用程序有 40 个像上节所述的服务
+*   Mary is writing 10 unit tests and 2 integration tests for each service Mary 正在为每个服务编写 10 个单元测试和 2 个集成测试
+*   Joe is writing 12 integration tests for each service Joe 正在为每个服务编写 12 个集成测试
 
 Now let’s do the calculations. Notice that I assume that Joe has found the perfect subset of integration tests that give him the same code coverage as Mary (which would not be true in a real application).
+
+现在让我们做个计算。请注意，我假设 Joe 已经找到了完美的集成测试子集，让他达到和 Mary 一样的代码覆盖率（在实际应用程序中不是这样）。
 
 | Time to run            | Having only integration tests (Joe) | Having both Unit and Integration tests (Mary) |
 |------------------------|-------------------------------------|-----------------------------------------------|
@@ -260,9 +266,20 @@ Now let’s do the calculations. Notice that I assume that Joe has found the per
 | Just Integration tests | 6.4 minutes                         | 64 seconds                                    |
 | All tests              | 6.4 minutes                         | 1.4 minutes                                   |
 
+
+| 运行时间          | 只有集成测试 (Joe)    | 既有单元测试也有集成测试 (Mary) |
+|------------------|----------------------|-------------------------------|
+| 仅单元测试        | N/A                  | 24 秒                         |
+| 仅集成测试        | 6.4 分钟             | 64 秒                          |
+| 所有的测试        | 6.4 分钟             | 1.4 分钟                       |
+
 The difference in total running time is enormous. Waiting for 1 minute after each code change is vastly different than waiting for 6 minutes. The 800ms I assumed for each integration test is vastly conservative. I have seen integration test suites where a single test can take several minutes on its own.
 
+总运行时间的差异是巨大的。每次代码更改后等待 1 分钟与等待 6 分钟大不相同。我假设每次集成测试的 800 ms 是非常保守的。我见过有些集成测试集，其中的一个测试就要花费几分钟。
+
 In summary, trying to use __only__ integration tests to cover business logic is a huge time sink. Even if you automate the tests with CI, your feedback loop (time from commit to getting back the test result) will be very long.
+
+总之，尝试 __只__ 使用集成测试来覆盖业务逻辑是巨大的时间漏斗。即使你使用 CI 来自动执行测试，您的反馈循环（从提交到返回测试结果的时间）都将非常长。
 
 #### Integration tests are harder to debug than unit tests 集成测试比单元测试更难调试
 
@@ -283,7 +300,6 @@ A developer in your team (or even you) creates a new commit, which triggers the 
 As a developer you look at the test result and see that the integration test named “Customer buys item” is broken. In the context of an e-shop application this is not very helpful. There are many reasons why this test might be broken.
 
 作为一个开发人员，您可以查看测试结果，并看到一个名为“客户购买物品”的集成测试出错了。在网上商城这样一个情景下，这不是很有帮助。这个测试出错，原因可能很多。
-
 
 There is no way to know why the test broke without diving into the logs and metrics of the test environment (assuming that they can pinpoint the problem). In several cases (and more complex applications) the only way to truly debug an integration test is to checkout the code, recreate the test environment locally, then run the integration tests and see it fail in the local development environment.
 
@@ -314,12 +330,16 @@ Having unit tests break _before_ or _with_ integration tests is a much more pain
 
 This is the longest section of this article, but I consider it very important. In summary while __in theory__ you could only have integration tests, __in practice__
 
-1.  Unit tests are easier to maintain
-2.  Unit tests can easily replicate corner cases and not-so-frequent scenario
-3.  Unit tests run much faster than integration tests
-4.  Broken unit tests are easier to fix than broken integration tests
+这是本文最长的一节，但我认为这非常重要。总而言之，__理论上__ 你可以只写集成测试，但 __实践中__
+
+1.  Unit tests are easier to maintain 单元测试更容易维护
+2.  Unit tests can easily replicate corner cases and not-so-frequent scenario 单元测试能更好地覆盖边界情况和不常见的场景
+3.  Unit tests run much faster than integration tests 集成测试比单元测试运行得快得多
+4.  Broken unit tests are easier to fix than broken integration tests 有问题的单元测试比有问题的集成测试更容易修复
 
 If you only have integration tests, you waste developer time and company money. You need **both** unit and integration tests are the same time. They are not mutually exclusive. There are several articles on the internet that advocate using only one type of tests. All these articles are misinformed. Sad but true.
+
+如果你只进行集成测试，则会浪费开发人员的时间和公司资金。你需要 **同时** 进行单元测试和集成测试。它们并不互斥。网上有几篇文章主张只使用一种类型的测试。所有这些文章都是被误导的。很不幸，但确实是这样。
 
 ### Anti-Pattern 3 - Having the wrong kind of tests 反模式3 - 采用了错误类型的测试
 {: #anti-pattern-3---having-the-wrong-kind-of-tests}
