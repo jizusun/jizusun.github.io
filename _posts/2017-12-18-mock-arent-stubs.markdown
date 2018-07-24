@@ -8,6 +8,7 @@ categories: translations
 * 中文翻译：[众成翻译](http://www.zcfy.cc/original/mocks-arent-stubs-4708.html)
 * 译者：[孙继祖](https://www.linkedin.com/in/jizusun/)
 * 延伸阅读
+  - [Interaction Based Testing, The Spock Framework Team](http://spockframework.org/spock/docs/1.1/interaction_based_testing.html)
   - [如何理解软件测试中的stub和mock? - 知乎](https://www.zhihu.com/question/28225706)
   - [ 测试中 Fakes、Mocks 以及 Stubs 概念明晰 - 王下邀月熊](https://zhuanlan.zhihu.com/p/26942686)
 
