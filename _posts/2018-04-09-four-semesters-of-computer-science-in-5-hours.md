@@ -40,6 +40,7 @@ categories: drafts
 
 ### 1.1 Introduction
 * [http://bit.ly/4semesters](http://bit.ly/4semesters)
+* Also: <a href="/demo/4semesters" target="_blank">https://jizusun.github.io/demo/4semesters</a>
 * clickbait title
 * Some knowledge of ES6 required
 * https://mitpress.mit.edu/books/introduction-algorithms
@@ -58,7 +59,7 @@ categories: drafts
 * readibility over performance, and refactor it later if you figure it's a big bottleneck 
 
 ### 1.5 Recursion Example
-* Codepen : http://codepen.io/btholt/pen/rxwEVQ?editors=001
+* Codepen : <http://codepen.io/btholt/pen/rxwEVQ?editors=001>
 
 ### 1.6 Exercise 1: Recursion
 * Factorial: 
@@ -68,11 +69,30 @@ function factorial(n) {
     return n * factorial(n-1;)
 }
 ```
-## 2. Sorting Algorithms
 
+## 2. Sorting Algorithms
 ### Bubble sort
 
+- The outer loop continues running as long as there are numbers swapped in the previous iteration, which is always going to run at least once.
+- The inner loop is gonna go through and swap numbers if they're out of order
+- Big O: O(n<sup>2</sup>)
+- sort in ascending order
+```
+5, 7, 6, 4
+first outer loop
+5, [6, 7], 4 
+5, 6, [4, 7]
+second outer loop
+5, [4, 6], 7
+third outer loop
+[4, 5], 6, 7
+```
+
 ### Exercise 2: Bubble sort
+
+- Exercise: <http://codepen.io/btholt/pen/PZKPjj?editors=001>
+- Answer(Visualization): <http://codepen.io/btholt/pen/KdYPqa?editors=001>
+
 
 ### Exercise 2: Solution
 
