@@ -8,6 +8,36 @@ categories: tweaks
 * Kenzo (Redmi Note 3)
 * MiPad
 
+Android tips for Chinese Readers
+--------------------------------
+
+*   [https://sspai.com/tag/android](https://sspai.com/tag/android)
+*   [http://www.appinn.com/category/android/](http://www.appinn.com/category/android/)
+*   [http://www.zdfans.com/apk](http://www.zdfans.com/apk)
+
+Google Suite in China
+---------------------
+
+*   GApps: [http://opengapps.org/](http://opengapps.org/)
+*   Android Nougat: [https://sourceforge.net/projects/resurrectionremix/files/kenzo/](https://sourceforge.net/projects/resurrectionremix/files/kenzo/)
+*   Xposed on Nougat: [https://forum.xda-developers.com/redmi-note-3/how-to/guide-installing-xposed-framework-nougat-t3639399](https://forum.xda-developers.com/redmi-note-3/how-to/guide-installing-xposed-framework-nougat-t3639399)
+*   LocationReportEnabler: [http://www.appinn.com/location-report-enabler-for-google-location-records/](http://www.appinn.com/location-report-enabler-for-google-location-records/)
+*   Google Camera (HDR+): [https://forum.xda-developers.com/redmi-note-3/themes/google-camera-hdr-t3656174](https://forum.xda-developers.com/redmi-note-3/themes/google-camera-hdr-t3656174)
+
+Alternatives for Smartisan OS
+-----------------------------
+
+*   大爆炸（BigBang）:
+    *   搜索 Lite: [http://www.appinn.com/orekie-search/](http://www.appinn.com/orekie-search/)
+*   闪念胶囊”（idea pills）:
+    *   方片记事: [https://sspai.com/post/35247](https://sspai.com/post/35247)
+    *   Google Keep: [https://www.google.com/keep/](https://www.google.com/keep/)
+
+Alternative for WeChat（微信）
+--------------------------
+
+*   Telegram + ehForwarderBot: [https://zhuanlan.zhihu.com/p/25962058](https://zhuanlan.zhihu.com/p/25962058)
+
 ## Applications
 * Shadowsocks
   * Repo: https://github.com/shadowsocks/shadowsocks/tree/master
