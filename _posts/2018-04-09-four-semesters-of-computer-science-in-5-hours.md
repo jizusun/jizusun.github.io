@@ -91,10 +91,26 @@ third outer loop
 ### Exercise 2: Bubble sort
 
 - Exercise: <http://codepen.io/btholt/pen/PZKPjj?editors=001>
-- Answer(Visualization): <http://codepen.io/btholt/pen/KdYPqa?editors=001>
-
+- Answer (Visualization): <http://codepen.io/btholt/pen/KdYPqa?editors=001>
 
 ### Exercise 2: Solution
+```javascript
+const bubbleSort = (nums) => {
+  let swapped = false;
+  do {
+    for (let i = 0; i < nums.length; i++) {
+      // snapshot(nums);
+      if (num[i] > num[i+1]) {
+        const t = num[i];
+        num[i] = num[i+1];
+        num[i+1] = t;
+        swapped = true;
+      }
+    }
+  } while (swapped)
+  // snapshot(nums);
+}
+```
 
 ### Insertion sort
 
