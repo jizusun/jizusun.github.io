@@ -96,8 +96,8 @@ third outer loop
 ### Exercise 2: Solution
 ```javascript
 const bubbleSort = (nums) => {
-  let swapped = false;
   do {
+    let swapped = false;
     for (let i = 0; i < nums.length; i++) {
       // snapshot(nums);
       if (num[i] > num[i+1]) {
@@ -113,6 +113,16 @@ const bubbleSort = (nums) => {
 ```
 
 ### Insertion sort
+
+- It's really great for arrays that are very close to sorted. But where it falls apart is if the array is not sorted at all.
+- Example 
+```
+5, 3, 6
+the 1st element as a sub-array
+[5], 3, 6
+
+```
+
 
 ### Exercise 3: Insertion sort
 
