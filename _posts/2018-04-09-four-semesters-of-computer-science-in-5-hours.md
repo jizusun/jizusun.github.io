@@ -115,6 +115,7 @@ const bubbleSort = (nums) => {
 ### Insertion sort
 
 - It's really great for arrays that are very close to sorted. But where it falls apart is if the array is not sorted at all.
+- We're going to start grabbing things from the unsorted part of the list and inserting that into the sorted part. 
 - Example 
 ```
 5, 3, 6
@@ -123,10 +124,11 @@ the 1st element as a sub-array
 
 ```
 
-
 ### Exercise 3: Insertion sort
 
 ### Exercise 3: Solution
+
+- <http://bigocheatsheet.com/>
 
 ### Merge sort
 
