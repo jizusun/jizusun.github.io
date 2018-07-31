@@ -244,7 +244,7 @@ In the end, the number of integration tests will be much smaller than the number
  
 The second big issue with integration tests apart from their complexity is their speed. Usually an integration test is one order of magnitute slower than a unit test. Unit tests need just the source code of the application and nothing else. They are almost always CPU bound. Integration tests on the other hand can perform I/O with external systems making them much more difficult to run in an effective manner.
 
-除了复杂度之外，集成测试的第二大问题是它们的速度。通常，集成测试比单元测试满一个数量级。单元测试只依赖应用程序的源代码而不需要其他内容。他们几乎只受到 CPU 的限制。另一方面，集成测试需要与外部系统进行 I/O 操作，使得它们难以更高效地运行。
+除了复杂度之外，集成测试的第二大问题是它们的速度。通常，集成测试比单元测试慢一个数量级。单元测试只依赖应用程序的源代码而不需要其他内容。他们几乎只受到 CPU 的限制。另一方面，集成测试需要与外部系统进行 I/O 操作，使得它们难以更高效地运行。
 
 Just to get an idea on the difference for the running time let’s assume the following numbers.
 
