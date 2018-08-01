@@ -146,7 +146,6 @@ var insertionSort = nums => {
     }
   }
 }
-
 ```
 - Solution from [AP Computer Science A: Course Descrption - Appendix C: Sample Search and Sort Algorithms](https://apcentral.collegeboard.org/pdf/ap-computer-science-a-course-description.pdf
 )
