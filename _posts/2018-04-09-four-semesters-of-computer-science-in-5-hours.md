@@ -134,6 +134,7 @@ the whole array is sorted now
 - <http://bigocheatsheet.com/>
 - `Array.prototype.splice`: a destructive method
 - Solution
+
 ```js
 var insertionSort = nums => {
   for (let i = 1; i < nums.length; i++) {
@@ -146,8 +147,9 @@ var insertionSort = nums => {
   }
 }
 ```
-- Solution from [AP Computer Science A: Course Description - Appendix C: Sample Search and Sort Algorithms](https://apcentral.collegeboard.org/pdf/ap-computer-science-a-course-description.pdf
+- Solution from [AP Computer Science A Course Description - Appendix C: Sample Search and Sort Algorithms](https://apcentral.collegeboard.org/pdf/ap-computer-science-a-course-description.pdf
 )
+
 ```js
 function insertionSort (nums) {
   for (let j = 1; j < nums.length; j++) {
