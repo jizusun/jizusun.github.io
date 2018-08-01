@@ -119,9 +119,12 @@ const bubbleSort = (nums) => {
 - Example 
 ```
 5, 3, 6
-the 1st element as a sub-array
+the 1st element as the sorted part
 [5], 3, 6
-
+the first two elements as the sorted part
+[3, 5], 6
+the whole array is sorted now
+[3, 5, 6]
 ```
 
 ### Exercise 3: Insertion sort
@@ -129,6 +132,40 @@ the 1st element as a sub-array
 ### Exercise 3: Solution
 
 - <http://bigocheatsheet.com/>
+- `Array.prototype.splice`: a destructive method
+- Solution
+
+```js
+var insertionSort = nums => {
+  for (let i = 1; i < nums.length; i++) {
+    for (j = 0; j < i; j++) {
+      if (nums[i] < nums[j]) {
+        let spliced = nums.splice(i, 1)
+        nums.splice(j, 0, spliced[0])
+      }
+    }
+  }
+}
+
+```
+- Solution from [AP Computer Science A: Course Descrption - Appendix C: Sample Search and Sort Algorithms](https://apcentral.collegeboard.org/pdf/ap-computer-science-a-course-description.pdf
+)
+
+```js
+function insertionSort (nums) {
+  for (let j = 1; j < nums.length; j++) {
+    snapshot(nums)
+    const temp = nums[j] 
+    let possibleIndex = j
+    // debugger;
+    while (possibleIndex > 0 && temp < nums[possibleIndex-1]) {
+      nums[possibleIndex] = nums[possibleIndex - 1]
+      possibleIndex-- 
+    }
+    nums[possibleIndex] = temp;
+  }
+}
+```
 
 ### Merge sort
 
