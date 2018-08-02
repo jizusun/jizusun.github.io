@@ -10,6 +10,14 @@ categories: english
 - TOC
 {:toc}
 
+### 20180802: reminiscence
+- reminiscence  /ˌrɛməˈnɪsn̩s/
+  + (MWAL) a story that someone tells about something that happened in the past: I listened to my grandmother's reminicences of the past
+  + (MWAL) the act of remembering or telling about past experiences: a time of reminicence.
+  + What would we not give for the reminiscences of someone who had been as intimately acquainted with El Greco as I was with Strickland? 如果有人同埃尔·格列柯像我同思特里克兰德那样熟稔，为了读到他写的格列柯回忆录，有什么代价我们不肯付呢？
+
+### References
+- MWAL: Merrian Webster Advanced Learners (2013)
 
 ### 20180721: maniacal
 
