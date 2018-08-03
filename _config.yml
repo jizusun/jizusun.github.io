@@ -25,6 +25,8 @@ disqus:
 
 show_excerpts: true
 
+permalink: /:title
+
 google_analytics: UA-38782026-6
 
 pwa:
