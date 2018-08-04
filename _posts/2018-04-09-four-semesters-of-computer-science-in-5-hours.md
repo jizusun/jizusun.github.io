@@ -168,7 +168,16 @@ function insertionSort (nums) {
 
 ### Merge sort
 
+- stable: quick sorting is not stable
+- consistent
+- uses recursion
+- device-and-conquer
+- complexity: O(n log n)
+  + <https://stackoverflow.com/questions/7801861/why-is-merge-sort-worst-case-run-time-o-n-log-n>
+  + <https://www.toptal.com/developers/sorting-algorithms>
+
 ### Exercise 4: Merge sort
+
 
 ### Exercise 4: Solution
 
