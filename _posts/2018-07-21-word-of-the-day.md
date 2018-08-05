@@ -15,9 +15,10 @@ categories: english
 
 
 ### 2018-08-05: disconcerting
-- Disconcert /ˌdiskənˈsərt/
+- Disconcert /ˌdiskənˈsərt/: simply means to make confused, embarrassed or  upset 
 - Concert /ˈkänˌsərt/
 - Concerto /kənˈCHerdō/
+- Synonyms: 
 - It is not without melancholy that I wander among my recollections of the world of letters in London when first, bashful but eager, I was introduced to it. 我刚刚被引进伦敦文学界的时候，心情又是热切又是羞涩；现在回忆起当时的种种情况，不无凄凉之感。 (Chapter 3 [^masp])
 
 ### 2018-08-04: demure

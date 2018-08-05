@@ -193,13 +193,7 @@ function stitch(left, right) {
     }
   }
 
-  while(left.length) {
-    results.push(left.shift());
-  }
-  while(left.right) {
-    results.push(right.shift());
-  }
-  return results;
+  return [...results, ...left, ...right];
 }
 
 function mergeSort(nums) {
