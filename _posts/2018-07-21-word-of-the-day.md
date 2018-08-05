@@ -15,7 +15,10 @@ categories: english
 
 
 ### 2018-08-05: disconcerting
-- It is not without melancholy that I wander among my recollections of the world of letters in London when first, bashful but eager, I was introduced to it. 我刚刚被引进伦敦文学界的时候，心情又是热切又是羞涩；现在回忆起当时的种种情况，不无凄凉之感。 (Chapter 3 ^masp)
+- Disconcert /ˌdiskənˈsərt/
+- Concert /ˈkänˌsərt/
+- Concerto /kənˈCHerdō/
+- It is not without melancholy that I wander among my recollections of the world of letters in London when first, bashful but eager, I was introduced to it. 我刚刚被引进伦敦文学界的时候，心情又是热切又是羞涩；现在回忆起当时的种种情况，不无凄凉之感。 (Chapter 3 [^masp])
 
 ### 2018-08-04: demure
 - adjective: demure; comparative adjective: demurer; superlative: demurest [^google]
@@ -26,9 +29,9 @@ categories: english
 - Podcast
 > This is the English reading club Word of the Day podcast for Saturday, August 4.
 > 
-> Today's word is demure. Spelled D-E-M-U-R-E. Demure is an adjective which means reserved, modest or shy, and primarily used to describe a woman or girl. Its comparative adjective （比较级） is demurer and its superlative adjective （最高级） is demurest. A sentence with both of its synonyms and antonyms might be: When we first met Kelly, she was quiet and demure, so it surprises us now to see that she can be vocal and forward. Other synonyms might be retiring, bashful, unassuming, and quite. It can also used to describe the clothing leading a modest appearance.
+> Today's word is demure. Spelled D-E-M-U-R-E. Demure is an adjective which means reserved, modest or shy, and primarily used to describe a woman or girl. Its comparative adjective （比较级） is demurer and its superlative adjective （最高级） is demurest. A sentence with both of its synonyms and antonyms might be: When we first met Kelly, she was quiet and demure, so it surprises us now to see that she can be vocal and forward. Other synonyms might be retiring, bashful, unassuming, and quite. It can also be used to describe the clothing leading a modest appearance.
 > 
-> Demure is sometimes confused with 'demur' because of the similar-sounding. demur is an verb which means to disagree politely, although they share the same old french word, well... which unfortunately I cannot pronounce.
+> Demure is sometimes confused with 'demur' (D-E-M-U-R) because of the similar-sounding. demur is an verb which means to disagree politely, although they share the same old french word, well... which unfortunately I cannot pronounce.
 >
 > The word appeared in the beginning of Chapter 4: Rose Waterford cast down her eyes demurely to give greater effect to her reply. 为了使自己的答话给我更深的印象，瓦特尔芙德故意把眼皮一低，做出一副一本正经的样子。[^masp]
 > 
