@@ -28,6 +28,22 @@ const _snapshot = (nums) => {
   }
 }
 
+var bubbleSort = nums => {
+  do {
+    var swapped = false;
+    for (var i = 0; i < nums.length; i++) {
+      _snapshot(nums);
+      if (nums[i] > nums[i + 1]) {
+        var temp = nums[i];
+        nums[i] = nums[i + 1];
+        nums[i + 1] = temp;
+        swapped = true;
+      }
+    }
+  } while (swapped);
+  _snapshot(nums);
+};
+
 const mergeSort = nums => {
   _snapshot(nums)
   if (nums.length < 2) {
@@ -75,6 +91,16 @@ var insertionSort = nums => {
 
 // unit tests
 // do not modify the below code
+
+describe('bubble sort', function () {
+  it('should sort correctly', () => {
+    var nums = [10, 5, 3, 8, 2, 6, 4, 7, 9, 1];
+    bubbleSort(nums);
+    expect(nums).toEqual([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+    _done();
+  });
+});
+
 describe('insertion sort', function() {
   it('should sort correctly', () => {
     var nums = [10,5,3,8,2,6,4,7,9,1];
@@ -84,6 +110,7 @@ describe('insertion sort', function() {
     _done();
   });
 });
+
 
 
 describe('merge sort', function () {

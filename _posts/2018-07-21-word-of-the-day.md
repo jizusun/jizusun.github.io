@@ -12,14 +12,26 @@ categories: english
 
 ### 2018-08-06: melancholy
 
+- It is not without melancholy that I wander among my recollections of the world of letters in London when first, bashful but eager, I was introduced to it. 我刚刚被引进伦敦文学界的时候，心情又是热切又是羞涩；现在回忆起当时的种种情况，不无凄凉之感。 (Chapter 3 [^masp])
 
 
 ### 2018-08-05: disconcerting
-- Disconcert /ˌdiskənˈsərt/: simply means to make confused, embarrassed or  upset 
-- Concert /ˈkänˌsərt/
-- Concerto /kənˈCHerdō/
-- Synonyms: 
-- It is not without melancholy that I wander among my recollections of the world of letters in London when first, bashful but eager, I was introduced to it. 我刚刚被引进伦敦文学界的时候，心情又是热切又是羞涩；现在回忆起当时的种种情况，不无凄凉之感。 (Chapter 3 [^masp])
+- Disconcert /ˌdiskənˈsərt/: simply means to make confused, embarrassed or upset. Any abrupt/sudden/unexpected changes, news or behavior will disconcert you, or you will be disconcerted by these things. Something you're not used to would also disconcert you. For example: She was not as disconcerted as she had expected to be.
+- Word origin: from obsolete French desconcerter, from des- (expressing reversal) + concerter ‘bring together.’
+- Concert /ˈkänˌsərt/: (noun) a musical performance given in public, e.g. symphony concerts; (verb) formal: arrange (something) by mutual agreement or coordination. For example, they started meeting regularly to concert their tactics.
+- Concerto /kənˈCHerdō/ 协奏曲：a piece of music for one or more soloinstruments playing with an orchestra 协奏曲
+- ... and the novels she wrote were original and disconcerting 她写的小说很有特色，读起来叫你心绪不能平静 (Chapter 4 [^masp])
+- Podcast
+> This the English reading club's Word of the Day podcast for Sunday, August 5. 
+>
+> Today's word is disconcerting. Spelled as DISCONCERTING. It is the gerund (/ˈjerənd/ 动名词)and present participle of 'disconcert'.  Disconcert is a verb which simply means to make confused, embarrassed, or upset. Any abrupt/sudden/unexpected change, news or behavior would disconcert you, or you would be disconcerted by these things. For example: She was not as disconcerted as she had expected to be. 
+> 
+> 'Disconcert' can be understood with its two parts: dis, and concert. 'dis' means opposite/reversal, 'concert' means 'bring' together. You should differentiate the pronunciation of the following words with the same origin: concert and concerto. You already know that concert means a musical performance given in public, e.g. symphony concerts; (verb) formal: arrange (something) by mutual agreement or coordination. For example, they started meeting regularly to concert their tactics.
+Concerto /kənˈCHerdō/ 协奏曲：) a piece of music for one or more solo instruments playing with an orchestra 协奏曲
+> 
+> This word appears in the Chapter 4 of the book: … and the novels she wrote were original and disconcerting 她写的小说很有特色，读起来叫你心绪不能平静.
+>
+> With your word of the day, I’m Jizu. Thanks for listening, and see you.
 
 ### 2018-08-04: demure
 - adjective: demure; comparative adjective: demurer; superlative: demurest [^google]
