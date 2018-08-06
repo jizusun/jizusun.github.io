@@ -10,10 +10,10 @@ categories: english
 - TOC
 {:toc}
 
-### 2018-08-06: melancholy
+### 2018-08-06: disparagingly
 
-- It is not without melancholy that I wander among my recollections of the world of letters in London when first, bashful but eager, I was introduced to it. 我刚刚被引进伦敦文学界的时候，心情又是热切又是羞涩；现在回忆起当时的种种情况，不无凄凉之感。 (Chapter 3 [^masp])
-
+- <https://www.merriam-webster.com/word-of-the-day/disparage-2013-09-27>
+- She said this not disparagingly, but affectionately rather, as though, by acknowledging the worst about him, she wished to protect him from the aspersions of her friends.她用这个词一点儿也没有贬抑的意思，相反地，倒是怀着一股深情，好像由她自己说出他最大的缺点就可以保护他不受她朋友们的挖苦似的。 (Chapter 5)
 
 ### 2018-08-05: disconcerting
 - Disconcert /ˌdiskənˈsərt/: simply means to make confused, embarrassed or upset. Any abrupt/sudden/unexpected changes, news or behavior will disconcert you, or you will be disconcerted by these things. Something you're not used to would also disconcert you. For example: She was not as disconcerted as she had expected to be.
