@@ -10,6 +10,14 @@ categories: english
 - TOC
 {:toc}
 
+### 2018-08-08: instinctive
+- instinctive: doing or being a specified thing apparently naturally or automatically; done without conscious thought. for example, protecting her own children is an instinctive reaction of a mother, and blinking is a an instinctive reaction of everyone
+- Synonym: spontaneous, impulsive, instinctive, automatic, mechanical, (intuitive, natural), see more at <https://www.merriam-webster.com/dictionary/instinctive>
+- noun: instinct. 1) a natural or inherent aptitude, impulse, or capacity. For example, "his instinct for making the most of his chances", "instinct told her not to ask the question"
+- instigate ??
+- Origin: Latin , from in- ‘towards’ + stinguere ‘to prick’. (刺，扎)
+- Everyone talked a little louder than natural in an instinctive desire to make the party go, and there was a great deal of noise in the room. 每个人都想叫宴会热闹一些，所以谈话的嗓门都比平常高了许多，屋子里一片喧哗。
+
 ### 2018-08-06: disparagingly
 
 - disparaging(adj.): expressing the opinion that something is of little worth, derogatory 贬义的: a derogatory term/a disparaging term
