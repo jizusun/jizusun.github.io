@@ -12,8 +12,29 @@ categories: english
 
 ### 2018-08-06: disparagingly
 
+- disparaging(adj.): expressing the opinion that something is of little worth, derogatory 贬义的: a derogatory term/a disparaging term
+- disparage (verb)
+  + simply means to describe things as unimportant or bad : to belittle, to depreciate. e.g. He never missed an opportunity to disparage his competitors
+  + also means to lower the reputation: Your behavior will disparage the whole family
+- Word origin: late Middle English (in the sense ‘marry someone of unequal rank,’ also ‘bring discredit on’): from Old French desparagier ‘marry someone of unequal rank,’ based on Latin par ‘equal.’
 - <https://www.merriam-webster.com/word-of-the-day/disparage-2013-09-27>
 - She said this not disparagingly, but affectionately rather, as though, by acknowledging the worst about him, she wished to protect him from the aspersions of her friends.她用这个词一点儿也没有贬抑的意思，相反地，倒是怀着一股深情，好像由她自己说出他最大的缺点就可以保护他不受她朋友们的挖苦似的。 (Chapter 5)
+- podcast
+> This is the English reading club's Word of the Day podcast for Monday, August 6th.
+>
+> Today's word is disparagingly, which is an adverb as you can guess. The adjective form is 'disparaging' and the verb form is 'disparage', which is spelled 'DISPARAGE'. 
+>
+> A disparaging word or term is the word you use to criticize something, or to express that something is of little worth. It can also be addressed as 'a derogatory term' 贬义词
+> 
+> Disparage has two meanings: 1) to describe things as unimportant or bad : to belittle, to depreciate. e.g. He never missed an opportunity to disparage his competitors" 2) to make things unimportant/ to lower the reputation: Your behavior will disparage the whole family.
+> 
+> It's a little bit interesting to talk about its word origin: in late Middle English, to disparage someone meant causing that person to marry someone of inferior rank. 'dis-' is a negative prefix, and the '-parage' actually comes from 'per', meaning 'peer' or 'equal'.
+> 
+> This word appears in the beginning of Chapter 5: She said this not disparagingly, but affectionately rather, as though, by acknowledging the worst about him, she wished to protect him from the aspersions of her friends.她用这个词一点儿也没有贬抑的意思，相反地，倒是怀着一股深情，好像由她自己说出他最大的缺点就可以保护他不受她朋友们的挖苦似的。 (Chapter 5)
+> 
+> To know more that the word 'disparage', please visit [the Merriam-Webster's Word of the Day for Sep. 27, 2013](https://www.merriam-webster.com/word-of-the-day/disparage-2013-09-27)
+>
+> Thanks for listening, and I'm Jizu. See you next time!
 
 ### 2018-08-05: disconcerting
 - Disconcert /ˌdiskənˈsərt/: simply means to make confused, embarrassed or upset. Any abrupt/sudden/unexpected changes, news or behavior will disconcert you, or you will be disconcerted by these things. Something you're not used to would also disconcert you. For example: She was not as disconcerted as she had expected to be.
