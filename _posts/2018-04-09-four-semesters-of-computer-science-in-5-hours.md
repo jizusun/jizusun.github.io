@@ -36,11 +36,11 @@ categories: drafts
 * A markdown unordered list which will be replaced with the ToC, excluding the "Contents header" from above
 {:toc}
 
-## 1. Big O and Resursion
+## 1. Big O and Recursion
 
 ### 1.1 Introduction
 * [http://bit.ly/4semesters](http://bit.ly/4semesters)
-* Also: <a href="/demo/4semesters" target="_blank">https://jizusun.github.io/demo/4semesters</a>
+* Also a fork with a more mobile-friendly layout: <a href="/demo/4semesters" target="_blank">https://jizusun.github.io/demo/4semesters</a>
 * clickbait title
 * Some knowledge of ES6 required
 * https://mitpress.mit.edu/books/introduction-algorithms
@@ -56,7 +56,7 @@ categories: drafts
 
 ### 1.4 Recursion
 * a bit of cost because of many callings of functions
-* readibility over performance, and refactor it later if you figure it's a big bottleneck 
+* readability over performance, and refactor it later if you figure it's a big bottleneck 
 
 ### 1.5 Recursion Example
 * Codepen : <http://codepen.io/btholt/pen/rxwEVQ?editors=001>
@@ -213,7 +213,21 @@ function mergeSort(nums) {
 
 ### Median values
 
+```
+Find the median of two sorted arrays e.g.
+[1, 5, 8, 9]
+[2, 3, 7, 10]
+```
+
+Solutions:
+- concat and sort: [1, 5, 8, 9, 2, 3, 7, 10], then sort it
+- sort by stitching: stop at the index of the median value
+
 ### Quicksort
+
+- Pivot (always the last one)
+- Divide and Conquer
+- Example
 
 ### Exercise 5: Quicksort
 
