@@ -232,24 +232,70 @@ Solutions:
 ### Exercise 5: Quicksort
 
 ### Exercise 5: Solution
+```js
+const quickSort = (nums) => {
+  if (nums.length <= 1) return nums;
 
+  const pivot = num[nums.length - 1];
+  const left = [];
+  const right = [];
+
+  for (let i = 1; i< nums.length - 1; i++) {
+    if (nums[i] < pivot) {
+      left.push(nums[i]);
+    } else {
+      right.push(nums[i]);
+    }
+  }
+
+  return [...quickSort(left), pivot, ...quickSort(right)]
+}
+```
 ## 3. Data Structure Interfaces
 
 ### Interfaces
 
+(nothing ...)
+
 ### Set
+
+- more of an object
+- an amorphous cloud
+- has no duplicate
+- no guarantee of order
+- ES6 has native `Set`
 
 ### Map
 
+- aka `dictionary`
+- normal objects in JavaScript
+- just key-value pairs
+- no concept of order
+- ES6 has native `Map` 
+- <http://2ality.com/>
+
 ### Stack
 
+- `last-in-first-out`
+- `pop`
+- `push`
+- `peek`
+
 ### Queue
+- `enqueue`
+- `dequeue`
+- priority queue
 
 ## 4. Implementing Data Structures
 
 ### Array list
 
+- shifting becomes very very expensive
+- optimized for `get`, de-optimized for `delete` and `insert`
+
 ### Exercise 6: Array list
+
+- 
 
 ### Exercise 6: Solution
 
