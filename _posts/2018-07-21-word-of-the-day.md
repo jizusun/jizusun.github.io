@@ -10,6 +10,13 @@ categories: english
 - TOC
 {:toc}
 
+### 2018-08-13: idiosyncrasy
+- plural form: idiosyncrasies; 
+- adjective: idiosyncratic
+- And, wondering if the fault is mine, I rack my brains to remember idiosyncrasies which might lend them vividness. (Chapter 8 ^masp)
+- https://www.merriam-webster.com/dictionary/idiosyncrasies
+
+
 ### 2018-08-08: instinctive
 - instinctive: doing or being a specified thing apparently naturally or automatically; done without conscious thought. for example, protecting her own children is an instinctive reaction of a mother, and blinking is a an instinctive reaction of everyone
 - Synonym: spontaneous, impulsive, instinctive, automatic, mechanical, (intuitive, natural), see more at <https://www.merriam-webster.com/dictionary/instinctive>
