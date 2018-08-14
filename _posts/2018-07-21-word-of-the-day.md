@@ -11,9 +11,13 @@ categories: english
 {:toc}
 
 ### 2018-08-13: idiosyncrasy
-- plural form: idiosyncrasies; 
+- meaning: 
+  + a mode of behavior or way of thought peculiar to an individual: one of his little idiosyncrasies was always preferring to be in the car first
+  + a distinctive or peculiar feature or characteristic of a place or thing: the idiosyncrasy of the prison system
+- synonyms: peculi'arity, eccen'tricity, individual/personal trait, oddity
+- plural form: idiosyncrasies
 - adjective: idiosyncratic
-- And, wondering if the fault is mine, I rack my brains to remember idiosyncrasies which might lend them vividness. (Chapter 8 ^masp)
+- And, wondering if the fault is mine, I rack my brains to remember idiosyncrasies which might lend them vividness.  我想知道这是不是我的过错，我苦思苦想，希望回忆起一些能使他们性格鲜明的特征。(Chapter 8 [^masp])
 - https://www.merriam-webster.com/dictionary/idiosyncrasies
 
 

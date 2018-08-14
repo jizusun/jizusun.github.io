@@ -295,9 +295,31 @@ const quickSort = (nums) => {
 
 ### Exercise 6: Array list
 
-- 
+* <http://codepen.io/btholt/pen/adLxyv?editors=001>
+
+```js
+class ArrayList {
+  constructor() {
+    this.length = 0;
+    this.data = {};
+  }
+
+  push(value) { }
+
+  pop() { }
+
+  get(index) { }
+
+  delete(index) { }
+
+  _collapseTo(index) { }
+}
+```
 
 ### Exercise 6: Solution
+
+* Also see at: <a href="/demo/data-structures/lib/ArrayList.js" target="_blank">https://jizusun.github.io/demo/data-structures/lib/ArrayList.js</a>
+
 
 ### Linked list
 
