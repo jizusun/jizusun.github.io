@@ -318,8 +318,7 @@ class ArrayList {
 
 ### Exercise 6: Solution
 
-* Also see at: <a href="/demo/data-structures/lib/ArrayList.js" target="_blank">https://jizusun.github.io/demo/data-structures/lib/ArrayList.js</a>
-
+* Also see at: <https://github.com/jizusun/learn-data-structures-with-javascript/blob/master/lib/ArrayList.js>
 
 ### Linked list
 
