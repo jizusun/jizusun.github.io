@@ -40,7 +40,7 @@ categories: drafts
 
 ### 1.1 Introduction
 * [http://bit.ly/4semesters](http://bit.ly/4semesters)
-* Also a fork with a more mobile-friendly layout: <a href="/demo/four-semesters-of-cs" target="_blank">https://jizusun.github.io/demo/four-semesters-of-cs</a>
+* Also a fork with a more mobile-friendly layout: <a href="/demo/four-semesters-of-cs" target="_blank">https://jizusun.github.io/four-semesters-of-cs</a>
 * clickbait title
 * Some knowledge of ES6 required
 * https://mitpress.mit.edu/books/introduction-algorithms
