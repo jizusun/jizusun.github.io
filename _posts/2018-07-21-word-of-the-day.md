@@ -18,7 +18,7 @@ categories: english
 - plural form: idiosyncrasies
 - adjective: idiosyncratic
 - And, wondering if the fault is mine, I rack my brains to remember idiosyncrasies which might lend them vividness.  我想知道这是不是我的过错，我苦思苦想，希望回忆起一些能使他们性格鲜明的特征。(Chapter 8 [^masp])
-- https://www.merriam-webster.com/dictionary/idiosyncrasies
+- <https://www.merriam-webster.com/dictionary/idiosyncrasies>
 
 
 ### 2018-08-08: instinctive

@@ -40,7 +40,7 @@ categories: drafts
 
 ### 1.1 Introduction
 * [http://bit.ly/4semesters](http://bit.ly/4semesters)
-* Also a fork with a more mobile-friendly layout: <a href="/demo/four-semesters-of-cs" target="_blank">https://jizusun.github.io/four-semesters-of-cs</a>
+* Also a fork with a more mobile-friendly layout: <a href="https://jizusun.github.io/four-semesters-of-cs" target="_blank">https://jizusun.github.io/four-semesters-of-cs</a>
 * clickbait title
 * Some knowledge of ES6 required
 * https://mitpress.mit.edu/books/introduction-algorithms
@@ -321,6 +321,8 @@ class ArrayList {
 * Also see at: <https://github.com/jizusun/learn-data-structures-with-javascript/blob/master/lib/ArrayList.js>
 
 ### Linked list
+
+- 
 
 ### Exercise 7: Linked list
 
