@@ -24,3 +24,15 @@ table {
 a {
 	word-wrap: break-word;
 }
+
+.post-content img {
+  box-shadow: 5px 5px 5px #666;
+  border-radius: 0.5em;
+  display: block;
+  margin: 0 auto;
+}
+
+body{
+  // 400 16px/1.5 -apple-system, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"
+  font-family: BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Hiragino Sans GB", 冬青黑, "Microsoft YaHei", 微软雅黑, SimSun, 宋体, Helvetica, Tahoma, "Arial sans-serif";
+}
