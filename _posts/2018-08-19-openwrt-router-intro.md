@@ -103,7 +103,11 @@ https://forum.openwrt.org/
 ## 二、安装插件（以 ipk 格式为例）
 {: #installing-software}
 
-Shadowsocks, ShadowsockR, V2Ray 等
+翻墙插件：Shadowsocks, ShadowsockR, V2Ray 等
+其他插件：多拨、Aria2下载，OpenWRT主题
+
+* https://github.com/LuttyYang/luci-theme-material/releases
+* https://github.com/apollo-ng/luci-theme-darkmatter
 
 ### 首选：别人编译好的安装包
 

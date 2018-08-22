@@ -4,11 +4,10 @@ title:  "Lynda.com: Four Semesters of Computer Science in 5 Hours"
 categories: drafts
 ---
 
-* Author: Brian Holt
+* <strong><a href="https://www.lynda.com/JavaScript-tutorials/Four-Semesters-Computer-Science-5-Hours/604270-2.html" title="Get a practical introduction to computer science concepts and take your knowledge of JavaScript to the next level.">Four Semesters of Computer Science in 5 Hours</a></strong> by <a href="https://www.lynda.com/author/10466045">Brian Holt</a>
 * Released: 6/2/2017
 * Duration: 4h 46m
 * Skill Level: Intermediate
-* Course URL: <https://www.lynda.com/JavaScript-tutorials/Four-Semesters-Computer-Science-5-Hours/604270-2.html>
 
 > Get a practical introduction to computer science concepts and take your knowledge of JavaScript to the next level. This course starts by exploring recursion, followed by how to use sorting algorithms. Next, the main elements of data structure interfaces are explained followed by demonstrations of how to implement list, tree, and table structures. Then, functional programming is covered, including use of map, reduce, and filter. For each section of the course, exercises are provided so you can practice.
 
@@ -322,7 +321,13 @@ class ArrayList {
 
 ### Linked list
 
-- 
+- <https://jizusun.github.io/four-semesters-of-cs/#linked-list>
+- `head`
+- `next`
+- `tail` 
+- get (by index): i s very expensive
+- delete: really cheap
+- pop: easy, simple by pointing to `null`
 
 ### Exercise 7: Linked list
 
