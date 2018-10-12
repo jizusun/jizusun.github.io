@@ -10,7 +10,7 @@ categories: drafts
 * Skill Level: 
 * Course URL: <>
 
-> 
+> Course Description
 
 
 ## Table of Content
@@ -53,11 +53,142 @@ categories: drafts
         </script>
     </body>
 </html>
+```
 
+Rendering flat arrays
+
+```js
+const Greetings = () => {
+    return [
+        <li key="1">Hello!</li>,
+        <li key="2">Hey!</li>,
+        <li key="3">Yo!</li>
+    ]
+}
+
+ReactDOM.render(
+    <Greetings />,
+    document.getElementById('root')
+)
 
 ```
 
+Rendering dynamic arrays
+
+```js
+const data = [
+    { greeting: 'Hello', id: 1 },
+    { greeting: 'Hey!', id: 2 },
+    { greeting: 'Yo!', id: 3 },
+]
+
+const Greetings = ({data})  => {
+    return data.map(item => {
+        return (
+            <li key={item.id}>{item.greeting}</li>
+        )
+    })
+}
+
+ReactDOM.render(
+    <Greetings data={data} />,
+    document.getElementById('root')
+)
+```
+
+
 ### setState() changes
+
+```js
+const NowEating = props => <h1>{props.meal}</h1>
+
+class Menu extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            meal: "Spaghetti"
+        }
+    }
+    render() {
+        return {
+            <div>
+                <NowEating meal={this.state.meal} />
+            </div>
+        }
+    }
+}
+```
+
+
+```js
+const NowEating = props => <h1>{props.meal}</h1>
+
+class Menu extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            meal: "Spaghetti"
+        }
+        this.addSideDish = this.addSideDish.bind(this)
+    }
+
+    addSideDish() {
+        // this.setState({
+        //     meal: "Spaghetti and Salad"
+        // })
+
+         this.setState(prevState => {
+             return { 
+                 meal: `${prevState.meal} & Salad`
+             }
+         })
+    }
+    render() {
+        return {
+            <div>
+                <NowEating meal={this.state.meal} />
+                {
+                    this.state.meal === "Spaghetti"
+                    ? <button onClick={this.addSideDish}Add Side Dish</button>
+                    : null
+                }
+            </div>
+        }
+    }
+}
+```
+
+Refactor: States as static properties
+
+```js
+const NowEating = props => <h1>{props.meal}</h1>
+
+class Menu extends React.Component {
+    state = {
+        meal: "Spaghetti"
+    }
+    // arrow function would not cause the problem of 'this'
+    addSideDish = () => {
+         this.setState(prevState => {
+             return { 
+                 meal: `${prevState.meal} & Salad`
+             }
+         })
+    }
+    render() {
+        return {
+            <div>
+                <NowEating meal={this.state.meal} />
+                {
+                    this.state.meal === "Spaghetti"
+                    ? <button onClick={this.addSideDish}Add Side Dish</button>
+                    : null
+                }
+            </div>
+        }
+    }
+}
+```
 
 ### Compound components
 
