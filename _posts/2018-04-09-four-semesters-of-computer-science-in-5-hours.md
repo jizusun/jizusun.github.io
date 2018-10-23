@@ -343,9 +343,12 @@ class ArrayList {
 
 ### AVL tree
 
+* <https://jizusun.github.io/four-semesters-of-cs/#avl-tree>
+
 ### Single rotation
 
 ### Double rotation
+* <https://www.lynda.com/JavaScript-tutorials/Double-rotation/604270/623686-4.html>
 
 ### Exercise 9: Solution, part 1
 
