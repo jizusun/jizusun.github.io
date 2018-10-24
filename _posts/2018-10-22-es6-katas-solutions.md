@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "ES6 Katas: My Solutions"
+title:  "ES6 Katas: My Solutions & Annotations"
 categories: drafts
 ---
 
@@ -8,6 +8,8 @@ ES6 Katas: Learn ES6 by doing it. Fix failing tests. Keep all learnings.
 - <http://es6katas.org/> 
 - source of this site: <https://github.com/tddbin/es6katas.org>
 - all Katas: <https://github.com/tddbin/katas>
+
+Rich Text to Markdown converter: <http://markitdown.medusis.com/>
 
 
 ## Table of Content
@@ -496,4 +498,176 @@ describe('`Promise` API overview', function() {
   });
 
 });
+```
+
+### `promise.catch()` (#79)
+
+Returns a Promise and deals with rejected cases only.
+
+Difficulty: intermediate  
+
+Links for futher reading
+
+- A short description of how `catch` works: <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch>
+- The actual chapter about `catch`, you need to dive in from here: <http://www.ecma-international.org/ecma-262/6.0/index.html#sec-promise.prototype.catch>
+- The description of the actual flow of `catch`: <http://www.ecma-international.org/ecma-262/6.0/index.html#sec-performpromisethen>
+
+```js
+// 79: Promise - catch
+// To do: make all tests pass, leave the assert lines unchanged!
+// Follow the hints of the failure messages!
+// Here we use promises to trigger, don't modify the block with the 
+// returning promise!
+
+describe('`catch()` returns a Promise and deals with rejected cases only', () => {
+
+  describe('prerequisites for understanding', () => {
+
+    it('*return* a fulfilled promise, to pass a test', () => {
+      return Promise.resolve();
+      assert(false); // Don't touch! Make the test pass in the line above!
+    });
+
+    it('reminder: the test passes when a fulfilled promise is returned', () => {
+      return Promise.resolve('I should fulfill.');
+    });
+
+  });
+
+  describe('`catch` method basics', () => {
+    it('is an instance method', () => {
+      const p = Promise.prototype;
+      assert.equal(typeof p.catch, 'function');
+    });
+
+    it('catches only promise rejections', (done) => {
+      const promise = Promise.reject();
+      promise
+        .then(() => { done('Should not be called!'); })
+        .catch(done);
+    });
+
+    it('returns a new promise', () => {
+      const whatToReturn = () => Promise.resolve();
+      const promise = Promise.reject();
+      return promise.catch(() =>
+        whatToReturn()
+      );
+    });
+
+    it('converts it`s return value into a promise', () => {
+      const p = Promise.reject();
+      const p1 = p.catch(() => 'promise?');
+
+      return p1.then(result => assert.equal('promise?', result));
+    });
+
+    it('the first parameter is the rejection reason', () => {
+      const p = Promise.reject('oops');
+
+      return p.catch(reason => {
+        assert.equal(reason, 'oops');
+      });
+    });
+  });
+
+  describe('multiple `catch`es', () => {
+    it('only the first `catch` is called', () => {
+      const p = Promise.reject('1');
+      const p1 = p
+          .catch(reason => `${reason} AND 2`)
+          .catch(reason => `${reason} AND 3`)
+        ;
+
+      return p1.then(result =>
+        assert.equal(result, '1 AND 2')
+      );
+    });
+
+    it('if a `catch` throws, the next `catch` catches it', () => {
+      const p = Promise.reject('1');
+      const p1 = p
+          .catch(reason => { throw Error(`${reason} AND 2`) })
+          .catch(err => { throw Error(`${err.message} AND 3`) })
+          .catch(err => err.message)
+        ;
+
+      return p1.then(result =>
+        assert.equal(result, '1 AND 2 AND 3')
+      );
+    });
+  });
+
+});
+```
+
+## Array
+
+### `Array.from()` (#29)
+
+Convert a not-array into an array.
+
+Difficulty: tbd
+
+
+```js
+
+// 29: array - `Array.from` static method
+// To do: make all tests pass, leave the assert lines unchanged!
+// Follow the hints of the failure messages!
+
+// https://medium.com/front-end-hacking/creating-arrays-from-array-like-objects-5d24815cdbd3
+describe('`Array.from` converts an array-like object or list into an Array', () => {
+
+  const arrayLike = {0: 'one', 1: 'two', length: 2};
+  
+  it('call `Array.from` with an array-like object', function() {
+    // this also works: 
+    // const arr = [].slice.apply(arrayLike)
+    const arr = Array.from(arrayLike)
+
+    assert.deepEqual(arr, ['one', 'two']);
+  });
+  
+  it('a DOM node`s classList object can be converted', function() {
+    const domNode = document.createElement('span');
+    domNode.classList.add('some');
+    domNode.classList.add('other');
+    
+    // Object.prototype.toString.call(domNode.classList)
+    // "[object DOMTokenList]"
+    
+    const classList = Array.from(domNode.classList);
+    // we can also 
+    // const classList = [...domNode.classList]
+    
+    // we can also check the equality of array contents with `deepEqual`
+    // assert.deepEqual(classList, ["some", "other"])
+    
+    assert.equal(''+classList, ''+['some', 'other']);
+  });
+  
+  it('convert a NodeList to an Array and `filter()` works on it', function() {
+    const nodeList = document.createElement('span');
+    const divs = Array.from(nodeList).filter((node) => node.tagName === 'div');
+
+    assert.deepEqual(divs.length, 0);
+  });
+  
+  describe('custom conversion using a map function as second param', () => {
+    it('we can modify the value before putting it in the array', function() {
+      const arr = Array.from(arrayLike, (value) => value);
+
+      assert.deepEqual(arr, ['ONE', 'TWO']);
+    });
+    
+    it('and we also get the object`s key as second parameter', function() {
+      const arr = Array.from(arrayLike, (value) => `${key}=${value}`);
+      
+      assert.deepEqual(arr, ['0=one', '1=two']);
+    });
+  });
+  
+});
+
 ```
