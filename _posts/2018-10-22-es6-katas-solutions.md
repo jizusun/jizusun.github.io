@@ -1,24 +1,32 @@
 ---
 layout: post
-title:  "ES6 Katas: Learn ES6 by doing it. Fix failing tests. Keep all learnings."
+title:  "ES6 Katas: My Solutions"
 categories: drafts
 ---
 
-* http://es6katas.org/
-    * source of this site: https://github.com/tddbin/es6katas.org 
-    * all Katas: https://github.com/tddbin/katas
+ES6 Katas: Learn ES6 by doing it. Fix failing tests. Keep all learnings.
+- <http://es6katas.org/> 
+- source of this site: <https://github.com/tddbin/es6katas.org>
+- all Katas: <https://github.com/tddbin/katas>
+
+
+## Table of Content
+{:.no_toc}
+
+* A markdown unordered list which will be replaced with the ToC, excluding the "Contents header" from above
+{:toc}
 
 ## Promise
 
 ### basics (#75)
 
-A promise represents an operation that hasn`t completed yet, but is expected in the future.
+> A promise represents an operation that hasn`t completed yet, but is expected in the future.
 
 Difficulty: beginner
 
 Links for futher reading
-* [A well understandable description of the states a promise can be in.](http://www.ecma-international.org/ecma-262/6.0/#sec-promise-objects)
-* Mocha - simple async support, including promises: https://mochajs.org/#asynchronous-code
+* A well understandable description of the states a promise can be in: <http://www.ecma-international.org/ecma-262/6.0/#sec-promise-objects>
+* Mocha - simple async support, including promises: <https://mochajs.org/#asynchronous-code>
 
 ```js 
 
@@ -125,18 +133,18 @@ describe('a Promise represents an operation that hasn`t completed yet, but is ex
 
 A promise can be created in multiple ways, learn them all here.
 
-Difficulty: intermediate
+> Difficulty: intermediate
 
 Links for futher reading
-* Describing the promise constructor.
-* How `Promise.all()` is specified.
-* Documenting `Promise.all()`.
-* How `Promise.race()` is specified.
-* Documenting `Promise.race()`.
-* How `Promise.resolve()` is specified.
-* Documenting `Promise.resolve()`.
-* How `Promise.resolve()` is specified.
-* Documenting `Promise.reject()`.
+- Describing the promise constructor: <http://www.ecma-international.org/ecma-262/6.0/#sec-promise-constructor>
+- How `Promise.all()` is specified: <http://www.ecma-international.org/ecma-262/6.0/#sec-promise.all>
+- Documenting `Promise.all()`: <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all>
+- How `Promise.race()` is specified: <http://www.ecma-international.org/ecma-262/6.0/#sec-promise.race>
+- Documenting `Promise.race()`: <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/race>
+- How `Promise.resolve()` is specified: <http://www.ecma-international.org/ecma-262/6.0/#sec-promise.resolve>
+- Documenting `Promise.resolve()`: <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/resolve>
+- How `Promise.resolve()` is specified: <http://www.ecma-international.org/ecma-262/6.0/#sec-promise.reject>
+- Documenting `Promise.reject()`: <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/reject>
 
 ```js
 // 76: Promise - creation 
@@ -312,14 +320,14 @@ class NotRejectedError extends Error {
 ```
 
 ### chaining `then()` (#77)
-Chaining promises can enhance readability of asynchronous code.
+> Chaining promises can enhance readability of asynchronous code.
 
 Difficulty: advanced
 
 Links for futher reading
-* [The description of how a value given to `then()` becomes a resolved promise.](https://promisesaplus.com/#point-45)
-* [Looks like the description in the spec of what `then()` accepts and does with the given value.](http://www.ecma-international.org/ecma-262/6.0/#sec-promisereactionjob)
-* [A long article introducing promises.](http://www.html5rocks.com/en/tutorials/es6/promises/)
+* The description of how a value given to `then()` becomes a resolved promise: <https://promisesaplus.com/#point-45>
+* Looks like the description in the spec of what `then()` accepts and does with the given value: <http://www.ecma-international.org/ecma-262/6.0/#sec-promisereactionjob>
+* A long article introducing promises: <http://www.html5rocks.com/en/tutorials/es6/promises/>
 
 
 ```js
@@ -409,4 +417,83 @@ describe('chaining multiple promises can enhance readability', () => {
 
 });
 
+```
+
+
+### the API (#78)
+
+> `Promise` API overview.
+
+Difficulty: intermediate
+
+<http://tddbin.com/#?kata=es6/language/promise/api>
+
+
+```js
+// 78: Promise - API overview
+// To do: make all tests pass, leave the assert lines unchanged!
+// Follow the hints of the failure messages!
+
+describe('`Promise` API overview', function() {
+
+  it('`new Promise()` requires a function as param', () => {
+    const param = () => {};
+    assert.doesNotThrow(() => { new Promise(param); });
+  });
+
+  describe('resolving a promise', () => {
+    // reminder: the test passes when a fulfilled promise is returned
+    it('via constructor parameter `new Promise((resolve) => { resolve(); })`', () => {
+      const param = (resolve) => { resolve(); };
+      return new Promise(param);
+    });
+    it('using `Promise.resolve()`', () => {
+      return Promise.resolve('all fine');
+    });
+  });
+
+  describe('a rejected promise', () => {
+    it('using the constructor parameter', (done) => {
+      const promise = new Promise((_, reject) => { reject(); });
+      promise
+        .then(() => done(new Error('The promise is expected to be rejected.')))
+        .catch(() => done());
+    });
+    it('via `Promise.reject()`', (done) => {
+      const promise = Promise.reject();
+      promise
+        .then(() => done(new Error('The promise is expected to be rejected.')))
+        .catch(() => done());
+    });
+  });
+
+  const resolvingPromise = Promise.resolve();
+  const rejectingPromise = Promise.reject();
+
+  describe('`Promise.all()`', () => {
+    it('`Promise.all([p1, p2])` resolves when all promises resolve', () =>
+      Promise.all([resolvingPromise, resolvingPromise])
+    );
+    it('`Promise.all([p1, p2])` rejects when a promise is rejected', (done) => {
+      Promise.all([resolvingPromise, rejectingPromise ])
+        .then(() => done(new Error('The promise is expected to be rejected.')))
+        .catch(() => done())
+    });
+  });
+
+  describe('`Promise.race()`', () => {
+    it('`Promise.race([p1, p2])` resolves when one of the promises resolves', () =>
+      Promise.race([resolvingPromise, rejectingPromise])
+    );
+    it('`Promise.race([p1, p2])` rejects when one of the promises rejects', (done) => {
+      Promise.race([rejectingPromise, resolvingPromise])
+        .then(() => done(new Error('The promise is expected to be rejected.')))
+        .catch(() => done())
+    });
+    it('`Promise.race([p1, p2])` order matters (and timing)', () =>
+      Promise.race([resolvingPromise, rejectingPromise])
+    );
+  });
+
+});
 ```
