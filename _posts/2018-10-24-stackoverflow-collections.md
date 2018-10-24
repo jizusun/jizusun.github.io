@@ -10,6 +10,8 @@ categories: drafts
 * A markdown unordered list which will be replaced with the ToC, excluding the "Contents header" from above
 {:toc}
 
+<https://github.com/jizusun/jizusun.github.io/edit/master/_posts/2018-10-24-stackoverflow-collections.md>
+
 ## JavaScript
 
 ### How to display all methods of an object? (206 votes)
