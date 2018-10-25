@@ -735,3 +735,66 @@ Links for futher reading
 
 - [A discussion in a github issue, about how to use this kata.](https://github.com/tddbin/es6katas.org/issues/9)
 - [API doc on MDN.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fill)
+
+```js
+// 31: array - `Array.prototype.fill` method
+// To do: make all tests pass, leave the assert lines unchanged!
+// Follow the hints of the failure messages!
+
+
+
+// The fill method is a mutable method, it will change this object itself, and return it, not just return a copy of it.
+
+describe('`Array.prototype.fill` can fill up an array with one value', () => {
+
+  it('`fill(0)` will populate `0` into each array element', function() {
+     const arr = new Array(3).fill(0);
+    
+    // This can't work
+    // const arr = new Array(3).map( _ => 0 )
+    // But this can work
+    // const arr = [...Array(3)].map( _ => 0)
+    // See:  https://stackoverflow.com/questions/5501581/javascript-new-arrayn-and-array-prototype-map-weirdness
+    assert.deepEqual(arr, [0, 0, 0]);
+  });
+
+  it('fill only changes content, adds no new elements', function() {
+    const arr = [undefined].fill(0);
+    
+    assert.deepEqual(arr, [0]);
+  });
+
+  it('second parameter to `fill()` is the position where to start filling', function() {
+    const fillPosition = 2;
+    const arr = [1,2,3].fill(42, fillPosition);
+    
+    assert.deepEqual(arr, [1, 2, 42]);
+  });
+
+  it('third parameter is the position where filling stops', function() {
+    const fillStartAt = 1;
+    const fillEndAt = 2;
+    const arr = [1,2,3].fill(42, fillStartAt, fillEndAt);
+    
+    assert.deepEqual(arr, [1, 42, 3]);
+  });
+  
+  // =================
+  // More test cases inspired from MDN:
+  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fill
+  
+  it('is a mutable method, and it will change this object itself', function() {
+    const arr = new Array(3);
+    arr.fill(8);
+    assert.deepEqual(arr, [8,8,8]);
+  });
+  
+  it('When gets passed an object, it will copy the reference and fill the array with references to that object.', function(){
+    const arr = Array(3).fill({}) // [{}, {}, {}];
+    arr[0].hi = "hi"; 
+    assert.deepEqual(arr[2].hi, 'hi');
+
+  })
+
+});
+```
