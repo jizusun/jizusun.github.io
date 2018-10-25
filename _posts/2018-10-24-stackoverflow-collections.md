@@ -1,8 +1,11 @@
 ---
 layout: post
-title:  "StackOverflow Collections"
+title:  "Stack Overflow Collections"
 categories: drafts
 ---
+
+
+[Edit this post](https://github.com/jizusun/jizusun.github.io/edit/master/_posts/2018-10-24-stackoverflow-collections.md)
 
 ## Table of Content
 {:.no_toc}
@@ -10,7 +13,7 @@ categories: drafts
 * A markdown unordered list which will be replaced with the ToC, excluding the "Contents header" from above
 {:toc}
 
-<https://github.com/jizusun/jizusun.github.io/edit/master/_posts/2018-10-24-stackoverflow-collections.md>
+
 
 ## JavaScript
 
@@ -34,3 +37,25 @@ Object.getOwnPropertyNames(Array.prototype)
 ### A function to print prototype chain for a given object (9 votes)
 
 <https://stackoverflow.com/questions/22168033/a-function-to-print-prototype-chain-for-a-given-object>
+
+A tool for visualizing and experimenting with JavaScript object relationships: <http://www.objectplayground.com/>
+
+
+### Plain object is not iterable
+
+```js
+var obj = {aa: 'bb', cc: 'dd'}
+// undefined
+[...obj]
+// VM514:1 Uncaught TypeError: obj is not iterable
+//    at <anonymous>:1:5
+```
+
+- <http://exploringjs.com/es6/ch_iteration.html#sec_plain-objects-not-iterable>
+
+
+### TC39 Process (96 votes)
+
+<https://stackoverflow.com/questions/37251552/whats-the-difference-between-babel-preset-stage-0-babel-preset-stage-1-etc>
+- <https://tc39.github.io/process-document/>
+- <http://2ality.com/2015/11/tc39-process.html>

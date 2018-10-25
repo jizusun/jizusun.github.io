@@ -611,20 +611,22 @@ Difficulty: tbd
 
 
 ```js
-
 // 29: array - `Array.from` static method
 // To do: make all tests pass, leave the assert lines unchanged!
 // Follow the hints of the failure messages!
 
-// https://medium.com/front-end-hacking/creating-arrays-from-array-like-objects-5d24815cdbd3
-describe('`Array.from` converts an array-like object or list into an Array', () => {
 
+
+describe('`Array.from` converts an array-like object or list into an Array', () => {
+ // Converts array-like object: 
+ // https://medium.com/front-end-hacking/creating-arrays-from-array-like-objects-5d24815cdbd3
+ 
   const arrayLike = {0: 'one', 1: 'two', length: 2};
   
   it('call `Array.from` with an array-like object', function() {
     // this also works: 
     // const arr = [].slice.apply(arrayLike)
-    const arr = Array.from(arrayLike)
+    const arr = Array.from(arrayLike);
 
     assert.deepEqual(arr, ['one', 'two']);
   });
@@ -656,18 +658,17 @@ describe('`Array.from` converts an array-like object or list into an Array', () 
   
   describe('custom conversion using a map function as second param', () => {
     it('we can modify the value before putting it in the array', function() {
-      const arr = Array.from(arrayLike, (value) => value);
+      const arr = Array.from(arrayLike, (value) => value.toUpperCase() );
 
       assert.deepEqual(arr, ['ONE', 'TWO']);
     });
     
     it('and we also get the object`s key as second parameter', function() {
-      const arr = Array.from(arrayLike, (value) => `${key}=${value}`);
+      const arr = Array.from(arrayLike, (value, key) => `${key}=${value}`);
       
       assert.deepEqual(arr, ['0=one', '1=two']);
     });
   });
   
 });
-
 ```
