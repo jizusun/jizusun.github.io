@@ -5,11 +5,10 @@ categories: drafts
 ---
 
 ES6 Katas: Learn ES6 by doing it. Fix failing tests. Keep all learnings.
-- <http://es6katas.org/> 
-- source of this site: <https://github.com/tddbin/es6katas.org>
-- all Katas: <https://github.com/tddbin/katas>
-
-Rich Text to Markdown converter: <http://markitdown.medusis.com/>
+- Site: <http://es6katas.org/> 
+- Source of this site: <https://github.com/tddbin/es6katas.org>
+- All Katas: <https://github.com/tddbin/katas>
+- Rich Text to Markdown converter: <http://markitdown.medusis.com/>
 
 
 ## Table of Content
@@ -609,6 +608,8 @@ Convert a not-array into an array.
 
 Difficulty: tbd
 
+<https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/from>
+
 
 ```js
 // 29: array - `Array.from` static method
@@ -663,12 +664,74 @@ describe('`Array.from` converts an array-like object or list into an Array', () 
       assert.deepEqual(arr, ['ONE', 'TWO']);
     });
     
+    
     it('and we also get the object`s key as second parameter', function() {
       const arr = Array.from(arrayLike, (value, key) => `${key}=${value}`);
-      
+      // Array.from(obj, mapFn, thisArg) has the same result as Array.from(obj).map(mapFn, thisArg)
+      // Thus also can be written as:
+      // const arr = Array.from(arrayLike).map( (v, i) => `${i}=${v}` )
+
       assert.deepEqual(arr, ['0=one', '1=two']);
     });
   });
   
 });
 ```
+
+
+### `Array.of()` (#30)
+
+`Array.of` creates an array with the given arguments as elements.
+
+Difficulty: tbd
+
+
+```js
+
+// 30: array - `Array.of` static method
+// To do: make all tests pass, leave the assert lines unchanged!
+// Follow the hints of the failure messages!
+
+describe('`Array.of` creates an array with the given arguments as elements', () => {
+  
+  it('dont mix it up with `Array(10)`, where the argument is the array length', () => {
+
+    // `Array(10)` actually is  [, , , , , , , , , ,]
+    // `Array.of(10)` actually is [10]
+    // The difference between Array.of() and the Array constructor is in the handling of integer arguments
+    const arr = Array.of(10);
+    
+    assert.deepEqual(arr, [10]);
+  });
+  
+  it('puts all arguments into array elements', () => {
+    const arr = Array.of(1, 2);
+    // Polyfill:
+    // const arrayOf = (...args) => [].slice.call(args);
+    assert.deepEqual(arr, [1, 2]);
+  });
+  
+  it('takes any kind and number of arguments', () => {
+    const starter = [1, 2];
+    const end = [3, '4'];
+    const arr = Array.of(...starter, ...end);
+    
+    assert.deepEqual(arr, [1, 2, 3, '4']);
+  });
+  
+});
+
+
+```
+
+
+### `[].fill()` (#31)
+
+`[].fill` can fill up an array with one value.
+
+Difficulty: tbd  
+
+Links for futher reading
+
+- [A discussion in a github issue, about how to use this kata.](https://github.com/tddbin/es6katas.org/issues/9)
+- [API doc on MDN.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/fill)

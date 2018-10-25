@@ -5,7 +5,7 @@ categories: drafts
 ---
 
 
-[Edit this post](https://github.com/jizusun/jizusun.github.io/edit/master/_posts/2018-10-24-stackoverflow-collections.md)
+[📝 Edit this post](https://github.com/jizusun/jizusun.github.io/edit/master/_posts/2018-10-24-stackoverflow-collections.md)
 
 ## Table of Content
 {:.no_toc}
@@ -22,6 +22,7 @@ categories: drafts
 <https://stackoverflow.com/questions/2257993/how-to-display-all-methods-of-an-object>
 
 ```js
+// 
 Object.getOwnPropertyNames(Array)
 // (6) ["length", "name", "prototype", "isArray", "from", "of"]
 Object.getOwnPropertyNames([])
@@ -42,6 +43,7 @@ A tool for visualizing and experimenting with JavaScript object relationships: <
 
 
 ### Plain object is not iterable
+- <https://stackoverflow.com/questions/29886552/why-are-objects-not-iterable-in-javascript>
 
 ```js
 var obj = {aa: 'bb', cc: 'dd'}
@@ -59,3 +61,47 @@ var obj = {aa: 'bb', cc: 'dd'}
 <https://stackoverflow.com/questions/37251552/whats-the-difference-between-babel-preset-stage-0-babel-preset-stage-1-etc>
 - <https://tc39.github.io/process-document/>
 - <http://2ality.com/2015/11/tc39-process.html>
+
+
+
+### `arguments` alternative in ES6 arrow functions
+
+<https://stackoverflow.com/questions/41731854/why-do-arrow-functions-not-have-the-arguments-array>
+
+- An ES5 polyfill of `Array.of()`
+` : <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/of#Polyfill>
+
+    ```js
+    if (!Array.of) {
+    Array.of = function() {
+        return Array.prototype.slice.call(arguments);
+    };
+    }
+    ```
+also as:
+
+    ```js
+    const arrayOf = (...args) => [].slice.call(args);
+
+    let result = arrayOf(1,3, 5)
+    console.log(result)
+
+    ```
+
+# `Array.prototype.map` not working on an array of empty slots (152 votes)
+
+<https://stackoverflow.com/questions/5501581/javascript-new-arrayn-and-array-prototype-map-weirdness>
+
+- <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array>
+
+> `arrayLength`: If the only argument passed to the Array constructor is an integer between 0 and 232-1 (inclusive), this returns a new JavaScript array with its length property set to that number (Note: this implies an array of arrayLength empty slots, not slots with actual undefined values). If the argument is any other number, a RangeError exception is thrown.
+
+```js
+let arr1 = []; arr1.length = 5;
+// (5) [empty × 5]
+let arr2 = new Array(5)
+// (5) [empty × 5]
+let arr3 = new Array(5).fill(undefined)
+// (5) [undefined, undefined, undefined, undefined, undefined]
+
+```
