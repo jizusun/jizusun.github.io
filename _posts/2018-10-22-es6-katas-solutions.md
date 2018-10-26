@@ -949,3 +949,124 @@ describe('`[].entries()` returns an iterator object with all entries', function(
   });
 });
 ```
+
+### `[].keys()` (#42)
+
+`[].keys()` returns an iterator for all keys in the array.
+
+Difficulty: intermediate
+
+
+```js
+// 42: array - `Array.prototype.keys`
+// To do: make all tests pass, leave the assert lines unchanged!
+// Follow the hints of the failure messages!
+
+describe('`Array.prototype.keys` returns an iterator for all keys in the array', () => {
+
+  it('`keys()` returns an iterator', function() {
+    const arr = ['a', 'b'];
+    const iterator = arr.keys();
+    
+    assert.deepEqual(iterator.next(), {value: 0, done: false});
+    // After a terminating value has been yielded 
+    // additional calls to next() should simply continue to return {done: true}.
+    assert.deepEqual(iterator.next(), {value: 1, done: false});
+  });
+  
+  it('gets all keys', function() {
+    //// const arr = ['a', 'b'];
+    const arr = ['a', 'b', 'c'];
+    const keys = Array.from(arr.keys());
+    
+    assert.deepEqual(keys, [0, 1, 2]);
+  });
+  
+  it('empty array contains no keys', function() {
+    //// const arr = ['empty me'];
+    const arr = [];
+    const keys = [...arr.keys()];
+    
+    assert.equal(keys.length, 0);
+  });
+  
+  it('a sparse array without real values has keys though', function() {
+    const arr = [,,];
+    //// const keys = [...arr.___()];
+    const keys = [...arr.keys()];
+
+    assert.deepEqual(keys, [0, 1]);
+  });
+
+  it('also includes holes in sparse arrays', function() {
+    const arr = ['a', , 'c'];
+    //// const keys = arr.keys;
+    const keys = [...arr.keys()];
+    
+    assert.deepEqual(keys, [0, 1, 2]);
+  });
+});
+
+```
+
+
+### `[].values()` (#43)
+
+`[].values()` returns an iterator for all values in the array
+
+Difficulty: intermediate
+
+
+```js
+// 43: array - `Array.prototype.values` 
+// To do: make all tests pass, leave the assert lines unchanged!
+// Follow the hints of the failure messages!
+
+describe('`Array.prototype.values` returns an iterator for all values in the array', () => {
+
+  it('`values()` returns an iterator', function() {
+    // const arr = ['k', 'e', 'y'];
+    const arr = [];
+    const iterator = arr.values();
+    
+    assert.deepEqual(iterator.next(), {value: void 0, done: true});
+  });
+  
+  it('use `iterator.next()` to drop first value', function() {
+    const arr = ['keys', 'values', 'entries'];
+    const iterator = arr.values();
+    // iterator.___();
+    iterator.next();
+
+    assert.deepEqual([...iterator], ['values', 'entries']);
+  });
+  
+  it('empty array contains no values', function() {
+    // const arr = [...[...[...[...'1']]]];
+    // What a trick!
+    const arr = [...[...[...[...[]]]]];
+    // const arr = [];
+    const values = [...arr.values()];
+    
+    assert.equal(values.length, 0);
+  });
+  
+  it('a sparse array without real values has values though', function() {
+    // const arr = [, 0];
+    
+    // Tricky !
+    const arr = [,,];
+    const keys = [...arr.values()];
+    
+    assert.deepEqual(keys, [void 0, void 0]);
+  });
+  
+  it('also includes holes in sparse arrays', function() {
+    // const arr = ['a',];
+    const arr = ['a',,'c'];
+
+    assert.deepEqual([...arr.values()], ['a', void 0, 'c']);
+  });
+  
+});
+```

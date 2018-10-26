@@ -42,7 +42,7 @@ Object.getOwnPropertyNames(Array.prototype)
 A tool for visualizing and experimenting with JavaScript object relationships: <http://www.objectplayground.com/>
 
 
-### Plain object is not iterable
+### Plain object is not iterable (57 votes)
 - <https://stackoverflow.com/questions/29886552/why-are-objects-not-iterable-in-javascript>
 
 ```js
@@ -64,7 +64,7 @@ var obj = {aa: 'bb', cc: 'dd'}
 
 
 
-### `arguments` alternative in ES6 arrow functions
+### `arguments` alternative in ES6 arrow functions (33 votes)
 
 <https://stackoverflow.com/questions/41731854/why-do-arrow-functions-not-have-the-arguments-array>
 
@@ -88,7 +88,7 @@ also as:
 
     ```
 
-# `Array.prototype.map` not working on an array of empty slots (152 votes)
+### `Array.prototype.map` not working on an array of empty slots (152 votes)
 
 <https://stackoverflow.com/questions/5501581/javascript-new-arrayn-and-array-prototype-map-weirdness>
 
