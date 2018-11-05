@@ -4,7 +4,10 @@ title:  "ES6 Katas: My Solutions & Annotations"
 categories: drafts
 ---
 
+[Edit this post](https://github.com/jizusun/jizusun.github.io/edit/master/_posts/2018-10-22-es6-katas-solutions.md)
+
 ES6 Katas: Learn ES6 by doing it. Fix failing tests. Keep all learnings.
+- Learn ES6: <https://babeljs.io/docs/en/learn/>
 - Site: <http://es6katas.org/> 
 - Source of this site: <https://github.com/tddbin/es6katas.org>
 - All Katas: <https://github.com/tddbin/katas>
