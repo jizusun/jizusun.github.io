@@ -11,6 +11,12 @@ ES6 Katas: Learn ES6 by doing it. Fix failing tests. Keep all learnings.
 - Rich Text to Markdown converter: <http://markitdown.medusis.com/>
 
 
+# Refrerences
+
+- <http://es6-features.org/#Constants>
+- <https://github.com/lukehoban/es6features#readme>
+
+
 ## Table of Content
 {:.no_toc}
 
@@ -1477,6 +1483,14 @@ Destructuring function parameters.
 Difficulty: intermediate
 
 <https://github.com/tddbin/katas/blob/master/katas/es6/language/destructuring/parameters.js>
+
+### assign (#15)
+
+Assign variables while destructuring.
+
+Difficulty: intermediate
+
+<https://github.com/tddbin/katas/blob/master/katas/es6/language/destructuring/rename.js>
 
 ## Number
 
