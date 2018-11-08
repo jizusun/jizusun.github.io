@@ -17,6 +17,8 @@ categories: drafts
 
 ## JavaScript
 
+<https://stackoverflow.com/questions/tagged/javascript?sort=votes&pageSize=15>
+
 ### How to display all methods of an object? (206 votes)
 
 <https://stackoverflow.com/questions/2257993/how-to-display-all-methods-of-an-object>
@@ -105,3 +107,37 @@ let arr3 = new Array(5).fill(undefined)
 // (5) [undefined, undefined, undefined, undefined, undefined]
 
 ```
+
+
+### How do I test for an empty JavaScript object?
+
+<https://stackoverflow.com/questions/679915/how-do-i-test-for-an-empty-javascript-object>
+
+
+### Spread Syntax vs Rest Parameter in ES2015 / ES6
+
+<https://stackoverflow.com/questions/33898512/spread-syntax-vs-rest-parameter-in-es2015-es6>
+
+
+
+### Get the last item in an array (761 votes)
+
+<https://stackoverflow.com/questions/3216013/get-the-last-item-in-an-array>
+<https://stackoverflow.com/questions/33064377/destructuring-to-get-the-last-element-of-an-array-in-es6>
+
+```js
+// more consise
+arr.slice(-1)[0] 
+// or more faster, according to https://jsperf.com/slice-vs-length-1-arr
+arr[arr.length -1]
+```
+
+### What does `void 0` mean? (1091 votes)
+<https://stackoverflow.com/questions/7452341/what-does-void-0-mean>
+<https://stackoverflow.com/questions/1291942/what-does-javascriptvoid0-mean>
+
+
+### Copy array by value (1424 votes)
+
+<https://jsperf.com/array-copy/5>
+<https://stackoverflow.com/questions/7486085/copy-array-by-value>

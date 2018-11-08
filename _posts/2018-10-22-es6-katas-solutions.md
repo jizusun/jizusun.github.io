@@ -1374,3 +1374,116 @@ describe('Inside a class use `super` to access parent methods', () => {
 });
 
 ```
+
+### super in constructor (#28)
+Use of `super` inside the constructor.
+
+Difficulty: intermediate
+
+```js
+// 28: class - super in constructor
+// To do: make all tests pass, leave the assert lines unchanged!
+// Follow the hints of the failure messages!
+
+describe('Inside a class`s constructor `super()` can be used', () => {
+  it('`extend` a class and use `super()` to call the parent constructor', () => {
+    class A {constructor() { this.levels = 1; }}
+    class B extends A {
+      constructor() {
+        super();
+        this.levels++;
+      }
+    }
+    assert.equal(new B().levels, 2);
+  });
+  it('`super()` may also take params', () => {
+    class A {constructor(startValue=1, addTo=1) { this.counter = startValue + addTo; }}
+    class B extends A {
+      constructor(...args) { 
+        super(...args);
+        this.counter++; 
+      }
+    }
+    assert.equal(new B(42, 2).counter, 45);
+  });
+  it('it is important where you place your `super()` call!', () => {
+    class A {inc() { this.countUp = 1; }}
+    class B extends A {
+      inc() {
+        ////super.inc();
+        this.countUp = 2;
+        ////
+        super.inc();
+        return this.countUp;
+      }
+    }
+    assert.equal(new B().inc(), 1);
+  });
+  it('use `super.constructor` to find out if there is a parent constructor', () => {
+    class A {constructor() {"parent"}}
+    class B extends A {
+      constructor() {
+        super();
+        //// this.isTop = '' + super.konstructer;
+        this.isTop = '' + super.constructor;
+      }
+    }
+    assert.equal(new B().isTop, 'class A {constructor() {"parent"}}');
+  });
+});
+```
+
+## Destructuring 
+
+### array (#10)
+
+Destructuring arrays allows for more concise.
+
+Difficulty: beginner
+
+<https://github.com/tddbin/katas/blob/master/katas/es6/language/destructuring/array.js>
+
+### string (#11)
+
+Destructuring can also be done on strings.
+
+Difficulty: beginner
+
+<https://github.com/tddbin/katas/blob/master/katas/es6/language/destructuring/string.js>
+
+
+### object (#12)
+
+Destructuring objects is a core concepts for modules and more.
+
+Difficulty: beginner
+
+<https://github.com/tddbin/katas/blob/master/katas/es6/language/destructuring/object.js>
+
+
+### defaults (#13)
+
+When destructuring you can also use default values.
+
+Difficulty: beginner
+
+<https://github.com/tddbin/katas/blob/master/katas/es6/language/destructuring/defaults.js>
+
+
+### parameters (#14)
+
+Destructuring function parameters.
+
+Difficulty: intermediate
+
+<https://github.com/tddbin/katas/blob/master/katas/es6/language/destructuring/parameters.js>
+
+## Number
+
+### `Number.isInteger()` (#55)
+
+`Number.isInteger()` determines if a value is an integer.
+
+Difficulty: beginner
+
+
