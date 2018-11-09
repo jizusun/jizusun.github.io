@@ -105,3 +105,7 @@ let arr3 = new Array(5).fill(undefined)
 // (5) [undefined, undefined, undefined, undefined, undefined]
 
 ```
+
+
+### What is the most efficient way to deep clone an object in JavaScript? (4701 votes)
+<https://stackoverflow.com/questions/122102/what-is-the-most-efficient-way-to-deep-clone-an-object-in-javascript>
