@@ -138,6 +138,8 @@ arr[arr.length -1]
 
 
 ### Copy array by value (1424 votes)
+- <https://jsperf.com/array-copy/5>
+- <https://stackoverflow.com/questions/7486085/copy-array-by-value>
 
-<https://jsperf.com/array-copy/5>
-<https://stackoverflow.com/questions/7486085/copy-array-by-value>
+### What is the most efficient way to deep clone an object in JavaScript? (4701 votes)
+<https://stackoverflow.com/questions/122102/what-is-the-most-efficient-way-to-deep-clone-an-object-in-javascript>
