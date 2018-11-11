@@ -1495,6 +1495,37 @@ Difficulty: intermediate
 
 <https://github.com/tddbin/katas/blob/master/katas/es6/language/destructuring/rename.js>
 
+
+## Generator
+
+### creation (#49)
+
+There are many ways to create a generator
+
+Difficulty: tbd
+
+Links for futher reading
+
+- Describes the `function*` declaration: <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function*>
+
+<https://github.com/tddbin/katas/blob/master/katas/es6/language/generator/creation.js>
+
+### iterator (#50)
+Generators return iterable objects
+
+Difficulty: tbd
+
+- <https://github.com/tddbin/katas/blob/master/katas/es6/language/generator/iterator.js>
+
+
+### yield expressions (#51)
+
+The yield keyword is used to pause and resume a generator function
+
+Difficulty: tbd
+Links for futher reading
+- Describing the `yield` keyword: <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/yield>
+
 ## Number
 
 ### `Number.isInteger()` (#55)
@@ -1502,5 +1533,6 @@ Difficulty: intermediate
 `Number.isInteger()` determines if a value is an integer.
 
 Difficulty: beginner
+
 
 
