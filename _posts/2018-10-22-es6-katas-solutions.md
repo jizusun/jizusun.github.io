@@ -1526,6 +1526,8 @@ Difficulty: tbd
 Links for futher reading
 - Describing the `yield` keyword: <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/yield>
 
+- <https://github.com/tddbin/katas/blob/master/katas/es6/language/generator/yield.js>
+
 ## Number
 
 ### `Number.isInteger()` (#55)
