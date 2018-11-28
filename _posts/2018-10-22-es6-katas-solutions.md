@@ -1528,6 +1528,25 @@ Links for futher reading
 
 - <https://github.com/tddbin/katas/blob/master/katas/es6/language/generator/yield.js>
 
+
+### send value to a generator (#52)
+
+By calling next() with a parameter, you can pass a value to a generator.
+
+Difficulty: advanced
+Links for futher reading
+The part in the spec, that describes how a generator resumes: <http://www.ecma-international.org/ecma-262/6.0/#sec-generatorresume>
+
+
+
+### send function to a generator (#56)
+
+By calling next() with a function, you can pass it to the generator.
+
+Difficulty: expert
+
+- <https://github.com/tddbin/katas/blob/master/katas/es6/language/generator/send-function.js>
+
 ## Number
 
 ### `Number.isInteger()` (#55)
