@@ -59,6 +59,7 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
   - jemoji
+  - jekyll-redirect-from
   # - jekyll-pwa-plugin
 
 kramdown:
