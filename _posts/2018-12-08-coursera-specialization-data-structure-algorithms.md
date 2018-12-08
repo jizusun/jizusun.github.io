@@ -4,8 +4,13 @@ title: "Coursera: Data Structures and Algorithms Specialization"
 categories: drafts
 ---
 
+## Table of Content
+{:.no_toc}
 
-< https://www.coursera.org/specializations/data-structures-algorithms>
+* A markdown unordered list which will be replaced with the ToC, excluding the "Contents header" from above
+{:toc}
+
+<https://www.coursera.org/specializations/data-structures-algorithms>
 
 > Master Algorithmic Programming Techniques. Learn algorithms through programming and advance your software engineering or data science career
 
@@ -17,6 +22,8 @@ categories: drafts
 # Course 1: [Algorithmic Toolbox](https://www.coursera.org/learn/algorithmic-toolbox?specialization=data-structures-algorithms)
 
 > The course covers basic algorithmic techniques and ideas for computational problems arising frequently in practical applications: sorting and searching, divide and conquer, greedy algorithms, dynamic programming. We will learn a lot of theory: how to sort data and how it helps for searching; how to break a large problem into pieces and solve them recursively; when it makes sense to proceed greedily; how dynamic programming is used in genomic studies. You will practice solving computational problems, designing new algorithms, and implementing solutions efficiently (so that they run in less than a second).
+> 5 hours to complete
+> 6 videos (Total 48 min), 4 readings, 2 quizzes
 
 ## WEEK 1: Programming Challenges
 
