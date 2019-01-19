@@ -42,6 +42,10 @@ See the source code and jekyll configurations for this blog at [GitHub][repo]
   - [`Weasel`](https://rime.im/download/#Windows): with [double_pinyin_flypy](https://github.com/rime/rime-double-pinyin)(小鹤双拼)
   - `cmder`(previously using `ConEmu`)
   - `VS Code` (previously using `Sublime Text`)
+  
+- Ubuntu 16.04.1
+  - `tmux`
+  - Ubuntu Workspace
 
 ## Previous Devices
 
