@@ -45,7 +45,7 @@ See the source code and jekyll configurations for this blog at [GitHub][repo]
   
 - Ubuntu 16.04.1
   - `tmux`
-  - Ubuntu Workspace (with keyboard shortcut: Ctrl+Alt+h/j/k/l)
+  - Ubuntu Workspace (with keyboard shortcut `Ctrl`+`Alt`+`h`/`j`/`k`/`l`)
 
 ## Previous Devices
 
