@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Search Mozilla Developer Network with Super Luck in Chrome"
+title:  "Search Mozilla Developer Network with Google Super Luck in Chrome"
 categories: tweaks
 ---
 
