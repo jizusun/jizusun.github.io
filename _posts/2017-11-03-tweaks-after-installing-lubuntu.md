@@ -7,6 +7,26 @@ categories: tweaks
 Applications
 ------------
 
+```sh
+sudo apt-get install \
+    chromium-browser calibre \ # browser
+    ibus-rime \ # input methods
+    audio-recorder \ # multi-media
+    google-drive-ocamlfuse \  # cloud-sync
+    telegram \  # email, chat
+    rofi i3 tmux \  # wm, multiplexer
+    unity-tweak-tool arch-theme papirus-icon-theme \ # theme
+    python3 yarn mongodb-org  \ # dev
+```
+
+```sh 
+sudo dpkg \
+    slack hiri \  # email, chat
+    
+```
+
+https://askubuntu.com/questions/470958/notify-send-not-working-on-14-04-but-volume-and-brightness-notifications-do
+
 *   Shadowsocks
     *   Repo: [https://github.com/shadowsocks/shadowsocks/tree/master](https://github.com/shadowsocks/shadowsocks/tree/master)
     *   install: `pip install shadowsocks`

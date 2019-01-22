@@ -17,7 +17,7 @@ See the source code and jekyll configurations for this blog at [GitHub][repo]
 ## Current Devices
 
 ### Personal 
-- Android phone: [`Redmi Note 5 (whyred)`](https://forum.xda-developers.com/redmi-note-5-pro) with [Pixel Experience (Android Pie)](https://download.pixelexperience.org/whyred/)
+- Android phone: [`Redmi Note 5 (whyred)`](https://forum.xda-developers.com/redmi-note-5-pro) with [Pixel Experience (Android 9)](https://download.pixelexperience.org/whyred/)
 - Android Pad: `Xiaomi Pad 1`
 - E-ink Reader: `Nook Glowlight Plus`
 - Activity tracker: `Mi Band 3`
@@ -31,21 +31,40 @@ See the source code and jekyll configurations for this blog at [GitHub][repo]
 
 - PC: `MacBook Air` with `macOS High Sierra`
 - Router:  [`FAST FWR200`](https://item.taobao.com/item.htm?id=565298681512) with [`老毛子Padavan mod`](https://www.right.com.cn/forum/thread-161324-1-1.html)
-- Media Center: `Phicomm(斐讯) N1` as Android TV with [`webpad mod`](https://www.znds.com/tv-1118656-1-1.html)
+- Media Center: `Phicomm(斐讯) N1` as Android TV (Android 7.1.2) with [`webpad mod`](https://www.znds.com/tv-1118656-1-1.html)
 
 ## Current Software
+- Cloud services
+  - `Google Drive`
+  - `draw.io`
+  - `Pocket`
+  - `Google Keep`
 - Windows 
   - `Chocolatey`: the package manager for Windows
   - `FastStone Image Viewer`
   - `HandBrake`: a video converter
-  - `VLC`: a video player
+  - `PotPlayer`: a video player
   - [`Weasel`](https://rime.im/download/#Windows): with [double_pinyin_flypy](https://github.com/rime/rime-double-pinyin)(小鹤双拼)
   - `cmder`(previously using `ConEmu`)
-  - `VS Code` (previously using `Sublime Text`)
-  
+  - `Cent Browser`
+  - `Listary`
+  - `Mosh`
+  - `Everything`
+  - `AviDemux`: for spltting & demuxing videos
+  - `Easy 7-zip`
+  - `Wireshark`
 - Ubuntu 16.04.1
+  - `ibus-rime`
   - `tmux`
   - Ubuntu Workspace (with keyboard shortcut `Ctrl`+`Alt`+`h`/`j`/`k`/`l`)
+- Desktop (Both on Windows and Ubuntu)
+  - `VS Code` (previously using `Sublime Text`)
+  - `Calibre`
+  - `VLC`
+  - `Slack`
+  - `Telegram`: http://t.me/jizusun
+  - `Spotify`
+  - `Zoom`: online meetings
 
 ## Previous Devices
 
@@ -57,7 +76,7 @@ See the source code and jekyll configurations for this blog at [GitHub][repo]
 - Laptop: `Lenovo T560` With Windows 10 (Jan 2017 - Jan 2019) 
 
 ### Home
-- Laptop: HP ??? with Xubuntu/Windows dual boot
+- Laptop: HP `g4 1057tu` with Xubuntu/Windows dual boot
 - Router: `Huawei HG556a` with `OpenWrt`
 - Media Center: `Rasperry Pi 2` with `Kodi`
   
