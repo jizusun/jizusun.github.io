@@ -154,34 +154,88 @@ metering-service      default                                            Meterin
 
 TIP: Use 'cf marketplace -s SERVICE' to view descriptions of individual plans of a given service.
 ```
-- 
+- `cf create-service mongolab sandbox mymongo`
+- `cf services`
+
 ### DEMO: Creating a Service Instance
 
 ### Deploying and Exploring Applications
 
 ### Creating YAML Manifests
+- Describe push activities
+- Looks locally for `manifest.yml`
+- Required and optional parameters
 
 ### Exploring Manifests
+```yaml
+---
+# comment in a manifest
+Applications:
+    - name: donationwebsite
+    # buildpack: http://github.com/heroku/heroku-buildpack-play.git
+    # stack: windows2012
+    # domain: donation.com
+    # host: manage
+    # command: node app.js
+    # instances: 3
+    # memory: 512M
+    # path: ./web/
+    # timeout: 60
+```
 
 ### Creating a YML Manifest
 
 ### DEMO: Creating a YAML Manifest
+```yaml
+---
+applications:
+- name: psdonationwebservice
+  memory: 128MB
+  instances: 1
+  command: node ./bin/www
+services:
+- mymongo
+```
 
 ### What Happens During Deployment?
+- Cloud controller creates record
+- Cloud controller stores metadata
+- Cloud controller stores app files
+- App start command issued
+- Cloud controller chooses staging DEA
+- Staging DEA stages and streams
+- Staging DEA caches package
+- Cloud Controller chooses runtime DEA
 
 ### Deploying Applications via the CLI
+- `cf push <appname> -i 2`: overrides `manifest.yml`, meaning two instances
 
 ### Finish Environment Buildout
+- Install Ruby
+- Install MongoDB
+- Install MongoVue
+- Install Fiddler
+- Test application locally
 
 ### DEMO: Finish Environment Buildout
-
-
+- Start MongoDB
+```
+cd "c:\Program Files"
+cd "MongoDB 2.6 Standard"
+md \data\db
+cd bin
+mongod
+```
+- Fiddler Web Debugger
 
 ## Deploying and Managing Applications (Part II)
 
 ### Deploying Applications via CLI
 
 ### DEMO: Deploying Applications via CLI
+
+- ??? `uploading droplet`
+- Rails application <==> Node.js Web Service <==> MongoDB
 
 ### Exploring Running Applications
 
