@@ -73,6 +73,10 @@ Twelve Factor App: http://12factor.net
 
 ### Cloud Foundry Architecture
 
+Also see:
+- https://docs.cloudfoundry.org/concepts/diego/dea-vs-diego.html
+- https://docs.cloudfoundry.org/concepts/diego/diego-architecture.html
+
 ![cf-arch](https://user-images.githubusercontent.com/4011348/51781893-66fada80-215a-11e9-80b8-c6d66cb4d64d.png)
 
 
@@ -239,48 +243,141 @@ mongod
 
 ### Exploring Running Applications
 
+- Org quotas
+- Events and logs
+- App health and allocation
+
+
 ### Scaling and Updating Applications
+
+- Scaling Up and Down
+    - Change disk or memory
+    - Affects all instances
+- Scaling In and Out 
+    - Create and destroy instances
+    - Auto load balanced
+    - No built-in auto scale
 
 ### Scaling Application Commands
 
+```sh
+cf scale <appname> -m 512M
+```
+
 ### Scaling Applications
 
-### DEMO: Scaling Applications
+### DEMO: Scalin g Applications
+```sh 
+cf apps
+cf app <appname>
+cf scale <appname> -i 3 #instance 3
+```
 
 ### Deploying Updated Applications
+- App instances **automatically stopped** then started after doing `cf push`
+```
+cf files <appname>
+```
 
 ### DEMO: Deploying Updated Applications
 
 ### Troubleshooting Applications
+- Application deployment fails
+- Application won't start
+- Tracking unexpected consumption
+- Application crashes
 
 ### Using Logs
+- Types of logs
+- View log file list
+- View individual log files
+- Dump log in the CLI
 
 ### DEMO: Using Logs
-
+- View log list
+- Dump logs to CLI
+- Filter logs
+```
+cf logs <appname> --recent
+cf events <appname>
+```
 ### Summary
 
 ## Cloud Foundry Advanced Topics
 
-
 ### Introduction
+- Using environment variables
+- Background applications
+- Perform No-Downtime Updates
+- Application Crash and Recovery
 
 ### (Updated) Reference Architecture for This Course
+![image](https://user-images.githubusercontent.com/4011348/51963021-13abc380-249d-11e9-937b-e88ca5190699.png)
+
 
 ### Using Environment Variables
+- How runtime communicates with app
+- Set by system or user
 
 ### Retrieving and Setting Environment Variables
+```sh
+cf env <appname>
+cf set-env <appname> <variable_name> <variable_value>
+```
+
+manifest.yml
+
+```yml
+env:
+    NODE_ENV: production
+    TRACING: OFF
+```
 
 ### DEMO: Retrieving and Setting Environment Variables
+- AWS SQS (Queue) and put access tokens as environment variables in `manifest.yml`
 
 ### Background Applications
+- Promote asynchronous processing
+- Offload work
+- Separate scalable tier
+- More responsive applications
 
 ### Building and Deploying Background Apps
+-  Design instantiation mechanism
+    - Polling
+    - Event-driven
+- Test locally
+- Add to manifest 
+    - Use `--no-route` attribute
+- Test in Cloud Foundry
+- Agenda
+    - Create SQS Queue
+    - Inspect background app code
+    - Update manifest
+    - Push background app
+    - Push changes to services app
+    - Test new architecture
 
 ### DEMO: Building and Deploying Background Apps
+- Exercise file: `Mod3/before/DonationPoller`
+- `cf push` with `no-route: true` would make it a worker  
 
 ### Performing No-downtime Updates
+- Standard
+    - Application offline during update
+    - Roll-forward on failure
+    - Simpler
+    - More disruptive
+- Blue-Green    
+    - Dual environment
+    - Roll-back on failure
+    - More complex
+    - No disruption
 
 ### Blue-green Deployment Architecture
+- Make a change to our application
+- Deploy to a secondary container
+- Swap routes
 
 ### DEMO: Blue-green Deployment
 

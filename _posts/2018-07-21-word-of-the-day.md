@@ -10,6 +10,30 @@ categories: english
 - TOC
 {:toc}
 
+### Bad Blood - Prologue
+- Key People
+    - Tim Kemp, had spent thirty years at IBM
+    - Henry Mosley, Theranos’s chief financial officer
+    - Donald L. Lucas - The chairman of her board 
+    - Channing Robertson - Another board member with a sterling reputation, the associate dean of Stanford’s School of Engineering.
+    - Diane Parks, Theranos’s chief commercial officer, had twenty-five years of experience at pharmaceutical and biotechnology companies. 
+    - John Howard, the senior vice president for products, had overseen Panasonic’s chipmaking subsidiary
+    - Shaunak Roy, Theranos’s cofounder. Shaunak had a Ph.D. in chemical engineering. He and Elizabeth had worked together in Robertson’s research lab at Stanford.
+- What is 'the hockey-stick forecast'
+- What's the gist of the cartridge-and-reader system?
+- Why Mosley was stunned when he heard the explanation from Shaunak about why the system was not reliable?
+- What's the charisma of Elizabeth in the eye of Mosley?
+- What was its new valuation when the company was 3-year-old? And why?
+- Why Mosley got fired?
+
+
+### Bad Blood - Chapter 1: A Purposeful Life
+- How did she raise the money she needed? she leveraged her family connections
+
+### Bad Blood - Chapter 2: The Gluebot
+- What's the obstacles Ed facing to improve the prototype?
+- 
+
 ### 2018-08-13: idiosyncrasy
 - meaning: 
   + a mode of behavior or way of thought peculiar to an individual: one of his little idiosyncrasies was always preferring to be in the car first
