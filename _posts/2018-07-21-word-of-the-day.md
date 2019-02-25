@@ -10,6 +10,44 @@ categories: english
 - TOC
 {:toc}
 
+### Bad Blood - Chapter 7: Dr. J
+- Economic recession - Silicon Valley
+- Dr. J's real name was Jay Rosan, and he was member of Walgreens' innovation team, and Walgreen is a drug store chain
+- Kevin Hunter, who headed a small lab consulting firm called **Colaborate**, and he was part of a Walgreen delegation led by Dr. J
+- Partnership: Walgreens had committed to prepurchase up to $50 million worth of Theranos cartridges and to loan the startup an additional $25 million
+- Wad Miqurelon, Walgreen's chief financial officer
+
+
+Vocabulary and expressions
+- remained mired in a deep economic malaise
+
+### Bad Blood - Chapter 6: Sunny
+News:
+- https://www.inc.com/peter-cohan/6-warning-signs-that-elizabeth-holmes-is-trouble-says-psychiatrist-who-has-known-her-since-childhood.html
+- https://www.wired.com/story/a-new-look-inside-theranos-dysfunctional-corporate-culture/
+
+Summary:
+- Chaelsea Burkeet joins Theranos, and she didn't like Sunny(Ramesh “Sunny” Balwani), who had come on board as a senior Theranos executive just a week earlier
+- Sunny is wealthy but boastful and patronizing towards employees: he pocketed more that $40 million after CommerceBid was acquired by "Commerce One"
+- Chaelsea was sent to Antwerp, Belgium, and the Theranos devices seems very buggy to her.
+- Mexico
+
+Vocabulary & Expressions
+- in deference to ...
+- take an immediate dislike to sb.
+
+
+### Bad Blood - Chapter 5: The Childhood Neighbor 
+- Holmes Family 
+    - Chris Holmes
+    - Noel 
+    - Elizabeths
+- Fuisz Family
+    - Richard Fuisz 
+    - Lorraine
+    - Son: Justin Fuisz
+
+
 ### Bad Blood - Prologue
 - Key People
     - Tim Kemp, had spent thirty years at IBM
@@ -32,7 +70,7 @@ categories: english
 
 ### Bad Blood - Chapter 2: The Gluebot
 - What's the obstacles Ed facing to improve the prototype?
-- 
+
 
 ### 2018-08-13: idiosyncrasy
 - meaning: 
