@@ -10,6 +10,43 @@ categories: english
 - TOC
 {:toc}
 
+
+### Bad Blood - Chapter 8: The miniLab
+Key persons
+- Kent Frankovich
+- Greg Baney: was recruited by Kent, and convinced his buddies from Georgia Tech to join, including **Jordan, Trey, and Ted**
+- Gary Frenzel: the man who told Greg the relation between Elizabeth and Sunny?
+- Christian Holmes: Elizabeth's younger brother, and recruited four of his fraternity brothers from Duke University, including **Jeff Blickman, Nick Menchel, Dan Edlin, Sani Hadziahmetovic and Max Fosque**
+- John Fanzio: the supply-chain manager
+- Del Barnwell:  nick Big Del, not working long-enough hours
+
+Questions
+- What is `miniLab`, how does it differ from `Edison`, why did Elizabeth need it?
+- New engineer for `miniLab`
+    - Kent Frankovich
+    - Greg Baney
+- Does Theranos keep a work-life balance? 
+- What's the voice incident that Greg come across? Elizabeth's deep voice was affected
+- Who did Greg heard from about the relationship between Elizabeth and Sunny? Gary Frenzel 
+- What is **nepotism**? And how did it take on a new dimension in Theranos?
+- Who is called **Frat Pack** in Theranos? But why? Source: https://en.wikipedia.org/wiki/Frat_Pack
+- How was Greg struck by how clearly the line was drawn between the two groups?
+- How did Elizabeth and Sunny react to Jobs's death?
+- How did Greg pay the price for his sister's rejection of the offer from Theranos?
+- What was the Kent's successful campaign on Kickstarter, a crowd-funding website? And how did Elizabeth react to this?: She thought Ken had betreyed her.
+- How did Kent's departure affect Elizabeth and Greg?
+- When did Greg become fully disillusioned and resolved to leave?
+- Why did John got fired by Sunny?
+- What happened when Big Del leave the company?
+
+
+
+
+
+Vocabulary
+- Endear sb to sb: you become popular with them and well liked by them.
+
+
 ### Bad Blood - Chapter 7: Dr. J
 - Economic recession - Silicon Valley
 - Dr. J's real name was Jay Rosan, and he was member of Walgreens' innovation team, and Walgreen is a drug store chain
