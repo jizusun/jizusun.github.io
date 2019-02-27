@@ -39,39 +39,72 @@ Questions
 - Why did John got fired by Sunny?
 - What happened when Big Del leave the company?
 
-
-
-
-
 Vocabulary
 - Endear sb to sb: you become popular with them and well liked by them.
 
 
 ### Bad Blood - Chapter 7: Dr. J
-- Economic recession - Silicon Valley
-- Dr. J's real name was Jay Rosan, and he was member of Walgreens' innovation team, and Walgreen is a drug store chain
+Key Persons
+- Dr. J: His real name was Jay Rosan, and he was member of Walgreens' innovation team, and Walgreen is a drug store chain
 - Kevin Hunter, who headed a small lab consulting firm called **Colaborate**, and he was part of a Walgreen delegation led by Dr. J
 - Partnership: Walgreens had committed to prepurchase up to $50 million worth of Theranos cartridges and to loan the startup an additional $25 million
-- Wad Miqurelon, Walgreen's chief financial officer
+- Wade Miqurelon, Walgreen's chief financial officer who help Dr.J behind the project, a powerful allay with Dr. J
+- Danial Young: the successor of Seth Michelson, the head of Theranos' biomath team
+- Van den Hooff: a Belgia executive of Walgreeen
+- Trish Lipinski: an internal replacement for Hooff
+- Steve Burd, the CEO of Safeway
 
+Questions
+- How many times did Hunter get denied from Theranos? What are they
+    - Show him the "commercially-ready" lab
+    - demonstrate a live vitamin D test on its device
+    - bring Walgreens IT department in on the pilot preparation
+    - The blood-test result for Walgreens executives
+    - Embed someone at Theranos through the pilot's launch 
+    - A simply comparison study: fifty-patient study in which they would compare the results to ones from Stanford
+- Why did Hunter grow more and more suspicious/skeptical?
+    - Eat at four in the afternoon
+    - Theranos changed its tune and said the tests is would be offering in Walgreens store are "lab-developed tests"
+    - a review document of its technology from Johns Hopkins University's medical school: "novel and sound"
 
 Vocabulary and expressions
 - remained mired in a deep economic malaise
+- Burd was over the moon about the partnership: extremely happy, delighted
+- DUI: driving under influence, commonly called "drunk driving"
+
 
 ### Bad Blood - Chapter 6: Sunny
-News:
+News Coverage:
 - https://www.inc.com/peter-cohan/6-warning-signs-that-elizabeth-holmes-is-trouble-says-psychiatrist-who-has-known-her-since-childhood.html
 - https://www.wired.com/story/a-new-look-inside-theranos-dysfunctional-corporate-culture/
 
+Key Person: 
+- Chelsea Burkeet: one of Elizabeth's friend at Stanford
+- Sunny: Elizabeth's boyfriend, senior Theranos executive, executive vice chairman
+- Seth Michelson: Theranos's chief scientific officer, bring up the math model called SEIR(Susceptible, Exposed, Infected, and Resolved)
+- Gary Frenzel: told Chelsea that best way diagnose H1N1 was with a nasal swab rather than blood-testing
+- 
+
 Summary:
-- Chaelsea Burkeet joins Theranos, and she didn't like Sunny(Ramesh “Sunny” Balwani), who had come on board as a senior Theranos executive just a week earlier
+- Chelsea Burkeet joins Theranos, and she didn't like Sunny(Ramesh “Sunny” Balwani), who had come on board as a senior Theranos executive just a week earlier
 - Sunny is wealthy but boastful and patronizing towards employees: he pocketed more that $40 million after CommerceBid was acquired by "Commerce One"
-- Chaelsea was sent to Antwerp, Belgium, and the Theranos devices seems very buggy to her.
-- Mexico
+- What projects was Chelsea assigned?
+    - a study with Centocor, a division of Johnson & Johnson, took her to Antwerp, Belgium, and the Theranos devices seems very buggy to her.
+    - Mixico with Sunny, to predict where the swine flu virus would spread next, and She grew frustrated and miserable
+- How did Sunny met Elizabeth? in Beijing attending Stanford's Mandarin program
+- How did the book describe Sunny?
+    - boastful and patronizing
+    - haughty and demeaning toward employees
+    - He spawned a culture of fear with his intimidating behavior
+- How did Seth get dismissed? 
+- What's the reason that Tony Nugent confronted Sunny?
+- Why did Chelsea got appalled?
+- Why did Chelsea left Theranos with conflicting emotions?
 
 Vocabulary & Expressions
 - in deference to ...
 - take an immediate dislike to sb.
+- Chelsea was appalled
 
 
 ### Bad Blood - Chapter 5: The Childhood Neighbor 
@@ -84,6 +117,13 @@ Vocabulary & Expressions
     - Lorraine
     - Son: Justin Fuisz
 
+
+### Bad Blood - Chapter 2: The Gluebot
+- What's the obstacles Ed facing to improve the prototype?
+
+
+### Bad Blood - Chapter 1: A Purposeful Life
+- How did she raise the money she needed? she leveraged her family connections
 
 ### Bad Blood - Prologue
 - Key People
@@ -101,12 +141,6 @@ Vocabulary & Expressions
 - What was its new valuation when the company was 3-year-old? And why?
 - Why Mosley got fired?
 
-
-### Bad Blood - Chapter 1: A Purposeful Life
-- How did she raise the money she needed? she leveraged her family connections
-
-### Bad Blood - Chapter 2: The Gluebot
-- What's the obstacles Ed facing to improve the prototype?
 
 
 ### 2018-08-13: idiosyncrasy
