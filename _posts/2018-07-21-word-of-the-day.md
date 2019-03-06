@@ -11,6 +11,11 @@ categories: english
 {:toc}
 
 
+### Bad Blood - Chapter 11: Lighting a Fuisz
+
+- https://mm.tt/1228407064?t=P5fbZmpxyB
+
+
 ### Bad Blood - Chapter 8: The miniLab
 Key persons
 - Kent Frankovich
@@ -33,7 +38,7 @@ Questions
 - How was Greg struck by how clearly the line was drawn between the two groups?
 - How did Elizabeth and Sunny react to Jobs's death?
 - How did Greg pay the price for his sister's rejection of the offer from Theranos?
-- What was the Kent's successful campaign on Kickstarter, a crowd-funding website? And how did Elizabeth react to this?: She thought Ken had betreyed her.
+- What was the Kent's successful campaign on Kickstarter, a crowd-funding website? And how did Elizabeth react to this?: She thought Ken had betrayed her.
 - How did Kent's departure affect Elizabeth and Greg?
 - When did Greg become fully disillusioned and resolved to leave?
 - Why did John got fired by Sunny?
@@ -106,7 +111,6 @@ Vocabulary & Expressions
 - take an immediate dislike to sb.
 - Chelsea was appalled
 
-
 ### Bad Blood - Chapter 5: The Childhood Neighbor 
 - Holmes Family 
     - Chris Holmes
@@ -116,7 +120,6 @@ Vocabulary & Expressions
     - Richard Fuisz 
     - Lorraine
     - Son: Justin Fuisz
-
 
 ### Bad Blood - Chapter 2: The Gluebot
 - What's the obstacles Ed facing to improve the prototype?
