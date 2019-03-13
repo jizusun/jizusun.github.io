@@ -10,6 +10,13 @@ categories: english
 - TOC
 {:toc}
 
+### Bad Blood - Chapter 15: Unicorn
+
+Summary
+- An article about Theranos was published on the Journal (the Wall Street Journal), with the support from **George Shultz**, the former statesman and still a revered and influential figure in Republican circles. A press release was due to go out next morning annnouning the opening of the first Theranos wellness center in a Walgreens store. The interview was driven by **Paul Gigot**, who is the Journal's long-serving editorial page editor, and was written by **Joseph Rago**, a member of the Journal's editorial board who had written extensively about health care.
+- **Donald A. Lucas (Don)** called his old friend in college **Mike Barsanti** , pitching him on an investment: Theranos. He told Mike that Theranos had come a long way since then, because not only the Theranos technology was about to launch in one of the country's largest retial chains, but also it was being used by the U.S. military. Furthermore, Theranos was a huge valuation at $6 billion.
+- A venture capitalist named **Aileen Lee** wrote on the technology news website **TechCrunch** about the proliferation of startups valued at $1 billion or more, and these startups are called **unicorn**. **Uber** was at a valuation of $3.5 billion, and **Spotify** was at $4 billion. But for now they had been leapfrogged by Theranos. **Christopher James** and **Brian Grossman**, two seasoned investment professionals from a hedge fund **Partner Fund** noticed Theranos. During their visit to Theranos, they were impressed with their heavy security. The security at Theranos was managed by **Jim Rivera**, the head of **James Mattis** Pentagon security detail. And also Sunny and Elizabeth's boldest claim (their scientific accomplishments) made a impression on them, because they were told the devices are capable to perform so many test (70+ different blood tests simultaneously) on just a drop or two of blood. But the author of the book says it remained beyond reach for a few basic reasons(what are they??) Moreover, what helped win **James** and **Grossman** was its board of directors, who are former cabinet members, congressmen, and military officials. Finally, the investment from **Partner Fund** brounght in another $96 millions to Theranos's coffers and valued it at a stunning **$9 billion**!
+
 
 ### Bad Blood - Chapter 11: Lighting a Fuisz
 
