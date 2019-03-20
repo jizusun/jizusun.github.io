@@ -10,18 +10,39 @@ categories: english
 - TOC
 {:toc}
 
+### 20190320: Bad Blood - Chapter 17: Fame
+Summary
+- **Richard and Joe Fuisz** were tired and battered with the litigation that had pitted the Fuiszes against Theranos for the past two and a half years. **Mike Underhill**, one of the Boies Schiller attorneys came to them and suggested to settle the case, and they agreed. However, **John Fuisz** was not happy with the settlement and looking forward to testifying in court. He email a young reporter named **Julia Love** to cover the settlement.
+- **Roger Parloff**, Fortune magazine's legal correspondent was caught by **Julia Love**'s article, and he was impressed with Theranos after the phone call with **Dawn Schneider**, Boie's longtime public-relations representative. He decided to flew to Palo Alto to interview Elizabeth, and found her for the most part to be genuine and sincere. 
+> All of them (members of her board of directors) vouched for Elizabeth emphatically. Shultz and Mattis were particularly effusive.
+- Parloff's cover story on Fortune vaulted Elizabeth to instant stardom, and then a story came from Forbes, and more fawning followed in USA Today ... , along with segments on NPR, Fox Business. All of these brought Elizabeth a sudden fame.
+- Elizabeth's speech at the TEDMED: https://www.youtube.com/watch?v=ho8geEtCYjw
+- **Patrick O’Neill**, whom Elizabeth had hired away from TBWA\Chiat\Day and appointed Theranos’s chief creative officer. Patrick had become instrumental in honing Elizabeth’s image and raising her profile. 
+- A finger-stick draws versus regular venous ones
+
+
+Vocabulary
+- warily
+- powwow: (informal) a quick private conference
+- pique: a sudden outburst of anger
+- quid pro quo: something for something
+- effusive: uttered with unrestrained enthusiasm
+- fawning:  attempting to win favor by flattery
+- the trappings of fame: The trappings of power, wealth, or a particular job are the extra things, such as decorations and luxury items, that go with it.
+
+
 ### 20190313: Bad Blood - Chapter 15: Unicorn
 
 Summary
-- An article about Theranos was published on the Journal (the Wall Street Journal), with the support from **George Shultz**, the former statesman and still a revered and influential figure in Republican circles. A press release was due to go out next morning annnouning the opening of the first Theranos wellness center in a Walgreens store. The interview was driven by **Paul Gigot**, who is the Journal's long-serving editorial page editor, and was written by **Joseph Rago**, a member of the Journal's editorial board who had written extensively about health care.
-- **Donald A. Lucas (Don)** called his old friend in college **Mike Barsanti** , pitching him on an investment: Theranos. He told Mike that Theranos had come a long way since then, because not only the Theranos technology was about to launch in one of the country's largest retial chains, but also it was being used by the U.S. military. Furthermore, Theranos was a huge valuation at $6 billion.
+- An article about Theranos was published on the Journal (the Wall Street Journal), with the support from **George Shultz**, the former statesman and still a revered and influential figure in Republican circles. A press release was due to go out next morning announcing the opening of the first Theranos wellness center in a Walgreens store. The interview was driven by **Paul Gigot**, who is the Journal's long-serving editorial page editor, and was written by **Joseph Rago**, a member of the Journal's editorial board who had written extensively about health care.
+- **Donald A. Lucas (Don)** called his old friend in college **Mike Barsanti** , pitching him on an investment: Theranos. He told Mike that Theranos had come a long way since then, because not only the Theranos technology was about to launch in one of the country's largest retail chains, but also it was being used by the U.S. military. Furthermore, Theranos was a huge valuation at $6 billion.
 - A venture capitalist named **Aileen Lee** wrote on the technology news website **TechCrunch** about the proliferation of startups valued at $1 billion or more, and these startups are called **unicorn**. **Uber** was at a valuation of $3.5 billion, and **Spotify** was at $4 billion. But for now they had been leapfrogged by Theranos. **Christopher James** and **Brian Grossman**, two seasoned investment professionals from a hedge fund **Partner Fund** noticed Theranos. During their visit to Theranos, they were impressed with their heavy security. The security at Theranos was managed by **Jim Rivera**, the head of **James Mattis** Pentagon security detail. And also Sunny and Elizabeth's boldest claim (their scientific accomplishments) made a impression on them, because they were told the devices are capable to perform so many test (70+ different blood tests simultaneously) on just a drop or two of blood. But the author of the book says it remained beyond reach for a few basic reasons(what are they??) Moreover, what helped win **James** and **Grossman** was its board of directors, who are former cabinet members, congressmen, and military officials. Finally, the investment from **Partner Fund** brounght in another $96 millions to Theranos's coffers and valued it at a stunning **$9 billion**!
 
 ### 20190313: Bad Blood - Chapter 14: Going Live
 Summary
 - **Alan Beam** witnessed an accident that one of the nanocontainers just exploded when a technician was operating, only after a few weeks he'd been working at Theranos. He joined Theranos as a laboratory director. What troubles him is the lab's morale was low when he took it over and it's members wer downright despondent. And later he found the 4S, aka the miniLab, was not ready after the conversation with **Paul Patel**.
 - The biggest problems of all was the dysfunctional corporate culture in which it was developed. Elizabeth and Sunny regarded anyone who raised a concern or an objection as a cynic and a naysayer, while sycophants were promoted. Several Indians wer elevated to key position by **Sunny**, such as **Sam Anekal** the manager for integrating the various components of the MiniLab, **Chinmay Pangarkar**, and **Suraj Saksena**. While Elizabeth was fast to catch on to engineering concepts, Suny was often out of his depth during engineering discussions.(Examples?) Elizabeth's unreasonable demands led to several issues such as cartridge, pipette and temperature issues (because of the six-blade design). Before the launch in Walgreens, Elizabeth and Sunny decided to dust off the Edison, which in turn, led to another fateful decision, the decision to cheat.
-- Daniel decides to tinker with the ADVIA 1800 made by Siemens Healthcare. Finally the machines was jailbroke/hacked and Elizabeth and Sunny decided to purchase six more ADVIAs. The blood sample were now being prediluted before being run through te Edisons. **Anjali**, the head of immunoassay was so disappointed with the go-live, and she decided to leave. The resignation of **Anjali** infuraited Elizabeth and Sunny that they told the gathered employees that she was building a religion. Sunny put it more bluntly, anyone not prepared to show complete devotion and unmitigated loyalty to the company should "get the fuck out".
+- Daniel decides to tinker with the ADVIA 1800 made by Siemens Healthcare. Finally the machines was jailbroke/hacked and Elizabeth and Sunny decided to purchase six more ADVIAs. The blood sample were now being prediluted before being run through the Edisons. **Anjali**, the head of immunoassay was so disappointed with the go-live, and she decided to leave. The resignation of **Anjali** infuriated Elizabeth and Sunny that they told the gathered employees that she was building a religion. Sunny put it more bluntly, anyone not prepared to show complete devotion and unmitigated loyalty to the company should "get the fuck out".
 
 ### Bad Blood - Chapter 11: Lighting a Fuisz
 
