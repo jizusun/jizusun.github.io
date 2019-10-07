@@ -67,9 +67,10 @@ See the source code and jekyll configurations for this blog at [GitHub][repo]
   - `Slack`
   - `Telegram`: http://t.me/jizusun
   - `Spotify`
+  - `VMWare Player`
   - `Zoom`: online meetings
   - `AriaNgGUI`
-  - `Stretchly`:  break-time reminder, see [home page](https://hovancik.net/stretchly/)
+  - `Stretchly`:  break time reminder, see [home page](https://hovancik.net/stretchly/)
 
 ## Previous Devices
 
