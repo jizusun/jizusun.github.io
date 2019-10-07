@@ -17,7 +17,7 @@ author: "孙继祖"
 
 | Service Provider                                     	| Service Plan                                                                                                                                                                       	| Pricing       	| Start at   	| Expire at  	|
 |------------------------------------------------------	|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|------------	|------------	|------------	|
-| BandwagonHost <br> https://bandwagonhost.com/aff.php?aff=389	| Basic VPS - Self-managed - 5G PROMO V2 Active, RAM 512MB, Disk 5 GB, Bandwidth 500GB 	| $9.99 USD, Monthly 	|  07/17/2018	| 07/17/2019 	|
+| BandwagonHost <br> https://bandwagonhost.com/aff.php?aff=389	| Basic VPS - Self-managed - 5G PROMO V2 Active, RAM 512MB, Disk 5 GB, Bandwidth 500GB 	| $9.99 USD, Annually 	|  07/17/2018	| 07/17/2019 	|
 | Virmach <br>  https://billing.virmach.com/aff.php?aff=8150 	| SSD256 - ResponsibleEuphoric-VM, Location: Los Angeles, CA - Optional Protection  	| $1.25 USD, Monthly 	| 06/30/2019 	| 07/29/2019 	|
 | Virmach <br> https://billing.virmach.com/aff.php?aff=8150 	| SSD512 - NuttyInnocent-VM, Location: San Jose, CA - Central West US - *Low Stock* 	| $2.50 USD, Monthly  	| 07/20/2019 	| 08/20/2019 	|
 | BuyVM <br> https://my.frantech.ca/aff.php?aff=3071        	| Las Vegas - E3 KVM - LV E3-KVM 512MB                                                  | $10.00 USD, Semi-Annually 	| 06/30/2019 	| 01/01/2020 	|
@@ -31,8 +31,11 @@ author: "孙继祖"
 
 ### Looking Glass & Route optimization 线路优化
 
+### Bandwidth, Quota & Virtualization Type 带宽、流量和虚拟化类型
+
 
 ## 扩展阅读
 
 - Traceroute 查询：https://tools.ipip.net/traceroute.php
 - ASN 查询： https://tools.ipip.net/as.php
+- 网速测试: https://fast.com

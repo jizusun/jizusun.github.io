@@ -23,7 +23,9 @@ See the source code and jekyll configurations for this blog at [GitHub][repo]
 - Activity tracker: `Mi Band 3`
 
 ### Work (At SAP)
-- Laptop: `Lenovo T560` with `Ubuntu 16.04` (Jan 2019 - now)
+- Laptop: `Lenovo T560`
+  - `Ubuntu 16.04` (Jan. 2019 - Oct. 2019)
+  - `Manjaro` inside the `VMWare Player` as the main (although guest) OS, with `Windows 10` as the host OS
 - Remote: `Citrix Receiver` with `Windows Server 2016`
 - Monitor: `hp Z24n`
 
@@ -54,17 +56,20 @@ See the source code and jekyll configurations for this blog at [GitHub][repo]
   - `Easy 7-zip`
   - `Wireshark`
 - Ubuntu 16.04.1
-  - `ibus-rime`
+  - `fcitx-rime`
+  - `gthumb`: very helpful to edit many photos at the same time
   - `tmux`
   - Ubuntu Workspace (with keyboard shortcut `Ctrl`+`Alt`+`h`/`j`/`k`/`l`)
 - Desktop (Both on Windows and Ubuntu)
-  - `VS Code` (previously using `Sublime Text`)
+  - `WebStorm` (previously using `VS Code` &`Sublime Text`)
   - `Calibre`
   - `VLC`
   - `Slack`
   - `Telegram`: http://t.me/jizusun
   - `Spotify`
   - `Zoom`: online meetings
+  - `AriaNgGUI`
+  - `Stretchly`:  break-time reminder, see [home page](https://hovancik.net/stretchly/)
 
 ## Previous Devices
 
@@ -80,6 +85,6 @@ See the source code and jekyll configurations for this blog at [GitHub][repo]
 - Router: `Huawei HG556a` with `OpenWrt`
 - Media Center: `Rasperry Pi 2` with `Kodi`
   
- 
+
 ----------
 Updated at Jan 17, 2019
