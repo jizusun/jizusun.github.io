@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Geektime: Notes"
+title: "极客时间: 学习笔记"
 categories: draft
 ---
 
@@ -20,6 +20,9 @@ categories: draft
     - [指定文件的缓存大小](#%e6%8c%87%e5%ae%9a%e6%96%87%e4%bb%b6%e7%9a%84%e7%bc%93%e5%ad%98%e5%a4%a7%e5%b0%8f)
     - [案例一 dd](#%e6%a1%88%e4%be%8b%e4%b8%80-dd)
     - [案例二 文件读写](#%e6%a1%88%e4%be%8b%e4%ba%8c-%e6%96%87%e4%bb%b6%e8%af%bb%e5%86%99)
+  - [04 案例篇：内存泄漏了，我该如何定位和处理？](#04-%e6%a1%88%e4%be%8b%e7%af%87%e5%86%85%e5%ad%98%e6%b3%84%e6%bc%8f%e4%ba%86%e6%88%91%e8%af%a5%e5%a6%82%e4%bd%95%e5%ae%9a%e4%bd%8d%e5%92%8c%e5%a4%84%e7%90%86)
+    - [内存的分配与回收](#%e5%86%85%e5%ad%98%e7%9a%84%e5%88%86%e9%85%8d%e4%b8%8e%e5%9b%9e%e6%94%b6)
+    - [案例](#%e6%a1%88%e4%be%8b)
 
 
 #  Linux 内存性能优化（讲师：倪朋飞）
@@ -331,3 +334,90 @@ Time used: 0.949625 s to read 33554432 bytes
 ```
 
 
+## 04 案例篇：内存泄漏了，我该如何定位和处理？
+
+通过前几节对内存基础的学习，我相信你对 Linux 内存的工作原理，已经有了初步了解。
+
+- 对普通进程来说，能看到的其实是内核提供的虚拟内存，这些虚拟内存还需要通过页表，由系统映射为物理内存。
+- 当进程通过 malloc() 申请虚拟内存后，系统并不会立即为其分配物理内存，而是在首次访问时，才通过缺页异常陷入内核中分配内存。
+- 为了协调 CPU 与磁盘间的性能差异，Linux 还会使用 Cache 和 Buffer ，分别把文件和磁盘读写的数据缓存到内存中。
+
+### 内存的分配与回收
+
+- 栈：举个例子，你在程序中定义了一个局部变量，比如一个整数数组`int data[64]`，就定义了一个可以存储 64 个整数的内存段。由于这是一个局部变量，它会从内存空间的栈中分配内存。栈内存由系统自动分配和管理。一旦程序运行超出了这个局部变量的作用域，栈内存就会被系统自动回收，所以不会产生内存泄漏的问题。
+- 堆：再比如，很多时候，我们事先并不知道数据大小，所以你就要用到标准库函数`malloc()_`，_ 在程序中动态分配内存。这时候，系统就会从内存空间的堆中分配内存。堆内存由应用程序自己来分配和管理。除非程序退出，这些堆内存并不会被系统自动释放，而是需要应用程序明确调用库函数`free()`来释放它们。如果应用程序没有正确释放堆内存，就会造成内存泄漏。
+- 只读段：包括程序的代码和常量，由于是只读的，不会再去分配新的内存，所以也不会产生内存泄漏。
+- 数据段：包括全局变量和静态变量，这些变量在定义时就已经确定了大小，所以也不会产生内存泄漏。
+- 最后一个内存映射段：包括动态链接库和共享内存，其中共享内存由程序动态分配和管理。所以，如果程序在分配后忘了回收，就会导致跟堆内存类似的泄漏问题。
+
+**内存泄漏的危害非常大，这些忘记释放的内存，不仅应用程序自己不能访问，系统也不能把它们再次分配给其他应用。内存泄漏不断累积，甚至会耗尽系统内存。**
+
+### 案例
+
+接下来，我们就用一个计算斐波那契数列的案例，来看看内存泄漏问题的定位和处理方法。
+
+环境准备
+
+```sh
+# install sysstat docker
+sudo apt-get install -y sysstat docker.io
+
+# Install bcc
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 4052245BD4284CDD
+echo "deb https://repo.iovisor.org/apt/bionic bionic main" | sudo tee /etc/apt/sources.list.d/iovisor.list
+sudo apt-get update
+sudo apt-get install -y bcc-tools libbcc-examples linux-headers-$(uname -r)
+```
+
+运行
+
+```sh
+# 运行fabonacci程序
+$ docker run --name=app -itd feisky/app:mem-leak
+# 查看log
+$ docker logs app
+2th => 1
+3th => 2
+4th => 3
+5th => 5
+6th => 8
+7th => 13
+# 查看内存使用的趋势
+
+# 每隔3秒输出一组数据
+$ vmstat 3
+procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
+r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
+procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
+r  b   swpd   free   buff  cache   si   so    bi    bo   in   cs us sy id wa st
+0  0      0 6601824  97620 1098784    0    0     0     0   62  322  0  0 100  0  0
+0  0      0 6601700  97620 1098788    0    0     0     0   57  251  0  0 100  0  0
+0  0      0 6601320  97620 1098788    0    0     0     3   52  306  0  0 100  0  0
+0  0      0 6601452  97628 1098788    0    0     0    27   63  326  0  0 100  0  0
+2  0      0 6601328  97628 1098788    0    0     0    44   52  299  0  0 100  0  0
+0  0      0 6601080  97628 1098792    0    0     0     0   56  285  0  0 100  0  0 
+```
+
+从输出中你可以看到，内存的 free 列在不停的变化，并且是下降趋势；而 buffer 和 cache 基本保持不变。
+
+未使用内存在逐渐减小，而 buffer 和 cache 基本不变，**这说明，系统中使用的内存一直在升高。但这并不能说明有内存泄漏，因为应用程序运行中需要的内存也可能会增大。比如说，程序中如果用了一个动态增长的数组来缓存计算结果，占用内存自然会增长。**
+
+
+这里，我介绍一个专门用来检测内存泄漏的工具，`memleak`。`memleak` 可以跟踪系统或指定进程的内存分配、释放请求，然后定期输出一个未释放内存和相应调用栈的汇总情况（默认 5 秒）。
+
+```sh
+
+# -a 表示显示每个内存分配请求的大小以及地址
+# -p 指定案例应用的PID号
+$ /usr/share/bcc/tools/memleak -a -p $(pidof app)
+WARNING: Couldn't find .text section in /app
+WARNING: BCC can't handle sym look ups for /app
+    addr = 7f8f704732b0 size = 8192
+    addr = 7f8f704772d0 size = 8192
+    addr = 7f8f704712a0 size = 8192
+    addr = 7f8f704752c0 size = 8192
+    32768 bytes in 4 allocations from stack
+        [unknown] [app]
+        [unknown] [app]
+        start_thread+0xdb [libpthread-2.27.so] 
+```
