@@ -1,5 +1,5 @@
 ---
-layout: post
+i33layout: post
 title: "Lynda.com: Cloud Native Development with Node.js, Docker, and Kubernetes"
 categories: draft
 ---
@@ -107,6 +107,7 @@ categories: draft
   d4cb68ddd497        nodeserver          "docker-entrypoint.s…"   5 seconds ago       Up 3 seconds        3000/tcp            amazing_pascal
   
   [jizu@jizu-manjora-vm ~]$ docker exec -it amazing_pascal /bin/bash
+  # note here: `npm` has PID 1 rather than `init`
   node@d4cb68ddd497:/app$ ps aux 
   USER        PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
   node          1  2.5  0.6 734156 42592 ?        Ssl  08:52   0:00 npm
@@ -119,8 +120,10 @@ categories: draft
 ### Build a dev and debug Dockerfile
 
 - `Dockerfile-run`
-- `Dockerfile-tools`, see https://github.com/CloudNativeJS/docker#using-dockerfile-tools
+- `Dockerfile-tools`see https://github.com/CloudNativeJS/docker#using-dockerfile-tools
   - `ENV NODE_HEAPDUMP_OPTIONS nosignal`, see: https://github.com/RuntimeTools/appmetrics/issues/517
+  - Development mode: mount source code and `node_modules` into the container, and start the node.js process
+  - Debug Mode: start the node.js process with `inspect`, and also port-forwarding the debug port
 - `Dockerfile`: production use
 
 ### Build a production Dockerfile
