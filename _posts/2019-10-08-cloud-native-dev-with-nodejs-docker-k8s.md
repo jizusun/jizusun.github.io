@@ -1,5 +1,5 @@
 ---
-i33layout: post
+layout: post
 title: "Lynda.com: Cloud Native Development with Node.js, Docker, and Kubernetes"
 categories: draft
 ---
