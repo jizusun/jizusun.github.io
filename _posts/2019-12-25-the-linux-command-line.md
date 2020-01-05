@@ -63,3 +63,28 @@ echo "$(ls)" # results of a command, multiple lines
 echo $((5+7)) # 12
 echo "aaa\nbbb" # escape sequences such as tabs and newlines
 ```
+
+`here document`: is an additional form of I/O redirection in which we embed a body of text into our scritpt and feed it into the standard input of a command.
+
+- Single and double quotaes within here documents losed their special meaning to the shell
+
+```sh
+command << token 
+text
+token
+```
+
+```sh
+foo="some text"
+
+cat << _EOF_
+$foo
+"$foo"
+'$foo'
+\$foo
+_EOF_
+```
+
+
+
+
