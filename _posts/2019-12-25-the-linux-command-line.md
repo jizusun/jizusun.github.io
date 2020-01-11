@@ -10,9 +10,13 @@ http://linuxcommand.org/tlcl.php
 
 - [Part 4 - Writing Shell Scripts](#part-4---writing-shell-scripts)
   - [24 - Writing Your First Script](#24---writing-your-first-script)
-    - [Configuring vim for Script Writing](#configuring-vim-for-script-writing)
+    - [Configuring `vim` for Script Writing](#configuring-vim-for-script-writing)
   - [25 - Starting a Project](#25---starting-a-project)
     - [Variables and Constants](#variables-and-constants)
+  - [26 - Top-Down Design](#26---top-down-design)
+  - [27 - Flow Control: Branching With If](#27---flow-control-branching-with-if)
+  - [Tricks](#tricks)
+    - [Get a HTML version of `bash` manpage:](#get-a-html-version-of-bash-manpage)
 
 
 
@@ -85,6 +89,17 @@ $foo
 _EOF_
 ```
 
+## 26 - Top-Down Design
 
+## 27 - Flow Control: Branching With If
+
+## Tricks 
+
+### Get a HTML version of `bash` manpage: 
+
+```sh
+gunzip -c $(man -w bash) | groff -mandoc -Thtml > bash.html
+```
+Source: https://unix.stackexchange.com/a/159247/390007
 
 
