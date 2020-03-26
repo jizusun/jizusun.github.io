@@ -71,7 +71,9 @@ See the source code and jekyll configurations for this blog at [GitHub][repo]
   - `Zoom`: online meetings
   - `AriaNgGUI`
   - `Stretchly`:  break time reminder, see [home page](https://hovancik.net/stretchly/)
-
+- Android
+  - GCam for Whyred: https://www.celsoazevedo.com/files/android/google-camera/f/changelog873/
+  - Others: https://gist.github.com/jizusun/d0b00b7b9e9fe5013fe80a1cd6043b90
 ## Previous Devices
 
 ### Personal 
