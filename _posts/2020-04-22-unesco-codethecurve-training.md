@@ -3,9 +3,20 @@ layout: post
 title: "UNSCO CodeTheCurve Hackathon: Training Notes"
 categories: draft
 ---
+<!-- TOC -->
 
-[TOC]
+- [Links](#links)
+- [Pre-Kickoff and Introduction - Day 0: April 21](#pre-kickoff-and-introduction---day-0-april-21)
+    - [Agenda](#agenda)
+    - [Notes](#notes)
+    - [Upcoming Events Briefing](#upcoming-events-briefing)
+    - [System Overview (timestamp: 24:45)](#system-overview-timestamp-2445)
+    - [Access to Z & Machine Learning Code Lab (timestamp: 1:05:00)](#access-to-z--machine-learning-code-lab-timestamp-10500)
+- [Kickoff Day - Day 1: April 22](#kickoff-day---day-1-april-22)
+    - [Agenda](#agenda)
+    - [Design Thinking (Tyler King & Ademola Olajide Ajayi)](#design-thinking-tyler-king--ademola-olajide-ajayi)
 
+<!-- /TOC -->
 
 
 ## Links
@@ -141,7 +152,7 @@ Demo (Timestamp: 1:39:00)
 
 ![Screen Shot 2020-04-23 at 11.23.37 PM](../assets/2020-04-22-unesco-codethecurve-training/Screen Shot 2020-04-23 at 11.23.37 PM.jpg)
 
-
+![Screen Shot 2020-04-23 at 11.33.44 PM](../assets/2020-04-22-unesco-codethecurve-training/Screen Shot 2020-04-23 at 11.33.44 PM.jpg)
 
 ## Kickoff Day - Day 1: April 22
 
