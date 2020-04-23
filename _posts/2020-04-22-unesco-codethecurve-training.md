@@ -10,7 +10,7 @@ categories: draft
 
 ## Links
 
-- https://codethecurve.ihackonline.com/workshop%20forms/hack-resources/
+- [https://codethecurve.ihackonline.com/workshop%20forms/hack-resources/](https://codethecurve.ihackonline.com/workshop%20forms/hack-resources/)
 
 ## Pre-Kickoff and Introduction - Day 0: April 21
 
@@ -45,13 +45,12 @@ Ademola Ajayi (SAP)
 Sudharsana Srinivasan (IBM)
 
 - Developer and student engagement on IBM Z
-- 
 
 ### Upcoming Events Briefing 
 
 Day 2:
 
-- 
+- ...
 
 Day 3 (Apr 24, Fri)
 
@@ -115,7 +114,7 @@ Ask questions
 
 ![image-20200423223735003](../assets/2020-04-22-unesco-codethecurve-training/image-20200423223735003.jpeg)
 
-![Screen Shot 2020-04-23 at 10.41.10 PM](../assets/2020-04-22-unesco-codethecurve-training/Screen Shot 2020-04-23 at 10.41.10 PM.jpeg)
+![Screen Shot 2020-04-23 at 10.41.10 PM](../assets/2020-04-22-unesco-codethecurve-training/Screen Shot 2020-04-23 at 10.41.10 PM.jpg)
 
 ![Screen Shot 2020-04-23 at 10.45.00 PM](../assets/2020-04-22-unesco-codethecurve-training/Screen Shot 2020-04-23 at 10.45.00 PM.jpeg)
 
@@ -125,14 +124,14 @@ Ask questions
 
 Demo (Timestamp: 1:39:00)
 
-- https://zcloud.marist.edu
-- https://github.com/ibmz-community-cloud/zAnalytics/blob/master/README.md
+- [https://zcloud.marist.edu](https://zcloud.marist.edu)
+- [https://github.com/ibmz-community-cloud/zAnalytics/blob/master/README.md](https://github.com/ibmz-community-cloud/zAnalytics/blob/master/README.md)
 
  IBM Waston Studio
 
-- https://www.ibm.com/cloud/watson-studio
+- [https://www.ibm.com/cloud/watson-studio](https://www.ibm.com/cloud/watson-studio)
 - Auto AI
-- Price: https://www.ibm.com/cloud/watson-studio/pricing
+- Price: [https://www.ibm.com/cloud/watson-studio/pricing](https://www.ibm.com/cloud/watson-studio/pricing)
 
 | Pricing plan                                                 | Features                                  | Price |                                                              |
 | :----------------------------------------------------------- | :---------------------------------------- | :---- | :----------------------------------------------------------- |
@@ -141,6 +140,8 @@ Demo (Timestamp: 1:39:00)
 ![Screen Shot 2020-04-23 at 11.18.15 PM](../assets/2020-04-22-unesco-codethecurve-training/Screen Shot 2020-04-23 at 11.18.15 PM.jpg)
 
 ![Screen Shot 2020-04-23 at 11.23.37 PM](../assets/2020-04-22-unesco-codethecurve-training/Screen Shot 2020-04-23 at 11.23.37 PM.jpg)
+
+
 
 ## Kickoff Day - Day 1: April 22
 

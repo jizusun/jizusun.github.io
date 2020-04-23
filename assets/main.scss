@@ -31,7 +31,7 @@ a {
 	word-wrap: break-word;
 }
 
-.post-content img {
+.post-content img:not(.emoji) {
   box-shadow: 5px 5px 5px #666;
   border-radius: 0.5em;
   display: block;
