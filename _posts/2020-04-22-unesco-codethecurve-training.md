@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "UNSCO CodeTheCurve Hackathon: Training Notes"
+title: "UNESCO CodeTheCurve Hackathon: Training Notes"
 categories: draft
 ---
 <!-- TOC -->
