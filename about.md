@@ -19,14 +19,12 @@ See the source code and jekyll configurations for this blog at [GitHub][repo]
 ### Personal 
 - Android phone: [`Redmi Note 5 (whyred)`](https://forum.xda-developers.com/redmi-note-5-pro) with [Pixel Experience (Android 9)](https://download.pixelexperience.org/whyred/)
 - Android Pad: `Xiaomi Pad 1`
+- Chromebook: Samsung Chromebook 3 XE500C13-K01US 2 GB RAM 16GB SSD 11.6 Inch Laptop (: Intel Celeron CPU N3050, Feb 2016, Auto Update Expiration Date: Jun 2022)
 - E-ink Reader: `Nook Glowlight Plus`
 - Activity tracker: `Mi Band 3`
 
 ### Work (At SAP)
-- Laptop: `Lenovo T560`
-  - `Ubuntu 16.04` (Jan. 2019 - Oct. 2019)
-  - `Manjaro` inside the `VMWare Player` as the main (although guest) OS, with `Windows 10` as the host OS
-- Remote: `Citrix Receiver` with `Windows Server 2016`
+- MacBook Pro 16 inch: 32GB, 1TB
 - Monitor: `hp Z24n`
 
 ### Home
@@ -81,6 +79,10 @@ See the source code and jekyll configurations for this blog at [GitHub][repo]
 - Activity tracker: `Mi Band 2`
 
 ### Work 
+- Laptop: `Lenovo T560`
+  - `Ubuntu 16.04` (Jan. 2019 - Oct. 2019)
+  - `Manjaro` inside the `VMWare Player` as the main (although guest) OS, with `Windows 10` as the host OS
+- Remote: `Citrix Receiver` with `Windows Server 2016`
 - Laptop: `Lenovo T560` With Windows 10 (Jan 2017 - Jan 2019) 
 
 ### Home
