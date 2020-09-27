@@ -13,6 +13,7 @@ categories: translations
     - [Common System and Software Testing Pitfalls: How to Prevent and Mitigate Them: Descriptions, Symptoms, Consequences, Causes, and Recommendations (SEI Series in Software Engineering)](https://www.amazon.com/dp/0133748553)
     - [Perspectives On Agile Software Testing](https://info.thoughtworks.com/ebook-agile-software-testing) and [its book review](https://www.infoq.com/articles/agile-software-testing) 及 [书评中文翻译](http://www.infoq.com/cn/articles/agile-software-testing)
     - [JavaScript测试驱动开发 - 第 1 章　自动化测试让你重获自由](http://www.ituring.com.cn/book/tupubarticle/20075)
+* 欢迎提出修订，请访问：https://github.com/jizusun/jizusun.github.io/edit/master/_posts/2018-05-17-software-testing-anti-patterns.markdown
 
 # Table of Content
 {:.no_toc}
@@ -30,7 +31,7 @@ There are several articles out there that talk about testing anti-patterns in th
 
 In this article I wanted to take a step back and catalog some high-level testing anti-patterns that are technology agnostic. Hopefully you will recognize some of these patterns regardless of your favorite programming language.
 
-在这篇文章中，我想退后一步，编录一下高层的、与技术无关的测试反模式。希望你能认识到这些模式，不管你喜欢的是何种编程语言。
+在这篇文章中，我想退后一步，编录几种高层的、与技术无关的测试反模式。希望你能认识到这些模式，不管你喜欢的是何种编程语言。
 
 ### Terminology 术语
 {: #terminology}
@@ -39,7 +40,7 @@ Unfortunately, testing terminology has not reached a common consensus yet. If yo
 
 不幸的是，测试术语还未达成共识，如果你问 100 个程序员，集成测试、组件测试、端到端测试的区别，你也许会得到 100 种不同的答案。基于本文的目的，我将集中讨论下面这幅测试金字塔中的定义。
 
-![测试金字塔](https://user-images.githubusercontent.com/20513905/41332131-29fece64-6f0f-11e8-926e-1edbd9526424.png)
+![测试金字塔](../assets/2018-05-17-software-testing-anti-patterns/41332131-29fece64-6f0f-11e8-926e-1edbd9526424.png)
 
 If you have never encountered the testing pyramid before, I would urge you to become familiar with it first before going on. Some good starting points are:
 
@@ -70,17 +71,17 @@ Therefore the two major test categories mentioned as __unit__ and __integration_
 
 **Unit tests** are the category of tests that have wider acceptance regarding the naming and what they mean. They are the tests that accompany the source code and have direct access to it. Usually they are executed with an [xUnit framework](https://en.wikipedia.org/wiki/XUnit) or similar library. These tests work directly on the source code and have full view of everything. A single class/method/function is tested (or whatever is the smallest possible working unit for that particular business feature) and anything else is mocked/stubbed.
 
-**单元测试**是对其命名和含义有更广泛接受的测试类别。它们是伴随着源代码并且直接访问它的测试。通常它们使用[xUnit框架]　(https://en.wikipedia.org/wiki/XUnit) 或者类似的库执行。这些测试直接运行在源代码上，并且对所有的东西都有一个全面的了解。被测对象是一个类、方法、函数（或者为某特殊业务功能而设计的最小工作单元），而其他任何东西都是被模拟的或者被替代的。
+**单元测试**是对其命名和含义有更广泛接受的测试类别。这些测试伴随着源代码并且可以直接访问它。通常使用 [xUnit框架](https://en.wikipedia.org/wiki/XUnit) 或者类似的库执行它们。这些测试直接作用于源代码上，并且对所有的东西都有全面的了解。被测对象是一个类、方法、函数（或者为某特殊业务功能而设计的最小工作单元），而其他任何东西都是被模拟（mock）或被替代（stub）的。
 
 **Integration tests** (also called service tests, or even component tests) focus on a whole component. A component can be a set of classes/methods/functions, a module, a subsystem or even the application itself. They examine the component by passing input data and examinining the output data it produces. Usually some kind of deployment/bootstrap/setup is required first. External systems can be mocked completely, replaced (e.g. using an in-memory database instead of a real one), or the real external dependency might be used depending on the business case. Compared to unit tests they may require more specialized tools either for preparing the test environment, or for interacting/verifying it.
 
-**集成测试**（也被称作服务测试，甚至是组件测试）专注于整个组件。一个组件可以是一组类、方法、函数，一个模块，一个子系统甚至是应用本身。它们通过传递输入数据并检查其生成的输出数据来检查组件。通常需要先进行某种部署、引导、安装。外部系统可以完全被模拟，替代（例如使用内存数据库而不是真实数据库），或者实际的外部依赖可能会根据业务情况而使用。
+**集成测试**（也被称作服务测试，或是组件测试）专注于整个组件。一个组件，可以是一组类、方法、函数、一个模块、一个子系统甚至是应用本身。它们通过传递输入数据并检查其生成的输出数据来检查组件。通常需要先进行某种部署、引导、安装。外部系统可以完全被模拟，替代（例如使用内存数据库而不是真实数据库），或者实际的外部依赖可能会根据业务情况而使用。
 
 The second category suffers from a blurry definition and most naming controversies regarding testing start here. The “scope” for integration tests is also highly controversial and especially the nature of access to the application ([black](https://en.wikipedia.org/wiki/Black-box_testing) or [white](https://en.wikipedia.org/wiki/White-box_testing) box testing and whether [mocking](https://en.wikipedia.org/wiki/Mock_object) is allowed or not).
-第二类受模糊定义的影响, 关于测试的命名争议从这里开始。集成测试的“范围”也是备受争议的。尤其是访问程序的性质（[黑](https://en.wikipedia.org/wiki/Black-box_testing)　或是[白](https://en.wikipedia.org/wiki/White-box_testing)　盒测试，并且是否允许[模拟](https://en.wikipedia.org/wiki/Mock_object)）
+第二类受模糊定义的影响, 关于测试的命名争议从这里开始。集成测试的“范围”也是备受争议的。尤其是访问程序的性质（[黑](https://en.wikipedia.org/wiki/Black-box_testing)或是[白](https://en.wikipedia.org/wiki/White-box_testing)盒测试，并且是否允许[模拟](https://en.wikipedia.org/wiki/Mock_object)）
 
 As a basic rule of thumb if
-作为一个基本的测试法则，如果
+作为一个基本的测试原则，如果
 
 *   a test uses a database  测试中使用了数据库
 *   a test uses the network to call another component/application 测试中使用了网络调用另外一个组件或者应用
@@ -192,7 +193,7 @@ Let’s look at an example. Assume that you have a service with the following 4 
 
 让我们看一个例子。假设你有一个服务，包含4个方法（或称为类、函数）。
 
-![Cyclomatic complexity for 4 modules](https://user-images.githubusercontent.com/4011348/39740330-bac15b38-52c7-11e8-831e-90c1e2b36456.png)
+![Cyclomatic complexity for 4 modules](../assets/2018-05-17-software-testing-anti-patterns/39740330-bac15b38-52c7-11e8-831e-90c1e2b36456.png)
 
 The number on each module denotes its [cyclomatic complexity](https://en.wikipedia.org/wiki/Cyclomatic_complexity) or in other words the separate code paths this module can take.
 
@@ -200,7 +201,7 @@ The number on each module denotes its [cyclomatic complexity](https://en.wikiped
 
 Mary “by the book” Developer wants to write unit tests for this service (because she understands that unit tests __do__ have value). How many tests does she need to write in order to get full coverage of all possible scenarios?
 
-Mary 是一个“听从书”的程序员，她想为这个服务编写单元测试（因为她知道单元测试 __确实__ 很有价值）。她需要写多少测试，才能覆盖所有可能的场景？
+Mary 是一个“书呆子”程序员，她想为这个服务编写单元测试（因为她知道单元测试 __确实__ 很有价值）。她需要写多少测试，才能覆盖所有可能的场景？
 
 It should be obvious that one can write 2 + 5 + 3 + 2 = 12 isolated unit tests that cover fully the **business logic** of these modules. Remember that this number is just for a single service, and the application Mary is working on, has multiple services.
 
@@ -210,7 +211,7 @@ Joe “Grumpy” developer on the other hand does not believe in the value of un
 
 另一方面，Joe 是个 “脾气暴躁” 的程序员，他不相信单元测试的价值。他认为单元测试是浪费时间，并决定为这个模块只编写集成测试。他应该写多少集成测试呢？他开始查看一个请求能在这个服务中走出的所有可能路径。
 
-![Examining code paths in a service](https://user-images.githubusercontent.com/4011348/39740332-bd592f10-52c7-11e8-8d91-6dcca63b7c59.png)
+![Examining code paths in a service](../assets/2018-05-17-software-testing-anti-patterns/39740332-bd592f10-52c7-11e8-8d91-6dcca63b7c59.png)
 
 Again it should be obvious that all possible scenarios of codepaths are 2 * 5 * 3 * 2 = 60. Does that mean that Joe will actually write 60 integration tests? Of course not! He will try and cheat. He will try to select a subset of integration tests that feel “representative”. This “representative” subset of tests will give him enough coverage with the minimum amount of effort.
 
@@ -224,7 +225,7 @@ Mary on the other hand, can just recreate the corner case with a simple unit tes
 
 另一方面，Mary 可以通过一个简单的单元测试就能重现边界情况，完全不会增加任何复杂度。
 
-![Basic unit test](https://user-images.githubusercontent.com/4011348/39740336-c1b589d2-52c7-11e8-9186-276adf0c32f1.png)
+![Basic unit test](../assets/2018-05-17-software-testing-anti-patterns/39740336-c1b589d2-52c7-11e8-9186-276adf0c32f1.png)
 
 Does that mean that Mary will __only__ write unit tests for this service? After all that will lead her to [anti-pattern 1](#anti-pattern-1---having-unit-tests-without-integration-tests). To avoid this, she will write __both__ unit __and__ integration tests. She will keep all unit tests for the actual business logic and then she will write 1 or 2 integration tests that make sure that the rest of the system works as expected (i.e. the parts that help these modules do their job)
 
@@ -234,14 +235,14 @@ The integration tests needed in this system should focus on the rest of the comp
 
 这个系统里需要的集成测试应该侧重于其他组件。业务逻辑本身可以被单元测试所涵盖。Mary 的集成测试会侧重于测试序列化/反序列化，以及与队列和数据库的通信。
 
-![correct Integration tests](https://user-images.githubusercontent.com/4011348/39740343-c5134d30-52c7-11e8-8604-359d88898c66.png)
+![correct Integration tests](../assets/2018-05-17-software-testing-anti-patterns/39740343-c5134d30-52c7-11e8-8604-359d88898c66.png)
 
 In the end, the number of integration tests will be much smaller than the number of unit tests (matching the shape of the test pyramid described in the first section of this article).
 
 最后，集成测试的数量应该远小于单元测试的数量（与本文第一部分中描述的测试金字塔的形状相匹配）。
 
 #### Integration tests are slow 集成测试很慢
- 
+
 The second big issue with integration tests apart from their complexity is their speed. Usually an integration test is one order of magnitute slower than a unit test. Unit tests need just the source code of the application and nothing else. They are almost always CPU bound. Integration tests on the other hand can perform I/O with external systems making them much more difficult to run in an effective manner.
 
 除了复杂度之外，集成测试的第二大问题是它们的速度。通常，集成测试比单元测试慢一个数量级。单元测试只依赖应用程序的源代码而不需要其他内容。他们几乎只受到 CPU 的限制。另一方面，集成测试需要与外部系统进行 I/O 操作，使得它们难以更高效地运行。
@@ -295,7 +296,7 @@ A developer in your team (or even you) creates a new commit, which triggers the 
 
 团队中的开发人员（甚至是您）创建一个新的提交（commit），这会触发集成测试，并产生如下结果：
 
-![breakage of integration tests](https://user-images.githubusercontent.com/4011348/39740398-011930ce-52c8-11e8-8e7f-cbfeb2d261d7.png)
+![breakage of integration tests](../assets/2018-05-17-software-testing-anti-patterns/39740398-011930ce-52c8-11e8-8e7f-cbfeb2d261d7.png)
 
 As a developer you look at the test result and see that the integration test named “Customer buys item” is broken. In the context of an e-shop application this is not very helpful. There are many reasons why this test might be broken.
 
@@ -309,7 +310,7 @@ Now imagine that you work with Mary on this application so you have both integra
 
 现在想象一下，你和 Mary 一起开发这个应用程序，所以你既有集成测试，也有单元测试。你的团队进行了一些代码提交，你运行了所有的测试，并得到如下结果：
 
-![breakage of both kinds of tests](https://user-images.githubusercontent.com/4011348/39740401-0594d824-52c8-11e8-81e1-6eba0883547d.png)
+![breakage of both kinds of tests](../assets/2018-05-17-software-testing-anti-patterns/39740401-0594d824-52c8-11e8-81e1-6eba0883547d.png)
 
 Now two tests are broken:
 
@@ -370,8 +371,7 @@ Here is the breakdown of tests for this project:
 
 以下是本项目的测试细目：
 
-![Test pyramid example](
-https://user-images.githubusercontent.com/4011348/40963485-4cea4c12-68db-11e8-8964-11074f922edf.png)
+![Test pyramid example](../assets/2018-05-17-software-testing-anti-patterns/40963485-4cea4c12-68db-11e8-8964-11074f922edf.png)
 
 Unit tests dominate in this example and the shape is **not** a pyramid.
 
@@ -395,8 +395,7 @@ Here is the breakdown of tests for this project:
 
 以下是本项目的测试细目：
 
-![Test pyramid example](
-https://user-images.githubusercontent.com/4011348/40817728-84bd14f6-6586-11e8-9fd4-5207632d5936.png)
+![Test pyramid example](../assets/2018-05-17-software-testing-anti-patterns/40817728-84bd14f6-6586-11e8-9fd4-5207632d5936.png)
 
 Integrations tests dominate in this example and the shape is **not** a pyramid.
 
@@ -424,7 +423,7 @@ Here is the breakdown of tests for this project:
 
 以下是本项目的测试细目：
 
-![Test pyramid example](https://user-images.githubusercontent.com/4011348/40817730-8a73e438-6586-11e8-911e-adb6cb0a9487.png)
+![Test pyramid example](../assets/2018-05-17-software-testing-anti-patterns/40817730-8a73e438-6586-11e8-911e-adb6cb0a9487.png)
 
 UI tests dominate here and the shape is **not** a pyramid.
 
@@ -473,7 +472,7 @@ If you ask any developer to show you the source code of any application, he/she 
 
 如果你让任何一个开发人员展示给你任何一个应用程序的源代码，他/她应该会打开 IDE 或代码仓库浏览器，展示给你每个文件夹。
 
-![Source code physical model](https://user-images.githubusercontent.com/4011348/42945375-d5687082-8b9a-11e8-9a47-550c7bda04c5.png)
+![Source code physical model](../assets/2018-05-17-software-testing-anti-patterns/42945375-d5687082-8b9a-11e8-9a47-550c7bda04c5.png)
 
 This representation is the physical model of the code. It defines the folders in the filesystem that contain the source code. While this hierarchy of folders is great for working with the code itself, unfortunately it doesn’t define the importance of each code folder. A flat list of code folders implies that all code components contained in them are of equal importance.
 
@@ -494,7 +493,7 @@ To generalize this example, if you work for some time in any medium/large applic
 
 概括一下这个例子，如果你编写过任何中型或大型应用程序，你很快就需要使用不同的表征，即心智模型，来思考代码。
 
-![Source code mental model 代码心智模型](https://user-images.githubusercontent.com/4011348/42945417-ee804d60-8b9a-11e8-8e10-666fb5a18e82.png)
+![Source code mental model 代码心智模型](../assets/2018-05-17-software-testing-anti-patterns/42945417-ee804d60-8b9a-11e8-8e10-666fb5a18e82.png)
 
 I am showing here 3 layers of code, but depending on the size of your application it might have more. These are:
 
@@ -572,7 +571,7 @@ Let’s say that the customer object in an e-shop application is the following:
 
 让我们来假设，一个网上商城的应用程序的`customer` （客户）对象是这样的。
 
-![Tight coupling of tests](https://user-images.githubusercontent.com/4011348/40220485-dc005e0c-5aab-11e8-9f08-c5020aef4fc5.png)
+![Tight coupling of tests](../assets/2018-05-17-software-testing-anti-patterns/40220485-dc005e0c-5aab-11e8-9f08-c5020aef4fc5.png)
 
 The customer type has only two values where `0` means “guest user” and `1` means “registered user”. Developers look at the object and write 10 unit tests that verify various cases of guests users and 10 cases of registered user. And when I say “verify” I mean that tests **are looking at this particular field in this particular object**.
 
@@ -586,7 +585,7 @@ At this point, we have 40 tests in 4 categories that all look at this particular
 
 截至目前，我们为 4 个类别写了 40 个测试，都检查的是同一个字段。（这些数字是虚构的，这种编造的例子只是为了演示目的。在真正的项目中，你可能有 10 个相互关联的字段，分别在 6 个嵌套对象中，有 200 个测试）。
 
-![Tight coupling of tests example](https://user-images.githubusercontent.com/4011348/40220488-df4618e0-5aab-11e8-900f-df054dbe28ee.png)
+![Tight coupling of tests example](../assets/2018-05-17-software-testing-anti-patterns/40220488-df4618e0-5aab-11e8-900f-df054dbe28ee.png)
 
 If you are a seasoned developer you can always imagine what happens next. New requirements come that say:
 
@@ -600,7 +599,7 @@ The customer object now changes as below:
 
 客户对象现在变成了这样:
 
-![Tight coupling of tests broken](https://user-images.githubusercontent.com/4011348/40220493-e587f1f6-5aab-11e8-9fa4-06d6232e18c6.png)
+![Tight coupling of tests broken](../assets/2018-05-17-software-testing-anti-patterns/40220493-e587f1f6-5aab-11e8-9fa4-06d6232e18c6.png)
 
 You now have 4 objects connected with foreign keys and all 40 tests are instantly broken because the field they were checking no longer exists.
 
@@ -619,7 +618,7 @@ The big problem here is not testing, but instead the way the tests were construc
 
 这里的大问题不是测试，而是测试构建的方式。应该测试预期的行为，而不是测试内部实现。在我们的简单示例中，不应该直接测试客户的内部结构，而应该检查每种情况的确切业务需求。下面展示了这些测试应该如何正确构建。
 
-![Tests that test behavior](https://user-images.githubusercontent.com/4011348/40220498-ee7d35f0-5aab-11e8-924a-54378cb5c0a4.png)
+![Tests that test behavior](../assets/2018-05-17-software-testing-anti-patterns/40220498-ee7d35f0-5aab-11e8-924a-54378cb5c0a4.png)
 
 The tests do not really care about the internal structure of the customer object. They only care about its interactions with other objects/methods/functions. The other objects/method/functions should be mocked when needed on a case to case basis. Notice that each type of tests directly maps to a business need rather than a technical implementation (which is always a good practice.)
 
@@ -710,13 +709,13 @@ If you have worked with any big application you should know by now that after re
 
 如果你参与过任何大型应用，你就应该明白，当达到 70% 或 80% 的代码覆盖率时，你就很难为那些尚未被测试的代码编写有用的测试。
 
-![Code Coverage Effort](https://user-images.githubusercontent.com/4011348/41632934-dae114f8-746e-11e8-96a5-3e0bc4d4f8f3.png)
+![Code Coverage Effort](../assets/2018-05-17-software-testing-anti-patterns/41632934-dae114f8-746e-11e8-96a5-3e0bc4d4f8f3.png)
 
 On a similar note, as we already saw in the section for [Antipattern 4](#anti-pattern-4---testing-the-wrong-functionality), there are some code paths that never actually fail in production, and therefore writing tests for them is not recommended. The time spent on getting them covered should be better spent on actual features.
 
 类似的，正如我们在[反模式 4](#anti-pattern-4---testing-the-wrong-functionality)章节所看到的，有些代码路径从未在生产系统上出错，因此并不推荐为它们编写测试。花费在这上面的时间应该更好地用于开发实际的功能。
 
-![Code Coverage Value](https://user-images.githubusercontent.com/4011348/41632942-e49eb694-746e-11e8-83f0-21f22e87b07d.png)
+![Code Coverage Value](../assets/2018-05-17-software-testing-anti-patterns/41632942-e49eb694-746e-11e8-83f0-21f22e87b07d.png)
 
 Projects that need a specific code coverage percentage as a delivery requirement usually force developers to test trivial code in order or write tests that just verify the underlying programming language. This is a huge waste of time and as a developer you have the duty to complain to management who has such unreasonable demands.
 
@@ -731,51 +730,90 @@ In summary, code coverage is a metric that should **not** be used as a represent
 
 This particular anti-pattern has [already](https://martinfowler.com/articles/nonDeterminism.html) [been](https://testing.googleblog.com/2016/05/flaky-tests-at-google-and-how-we.html) [documented](https://testing.googleblog.com/2017/04/where-do-our-flaky-tests-come-from.html) [heavily](https://semaphoreci.com/community/tutorials/how-to-deal-with-and-eliminate-flaky-tests) so I am just including it here for completeness.
 
+这种反模式 [已经](https://martinfowler.com/articles/nonDeterminism.html) [被](https://testing.googleblog.com/2016/05/flaky-tests-at-google-and-how-we.html) [大量地](https://testing.googleblog.com/2017/04/where-do-our-flaky-tests-come-from.html) [论述过](https://semaphoreci.com/community/tutorials/how-to-deal-with-and-eliminate-flaky-tests) ，所以我只是为了更完整才在这里提及它。
+
 Since software tests act as an early warning against regressions, they should always work in a reliable way. A failing test should be a cause of concern and the person(s) that triggered the respective build should investigate why the test failed right away.
 
+由于软件测试起到了对回归的预警作用，所以它们应该始终以可靠的方式运行。失败的测试应引起关注，触发相关构建的人员应立即调查测试失败的原因。
+
 This approach can only work with tests that fail in a deterministic manner. A test that sometimes fails and sometimes passes (without any code changes in between) is unreliable and undermines the whole testing suite. The negative effects are two fold
+
+这种方法只能适用于以确定的方式失败的测试。一个时而失败时而通过的测试（中间没有任何代码变化）是不可靠的，会破坏整个测试集。负面效应有两个方面：
 
 *   Developers do not trust tests anymore and soon ignore them
 *   Even when non-flaky tests actually fail, it is hard to detect them in a sea of flaky tests
 
+* 开发人员不再信任测试，很快就会忽略它们。
+* 即使某些稳定的测试失败了，也很难在不稳定测试（flaky tests）的海洋中发现它们。
+
 A failing test should be easily recognizable by everybody in your team as it changes the status of the whole build. On the other hand if you have flaky tests it is hard to understand if new failures are truly new or they stem from the existing flaky tests.
 
-![Flaky tests](https://user-images.githubusercontent.com/4011348/43044734-c70457d6-8dde-11e8-8ee3-44ebf5f6fe14.png
+失败的测试应该很容易被你团队中的每个人识别，因为它改变了整个构建的状态。另一方面，如果你的测试是不可靠的，那么就很难理解新的失败是真正的新失败，还是源于现有的不稳定测试。
+
+![Flaky tests](../assets/2018-05-17-software-testing-anti-patterns/43044734-c70457d6-8dde-11e8-8ee3-44ebf5f6fe14-20200927135836027.png)
 
 Even a small number of flaky tests in enough to destroy the credibility of the rest of test suite. If you have 5 flaky tests for example, run the build and get 3 failures it is not immediately evident if everything is fine (because the failures were coming from the flaky tests) or if you just introduced 3 regressions.
 
+即使是少量的不稳定测试也足以破坏其余测试集的可信度。 例如，如果您有5个不稳定的测试，运行构建并得到了3个失败的测试，那么这很难证明是一切都正常（因为失败来自不稳定的测试），还是引入了3个回归。
+
 A similar problem is having tests that are really really slow. Developers need a quick feedback on the result of each commit (also discussed in the next section) so slow tests will eventually be ignored or even not run at all.
+
+一个类似的问题是有些测试非常非常慢。 开发人员需要得到每次提交结果的快速反馈（这也会在下一节中讨论），因此缓慢的测试最终将被忽略，甚至根本不运行。
 
 In practice flaky and slow tests are almost always integration tests and/or UI tests. As we go up in the testing pyramid, the probabilities of flaky tests are greatly increasing. Tests that deal with browser events are notoriously hard to get right all the time. Flakiness in integration tests can come from many factors but the usual suspect is the test environment and its requirements.
 
+在实践中，不稳定测试和缓慢的测试几乎总是集成测试和/或UI测试。 随着我们沿测试金字塔上升，不稳定测试的概率会大大增加。 众所周知，包含浏览器事件的测试很难做到从不执行出错。 集成测试中的不稳定性，可能来自许多因素，但通常值得怀疑的是测试环境及其需求。
+
 The primary defense against flaky and slow tests is to isolate them in their own test suite (assuming that they are not fixable). You can easily find more abundant resources on how to fix flaky tests for your favorite programming language by searching online so there is no point in me explaining the fixes here.
 
+防止不稳定和缓慢的测试的主要措施，是将它们隔离在它们自己的测试集中（假设它们是不可修复的）。您可以在网上很容易地搜到这些资源，它们讲解了如何修复你最喜爱的编程语言所写出的不可靠测试，因此我在这里就不罗嗦了。
+
 In summary, you should have a reliable test suite (even if it is a subset of the whole test suite) that is rock solid. A test that fails in this suite means that something is really really wrong with the code and any failure means that the code must not be promoted to production.
+
+总之，您应该有一个可靠的测试集（即使它是整个测试集的一个子集），它是坚如磐石的。在这个测试集中，失败的测试意味着代码有一些真正的错误，任何失败都意味着不能将代码提升到生产环境中。
 
 ### Anti-Pattern 8 - Running tests manually 反模式8 - 手工运行测试
 {: #anti-pattern-8---running-tests-manually}
 
 Depending on your organization you might actually have several types of tests in place. Unit tests, Load tests, User acceptance tests are common categories of test suites that __might__ be executed before the code goes into production.
 
+根据您的组织，您实际上可能有几种类型的测试。单元测试、压力测试、用户验收测试是测试套件的常见类别，这些测试套件**可能**会在代码进入生产环境之前执行。
+
 Ideally all your tests should run automatically without any human intervention. If that is not possible at the very least all tests that deal with correctness of code (i.e. unit and integration tests) **must** run in an automatic manner. This way developers get feedback on the code in the most timely manner. It is very easy to fix a feature when the code is fresh in your mind and you haven’t switched context yet to an unrelated feature.
 
-![Test feedback loop tests]((https://user-images.githubusercontent.com/4011348/43044744-fb83ff2a-8dde-11e8-8ad9-508a6c9afb60.png)
+理想情况下，所有测试都应自动运行，无需任何人工干预。 如果至少无法做到这一点，那么所有处理代码正确性的测试（即单元测试和集成测试）都**必须**以自动化的方式运行。 这样，开发人员就可以最及时地获得对代码的反馈。 当您对代码记忆犹新，并且还没有将上下文切换到不相关的功能时，修复某个功能是非常容易的。
+
+![Test feedback loop tests](../assets/2018-05-17-software-testing-anti-patterns/43044744-fb83ff2a-8dde-11e8-8ad9-508a6c9afb60.png)
 
 In the past the most lengthy step of the software lifecycle was the deployment of the application. With the move into cloud infrastructure where machines can be created on demand (either in the form of VMs or containers) the time to provision a new machine has been reduced to minutes or seconds. This paradigm shift has caught a lot of companies by surprise as they were not ready to handle daily or even hourly deployments. Most of the existing practices were centered around lengthy release cycles. Waiting for a specific time in the release to “pass QA” with manual approval is one of those obsolete practices that is no longer applicable if a company wants to deploy as fast as possible.
 
+在过去，软件生命周期中最耗时的步骤是应用程序的部署。随着迁移到云基础机构，机器可以按需创建(以虚拟机（VM）或容器的形式)，配置新机器的时间已减少到几分钟甚至几秒。这种范式转变让很多公司感到惊讶，因为他们还没有为每天甚至每小时的部署做好准备。大多数现有的实践都围绕着冗长的发布周期。等待发布中的特定时间，以通过手动批准“通过质量检查”则成为一种过时的实践，如果公司希望尽快部署，则这些实践不再适用。
+
 Deploying as fast as possible implies that you trust each deployment. Trusting an automatic deployment requires a high degree of confidence in the code that gets deployed. While there are several ways of getting this confidence, the first line of defense should be your software tests. However, having a test suite that can catch regressions quickly is only half part of the equation. The other half is running the tests automatically (possibly after every commit).
 
-A lot of companies __think__ that they practice continuous delivery and/or deployment. In reality they don’t. Practicing true CI/CD means that __at any given point in time__ there is a version of the code that is ready to be deployed. This means that the candidate release for deployment the candidate release is __already__ tested. Therefore having a package version of an application “ready” which has not really “passed QA” is not true CI/CD.
+尽快部署意味着您信任每个部署。 信任自动部署需要对部署的代码有高度的信心。 尽管可以通过多种方法获得这种信任，但是第一道防线应该是您的软件测试。 但是，拥有可以快速捕获回归的测试套件只是等式的一半，而另一半则是自动化运行的测试（可能在每次提交之后）。
+
+A lot of companies __think__ that they practice continuous delivery and/or deployment. In reality they don’t. Practicing true CI/CD means that __at any given point in time__ there is a version of the code that is ready to be deployed. This means that the candidate release for deployment is __already__ tested. Therefore having a package version of an application “ready” which has not really “passed QA” is not true CI/CD.
+
+很多公司__认为__他们实践的是持续交付和/或部署。事实上，他们没有。实践真正的CI/CD意味着在任意给定的时间点，都有一个可以部署的代码版本。这意味着部署的候选版本已经测试过的。因此，将没有真正“通过QA”的应用程序打包成“就绪”版本，并不是真正的CI/CD。
 
 Unfortunately, while most companies have correctly realized that deployments should be automated, because using humans for them is error prone and slow, I still see companies where launching the tests is a semi-manual process. And when I say semi-manual I mean that even though the test suite itself might be automated, there are human tasks for house-keeping such as preparing the test environment or cleaning up the test data after the tests have finished. That is an anti-pattern because it is not true automation. **All** aspects of testing should be automated.
 
-![Automated tests]((https://user-images.githubusercontent.com/4011348/43044756-2400979c-8ddf-11e8-99b4-69f2ce06de8b.png)
+不幸的是，尽管大多数公司正确地意识到部署应该是自动化的，因为使用人工进行操作容易出错且速度很慢，但我仍然看到启动测试是半手工过程的公司。 当我说半手动时，我的意思是即使测试套件本身可能是自动化的，也要进行一些内部任务，例如准备测试环境或在测试完成后清理测试数据。 这是一种反模式，因为它不是真正的自动化。 测试的 **所有** 方面都应自动化。
+
+![Automated tests](../assets/2018-05-17-software-testing-anti-patterns/43044756-2400979c-8ddf-11e8-99b4-69f2ce06de8b.png)
 
 Having access to VMs or containers means that it is very easy to create various test environments on demand. Creating a test environment on the fly for an individual pull request should be a standard practice within your organization. This means that each new feature is tested individually on its own. A problematic feature (i.e. that causes tests to fail) should not block the release of the rest of the features that need to be deployed at the same time.
 
+拥有对VM或容器的访问权限意味着可以轻松地按需创建各种测试环境。 为单个拉取请求（Pull Request）动态创建测试环境应该是组织内的标准做法。 这意味着每个新功能（feature）都需要单独测试。 有问题的功能（即导致测试失败）不应阻止需要同时部署的其余功能的发布。
+
 An easy way to understand the level of test automation within a company is to watch the QA/Test people in their daily job. In the ideal case, testers are just creating new tests that are added to an existing test suite. Testers themselves do not run tests manually. The test suite is run by the build server.
 
+了解公司内部测试自动化水平的一个简单方法是观察QA/测试人员的日常工作。在理想情况下，测试人员只是创建新测试，并添加到现有测试套件中。测试人员本身并不手动运行测试。测试套件由构建服务器运行。
+
 In summary, testing should be something that happens all the time behind the scenes by the build server. Developers should learn the result of the test for their individual feature after 5-15 minutes of committing code. Testers should create new tests and refactor existing ones, instead of actually running tests.
+
+总之，测试应该是构建服务器在幕后一直在进行的事情。开发人员应该在提交代码 5-15 分钟后了解他们各自特性的测试结果。测试人员应该创建新的测试并重构现有的测试，而不是实际运行测试。
 
 ### Anti-Pattern 9 - Treating test code as a second class citizen 反模式9 - 把测试当作二等公民
 {: #anti-pattern-9---treating-test-code-as-a-second-class-citizen}
