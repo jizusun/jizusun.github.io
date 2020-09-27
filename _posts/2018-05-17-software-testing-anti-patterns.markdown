@@ -13,7 +13,7 @@ categories: translations
     - [Common System and Software Testing Pitfalls: How to Prevent and Mitigate Them: Descriptions, Symptoms, Consequences, Causes, and Recommendations (SEI Series in Software Engineering)](https://www.amazon.com/dp/0133748553)
     - [Perspectives On Agile Software Testing](https://info.thoughtworks.com/ebook-agile-software-testing) and [its book review](https://www.infoq.com/articles/agile-software-testing) 及 [书评中文翻译](http://www.infoq.com/cn/articles/agile-software-testing)
     - [JavaScript测试驱动开发 - 第 1 章　自动化测试让你重获自由](http://www.ituring.com.cn/book/tupubarticle/20075)
-* 欢迎提出修订，请访问：https://github.com/jizusun/jizusun.github.io/edit/master/_posts/2018-05-17-software-testing-anti-patterns.markdown
+* 欢迎提出修订，请访问：[https://github.com/jizusun/jizusun.github.io/edit/master/_posts/2018-05-17-software-testing-anti-patterns.markdown](https://github.com/jizusun/jizusun.github.io/edit/master/_posts/2018-05-17-software-testing-anti-patterns.markdown)
 
 # Table of Content
 {:.no_toc}
