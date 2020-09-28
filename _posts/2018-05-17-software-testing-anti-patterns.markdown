@@ -820,48 +820,92 @@ In summary, testing should be something that happens all the time behind the sce
 
 If you are a seasoned developer, you will spend always some time to structure new code in your mind before implementing it. There are several philosophies regarding code design and some of them are so significant that have their own Wikipedia entry. Some examples are:
 
-*   [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself)
-*   [KISS](https://en.wikipedia.org/wiki/KISS_principle)
-*   [SOLID](https://en.wikipedia.org/wiki/SOLID_(object-oriented_design))
+如果您是一位经验丰富的开发人员，那么在实现新代码之前，您总是要花一些时间在脑海中构造新代码。关于代码设计有几种哲学，其中一些非常重要，在维基百科上有自己的条目。一些例子：
+
+*   [DRY （不要重复自己）](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself)
+*   [KISS（保持简单愚蠢） ](https://en.wikipedia.org/wiki/KISS_principle)
+*   [SOLID（单一功能、开闭原则、里氏替换、接口隔离、依赖反转）](https://en.wikipedia.org/wiki/SOLID_(object-oriented_design))
 
 The first one is arguably the most important one as it forces you to have a single source of truth for code that is reused across multiple features. Depending on your own programming language you may also have access to several other best practices and recommended design patterns. You might even have special guidelines that are specific to your team.
 
+第一个可能是最重要的一个，因为它迫使您拥有单一的真理来源——在多个功能中重复使用。根据您自己的编程语言，您还可以访问其他一些最佳实践和推荐的设计模式。您甚至可能有专门针对您团队的特殊指导方针。
+
 Yet, for some unknown reason several developers do not apply the same principles to the code that holds the software tests. I have seen projects which have well designed feature code, but suffer from tests with huge code duplication, hardcoded variables, copy-paste segments and several other inefficiencies that would be considered inexcusable if found on the main code.
+
+然而，由于某些未知的原因，一些开发人员没有将相同的原则应用到包含软件测试的代码中。我曾见过一些设计良好的功能代码的项目，但在测试中遇到了大量代码重复、硬编码变量、复制-粘贴段，以及其他一些如果在主代码中发现就会被视为不可原谅的低效率问题。
 
 Treating test code as a second class citizen makes no sense, because in the long run all code needs maintenance. Tests will need to be updated and refactored in the future. Their variables and structure will need to change. If you write tests without thinking about their design you are creating additional technical debt that will be added to the one already present in the main code.
 
+把测试代码当作二等公民是没有意义的，因为从长远来看，所有的代码都需要维护。将来需要对测试进行更新和重构。它们的变量和结构需要改变。如果您在编写测试时没有考虑它们的设计，那么您正在增加额外的技术债，这些技术债将被添加到主代码中已经存在的技术债中。
+
 Try to design your tests with the same attention that you give to the feature code. All common refactoring techniques should be used on tests as well. As a starting point
+
+在设计测试时，尽量像关注功能代码一样关注。所有常见的重构技术也应该在测试中使用。作为起点：
 
 *   All test creation code should be centralized. All tests should create test data in the same manner
 *   Complex verification segments should be extracted in a common domain specific library
 *   Mocks and stubs that are used too many times should not be copied-pasted.
 *   Test initialization code should be shared between similar tests.
 
+
+
+* 所有测试创建代码都应该集中。所有测试都应该以相同的方式创建测试数据
+* 复杂的验证段应该提取到一个公共领域的特定库
+* 不应该复制粘贴多次使用的mock和stub。
+* 测试初始化代码应该在相似的测试之间共享。
+
 If you employ tools for static analysis, source formatting or code quality then configure them to run on test code, too.
 
+如果您使用了用于静态分析、源代码格式化或代码质量的工具，那么也可以将它们配置为在测试代码上运行。
+
 In summary, design your tests with the same detail that you design the main feature code.
+
+总之，用设计主功能代码时的相同细节来设计测试。
 
 ### Anti-Pattern 10 - Not converting production bugs to tests 反模式10 - 没有把生产环境的 bug 转化为测试
 {: #anti-pattern-10---not-converting-production-bugs-to-tests}
 
 One of the goals of testing is to catch regressions. As we have seen in [antipattern 4](#anti-pattern-4---testing-the-wrong-functionality), most applications have a “critical” code part where the majority of bugs appear. When you fix a bug you need to make sure that it doesn’t happen again. One of the best ways to enforce this is to write a test for the fix (either unit or integration or both).
 
+测试的目标之一是捕获回归。正如我们在[反模式4](#anti-pattern-4——test -the-wrong function)中看到的，大多数应用程序都有一个“关键”代码部分，其中出现了大多数错误。当你修复一个错误时，你需要确保它不会再次发生。执行这一点的最好方法之一是为针对这次bug修复编写测试(单元、集成或两者兼有)。
+
 Bugs that slip into production are perfect candidates for writing software tests
+
+潜入生产环境的错误，是编写软件测试的完美候选
 
 *   they show a lack of testing in that area as the bug has already passed into production
 *   if you write a test for these bugs the test will be very valuable as it guards future releases of the software
 
+
+
+* 它们显示了该领域的测试不足，因为bug已经进入了生产阶段
+* 如果你为这些 bug 编写了一个测试，这个测试将非常有价值，因为它可以保护软件的未来版本
+
+
+
 I am always amazed when I see teams (that otherwise have a sound testing strategy) that don’t write a test for a bug that was found __in production__. They correct the code and fix the bug straight away. For some strange reason a lot of developers assume that writing tests is only valuable when you are adding a new feature only.
+
+当我看到团队（他们有一个健全的测试策略）没有为__生产环境__中发现的bug编写测试时，我总是感到惊讶。他们纠正代码并立即修复错误。由于一些奇怪的原因，许多开发人员认为只有在添加新特性时，编写测试才有价值。
 
 This could not be further from the truth. I would even argue that software tests that stem from actual bugs are more valuable than tests which are added as part of new development. After all you never know how often a new feature will break in production (maybe it belongs to non-critical code that will never break). The respective software test is good to have but its value is questionable.
 
+这与事实相差甚远。我甚至认为，源于实际 bug 的软件测试比在开发新功能时添加的测试更有价值。毕竟，您永远不知道一个新特性在生产中出问题的频率（也许它属于永远不会出错的非关键代码）。所对应的软件测试是好的，但其价值值得怀疑。
+
 On the other hand the software test that you write for a real bug is super valuable. Not only it verifies that your fix is correct, but also ensures that your fix will always be active even if refactorings happen in the same area.
+
+另一方面，为一个真正的 bug 编写的软件测试是非常有价值的。它不仅验证您的修复是正确的，而且还确保即使对这段代码进行重构，您的修复也将始终起作用。 
 
 If you join a legacy project that has no tests this is also the most obvious way to start getting value from software testing. Rather than attempting to guess which code needs tests, you should pay attention to the existing bugs and try to cover them with tests. After a while your tests will have covered the critical part of the code, since by definition all tests have verified things that break often. One of [my suggested metrics](#the-codepipes-testing-metrics-ctm) embodies the recording of this effort.
 
+如果您加入了一个没有测试的遗留项目，这也是开始从软件测试中获得价值的最明显的方法。不要试图猜测哪些代码需要测试，您应该关注现有的bug，并尝试用测试来覆盖它们。一段时间后，您的测试将涵盖代码的关键部分，因为根据定义，所有测试都验证了经常出错的东西。其中一个[我建议的度量标准](#the-codepipes-testing-metrics-ctm)包含了对这项工作的记录。
+
 The only case where it is acceptable to **not** write tests is when bugs that you find in production are unrelated to code and instead stem from the environment itself. A misconfiguration to a load balancer for example is not something that can be solved with a unit test.
 
+唯一可以接受不编写测试的情况是，您在生产中发现的bug与代码无关，而是源于环境本身。例如，负载均衡器的错误配置不能通过单元测试解决。
+
 In summary, if you are unsure on what code you need to test next, look at the bugs that slip into production.
+
+总之，如果您不确定接下来需要测试什么代码，那么请检查一下溜进生产环境的bug。
 
 ### Anti-Pattern 11 - Treating TDD as a religion 反模式11 - 将 TDD 看作教派
 {: #anti-pattern-11---treating-tdd-as-a-religion}
